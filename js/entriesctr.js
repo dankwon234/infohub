@@ -1,5 +1,20 @@
 var app = angular.module('EntriesPage', []);
 
+app.directive('bs-datepicker', function () {
+            return {
+                require: 'ngModel',
+                link: function (scope, el, attr, ngModel) {
+                    $(el).datepicker({
+                        dateFormat: 'mm/dd/yy',
+                        onSelect: function (dateText) {
+                            scope.$apply(function () {
+                                ngModel.$setViewValue(dateText);
+                            });
+                        }
+                    });
+                }
+            };
+        })
 
 app.controller("EntryController", function($scope, $http){
 
