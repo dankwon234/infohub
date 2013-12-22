@@ -34,10 +34,8 @@
 		subcategoriesList = '';
 		for (var i=0; i<currentSubcategories.length; i++){
 			subcategory = currentSubcategories[i];
-//			subcategoriesList += '<li><a onclick="return fetchProviders('+i+');" style="color:#ea503d; "href="#">'+subcategory['name']+'</a></li>';
 			subcategoriesList += '<tr><td><a onclick="return fetchProviders('+i+');" style="color:#ea503d; "href="#">'+subcategory['name']+'</a></td><td>remove</td></tr>';
 		}
-//		subcategoriesList += '</ol>';
 		subcategoriesTpl = subcategoriesTpl.replace("{{subcategoriesList}}", subcategoriesList);
 		
 		document.getElementById('categorydiv').innerHTML = subcategoriesTpl;
