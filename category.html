@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {{head}}
+    <script type="text/javascript" src="/site/js/category.js"></script>
+    <link rel="stylesheet" href="/site/css/bootstrap.css"/>
+
+
+</head>
+<body style="background:#f9f9f9">
+<div id="wrapper">
+  {{header}}
+
+    <div class="layout-2cols">
+        <div class="content grid_8">
+
+
+            <div class="single-page">
+            <br /><br />
+                <h2 id="categoryname" class="rs single-title">Category Name</h2>
+                <div id="categorydiv" class="box-single-content">
+                
+                
+                
+                
+                </div>
+            </div>
+            
+            
+            <div class="single-page">
+            <br /><br />
+                <h2 class="rs single-title">Add Subcategory</h2>
+                <div class="box-single-content">
+                
+                  <div class="tablecontainer">
+                	<table class="table table-striped">
+                      <thead>
+                        <tr>
+                            <th>Subcategory</th>
+                            <th>Add</th>
+                        </tr>
+                      </thead>
+                      <tbody id="subcategoriesTable">
+                      
+                    
+                      </tbody>
+                    </table>
+                    
+                    
+                  </div>
+                
+                
+                
+                </div>
+            </div>
+            
+            
+        </div><!--end: .content -->
+        
+        
+        <div class="sidebar grid_4">
+          <div style="height:41px"></div>
+            <div class="project-runtime">
+                <div class="box-gray">
+                  <h4>Image</h4>
+                  <img src="{{image}}" />
+                  <form style="margin-top:20px" action="{{uploadUrl}}" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="category" value="{{categoryId}}" />
+                    <input type="file" name="file" /><br /><br />
+                    <input class="btn btn-custom" type="submit" value="upload image" />
+                  </form>
+                  
+                  
+                </div>
+            </div><!--end: .project-runtime -->
+        </div><!--end: .sidebar -->
+        
+        
+        <div class="clear"></div>
+    </div>
+    
+    
+    {{footer}}
+    
+
+</div>
+
+<script type="text/template" id="subcategoriesTpl">
+                              <div style="padding:10px">
+                                <h3>Subcategories</h3>
+
+								{{subcategoriesList}}
+                                
+								<br /><br />
+                    			<a onclick="return updateCategory();" href="#" class="btn btn-blue" >Update Category</a>
+                              </div>
+
+</script>
+
+
+<script>
+	fetchCatgory('{{categoryId}}');
+</script>
+
+
+
+</body>
+</html>

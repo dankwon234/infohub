@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {{head}}
+
+    <script type="text/javascript" src="/site/js/images.js"></script>
+  
+</head>
+
+
+<body>
+<div id="wrapper">
+  
+  
+    <div class="layout-2cols">
+        <div class="content grid_8">
+            <div class="single-page">
+                <h2 class="rs single-title">Images</h2>
+                <div class="box-single-content">
+                    <div id="imagesbox" class="editor-content">
+                    
+                      <a onclick="return select(0);" href="#">select icon</a>
+                      
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="single-page">
+            <br /><br />
+                <h2 class="rs single-title">Add Image</h2>
+                <div class="box-single-content">
+
+                  <form style="margin-top:20px" action="{{uploadUrl}}" method="post" enctype="multipart/form-data">
+                    <input type="file" name="file" /><br /><br />
+                    <input class="btn btn-custom" type="submit" value="upload image" />
+                  </form>
+                
+                
+                </div>
+            </div>
+            
+        </div><!--end: .content -->
+        
+        <div class="clear"></div>
+    </div>
+
+
+  {{footer}}
+  
+  
+</div>
+
+<script>
+	fetchImages();
+</script>
+
+</body>
+</html>

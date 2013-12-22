@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  
+    <title>InfoHub</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/site/css/normalize.css"/>
+    <link rel="stylesheet" href="/site/css/jquery.sidr.light.css"/>
+    <link rel="stylesheet" href="/site/css/style.css"/>
+    
+    <!--[if lte IE 7]>
+    <link rel="stylesheet" href="/site/css/ie7.css"/>
+    <![endif]-->
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="/site/css/ie8.css"/>
+    <![endif]-->
+    <link rel="stylesheet" href="/site/css/responsive.css"/>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/site/js/html5.js"></script>
+    <![endif]-->
+    
+    <script type="text/javascript" src="/site/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/site/js/jquery.sidr.min.js"></script>
+    <script type="text/javascript" src="/site/js/jquery.tweet.min.js"></script>
+    <script type="text/javascript" src="/site/js/script.js"></script>
+    <script type="text/javascript" src="/site/js/moment.min.js"></script>
+    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+    <script type="text/javascript" src="/site/js/ang.js"></script>
+    <script type="text/javascript" src="/site/js/entriesctr.js"></script>
+    
+</head>
+
+
+<body>
+<div id="wrapper">
+  
+  <header id="header">
+        <div class="wrap-top-menu">
+            <div class="container_12 clearfix">
+                <div class="grid_12">
+                    <nav class="top-menu">
+                        <ul id="main-menu" class="nav nav-horizontal clearfix">
+                            <li class="active"><a href="/site/devices">Devices</a></li>
+                            <li class="sep"></li>
+                            <li><a href="/site/categories">Categories</a></li>
+                            <li class="sep"></li>
+                            <li><a href="/">Subcategories</a></li>
+                            <li class="sep"></li>
+                            <li><a href="/">Providers</a></li>
+                            <li class="sep"></li>
+                            <li><a href="/site/venues">Venues</a></li>
+                            <li class="sep"></li>
+                            <li><a href="/site/sessions">Sessions</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div><!-- end: .wrap-top-menu -->
+        
+        <div class="container_12 clearfix">
+            <div class="grid_12 header-content">
+                <div class="header-left">
+                    <h1 id="logo">
+                        <a href="/"><img src="/site/images/logo.png" alt="$SITE_NAME"/></a>
+                    </h1>
+                </div>
+            </div>
+        </div>
+        
+        
+    </header><!--end: #header -->
+
+  
+  
+  
+    <div class="layout-2cols">
+        <div class="content grid_8">
+            <div class="single-page">
+                <h2 class="rs single-title">Venues</h2>
+                <div class="box-single-content">
+                    <div id="venuelist" class="editor-content">
+                    
+                      {{venueList}}
+                      
+                    </div>
+                </div>
+            </div>
+            
+            <div class="single-page" ng-app="EntriesPage" ng-controller="EntryController" ng-init="init();">
+            <br /><br />
+                <h2 class="rs single-title">Add New Entry</h2>
+                <div  class="box-single-content">
+                  <form class="postform">
+                    <input type="text" id="title" placeholder="title" /><br />
+                    <input type="text" id="url" placeholder="url" /><br />
+                  </form>
+                  <br />
+                  <a onclick="return addEntry();" href="#" class="btn btn-blue" >add entry</a>
+                </div>
+            </div>
+            
+            
+        </div><!--end: .content -->
+        
+        <div class="clear"></div>
+    </div>
+
+
+  
+    <footer id="footer">
+        <div style="border:none" class="copyright">
+            <div class="container_12">
+                <div class="grid_12">
+                    <a class="logo-footer" href="index.html"><img src="/site/images/logo-2.png" alt="$SITE_NAME"/></a>
+                    <p class="rs term-privacy">
+                        <a class="fw-b be-fc-orange" href="single.html">Terms & Conditions</a>
+                        <span class="sep">|</span>
+                        <a class="fw-b be-fc-orange" href="single.html">Privacy Policy</a>
+                        <span class="sep">|</span>
+                        <a class="fw-b be-fc-orange" href="#">FAQ</a>
+                    </p>
+                    <br /><br />
+                </div>
+            </div>
+        </div>
+    </footer><!--end: #footer -->
+
+  
+  
+</div>
+
+
+</body>
+</html>

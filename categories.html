@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {{head}}
+  
+    <script type="text/javascript" src="/site/js/categories.js"></script>
+  
+</head>
+
+
+<body>
+<div id="wrapper">
+  {{header}}
+  
+  
+  
+    <div class="layout-2cols">
+        <div class="content grid_8">
+            <div class="single-page">
+                <h2 class="rs single-title">Categories</h2>
+                <div class="box-single-content">
+                    <div id="categoriesList" class="editor-content">
+                    
+                      
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="single-page">
+            <br /><br />
+                <h2 class="rs single-title">Add New Category</h2>
+                <div class="box-single-content">
+                  <form class="postform">
+                    <input type="text" id="name" placeholder="category name" /><br />
+                  </form>
+                  <br />
+                  <a onclick="return addCategory();" href="#" class="btn btn-blue" >add category</a>
+                </div>
+            </div>
+            
+            
+        </div><!--end: .content -->
+        
+        <div class="clear"></div>
+    </div>
+
+
+  {{footer}}
+  
+  
+</div>
+
+<script>
+	fetchCatgories();
+</script>
+
+</body>
+</html>

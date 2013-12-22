@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {{head}}
+    <script type="text/javascript" src="/site/js/venue.js"></script>
+
+
+</head>
+<body>
+<div id="wrapper">
+  {{header}}
+
+    <div class="layout-2cols">
+        <div class="content grid_8">
+            <div class="project-detail">
+                <div class="project-tab-detail tabbable accordion">
+                    <ul class="nav nav-tabs clearfix">
+                      <li class="active"><a href="#">Venue</a></li>
+                    </ul>
+                    
+                    
+                    <div class="tab-content">
+                        <div>
+                            <h3 class="rs alternate-tab accordion-label">Venue</h3>
+                            <div class="tab-pane accordion-content active">
+                                <div class="form form-profile">
+                                    <form action="#">
+                                        <div class="row-item clearfix">
+                                            <label class="lbl" for="txt_name1">Venue ID:</label>
+                                            <div class="val">
+                                                <input style="color:#888" class="txt txt-website" type="text" id="id" value="" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="row-item clearfix">
+                                            <label class="lbl" for="txt_name1">Name:</label>
+                                            <div class="val">
+                                                <input class="txt txt-website" type="text" id="name" value="">
+                                            </div>
+                                        </div>
+                                        <div class="row-item clearfix">
+                                            <label class="lbl" for="txt_location">Address:</label>
+                                            <div class="val">
+                                                <input class="txt txt-website" type="text" id="address" value="none">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row-item clearfix">
+                                            <label class="lbl" for="txt_location">Website:</label>
+                                            <div class="val">
+                                                <input class="txt txt-website" type="text" id="website" value="none">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row-item clearfix">
+                                            <div class="val">
+                                            <button onClick="return updateVenue();" style="width:55%" class="btn btn-blue btn-submit-all">Update Venue</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    
+<!--                                       <button onclick="return deleteVenue();" style="width:100%" class="btn btn-red btn-submit-all">Delete Venue</button>
+ -->                                    
+                                </div>
+                            </div><!--end: .tab-pane -->
+                        </div>
+                        
+
+
+                        
+                        
+                      </div>
+                </div><!--end: .project-tab-detail -->
+            </div>
+        </div><!--end: .content -->
+        
+        
+        
+        <div class="clear"></div>
+    </div>
+    
+    
+    {{footer}}
+    
+
+</div>
+
+
+  <script>
+    fetchVenue('{{venueId}}');
+  </script>
+
+</body>
+</html>

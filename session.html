@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>InfoHub</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/site/css/normalize.css"/>
+    <link rel="stylesheet" href="/site/css/jquery.sidr.light.css"/>
+    <link rel="stylesheet" href="/site/css/style.css"/>
+    <!--[if lte IE 7]>
+    <link rel="stylesheet" href="/site/css/ie7.css"/>
+    <![endif]-->
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="/site/css/ie8.css"/>
+    <![endif]-->
+    <link rel="stylesheet" href="/site/css/responsive.css"/>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/site/js/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="/site/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/site/js/jquery.sidr.min.js"></script>
+    <script type="text/javascript" src="/site/js/jquery.tweet.min.js"></script>
+    <script type="text/javascript" src="/site/js/moment.min.js"></script>
+    </head>
+<body>
+<div id="wrapper">
+
+	{{header}}
+
+
+    <div class="layout-2cols">
+        <div class="content grid_12">
+            <div class="project-detail">
+                <div class="project-tab-detail tabbable accordion">
+                    <ul class="nav nav-tabs clearfix">
+                      <li class="active"><a href="#">Session</a></li>
+                    </ul>
+
+
+                    <div class="tab-content">
+                        <div>
+                            <h3 class="rs alternate-tab accordion-label">Device</h3>
+                            <div class="tab-pane accordion-content active">
+                                <div class="form form-profile session" style="width:95%"></div>
+                            </div><!--end: .tab-pane -->
+                        </div>
+                      </div>
+                </div><!--end: .project-tab-detail -->
+            </div>
+        </div><!--end: .content -->
+        <div class="clear"></div>
+    </div>
+
+
+	{{footer}}
+</div>
+
+    <script type="text/html" id="single-session">
+        <div id="highchart" style="width:100%; height:400px;"></div>
+        <div style="text-align:center">
+            <button class="btn btn-blue btn-submit-all line" style="width:25%">Line</button>
+            <button class="btn btn-blue btn-submit-all bar" style="width:25%">Bar</button>
+            <button class="btn btn-blue btn-submit-all pie" style="width:25%">Pie</button>
+        </div>
+    </script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min.js"></script>
+    <script src="/site/js/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <script src="/site/js/session.js"></script>
+
+
+</body>
+</html>
