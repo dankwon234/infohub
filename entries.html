@@ -32,7 +32,7 @@
                     <div id="sessionscontent" class="top-project-info">
                         <h3>Current Entries</h3>
                         <div class="tablecontainer">
-                        
+
                 	<table class="table table-striped">
                       <thead>
                         <tr>
@@ -40,19 +40,19 @@
                             <th>Link</th>
                         </tr>
                       </thead>
-                      
+
                       <tbody>
                     	<tr ng-repeat='entry in entries'><td><a href="/site/entries/{{entry.id}}">{{entry.title}}</a></td><td><a href="http://{{entry.url}}">{{entry.url}}</a></td></tr>
                       </tbody>
                     </table>
-                    
+
                     <div style="text-align:right">
                       <a onclick="return loadPrevious();" href="#">previous</a>
                       <span>|</span>
                       <a onclick="return fetchSessions();" href="#">next</a>
                     </div>
-                        
-                            
+
+
                         </div>
                     </div>
 
@@ -133,8 +133,8 @@
     </div>
 
 	{{footer}}
-	
-	
+
+
     <script>
     	$('.datepicker').datepicker({
         	format: 'mm/dd/yyyy'
