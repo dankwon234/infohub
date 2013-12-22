@@ -89,6 +89,7 @@ app.controller("EntryController", function($scope, $http){
 		console.log('DATE SELECTED');
         console.warn('test');
         console.log($('#datePicker').val());
+        console.log(JSON.stringify($scope.newEntry));
 	}
 
 
