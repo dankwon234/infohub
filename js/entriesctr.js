@@ -14,7 +14,7 @@ app.directive('bs-datepicker', function () {
                     });
                 }
             };
-        })
+        });
 
 app.controller("EntryController", function($scope, $http){
 
