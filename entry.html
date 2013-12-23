@@ -31,7 +31,84 @@
 
                     <div id="sessionscontent" class="top-project-info">
                         <h3>Current Entry</h3>
-                        <div class="tablecontainer">
+                        <div>
+                            <div class="img" align="left">
+                                <div class="img-edit">
+                                    +
+                                </div>
+                                <img src="http://placehold.it/300x300">
+                            </div>
+                            <form style="margin-top:10px" role="form">
+                                <div class="form-group">
+                                  <span for="exampleInputEmail1">Title</span>
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.title" placeholder="Title">
+                                </div>
+                                <div class="form-group">
+                                  <span for="exampleInputEmail1">Subtitle</span>
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.subtitle" placeholder="Subtitle">
+                                </div>
+                                <div class="form-group">
+                                  <span for="exampleInputEmail1">Date</span>
+                                  <input ng-change="dateSelected();" type="text" class="inputs form-control datepicker" id="datePicker" ng-model="editEntry.date" data-date-format="mm/dd/yyyy" placeholder="01/01/2013" bs-datepicker>
+                                </div>
+                                <div class="form-group">
+                                  <span for="exampleInputEmail1">Link</span>
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.url" placeholder="http://www.example.com">
+                                </div>
+                                <div class="form-group">
+                                  <span for="exampleInputEmail1">Description</span>
+                                  <textarea class="textareas form-control" ng-model="editEntry.description" placeholder="Description" rows="6"></textarea>
+                                </div>
+                                <div class="form-group">
+                                  <span for="exampleInputEmail1">Theme Color Primary</span>
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.theme-color-primary" placeholder="#000000">
+                                </div>
+                                <div class="form-group">
+                                  <span for="exampleInputEmail1">Theme Color Secondary</span>
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.theme-color-secondary" placeholder="#FFFFFF">
+                                </div>
+                                <div class="form-group">
+                                  <span for="exampleInputEmail1">Banner</span>
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.banner.ad" placeholder="Ad">
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.banner.image" placeholder="Image">
+                                </div>
+                                <div class="form-group">
+                                  <span for="exampleInputEmail1">Geolocation Coordinates</span>
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.x" placeholder="Latitude">
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.y" placeholder="Longitude">
+                                </div>
+                                <div class="form-group">
+                                  <span for="exampleInputEmail1">Button</span>
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.button.text" placeholder="Text">
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.button.link" placeholder="Link">
+                                </div>
+                                <br />
+
+                                <!--
+                                    Theme color 1 -
+                                    Theme color 2 -
+                                    logo, title, subtitle -
+
+                                    Banner: {
+                                        ad:
+                                        image:
+                                    }
+
+                                    image 1
+                                    image 2
+                                    contact number
+                                    geoloc. coords
+                                    x
+                                    y
+
+                                    Button: {
+                                        text:
+                                        url:
+                                    }
+                                -->
+
+                                <button style="width:100%" ng-click="submitEntry()" type="submit" class="btn btn-custom">Create Entry</button>
+                              </form>
 
                         </div>
                     </div>
