@@ -56,6 +56,20 @@ app.controller("EntryController", function($scope, $http){
 
     $scope.updateEntry = function() {
         var url = '/api/entries/' + $scope.editEntry.id;
-        console.log($scope.editEntry);
+		$http.put(url, JSON.stringify($scope.editEntry))
+		.success(function(data, status, headers, config) {
+		    results = data['results'];
+		    confirmation = results['confirmation'];
+		    if (confirmation=='success'){
+                $scope.editEntry = results['entry'];
+                alert('Entry successfully updated!');
+                console.log($scope.editEntry);
+		    }
+		    else{
+		    	alert(results['message']);
+		    }
+		}).error(function(data, status, headers, config) {
+		    console.log("error", data, status, headers, config);
+		});
     }
 });
