@@ -53,4 +53,9 @@ app.controller("EntryController", function($scope, $http){
 		    console.log("error", data, status, headers, config);
 		});
     }
+
+    $scope.updateEntry = function() {
+        var url = '/api/entries/' + $scope.editEntry.id;
+        console.log($scope.editEntry);
+    }
 });
