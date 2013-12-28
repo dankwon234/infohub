@@ -3,6 +3,7 @@ var app = angular.module('EntryPage', []);
 app.controller("EntryController", function($scope, $http){
 
     $scope.editEntry = {
+        'id': 0,
         'image': 'http://www.placehold.it/300x300',
         'title': 'Placeholder',
         'subtitle': 'Placeholder',
@@ -25,7 +26,31 @@ app.controller("EntryController", function($scope, $http){
 
     $scope.init = function() {
         console.log('Initialized');
-        var req = parseLocation('/git');
-        console.warn(JSON.stringify(req));
+        var req = parseLocation('/git'); // @TODO: We will have to switch this to '/site' for live deploy
+        var id = req.identifier;
+
+        if (!id) {
+        } else {
+            $scope.editEntry.id = id;
+            fetchEntry();
+        }
     };
+
+    function fetchEntry () {
+        var url = '/api/entries/' + $scope.editEntry.id;
+		$http.get(url)
+		.success(function(data, status, headers, config) {
+		    results = data['results'];
+		    confirmation = results['confirmation'];
+		    if (confirmation=='success'){
+		    	$scope.editEntry = results['entry'];
+		    	console.log('SUCCESS: '+JSON.stringify($scope.editEntry));
+		    }
+		    else{
+		    	alert(results['message']);
+		    }
+		}).error(function(data, status, headers, config) {
+		    console.log("error", data, status, headers, config);
+		});
+    }
 });
