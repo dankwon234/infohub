@@ -15,8 +15,8 @@ app.controller("EntryController", function($scope, $http){
             'ad': 'http://www.google.com',
             'image': 'http://www.placehold.it/600x100'
         },
-        'x': '308290',
-        'y': '342809',
+        'x': '30.8290',
+        'y': '34.2809',
         'button': {
             'text': 'Submit',
             'link': 'http://www.google.com'
