@@ -25,5 +25,7 @@ app.controller("EntryController", function($scope, $http){
 
     $scope.init = function() {
         console.log('Initialized');
+        var req = parseLocation('/site');
+        console.warn(JSON.stringify(req));
     };
 });
