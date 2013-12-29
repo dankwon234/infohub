@@ -10,8 +10,8 @@ app.controller("EntryController", function($scope, $http){
         'date': '01/01/2014',
         'url': 'http://www.google.com',
         'description': 'Placeholder',
-        'themecolor1': '#000000',
-        'themecolor2': '#FFFFFF',
+        'themeColor1': '#000000',
+        'themeColor2': '#FFFFFF',
         'banner': {
             'ad': 'http://www.google.com',
             'image': 'http://www.placehold.it/600x100'
