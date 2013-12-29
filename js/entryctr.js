@@ -7,11 +7,11 @@ app.controller("EntryController", function($scope, $http){
         'image': 'http://www.placehold.it/300x300',
         'title': 'Placeholder',
         'subtitle': 'Placeholder',
-        'date': '01-01-2014',
+        'date': '01/01/2014',
         'url': 'http://www.google.com',
         'description': 'Placeholder',
-        'themecolor1': '#000',
-        'themecolor2': '#FFF',
+        'themecolor1': '#000000',
+        'themecolor2': '#FFFFFF',
         'banner': {
             'ad': 'http://www.google.com',
             'image': 'http://www.placehold.it/600x100'
