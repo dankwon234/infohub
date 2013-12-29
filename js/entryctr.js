@@ -43,7 +43,7 @@ app.controller("EntryController", function($scope, $http){
 		    results = data['results'];
 		    confirmation = results['confirmation'];
 		    if (confirmation=='success'){
-                results['entry'].date = new moment(new Date(results['entry'].date)).format('MM/dd/yyyy');
+                results['entry'].date = new moment(new Date(results['entry'].date)).format('MM/DD/YYYY');
 		    	$scope.editEntry = results['entry'];
 
 		    	console.log('SUCCESS: '+JSON.stringify($scope.editEntry));
