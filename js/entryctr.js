@@ -79,7 +79,7 @@ app.controller("EntryController", function($scope, $http){
     }
 
     $scope.getUploadURL = function() {
-        var url = '/api/upload?resource=entry';
+        var url = '/api/upload?resource=entry&id='+$scope.editEntry.id;
 		$http.get(url)
 		.success(function(data, status, headers, config) {
 		    results = data['results'];
