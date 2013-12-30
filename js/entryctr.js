@@ -56,7 +56,7 @@ app.controller("EntryController", function($scope, $http){
 		});
     }
 
-    function updateEntry () {
+    $scope.updateEntry = function() {
         var url = '/api/entries/' + $scope.editEntry.id;
 		$http.put(url, JSON.stringify($scope.editEntry))
 		.success(function(data, status, headers, config) {
@@ -85,7 +85,6 @@ app.controller("EntryController", function($scope, $http){
 		    if (confirmation=='success'){
                 uploadURL = results['upload'];
                 document.getElementById('image-form').action = uploadURL;
-                // updateEntry();
                 document.getElementById('image-form').submit();
                 console.log(results['upload']);
 		    }
