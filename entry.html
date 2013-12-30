@@ -34,7 +34,7 @@
                         <h3>Current Entry</h3>
                         <div>
 
-                            <form id="image-form" action="" enctype="multipart/form-data" method="post">
+                            <form id="image-form" action="{{ uploadURL }}" enctype="multipart/form-data" method="post">
                                 <img src="/site/images/{{ editEntry.image }}">
                                 <br><br><br>
                                 <input type="file" name="file" />
