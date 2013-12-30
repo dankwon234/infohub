@@ -6,7 +6,7 @@ app.controller("EntryController", function($scope, $http){
 
     $scope.editEntry = {
         'id': 0,
-        'image': 'http://www.placehold.it/300x300',
+        'image': 'none',
         'title': 'Placeholder',
         'subtitle': 'Placeholder',
         'date': '01/01/2014',
