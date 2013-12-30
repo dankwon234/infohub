@@ -87,7 +87,7 @@ app.controller("EntryController", function($scope, $http){
 		    results = data['results'];
 		    confirmation = results['confirmation'];
 		    if (confirmation=='success'){
-                $scope.uploadURL = results['upload'];
+                $scope.uploadURL.url = results['upload'];
                 // document.getElementById('image-form').action = uploadURL;
                 document.getElementById('image-form').submit();
                 console.log(results['upload']);
