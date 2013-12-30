@@ -2,6 +2,8 @@ var app = angular.module('EntryPage', []);
 
 app.controller("EntryController", function($scope, $http){
 
+    $scope.uploadURL = '';
+
     $scope.editEntry = {
         'id': 0,
         'image': 'http://www.placehold.it/300x300',
@@ -56,7 +58,7 @@ app.controller("EntryController", function($scope, $http){
 		});
     }
 
-    $scope.updateEntry = function() {
+    function updateEntry () {
         var url = '/api/entries/' + $scope.editEntry.id;
 		$http.put(url, JSON.stringify($scope.editEntry))
 		.success(function(data, status, headers, config) {
@@ -67,6 +69,25 @@ app.controller("EntryController", function($scope, $http){
                 $scope.editEntry = results['entry'];
                 alert('Entry successfully updated!');
                 console.log($scope.editEntry);
+		    }
+		    else{
+		    	alert(results['message']);
+		    }
+		}).error(function(data, status, headers, config) {
+		    console.log("error", data, status, headers, config);
+		});
+    }
+
+    $scope.getUploadURL = function() {
+        var url = '/api/upload';
+		$http.get(url)
+		.success(function(data, status, headers, config) {
+		    results = data['results'];
+		    confirmation = results['confirmation'];
+		    if (confirmation=='success'){
+                $scope.uploadURL = results['upload'];
+                // updateEntry();
+                console.log(results['upload']);
 		    }
 		    else{
 		    	alert(results['message']);

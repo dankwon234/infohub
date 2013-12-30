@@ -34,7 +34,7 @@
                         <h3>Current Entry</h3>
                         <div>
 
-                            <form>
+                            <form ng-action="{{ uploadURL }}">
                                 <div class="img" style="text-align:center;">
                                     <div class="img-edit">
                                         +
@@ -110,7 +110,7 @@
                                     }
                                 -->
 
-                                <button style="width:100%" ng-click="updateEntry()" type="submit" class="btn btn-custom">Update Entry</button>
+                                <button style="width:100%" ng-click="getUploadURL()" type="submit" class="btn btn-custom">Update Entry</button>
                               </form>
 
                         </div>
