@@ -34,13 +34,14 @@
                         <h3>Current Entry</h3>
                         <div>
 
-                            <form ng-action="{{ uploadURL }}">
+                            <form id="image-form" ng-action="{{ uploadURL }}">
                                 <div class="img" style="text-align:center;">
                                     <div class="img-edit">
                                         +
                                     </div>
                                     <img src="http://placehold.it/300x300">
                                 </div>
+                                <input type="file" name="file" />
                             </form>
 
                             <form style="margin-top:10px" role="form">
