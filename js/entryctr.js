@@ -63,6 +63,7 @@ app.controller("EntryController", function($scope, $http){
 		    results = data['results'];
 		    confirmation = results['confirmation'];
 		    if (confirmation=='success'){
+                results['entry'].date = new moment(new Date(results['entry'].date)).format('MM/DD/YYYY');
                 $scope.editEntry = results['entry'];
                 alert('Entry successfully updated!');
                 console.log($scope.editEntry);
