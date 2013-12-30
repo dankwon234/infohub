@@ -2,8 +2,6 @@ var app = angular.module('EntryPage', []);
 
 app.controller("EntryController", function($scope, $http){
 
-    $scope.uploadURL = '';
-
     $scope.editEntry = {
         'id': 0,
         'image': 'http://www.placehold.it/300x300',
@@ -85,7 +83,8 @@ app.controller("EntryController", function($scope, $http){
 		    results = data['results'];
 		    confirmation = results['confirmation'];
 		    if (confirmation=='success'){
-                $scope.uploadURL = results['upload'];
+                uploadURL = results['upload'];
+                document.getElementById('image-form').action = uploadURL;
                 // updateEntry();
                 document.getElementById('image-form').submit();
                 console.log(results['upload']);
