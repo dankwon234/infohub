@@ -2,10 +2,6 @@ var app = angular.module('EntryPage', []);
 
 app.controller("EntryController", function($scope, $http){
 
-    $scope.uploadURL = {
-        'url': ''
-    };
-
     $scope.editEntry = {
         'id': 0,
         'image': 'none',
@@ -87,10 +83,9 @@ app.controller("EntryController", function($scope, $http){
 		    results = data['results'];
 		    confirmation = results['confirmation'];
 		    if (confirmation=='success'){
-                $scope.uploadURL.url = results['upload'];
-                // document.getElementById('image-form').action = uploadURL;
+                var uploadURL = results['upload'];
+                document.getElementById('image-form').action = uploadURL;
                 document.getElementById('image-form').submit();
-                console.log(results['upload']);
 		    }
 		    else{
 		    	alert(results['message']);
