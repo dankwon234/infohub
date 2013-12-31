@@ -21,7 +21,8 @@ app.controller("EntryController", function($scope, $http){
         'button': {
             'text': 'Submit',
             'link': 'http://www.google.com'
-        }
+        },
+        'contactNumber': ''
     };
 
     $scope.init = function() {
