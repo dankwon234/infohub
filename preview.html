@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  
+  <style>
+    body {
+        font-family: Arial;
+    }
+
+    h1 {
+        font-family:Heiti SC;
+    }
+
+    p {
+        margin-left:20px;
+    }
+  </style>
+
+  <script type="text/javascript" src="/site/js/moment.min.js"></script>
+  <script src="https://rawgithub.com/dennykwon/infohub/entries/js/requestparser.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+  <script type="text/javascript" src="/site/js/preview.js"></script>    
+
+</head>
+  
+  
+
+<body>
+  <div ng-app="PreviewPage" ng-controller="PreviewController" ng-init="init();">
+    <h1>{{entry.title}}</h1>
+    <span>{{entry.date}}</span><br />
+    
+    <img style="width:250px" src="/site/images/{{entry.image}}" />
+
+
+    <div style="margin-top:15px">
+      {{entry.description}}
+    </div>
+
+
+  </div>
+
+</body>
+
+
+</html>
