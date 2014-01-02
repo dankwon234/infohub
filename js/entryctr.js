@@ -100,8 +100,18 @@ app.controller("EntryController", function($scope, $http){
     	var url = '/site/preview/'+$scope.editEntry.id;
     	console.log('View Entry: '+url);
 
-    	
+    	popup(url);
     }
+    
+    
+    function popup(url) {
+	  	newwindow = window.open(url,'','height=450,width=900');
+	  	if (window.focus) {
+	  		newwindow.focus();
+	  	}
+	  	return false;
+	  }
+
     
     
 });
