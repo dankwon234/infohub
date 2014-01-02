@@ -97,7 +97,7 @@ app.controller("EntryController", function($scope, $http){
     }
     
     $scope.viewPreview = function() {
-    	var url = '/site/preview/'+editEntry.id;
+    	var url = '/site/preview/'+$scope.editEntry.id;
     	console.log('View Entry: '+url);
 
     	
