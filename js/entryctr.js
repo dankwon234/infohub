@@ -95,4 +95,13 @@ app.controller("EntryController", function($scope, $http){
 		    console.log("error", data, status, headers, config);
 		});
     }
+    
+    $scope.viewPreview = function() {
+    	var url = '/site/preview/'+editEntry.id;
+    	console.log('View Entry: '+url);
+
+    	
+    }
+    
+    
 });
