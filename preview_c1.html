@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title>Template C-01</title>
+	<style>
+		body {
+        	margin:0px;
+	    	font-family: Arial;
+	    	background-color: #fff;
+		}
+	
+	
+		.pageTitle {
+			width:100%;
+			font-family: Arial, sans-serif;
+			font-weight:normal;
+			font-size:50%;
+			color:#bdbdca;
+		}
+		
+		#cardArea_C {
+			width: 318px;
+			height:370px;
+			position:relative;
+			background-color:#d7d7e2;
+		}
+		
+		#headerArea_C1 {
+			width:100%;
+			height:44px;
+			background-color:#ec1f85;	
+		}
+		
+		#headerArea_C1 h1 {
+		    position:relative;
+		    top:50%;
+			margin-top: 0px;
+			line-height: 0px;
+		    text-align:center;
+		    color:#faf185;
+		    font-family:Heiti TC;
+		    font-size:22px;
+		}
+		
+		#mainArea_C1 {
+			display: inline-block;
+			float: left;
+			width: 100%;
+			height: 315px;
+			margin-top: 6px;
+			background-color: #ffffff;
+            padding: 5px;
+		}
+		
+		#footerArea_C1 {
+			height: 5px;
+			width: 100%;
+			position: absolute;
+			bottom: 0px;
+			background-color: #ec1f85;
+		}	
+	</style>
+
+  <script type="text/javascript" src="/site/js/moment.min.js"></script>
+  <script src="https://rawgithub.com/dennykwon/infohub/entries/js/requestparser.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+  <script type="text/javascript" src="/site/js/preview.js"></script>    
+	
+</head>
+  
+
+
+<body>
+
+  <div ng-app="PreviewPage" ng-controller="PreviewController" ng-init="init();" id="cardArea_C">
+
+  	<div id="headerArea_C1">
+    	<h1>{{ entry.title }}</h1>
+    </div>
+
+    <div id="mainArea_C1">
+        <h3>{{ entry.subtitle }}</h3>
+		
+		
+    </div>
+    
+    <div id="footerArea_C1">
+    </div>
+
+  </div>
+</body>
+
+</html>
