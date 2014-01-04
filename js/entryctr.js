@@ -99,10 +99,7 @@ app.controller("EntryController", function($scope, $http){
     }
     
     $scope.viewPreview = function() {
-    	console.log('View Preview: '+$scope.template.layout);
-    	
-    	
-    	var url = '/site/preview/'+$scope.editEntry.id;
+    	var url = '/site/preview/'+$scope.editEntry.id+'?template='+$scope.template.layout;
     	console.log('View Entry: '+url);
 
     	popup(url);
