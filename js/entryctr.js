@@ -2,6 +2,8 @@ var app = angular.module('EntryPage', []);
 
 app.controller("EntryController", function($scope, $http){
 
+    $scope.template = {'layout' : 'a1'};
+
     $scope.editEntry = {
         'id': 0,
         'image': 'none',
@@ -97,6 +99,9 @@ app.controller("EntryController", function($scope, $http){
     }
     
     $scope.viewPreview = function() {
+    	console.log('View Preview: '+$scope.template.layout);
+    	
+    	
     	var url = '/site/preview/'+$scope.editEntry.id;
     	console.log('View Entry: '+url);
 
