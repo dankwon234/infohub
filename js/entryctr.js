@@ -2,7 +2,7 @@ var app = angular.module('EntryPage', []);
 
 app.controller("EntryController", function($scope, $http){
 
-    $scope.template = {'layout' : 'a1'};
+    $scope.template = {'layout' : 'B'};
 
     $scope.editEntry = {
         'id': 0,
