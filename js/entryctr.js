@@ -8,6 +8,7 @@ app.controller("EntryController", function($scope, $http){
         'id': 0,
         'image': 'none',
         'title': 'Placeholder',
+        'html': '',
         'subtitle': 'Placeholder',
         'date': '01/01/2014',
         'url': 'http://www.google.com',
