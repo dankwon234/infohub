@@ -108,10 +108,15 @@ app.controller("EntryController", function($scope, $http){
 			width = '320';
 			height = '320';
 		}
+		if ($scope.template.layout=='C'){
+			width = '320';
+			height = '430';
+		}
+		if ($scope.template.layout=='D'){
+			width = '320';
+			height = '750';
+		}
 		
-		
-//	  	newwindow = window.open(url,'','height=450,width=900');
-
 		dimensions = 'height='+height+',width='+width;
 	  	newwindow = window.open(url,'',dimensions);
 		
