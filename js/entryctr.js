@@ -20,7 +20,7 @@ app.controller("EntryController", function($scope, $http){
 
     $scope.init = function() {
         console.log('Initialized');
-        var req = parseLocation('/git'); // @TODO: We will have to switch this to '/site' for live deploy
+        var req = parseLocation('/site'); 
         var id = req.identifier;
 
         if (!id) {
