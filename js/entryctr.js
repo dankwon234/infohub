@@ -2,7 +2,7 @@ var app = angular.module('EntryPage', []);
 
 app.controller("EntryController", function($scope, $http){
 
-    $scope.template = {'layout' : 'B'};
+    $scope.template = {'layout' : 'A'};
 
     $scope.editEntry = {
         'id': 0,
@@ -98,7 +98,19 @@ app.controller("EntryController", function($scope, $http){
     
     
     function popup(url) {
-	  	newwindow = window.open(url,'','height=450,width=900');
+		dimensions = {'height':'450', 'width':'900'};
+		if ($scope.template.layout=='A'){
+			dimensions.width = '750';
+			dimensions.height = '750';
+		}
+		if ($scope.template.layout=='B'){
+			dimensions.width = '320';
+			dimensions.height = '320';
+		}
+		
+		
+//	  	newwindow = window.open(url,'','height=450,width=900');
+	  	newwindow = window.open(url,'','height='+dimensions.height+',width='+dimensions.width+');
 	  	if (window.focus) {
 	  		newwindow.focus();
 	  	}
