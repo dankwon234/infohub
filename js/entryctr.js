@@ -69,6 +69,29 @@ app.controller("EntryController", function($scope, $http){
 		    console.log("error", data, status, headers, config);
 		});
     }
+    
+    
+    $scope.deleteEntry = function() {
+    	var sure = confirm('Are You Sure? This action cannot be reversed.');
+    	if (sure==false)
+    		return;
+    	
+        var url = '/api/entries/' + $scope.editEntry.id;
+		$http.delete(url)
+		.success(function(data, status, headers, config) {
+		    results = data['results'];
+		    confirmation = results['confirmation'];
+		    if (confirmation=='success'){
+		    	window.location.replace("/site/entries");
+		    }
+		    else{
+		    	alert(results['message']);
+		    }
+		}).error(function(data, status, headers, config) {
+		    console.log("error", data, status, headers, config);
+		});
+    }
+    
 
     $scope.getUploadURL = function() {
         var url = '/api/upload?resource=entry&id='+$scope.editEntry.id;
