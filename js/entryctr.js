@@ -98,20 +98,23 @@ app.controller("EntryController", function($scope, $http){
     
     
     function popup(url) {
-		dimensions = {'height':'450', 'width':'900'};
+		width = '900';
+		height = '450';
 		if ($scope.template.layout=='A'){
-			dimensions.width = '750';
-			dimensions.height = '750';
+			width = '750';
+			height = '750';
 		}
 		if ($scope.template.layout=='B'){
-			dimensions.width = '320';
-			dimensions.height = '320';
+			width = '320';
+			height = '320';
 		}
 		
 		
 //	  	newwindow = window.open(url,'','height=450,width=900');
 
-	  	newwindow = window.open(url,'','height='+dimensions.height+',width='+dimensions.width+'\');
+		dimensions = 'height='+height+'width='+width;
+	  	newwindow = window.open(url,'',dimensions);
+		
 	  	if (window.focus) {
 	  		newwindow.focus();
 	  	}
