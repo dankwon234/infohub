@@ -13,18 +13,8 @@ app.controller("EntryController", function($scope, $http){
         'date': '01/01/2014',
         'url': 'http://www.google.com',
         'description': 'Placeholder',
-        'themeColor1': '#000000',
-        'themeColor2': '#FFFFFF',
-        'banner': {
-            'ad': 'http://www.google.com',
-            'image': 'http://www.placehold.it/600x100'
-        },
         'x': '30.8290',
         'y': '34.2809',
-        'button': {
-            'text': 'Submit',
-            'link': 'http://www.google.com'
-        },
         'contactNumber': ''
     };
 
