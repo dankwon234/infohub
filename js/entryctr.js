@@ -110,7 +110,7 @@ app.controller("EntryController", function($scope, $http){
 		
 		
 //	  	newwindow = window.open(url,'','height=450,width=900');
-	  	newwindow = window.open(url,'','height='+dimensions.height+',width='+dimensions.width+');
+	  	newwindow = window.open(url,'','height=\''+dimensions.height+'\',width=\''+dimensions.width+'\');
 	  	if (window.focus) {
 	  		newwindow.focus();
 	  	}
