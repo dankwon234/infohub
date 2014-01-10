@@ -2,8 +2,6 @@ var app = angular.module('EntryPage', []);
 
 app.controller("EntryController", function($scope, $http){
 
-    $scope.template = {'layout' : 'A'};
-
     $scope.editEntry = {};
 
     $scope.init = function() {
@@ -101,7 +99,7 @@ app.controller("EntryController", function($scope, $http){
     }
 
     $scope.viewPreview = function() {
-    	var url = '/site/preview/'+$scope.editEntry.id+'?card='+$scope.template.layout;
+    	var url = '/site/preview/'+$scope.editEntry.id;
     	console.log('View Entry: '+url);
 
     	popup(url);
@@ -111,22 +109,6 @@ app.controller("EntryController", function($scope, $http){
     function popup(url) {
 		width = '900';
 		height = '450';
-		if ($scope.template.layout=='A'){
-			width = '750';
-			height = '750';
-		}
-		if ($scope.template.layout=='B'){
-			width = '320';
-			height = '320';
-		}
-		if ($scope.template.layout=='C'){
-			width = '320';
-			height = '430';
-		}
-		if ($scope.template.layout=='D'){
-			width = '320';
-			height = '750';
-		}
 
 		dimensions = 'height='+height+',width='+width;
 	  	newwindow = window.open(url,'',dimensions);
