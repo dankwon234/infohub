@@ -4,23 +4,11 @@ app.controller("EntryController", function($scope, $http){
 
     $scope.template = {'layout' : 'A'};
 
-    $scope.editEntry = {
-        'id': 0,
-        'image': 'none',
-        'title': 'Placeholder',
-        'html': '',
-        'subtitle': 'Placeholder',
-        'date': '01/01/2014',
-        'url': 'http://www.google.com',
-        'description': 'Placeholder',
-        'x': '30.8290',
-        'y': '34.2809',
-        'contactNumber': ''
-    };
+    $scope.editEntry = {};
 
     $scope.init = function() {
         console.log('Initialized');
-        var req = parseLocation('/site'); 
+        var req = parseLocation('/site');
         var id = req.identifier;
 
         if (!id) {
@@ -69,13 +57,13 @@ app.controller("EntryController", function($scope, $http){
 		    console.log("error", data, status, headers, config);
 		});
     }
-    
-    
+
+
     $scope.deleteEntry = function() {
     	var sure = confirm('Are You Sure? This action cannot be reversed.');
     	if (sure==false)
     		return;
-    	
+
         var url = '/api/entries/' + $scope.editEntry.id;
 		$http.delete(url)
 		.success(function(data, status, headers, config) {
@@ -91,7 +79,7 @@ app.controller("EntryController", function($scope, $http){
 		    console.log("error", data, status, headers, config);
 		});
     }
-    
+
 
     $scope.getUploadURL = function() {
         var url = '/api/upload?resource=entry&id='+$scope.editEntry.id;
@@ -111,15 +99,15 @@ app.controller("EntryController", function($scope, $http){
 		    console.log("error", data, status, headers, config);
 		});
     }
-    
+
     $scope.viewPreview = function() {
     	var url = '/site/preview/'+$scope.editEntry.id+'?card='+$scope.template.layout;
     	console.log('View Entry: '+url);
 
     	popup(url);
     }
-    
-    
+
+
     function popup(url) {
 		width = '900';
 		height = '450';
@@ -139,16 +127,16 @@ app.controller("EntryController", function($scope, $http){
 			width = '320';
 			height = '750';
 		}
-		
+
 		dimensions = 'height='+height+',width='+width;
 	  	newwindow = window.open(url,'',dimensions);
-		
+
 	  	if (window.focus) {
 	  		newwindow.focus();
 	  	}
 	  	return false;
 	  }
 
-    
-    
+
+
 });
