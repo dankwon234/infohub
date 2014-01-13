@@ -119,13 +119,4 @@ app.controller("EntryController", function($scope, $http){
 	  	return false;
 	  }
 
-      function addSecondaryUrl() {
-          // console.log("addSecondaryUrl");
-          var url = document.getElementById("secondaryUrl-url").value;
-          var purpose = document.getElementById("secondaryUrl-purpose").value;
-          console.log(url);
-          console.log(purpose);
-      }
-
-
 });
