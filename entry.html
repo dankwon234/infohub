@@ -163,6 +163,17 @@
                                 <div class="form-group">
                                     <h3>Additional URLs</h3>
                                     <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Purpose</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="url in editEntry.secondaryUrls">
+                                                <td>{{ url }}</td>
+                                                <td>testing</td>
+                                            </tr>
+                                        </tbody>
                                     </table>
                                     <div style="display:inline;float:left;max-width:40%">
                                       <span>Purpose</span><br>
