@@ -294,10 +294,16 @@ $('#datePicker').datepicker();
 <script>
     function addSecondaryUrl() {
         console.log("addSecondaryUrl");
-        var url = document.getElementById("secondaryUrl-url").value;
         var purpose = document.getElementById("secondaryUrl-purpose").value;
-        console.log(url);
+        var url = document.getElementById("secondaryUrl-url").value;
         console.log(purpose);
+        console.log(url);
+
+        secondaryUrl = {
+            purpose: url
+        }
+
+        console.log(secondaryUrl);
     }
 </script>
 </body>
