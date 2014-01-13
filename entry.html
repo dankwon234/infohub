@@ -52,6 +52,14 @@
                                   <input type="text" class="inputs form-control" ng-model="editEntry.subtitle" placeholder="Subtitle">
                                 </div>
                                 <div class="form-group">
+                                  <span>Category</span>
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.category" placeholder="News">
+                                </div>
+                                <div class="form-group">
+                                  <span>Subcategory</span>
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.subcategory" placeholder="Local">
+                                </div>
+                                <div class="form-group">
                                   <span>Date</span>
                                   <input ng-change="dateSelected();" type="text" class="inputs form-control datepicker" id="datePicker" ng-model="editEntry.date" data-date-format="mm/dd/yyyy" placeholder="01/01/2013" bs-datepicker>
                                 </div>
@@ -69,15 +77,35 @@
                                   <input type="text" class="inputs form-control" ng-model="editEntry.y" placeholder="Longitude">
                                 </div>
                                 <div class="form-group">
+                                  <span>Zip</span>
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.zip" placeholder="00000">
+                                </div>
+                                <div class="form-group">
+                                  <span>City</span>
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.city" placeholder="Manhattan">
+                                </div>
+                                <div class="form-group">
+                                  <span>State</span>
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.state" placeholder="New York">
+                                </div>
+                                <div class="form-group">
+                                  <span>Street</span>
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.street" placeholder="Broadway">
+                                </div>
+
+                                <div class="form-group">
                                   <span>Contact Number</span>
                                   <input type="text" class="inputs form-control" ng-model="editEntry.contactNumber" placeholder="123-867-5309">
+                                </div>
+                                <div class="form-group">
+                                  <span>Foursquare Id</span>
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.foursquareId" placeholder="foursquare id">
                                 </div>
 
                                 <div class="form-group">
                                   <span>HTML</span>
                                   <textarea class="textareas form-control" ng-model="editEntry.html" placeholder="HTML" rows="16"></textarea>
                                 </div>
-
                                 <div class="form-group">
                                   <span>Base CSS</span>
                                   <textarea class="textareas form-control" ng-model="editEntry.baseStyle" placeholder="Base CSS" rows="10"></textarea>
