@@ -119,6 +119,9 @@ app.controller("EntryController", function($scope, $http){
 	  	return false;
 	  }
 
+      function addSecondaryUrl() {
+          console.log("addSecondaryUrl");
+      }
 
 
 });

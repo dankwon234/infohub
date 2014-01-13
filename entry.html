@@ -162,9 +162,11 @@
                                 <hr style="margin:15px">
                                 <div class="form-group">
                                     <h3>Additional URLs</h3>
+                                    <table>
+                                    </table>
                                     <div style="display:inline;float:left;max-width:40%">
                                       <span>Purpose</span><br>
-                                      <select ng-model="editEntry.secondaryUrl.purpose"><!-- have to find a way to make this key the value of the option in angular -->
+                                      <select><!-- have to find a way to make this key the value of the option in angular -->
                                       	<option value="Menu">Menu</option>
                                       	<option value="Reservations">Reservations</option>
                                       	<option value="Gallery">Gallery</option>
@@ -181,7 +183,10 @@
                                   </div>
                                   <div style="display:inline;float:left;max-width:100%;padding-left:15px">
                                       <span>URL</span>
-                                      <input type="text" class="inputs form-control" ng-model="editEntry.secondaryUrl.url" placeholder="http://www.google.com">
+                                      <input type="text" class="inputs form-control" placeholder="http://www.google.com">
+                                  </div>
+                                  <div style="display:inline;float:right;">
+                                      <a onClick="addSecondaryUrl()" class="btn btn-custom">Add</a>
                                   </div>
                                 </div>
                                 <br>
