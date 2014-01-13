@@ -167,6 +167,20 @@
                                   <textarea class="textareas form-control" ng-model="editEntry.baseStyle" placeholder="Base CSS" rows="10"></textarea>
                                 </div>
 
+                                <!-- Secondary URLs -->
+                                <div class="form-group">
+                                  <span>Purpose</span><br>
+                                  <select ng-model="editEntry.secondaryUrl.purpose"><!-- have to find a way to make this key the value of the option in angular -->
+                                  	<option value="AL">Alabama</option>
+                                  	<option value="AK">Alaska</option>
+                                  	<option value="AZ">Arizona</option>
+                                  </select>
+                                  <div>
+                                      <span>URL</span>
+                                      <input type="text" class="inputs form-control" ng-model="editEntry.secondaryUrl.url" placeholder="http://www.google.com">
+                                  </div>
+                                </div>
+
                                 <br />
 
                                 <!--
