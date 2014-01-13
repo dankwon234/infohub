@@ -106,6 +106,17 @@ app.controller("EntryController", function($scope, $http){
     	popup(url);
     }
 
+    $scope.addSecondaryUrl = function() {
+        console.log("addSecondaryUrl");
+        var purpose = document.getElementById("secondaryUrl-purpose").value;
+        var url = document.getElementById("secondaryUrl-url").value;
+        console.log(purpose);
+        console.log(url);
+
+        $scope.secondaryUrl[purpose] = url;
+
+        console.log($scope.secondaryUrl);
+    }
 
     function popup(url) {
 		width = '900';

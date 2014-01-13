@@ -186,7 +186,7 @@
                                       <input type="text" class="inputs form-control" placeholder="http://www.google.com" id="secondaryUrl-url">
                                   </div>
                                   <div style="display:inline;float:right;">
-                                      <a onClick="addSecondaryUrl()" class="btn btn-custom">Add</a>
+                                      <a ng-click="addSecondaryUrl()" class="btn btn-custom">Add</a>
                                   </div>
                                 </div>
                                 <br>
@@ -290,19 +290,6 @@
 </div>
 <script>
 $('#datePicker').datepicker();
-</script>
-<script>
-    function addSecondaryUrl() {
-        console.log("addSecondaryUrl");
-        var purpose = document.getElementById("secondaryUrl-purpose").value;
-        var url = document.getElementById("secondaryUrl-url").value;
-        console.log(purpose);
-        console.log(url);
-
-        secondaryUrl[purpose] = url;
-
-        console.log(secondaryUrl);
-    }
 </script>
 </body>
 </html>
