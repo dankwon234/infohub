@@ -169,13 +169,15 @@
 
                                 <!-- Secondary URLs -->
                                 <div class="form-group">
-                                  <span>Purpose</span><br>
-                                  <select ng-model="editEntry.secondaryUrl.purpose"><!-- have to find a way to make this key the value of the option in angular -->
-                                  	<option value="AL">Alabama</option>
-                                  	<option value="AK">Alaska</option>
-                                  	<option value="AZ">Arizona</option>
-                                  </select>
-                                  <div>
+                                    <div style="display:inline;float:left;max-width:40%">
+                                      <span>Purpose</span><br>
+                                      <select ng-model="editEntry.secondaryUrl.purpose"><!-- have to find a way to make this key the value of the option in angular -->
+                                      	<option value="AL">Alabama</option>
+                                      	<option value="AK">Alaska</option>
+                                      	<option value="AZ">Arizona</option>
+                                      </select>
+                                  </div>
+                                  <div style="display:inline;float:left;max-width:40%">
                                       <span>URL</span>
                                       <input type="text" class="inputs form-control" ng-model="editEntry.secondaryUrl.url" placeholder="http://www.google.com">
                                   </div>
