@@ -106,15 +106,15 @@ app.controller("EntryController", function($scope, $http){
     }
 
     $scope.addSecondaryUrl = function() {
-        console.log("addSecondaryUrl");
+        console.log("addSecondaryUrls");
         var purpose = document.getElementById("secondaryUrl-purpose").value;
         var url = document.getElementById("secondaryUrl-url").value;
         console.log(purpose);
         console.log(url);
 
-        $scope.editEntry.secondaryUrl[purpose] = url;
+        $scope.editEntry.secondaryUrls[purpose] = url;
 
-        console.log(JSON.stringify($scope.editEntry.secondaryUrl));
+        console.log(JSON.stringify($scope.editEntry.secondaryUrls));
     }
 
     function popup(url) {
