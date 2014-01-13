@@ -9,8 +9,12 @@
       }
       
     	function select(index){
+			parent = window.opener;
+			if (!parent)
+	      		return true;
+			
 			image = images[index];
-      		window.opener.selectIcon(image['id']); // pass back the uniqueId of the image
+			parent.selectIcon(image['id']); // pass back the uniqueId of the image
       		window.close();
       		return false;
       	}
@@ -28,7 +32,7 @@
     		list = '<ol>';
     		for (var i=0; i<images.length; i++){
     			image = images[i];
-    			list += '<li><div style="background-color:#999;border-radius:3px;text-align:center;padding:5px;margin-top:5px"><a onclick="return select('+i+');" href="#"><img src="'+image['address']+'=s120-c" /></a></div></li>';
+    			list += '<li><div style="background-color:#999;border-radius:3px;text-align:center;padding:5px;margin-top:5px"><a onclick="return select('+i+');" target="_blank" href="/site/images/'+image['id']+'"><img src="'+image['address']+'=s120-c" /></a><br /><span style="color:#fff">Image ID: '+image['id']+'</span></div></li>';
     		}
     		list += '</ol>';
     		document.getElementById('imagesbox').innerHTML = list;
