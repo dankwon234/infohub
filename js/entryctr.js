@@ -118,6 +118,8 @@ app.controller("EntryController", function($scope, $http){
     }
 
     $scope.purposeKeys = function() {
+        console.log("PURPOSE KEYS");
+        console.log(Object.keys($scope.editEntry.secondaryUrls));
         return Object.keys($scope.editEntry.secondaryUrls);
     }
 
