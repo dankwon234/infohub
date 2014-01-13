@@ -118,8 +118,8 @@ app.controller("EntryController", function($scope, $http){
     }
 
     $scope.purposeKeys = function() {
-        console.log(Object.keys(editEntry.secondaryUrls));
-        return Object.keys(editEntry.secondaryUrls);
+        console.log(Object.keys($scope.editEntry.secondaryUrls));
+        return Object.keys($scope.editEntry.secondaryUrls);
     }
 
     function popup(url) {
