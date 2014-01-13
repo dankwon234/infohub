@@ -162,16 +162,17 @@
                                 <hr style="margin:15px">
                                 <div class="form-group">
                                     <h3>Additional URLs</h3>
-                                    <table>
+                                    <table class="table table-striped">
                                         <thead>
                                             <tr>
                                                 <th>Purpose</th>
+                                                <th>URL</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr ng-repeat="url in editEntry.secondaryUrls">
+                                                <td>{{ editEntry.secondaryUrls[url] }}</td>
                                                 <td>{{ url }}</td>
-                                                <td>testing</td>
                                             </tr>
                                         </tbody>
                                     </table>
