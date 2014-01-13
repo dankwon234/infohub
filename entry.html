@@ -165,9 +165,18 @@
                                     <div style="display:inline;float:left;max-width:40%">
                                       <span>Purpose</span><br>
                                       <select ng-model="editEntry.secondaryUrl.purpose"><!-- have to find a way to make this key the value of the option in angular -->
-                                      	<option value="AL">Alabama</option>
-                                      	<option value="AK">Alaska</option>
-                                      	<option value="AZ">Arizona</option>
+                                      	<option value="Menu">Menu</option>
+                                      	<option value="Reservations">Reservations</option>
+                                      	<option value="Gallery">Gallery</option>
+                                        <option value="Buy Now">Buy Now</option>
+                                        <option value="Book Now">Book Now</option>
+                                        <option value="Schedule">Schedule</option>
+                                        <option value="Check In">Check In</option>
+                                        <option value="Rates">Rates</option>
+                                        <option value="Map">Map</option>
+                                        <option value="Directions">Directions</option>
+                                        <option value="Reviews">Reviews</option>
+                                        <option value="More Info">More Info</option>
                                       </select>
                                   </div>
                                   <div style="display:inline;float:left;max-width:100%;padding-left:15px">
@@ -175,9 +184,11 @@
                                       <input type="text" class="inputs form-control" ng-model="editEntry.secondaryUrl.url" placeholder="http://www.google.com">
                                   </div>
                                 </div>
-                                <hr style="margin:15px">
-
                                 <br>
+                                <br>
+                                <br>
+                                <br>
+                                <hr style="margin:15px">
 
                                 <div class="form-group">
                                   <span>HTML</span>
