@@ -113,9 +113,9 @@ app.controller("EntryController", function($scope, $http){
         console.log(purpose);
         console.log(url);
 
-        $scope.secondaryUrl[purpose] = url;
+        $scope.editEntry.secondaryUrl[purpose] = url;
 
-        console.log($scope.secondaryUrl);
+        console.log(JSON.stringify($scope.editEntry.secondaryUrl));
     }
 
     function popup(url) {
