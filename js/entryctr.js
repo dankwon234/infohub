@@ -117,6 +117,11 @@ app.controller("EntryController", function($scope, $http){
         console.log(JSON.stringify($scope.editEntry.secondaryUrls));
     }
 
+    $scope.purposeKeys = function() {
+        console.log(Object.keys(editEntry.secondaryUrls));
+        return Object.keys(editEntry.secondaryUrls);
+    }
+
     function popup(url) {
 		width = '900';
 		height = '450';
