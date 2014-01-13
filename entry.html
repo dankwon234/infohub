@@ -170,8 +170,8 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr ng-repeat="url in editEntry.secondaryUrls">
-                                                <td>{{ editEntry.secondaryUrls[url] }}</td>
+                                            <tr ng-repeat="purpose in Object.keys(editEntry.secondaryUrls)">
+                                                <td>{{ purpose }}</td>
                                                 <td>{{ url }}</td>
                                             </tr>
                                         </tbody>
