@@ -8,7 +8,8 @@ app.controller("EntryController", function($scope, $http){
 
     $scope.init = function() {
         console.log('Initialized');
-        var req = parseLocation('/git'); //@TODO: Change this back to site when we're done
+//        var req = parseLocation('/git'); //@TODO: Change this back to site when we're done
+        var req = parseLocation('/site'); //@TODO: Change this back to site when we're done
         var id = req.identifier;
 
         if (!id) {
