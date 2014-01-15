@@ -44,6 +44,8 @@
                                 <br><br><br>
                                 <button style="width:100%" ng-click="getUploadURL()" class="btn btn-custom">Upload Image</button>
                             </form>
+                            
+                            <h3>General Info</h3>
 
                             <form style="margin-top:10px" role="form">
                                 <div class="form-group">
@@ -55,13 +57,26 @@
                                   <input type="text" class="inputs form-control" ng-model="editEntry.subtitle" placeholder="Subtitle">
                                 </div>
                                 <div class="form-group">
-                                  <span>Category</span>
-                                  <input type="text" class="inputs form-control" ng-model="editEntry.category" placeholder="News">
+                                  <span>Category</span><br />
+                                  <select ng-model="editEntry.category">
+                                  	<option value="info">Info</option>
+                                  	<option value="food">Food</option>
+                                  	<option value="activities">Activities</option>
+                                  	<option value="shopping">Shopping</option>
+                                  </select>
+                                  
                                 </div>
+                                
                                 <div class="form-group">
-                                  <span>Subcategory</span>
-                                  <input type="text" class="inputs form-control" ng-model="editEntry.subcategory" placeholder="Local">
+                                  <span>Subcategory</span><br />
+                                  <select ng-model="editEntry.subcategory">
+                                  	<option ng-repeat="subcategory in currentSubcategories()" value="{{ subcategory }}">{{subcategory}}</option>
+                                  </select>
+                                  <br />
+                                  <span>Current: {{editEntry.subcategory}}</span>
+                                  <br /><br /><br />
                                 </div>
+                                
                                 <div class="form-group">
                                   <span>Date</span>
                                   <input ng-change="dateSelected();" type="text" class="inputs form-control datepicker" id="datePicker" ng-model="editEntry.date" data-date-format="mm/dd/yyyy" placeholder="01/01/2013" bs-datepicker>
@@ -74,14 +89,10 @@
                                   <span>Description</span>
                                   <textarea class="textareas form-control" ng-model="editEntry.description" placeholder="Description" rows="6"></textarea>
                                 </div>
-                                <div class="form-group">
-                                  <span>Geolocation Coordinates</span>
-                                  <input type="text" class="inputs form-control" ng-model="editEntry.x" placeholder="Latitude">
-                                  <input type="text" class="inputs form-control" ng-model="editEntry.y" placeholder="Longitude">
-                                </div>
-
-                                <hr style="margin:15px">
-                                <h3>Address</h3>
+                                
+                                <hr style="margin-top:25px;margin-bottom:10px" />
+                                <h3>Location Info</h3>
+                                
                                 <div class="form-group">
                                   <span>Street</span>
                                   <input type="text" class="inputs form-control" ng-model="editEntry.street" placeholder="Broadway">
@@ -150,7 +161,13 @@
                                   <span>Zip</span>
                                   <input type="text" class="inputs form-control" ng-model="editEntry.zip" placeholder="00000">
                                 </div>
-                                <hr style="margin:15px">
+
+                                <div class="form-group">
+                                  <span>Geolocation Coordinates</span>
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.x" placeholder="Latitude">
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.y" placeholder="Longitude">
+                                </div>
+
 
                                 <div class="form-group">
                                   <span>Contact Number</span>
@@ -161,10 +178,13 @@
                                   <input type="text" class="inputs form-control" ng-model="editEntry.foursquareId" placeholder="foursquare id">
                                 </div>
 
+
+
                                 <!-- Secondary URLs -->
-                                <hr style="margin:15px">
+                                <hr style="margin-top:25px;margin-bottom:10px" />
                                 <div class="form-group">
-                                    <h3>Additional URLs</h3>
+                                    <h3>Content Info</h3>
+                                    <h4>Button</h4>
                                     <table class="table table-striped">
                                         <thead>
                                             <tr>
@@ -179,6 +199,7 @@
                                             </tr>
                                         </tbody>
                                     </table>
+                                    
                                     <div style="display:inline;float:left;max-width:40%">
                                       <span>Purpose</span><br>
                                       <select id="secondaryUrl-purpose"><!-- have to find a way to make this key the value of the option in angular -->
@@ -205,15 +226,63 @@
                                       <a ng-click="addSecondaryUrl()" class="btn btn-custom">Add</a>
                                   </div>
                                 </div>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <hr style="margin:15px">
+                                
+                                <br><br><br><br>
+                                
+                                <div class="form-group">
+                                  <span>RSS</span>
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.rss" placeholder="RSS">
+                                </div>
 
                                 <div class="form-group">
-                                  <span>HTML</span>
-                                  <textarea class="textareas form-control" ng-model="editEntry.html" placeholder="HTML" rows="16"></textarea>
+                                  <span>Background Image</span>
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.backgroundImage" placeholder="Background Image">
+                                </div>
+
+                                <div style="margin-top:25px;margin-bottom:25px" class="form-group">
+                                  <span>Misc Images</span>
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Remove</th>
+                                                <th>Image</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="image in editEntry.miscImages">
+                                                <td><a ng-click="removeMiscImage(image)" href="">x</a></td>
+                                                <td>{{ image }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                  <input type="text" ng-model="currentMiscImage.id" class="inputs form-control" placeholder="Image ID"><br />
+                                  <a ng-click="addMiscImage()" class="btn btn-custom">Add Misc Image</a>
+                                </div>
+
+
+                                <div class="form-group">
+                                  <span>Template</span><br>
+                                  <select ng-model="editEntry.template">
+                                  	<option value="template1">Musuem / Gallery</option>
+                                  	<option value="template2">Restaurant / Cafe / Bar</option>
+                                  	<option value="template3">Tours</option>
+                                  	<option value="template4">Transport</option>
+                                  	<option value="template5">Store</option>
+                                  	<option value="template6">Events</option>
+                                  	<option value="template7">Flights</option>
+                                  	<option value="template8">Hotel</option>
+                                  	<option value="template9">Image / Map</option>
+                                  	<option value="template10">RSS</option>
+                                  	
+                                  </select>
+                                </div>
+                                <div class="form-group">
+                                  <span>HTML 1</span>
+                                  <textarea class="textareas form-control" ng-model="editEntry.html1" placeholder="HTML" rows="16"></textarea>
+                                </div>
+                                <div class="form-group">
+                                  <span>HTML 2</span>
+                                  <textarea class="textareas form-control" ng-model="editEntry.html2" placeholder="HTML" rows="16"></textarea>
                                 </div>
                                 <div class="form-group">
                                   <span>Custom CSS</span>

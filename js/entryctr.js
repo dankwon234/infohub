@@ -5,7 +5,10 @@ app.controller("EntryController", function($scope, $http){
     $scope.editEntry = {
         secondaryUrls: {}
     };
-
+    
+    $scope.subcategories = {'info':['maps', 'airport transport', 'flight check-in', 'rail', 'hotel', 'web', 'news'], 'food':['restaurants', 'quick bites', 'coffee & tea', 'drinks', 'reviews', 'restaurant search'], 'activities':['tours', 'events', 'wellness', 'sports', 'broadway', 'nightlife', 'galleries', 'museums / galleries', 'parks'], 'shopping':['department stores', 'clothing', 'shoes', 'accessories', 'convenience', 'tech / gadgets', 'toys']};
+    $scope.currentMiscImage = {'id':'00000'};
+    
     $scope.init = function() {
         console.log('Initialized');
 //        var req = parseLocation('/git'); //@TODO: Change this back to site when we're done
@@ -107,6 +110,36 @@ app.controller("EntryController", function($scope, $http){
 
     	popup(url);
     }
+    
+    $scope.addMiscImage = function() {
+        console.log("addMiscImage");
+        
+        imageId = $scope.currentMiscImage.id;
+        $scope.editEntry.miscImages.push(imageId);
+        
+        var index = $scope.editEntry.miscImages.indexOf('none');
+        if (index > -1) 
+        	$scope.editEntry.miscImages.splice(index, 1);
+        
+        console.log(JSON.stringify($scope.editEntry.miscImages));
+    }
+    
+    $scope.removeMiscImage = function(imageId) {
+        console.log("removeMiscImage: "+imageId);
+        
+        var index = $scope.editEntry.miscImages.indexOf(imageId);
+        if (index > -1) 
+        	$scope.editEntry.miscImages.splice(index, 1);
+        
+        if ($scope.editEntry.miscImages.length==0)
+        	$scope.editEntry.miscImages.push('none');
+        
+        console.log(JSON.stringify($scope.editEntry.miscImages));
+        return false;
+    }
+    
+    
+
 
     $scope.addSecondaryUrl = function() {
         console.log("addSecondaryUrls");
@@ -121,10 +154,15 @@ app.controller("EntryController", function($scope, $http){
     }
 
     $scope.purposeKeys = function() {
-        console.log("PURPOSE KEYS");
-        console.log(Object.keys($scope.editEntry.secondaryUrls));
+//        console.log(Object.keys($scope.editEntry.secondaryUrls));
         return Object.keys($scope.editEntry.secondaryUrls);
     }
+    
+    $scope.currentSubcategories = function() {
+        console.log("CURRENT SUBCATEGORIES: "+$scope.editEntry.category);
+      return $scope.subcategories[$scope.editEntry.category]
+  }
+
 
     function popup(url) {
 		width = '900';
