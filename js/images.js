@@ -19,7 +19,34 @@
       		return false;
       	}
       
-      
+
+    	function remove(index){
+    		removeImage = images[index];
+    		console.log('REMOVE: '+removeImage['id']);
+    		
+    		url = '/api/images/'+removeImage['id'];
+    		
+    		response = executeUrlRequest(url, 'DELETE');
+        	results = response.results;
+        	console.log(JSON.stringify(results));
+        	if (results.confirmation=='success'){
+        		images = results['images'];
+        		
+        		list = '<ol>';
+        		for (var i=0; i<images.length; i++){
+        			image = images[i];
+        			list += '<li><div style="background-color:#999;border-radius:3px;text-align:center;padding:5px;margin-top:5px"><br /><span style="color:#fff">Image ID: '+image['id']+'</span><br /><a onclick="return select('+i+');" target="_blank" href="/site/images/'+image['id']+'"><img src="'+image['address']+'=s120-c" /></a><br /><br /><a onclick="return remove('+i+');" class="btn btn-custom" href="#">remove image</a><br /><br /></div></li>';
+        		}
+        		list += '</ol>';
+        		document.getElementById('imagesbox').innerHTML = list;
+        		return false;
+        	}
+        	
+        	alert(results['message']);
+        	return false;
+      	}
+    	
+    	
       function fetchImages(){
     	  url = '/api/images';
     	  
@@ -32,7 +59,8 @@
     		list = '<ol>';
     		for (var i=0; i<images.length; i++){
     			image = images[i];
-    			list += '<li><div style="background-color:#999;border-radius:3px;text-align:center;padding:5px;margin-top:5px"><a onclick="return select('+i+');" target="_blank" href="/site/images/'+image['id']+'"><img src="'+image['address']+'=s120-c" /></a><br /><span style="color:#fff">Image ID: '+image['id']+'</span></div></li>';
+    			list += '<li><div style="background-color:#999;border-radius:3px;text-align:center;padding:5px;margin-top:5px"><br /><span style="color:#fff">Image ID: '+image['id']+'</span><br /><a onclick="return select('+i+');" target="_blank" href="/site/images/'+image['id']+'"><img src="'+image['address']+'=s120-c" /></a><br /><br /><a onclick="return remove('+i+');" class="btn btn-custom" href="#">remove image</a><br /><br /></div></li>';
+//    			list += '<li><div style="background-color:#999;border-radius:3px;text-align:center;padding:5px;margin-top:5px"><a onclick="return select('+i+');" target="_blank" href="/site/images/'+image['id']+'"><img src="'+image['address']+'=s120-c" /></a><br /><span style="color:#fff">Image ID: '+image['id']+'</span><br /><a onclick="return remove('+i+');" class="btn btn-custom" href="#">remove image</a><br /><br /></div></li>';
     		}
     		list += '</ol>';
     		document.getElementById('imagesbox').innerHTML = list;
