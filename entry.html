@@ -94,6 +94,13 @@
                                 <h3>Location Info</h3>
                                 
                                 <div class="form-group">
+                                  <span>Foursquare Id</span>
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.foursquareId" placeholder="foursquare id"><br />
+                                  <a ng-click="updateWithFoursquare()" class="btn btn-custom">Update With Foursquare</a>
+                                  <br /><br />
+                                </div>
+                                
+                                <div class="form-group">
                                   <span>Street</span>
                                   <input type="text" class="inputs form-control" ng-model="editEntry.street" placeholder="Broadway">
                                 </div>
@@ -171,13 +178,13 @@
 
                                 <div class="form-group">
                                   <span>Contact Number</span>
-                                  <input type="text" class="inputs form-control" ng-model="editEntry.contactNumber" placeholder="123-867-5309">
-                                </div>
-                                <div class="form-group">
-                                  <span>Foursquare Id</span>
-                                  <input type="text" class="inputs form-control" ng-model="editEntry.foursquareId" placeholder="foursquare id">
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.phone" placeholder="123-867-5309">
                                 </div>
 
+                                <div class="form-group">
+                                  <span>Rating</span>
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.rating" placeholder="0.0">
+                                </div>
 
 
                                 <!-- Secondary URLs -->
@@ -251,7 +258,7 @@
                                         <tbody>
                                             <tr ng-repeat="image in editEntry.miscImages">
                                                 <td><a ng-click="removeMiscImage(image)" href="">x</a></td>
-                                                <td>{{ image }}</td>
+                                                <td><a target="_blank" href="/site/images/{{image}}">{{ image }}</a></td>
                                             </tr>
                                         </tbody>
                                     </table>

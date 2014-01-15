@@ -162,6 +162,44 @@ app.controller("EntryController", function($scope, $http){
         console.log("CURRENT SUBCATEGORIES: "+$scope.editEntry.category);
       return $scope.subcategories[$scope.editEntry.category]
   }
+    
+
+    $scope.updateWithFoursquare = function() {
+        console.log("UPDATE WITH FOURSQUARE: "+$scope.editEntry.id);
+        console.log("UPDATE WITH FOURSQUARE: "+$scope.editEntry.foursquareId);
+        
+        if ($scope.editEntry.foursquareId=='none'){
+        	alert('Please Enter a Valid Foursquare ID');
+        	return false;
+        }
+
+        if ($scope.editEntry.foursquareId.length < 8){
+        	alert('Please Enter a Valid Foursquare ID');
+        	return false;
+        }
+        
+        
+        var url = '/api/foursquare?entry='+$scope.editEntry.id+'&venue='+$scope.editEntry.foursquareId;
+		$http.get(url)
+		.success(function(data, status, headers, config) {
+		    results = data['results'];
+		    confirmation = results['confirmation'];
+		    if (confirmation=='success'){
+                results['entry'].date = new moment(new Date(results['entry'].date)).format('MM/DD/YYYY');
+		    	$scope.editEntry = results['entry'];
+		    }
+		    else{
+		    	alert(results['message']);
+		    }
+		}).error(function(data, status, headers, config) {
+		    console.log("error", data, status, headers, config);
+		});
+
+        
+        
+//      return $scope.subcategories[$scope.editEntry.category]
+  }
+
 
 
     function popup(url) {
