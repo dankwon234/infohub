@@ -108,7 +108,11 @@ app.controller("EntryController", function($scope, $http){
     	var url = '/site/preview/'+$scope.editEntry.id;
     	console.log('View Entry: '+url);
 
-    	popup(url);
+    	popup(url, 691, 691);
+    	popup(url, 315, 315);
+    	popup(url, 315, 370);
+    	popup(url, 315, 691);
+
     }
     
     $scope.addMiscImage = function() {
@@ -202,11 +206,11 @@ app.controller("EntryController", function($scope, $http){
 
 
 
-    function popup(url) {
-		width = '900';
-		height = '450';
+    function popup(url, w, h) {
+//		width = '900';
+//		height = '450';
 
-		dimensions = 'height='+height+',width='+width;
+		dimensions = 'height='+h+',width='+w;
 	  	newwindow = window.open(url,'',dimensions);
 
 	  	if (window.focus) {

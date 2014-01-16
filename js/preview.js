@@ -10,7 +10,9 @@ app.controller("PreviewController", function($scope, $http){
         var id = req.identifier;
 
         if (!id) {
-        } else {
+        	
+        } 
+        else {
             $scope.entry.id = id;
             fetchEntry();
         }
