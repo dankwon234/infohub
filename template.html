@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{{head}}
+
+    <link rel="stylesheet" href="/site/css/bootstrap.css"/>
+    
+    <script src="/site/js/requestparser.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+    <script type="text/javascript" src="/site/js/templatectr.js"></script>
+</head>
+
+
+<body style="background:#f9f9f9">
+
+<div id="wrapper" ng-app="TemplatePage" ng-controller="TemplateController" ng-init="init();">
+	{{header}}
+
+    <div class="layout-2cols">
+        <div class="content grid_8">
+            <div class="project-detail">
+                <h2 class="rs project-title">Template</h2>
+                <div class="project-short big-thumb">
+
+                    <div id="sessionscontent" class="top-project-info">
+                    <h3>{{ template.name }}</h3>
+                        <div>
+                        
+                          <textarea class="textareas form-control" ng-model="template.html" placeholder="HTML" rows="16"></textarea>
+
+	                      <button style="width:100%" ng-click="updateTemplate()" type="submit" class="btn btn-blue">Update Template</button>
+
+                        </div>
+                    </div>
+
+
+                    <div class="bottom-project-info clearfix">
+                        <div class="project-progress sys_circle_progress" data-percent="87">
+                            <div class="sys_holder_sector"></div>
+                        </div>
+                        <div class="group-fee clearfix">
+                            <div class="fee-item">
+                                <p class="rs lbl">Bankers</p>
+                                <span class="val">270</span>
+                            </div>
+                            <div class="sep"></div>
+                            <div class="fee-item">
+                                <p class="rs lbl">Pledged</p>
+                                <span class="val">$38,000</span>
+                            </div>
+                            <div class="sep"></div>
+                            <div class="fee-item">
+                                <p class="rs lbl">Days Left</p>
+                                <span class="val">25</span>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div><!--end: .content -->
+
+
+
+
+        <div class="sidebar grid_4">
+          <div style="height:41px"></div>
+            <div class="project-runtime">
+                <div class="box-gray"></div>
+            </div><!--end: .project-runtime -->
+
+
+
+        </div><!--end: .sidebar -->
+
+
+        <div class="clear"></div>
+    </div>
+
+	{{footer}}
+</div>
+
+
+</body>
+</html>
