@@ -183,14 +183,34 @@ app.controller("EntryController", function($scope, $http){
         }
         
         
-        var url = '/api/foursquare?entry='+$scope.editEntry.id+'&venue='+$scope.editEntry.foursquareId;
-		$http.get(url)
+//        var url = '/api/foursquare?entry='+$scope.editEntry.id+'&venue='+$scope.editEntry.foursquareId;
+//		$http.get(url)
+//		.success(function(data, status, headers, config) {
+//		    results = data['results'];
+//		    confirmation = results['confirmation'];
+//		    if (confirmation=='success'){
+//                results['entry'].date = new moment(new Date(results['entry'].date)).format('MM/DD/YYYY');
+//		    	$scope.editEntry = results['entry'];
+//		    }
+//		    else{
+//		    	alert(results['message']);
+//		    }
+//		}).error(function(data, status, headers, config) {
+//		    console.log("error", data, status, headers, config);
+//		});
+
+        
+      var url = '/api/foursquare';
+//        var url = '/api/entries/' + $scope.editEntry.id;
+		$http.put(url, JSON.stringify($scope.editEntry))
 		.success(function(data, status, headers, config) {
 		    results = data['results'];
 		    confirmation = results['confirmation'];
 		    if (confirmation=='success'){
                 results['entry'].date = new moment(new Date(results['entry'].date)).format('MM/DD/YYYY');
-		    	$scope.editEntry = results['entry'];
+                $scope.editEntry = results['entry'];
+                alert('Entry successfully updated!');
+                console.log($scope.editEntry);
 		    }
 		    else{
 		    	alert(results['message']);
@@ -198,10 +218,7 @@ app.controller("EntryController", function($scope, $http){
 		}).error(function(data, status, headers, config) {
 		    console.log("error", data, status, headers, config);
 		});
-
-        
-        
-//      return $scope.subcategories[$scope.editEntry.category]
+		
   }
 
 
