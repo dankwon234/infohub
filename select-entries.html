@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{head}}
+</head>
+
+<body ng-app="SelectEntriesPopup" ng-controller="SelectEntriesController" ng-init="init();">
+    <div id="wrapper">
+
+
+        <div class="layout-2cols">
+            <div class="content grid_8">
+                <div class="single-page">
+                    <h2 class="rs single-title">Entries</h2>
+                    <div class="box-single-content">
+                        <div id="entriesbox" class="editor-content">
+                            <div class="tablecontainer">
+                            	<table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Title</th>
+                                            <th>Link</th>
+                                            <th>Select</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="entry in entries">
+                                            <td><a href="/site/entries/89575515">{{ entry.title }}</a></td>
+                                            <td><a href="{{ entry.url }}">{{ entry.url }}</a></td>
+                                            <td><button class="btn btn-custom" ng-click="select($index);">Select</button>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <ol>
+                                <li ng-repeat="(key, entry) in entries">
+                                    <h3>{{ key }}</h3>
+                                    <button class="btn btn-custom" ng-click="select($index);">Select</button>
+                                </li>
+                            </ol>
+
+                            <a onclick="return select(0);" href="#">select entry</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div><!--end: .content -->
+
+            <div class="clear"></div>
+        </div>
+
+
+        {{footer}}
+
+    </div>
+</body>
+</html>
