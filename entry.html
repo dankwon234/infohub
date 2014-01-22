@@ -40,10 +40,18 @@
                             <form id="image-form" action="" enctype="multipart/form-data" method="post">
                                 <img src="/site/images/{{ editEntry.logo }}">
                                 <br><br><br>
-                                <input type="file" name="file" />
+<!--                                 <input type="file" name="file" />
                                 <br><br><br>
                                 <button style="width:100%" ng-click="getUploadURL()" class="btn btn-custom">Upload Image</button>
+ -->                                
                             </form>
+
+                                <div class="form-group">
+                                  <span>Logo</span>
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.logo" placeholder="logo ID">
+                                </div>
+                                
+                                <br><br>
                             
                             <h3>General Info</h3>
 
@@ -89,7 +97,7 @@
                                   <span>Description</span>
                                   <textarea class="textareas form-control" ng-model="editEntry.description" placeholder="Description" rows="6"></textarea>
                                 </div>
-                                
+
                                 <hr style="margin-top:25px;margin-bottom:10px" />
                                 <h3>Location Info</h3>
                                 
@@ -270,7 +278,7 @@
                                 <div class="form-group">
                                   <span>Template</span><br>
                                   <select ng-model="editEntry.template">
-                                  	<option value="22948772">Musuem / Gallery</option>
+                                  	<option value="22948772">Museum / Gallery</option>
                                   	<option value="49306063">Restaurant / Cafe / Bar</option>
                                   	<option value="90521492">Tours</option>
                                   	<option value="21047529">Transport</option>
