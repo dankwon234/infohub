@@ -537,9 +537,10 @@
 
           config = device["configuration"];
           c = config[selectedCategory];
+          console.log(c);
 
-          var splitEntry = currentSelectedEntry.split("-");
-          var currentCat = c[splitEntry[0]];
+          var splitEntry = entryId.split("-");
+          var currentCat = c[entryId[0]];
           console.log(currentCat);
           var arrIndex = currentCat.indexOf(splitEntry[1]);
           console.log(arrIndex);
