@@ -4,6 +4,7 @@
       var subcategorySelected = '';
       var errorMessages = new Array('Cant do that.', 'Seriously, thats not allowed.', 'stop it.');
       var errorCount = 0;
+      var currentSelectedEntry = '';
 
 
       function populateDeviceProfile(json){
@@ -96,7 +97,7 @@
       		  providers = c[subcategoryName];
       		  for (var j=0; j<8; j++){
       			  provider = (j < providers.length) ? providers[j] : '';
-      			  subcategoriesHtml += '<input id="'+subcategoryName+'-'+j+'" type="text" value="'+provider+'" onClick="return showEntries(provider);" /><br />';
+      			  subcategoriesHtml += '<input id="'+subcategoryName+'-'+j+'" type="text" value="'+provider+'" onClick="return showEntries('+subcategoryName+'-'+j+');" /><br />';
       		  }
 
       		  subcategoriesHtml += '</div>';
@@ -529,8 +530,11 @@
     	  return false;
       }
 
-      function showEntries(){
+      function showEntries(entry){
           console.log('Show Entries');
+          currentSelectedEntry = entry;
+
+          console.log(currentSelectedEntry);
 
           popup('/git/entries?action=select&branch=select_entries'); // @NOTE: CHANGE TO /site/entries?action=select
           return false;
@@ -549,7 +553,7 @@
           config = device["configuration"];
           c = config[selectedCategory];
 
-          console.log(c);
+          // console.log(c);
 
           // /site/entries?action=select - done
           // Clicking on input field triggers the popup to show up - done
