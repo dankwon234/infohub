@@ -532,7 +532,7 @@
       function showEntries(){
           console.log('Show Entries');
 
-          popup('/site/entries?action=select');
+          popup('/git/entries?action=select&branch=select_entries');
           return false;
       }
 
