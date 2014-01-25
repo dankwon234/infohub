@@ -17,7 +17,7 @@
                             <div class="tablecontainer">
                             	<table class="table table-striped">
                                     <thead>
-                                        <tr>
+                                        <tr style="text-align:left">
                                             <th>Select</th>
                                             <th>Title</th>
                                             <th>Link</th>
@@ -25,9 +25,9 @@
                                     </thead>
                                     <tbody>
                                         <tr ng-repeat="entry in entries">
-                                            <td><button class="btn btn-custom" ng-click="select($index);">Select</button>
+                                            <td><button class="btn btn-custom" ng-click="select($index);" style="margin:5px">Select</button>
                                             <td><a href="/site/entries/{{ entry.id }}" target="_blank">{{ entry.title }}</a></td>
-                                            <td><a href="{{ entry.url }}">{{ entry.url }}</a></td>
+                                            <td style="max-width:300px"><a href="{{ entry.url }}">{{ entry.url }}</a></td>
                                         </tr>
                                     </tbody>
                                 </table>
