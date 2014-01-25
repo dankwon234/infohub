@@ -535,49 +535,21 @@
       function removeEntry(index){
     	  config = device["configuration"];
           c = config[selectedCategory];
-          console.log(c);
-          return false;
-          //           categoriesSequence = config['sequence'];
-          // categoryName = categoriesSequence[index];
-          //
-          //           url = '/api/device/'+device['uuid']+'?action=removecategory&category='+categoryName;
-          //
-          //           response = executeUrlRequest(url, 'PUT');
-          //           results = response['results'];
-          //           confirmation = results['confirmation'];
-          //           if (confirmation=='success'){
-          //               device = results['device'];
-          //               populateDeviceProfile(device);
-          //               alert('Device has been updated.');
-          //               return false;
-          //           }
-          //
-          // alert(results['message']);
-          //           return false;
-      }
+          var splitEntry = index.split("-");
+          var currentCat = c[splitEntry[0]];
+          console.log(currentCat);
+          var arrIndex = currentCat.indexOf(splitEntry[1]);
+          console.log(arrIndex);
 
-      // function removeEntry(entryId){
-      //     console.log("ENTRY ID: "+entryId);
-      //
-      //     config = device["configuration"];
-      //     console.log(config);
-      //     c = config[selectedCategory];
-      //     console.log(c);
-      //
-      //     var splitEntry = entryId.split("-");
-      //     var currentCat = c[entryId[0]];
-      //     console.log(currentCat);
-      //     var arrIndex = currentCat.indexOf(splitEntry[1]);
-      //     console.log(arrIndex);
-      //
-      //     currentCat.splice(arrIndex, 1);
-      //     console.log(currentCat);
-      //     // currentCat[splitEntry[1]] = entryId;
-      //
-      //     console.log(c);
-      //     selectCategory(selectedCategory);
-      //     return;
-      // }
+          currentCat.splice(arrIndex, 1);
+          console.log(currentCat);
+          // currentCat[splitEntry[1]] = entryId;
+
+          console.log(c);
+          selectCategory(selectedCategory);
+
+          return false;
+      }
 
       function showEntries(entry){
           console.log('Show Entries');
