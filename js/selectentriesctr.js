@@ -24,12 +24,12 @@ app.controller("SelectEntriesController", function($scope, $http){
         });
     }
 
-	$scope.select = function(index){
+	$scope.select = function(id){
         parent = window.opener;
         if (!parent)
             return true;
 
-        parent.selectEntry($scope.entries[index].id); // pass back the uniqueId of the entry
+        parent.selectEntry(id); // pass back the uniqueId of the entry
 
         window.close();
         return false;
