@@ -534,7 +534,8 @@
 
       function removeEntry(index){
     	  config = device["configuration"];
-          console.log(config);
+          c = config[selectedCategory];
+          console.log(c);
           return false;
           //           categoriesSequence = config['sequence'];
           // categoryName = categoriesSequence[index];
