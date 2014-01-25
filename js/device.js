@@ -99,7 +99,7 @@
       			  provider = (j < providers.length) ? providers[j] : '';
 
                   subcatInputId = subcategoryName+'-'+j;
-      			  subcategoriesHtml += '<a href="" id="'+subcatInputId+'" onClick="return showEntries(this.id);">'+provider+'</a><a id="'+subcatInputId+'" href="" style="float:right;" onClick="return removeEntry(this.id)">x</a><br />';
+      			  subcategoriesHtml += '<a href="" id="'+subcatInputId+'" onClick="return showEntries(this.id);">'+provider+'</a><a href="" style="float:right;" onClick="return removeEntry(subcatInputId)">x</a><br />';
       		  }
 
       		  subcategoriesHtml += '</div>';
@@ -127,7 +127,7 @@
 			  providers = new Array();
       		  for (var j=0; j<8; j++) {
       			  inputId = subcategoryName+'-'+j;
-      			  provider = document.getElementById(inputId).value;
+      			  provider = document.getElementById(inputId).innerHTML;
       			  if (provider.length > 0)
       				  providers.push(provider);
       		  }
