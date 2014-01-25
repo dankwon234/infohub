@@ -91,7 +91,7 @@
 		  subcategoriesHtml = '';
 		  for (var k=0; k<subcategoryKeys.length; k++){
 			  subcategoryName = subcategoryKeys[k];
-			  subcategoriesHtml += '<p style="margin-top:20px" class="rs fc-gray"><input id="'+category+'-'+k+'" class="subcategoryinput" type="text" value="'+subcategoryName+'"></p><div class="subcategory">';
+			  subcategoriesHtml += '<p style="margin-top:20px" class="rs fc-gray"><input id="'+category+'-'+k+'" class="subcategoryinput" type="text" value="'+subcategoryName+'" onClick="return showEntries();"></p><div class="subcategory">';
 
       		  providers = c[subcategoryName];
       		  for (var j=0; j<8; j++){
@@ -529,9 +529,15 @@
     	  return false;
       }
 
+      function showEntries(){
+          console.log('Show Entries');
+
+          popup('/site/entries?action=select');
+          return false;
+      }
+
       function showIcons(){
     	  console.log('Show Icons');
-
 
     	  popup('/site/images');
     	  return false;
@@ -543,6 +549,7 @@
           config = device["configuration"];
           c = config[selectedCategory];
 
+          // /site/entries?action=select
           // Clicking on input field triggers the popup to show up
           // -----Magic happens in controller---------------------
           // Controller spits out an id
@@ -551,7 +558,6 @@
           // that initially triggered the popup (ie. "Google maps"[0])
 
           // c[''] =
-
 
 		  return;
       }
