@@ -536,6 +536,7 @@
           console.log("ENTRY ID: "+entryId);
 
           config = device["configuration"];
+          console.log(config);
           c = config[selectedCategory];
           console.log(c);
 
