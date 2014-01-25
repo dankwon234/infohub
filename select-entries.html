@@ -17,8 +17,8 @@
                         <div id="entriesbox" class="editor-content">
                             <div class="tablecontainer">
                             	<table class="table table-striped">
-                                    <button class="btn btn-custom" ng-click="filter = 'title'">Filter Alphabetically</button>
-                                    <button class="btn btn-blue" ng-click="filter = ''">Filter Chronological</button>
+                                    <button class="btn btn-custom" style="font-size:11px;margin-right:10px" ng-click="filter = 'title'">Filter Alphabetically</button>
+                                    <button class="btn btn-blue" style="font-size:11px" ng-click="filter = ''">Filter Chronological</button>
                                     <thead>
                                         <tr style="text-align:left">
                                             <th>Select</th>
@@ -28,7 +28,7 @@
                                     </thead>
                                     <tbody>
                                         <tr ng-repeat="entry in entries | orderBy:filter">
-                                            <td><button class="btn btn-custom" ng-click="select(entry.id);" style="margin:10px;margin-left:0">Select</button>
+                                            <td><button class="btn btn-custom" style="font-size:11px" ng-click="select(entry.id);" style="margin:10px;margin-left:0">Select</button>
                                             <td><a href="/site/entries/{{ entry.id }}" target="_blank">{{ entry.title }}</a></td>
                                             <td style="max-width:280px"><a href="{{ entry.url }}">{{ entry.url }}</a></td>
                                         </tr>
