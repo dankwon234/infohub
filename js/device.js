@@ -91,12 +91,12 @@
 		  subcategoriesHtml = '';
 		  for (var k=0; k<subcategoryKeys.length; k++){
 			  subcategoryName = subcategoryKeys[k];
-			  subcategoriesHtml += '<p style="margin-top:20px" class="rs fc-gray"><p id='+category+'-'+k+'>'+subcategoryName+'</p><button onClick="return showEntries();">Edit</button></p><div class="subcategory">';
+			  subcategoriesHtml += '<p style="margin-top:20px" class="rs fc-gray"><input id="'+category+'-'+k+'" class="subcategoryinput" type="text" value="'+subcategoryName+'"></p><div class="subcategory">';
 
       		  providers = c[subcategoryName];
       		  for (var j=0; j<8; j++){
       			  provider = (j < providers.length) ? providers[j] : '';
-      			  subcategoriesHtml += '<input id="'+subcategoryName+'-'+j+'" type="text" value="'+provider+'" /><br />';
+      			  subcategoriesHtml += '<input id="'+subcategoryName+'-'+j+'" type="text" value="'+provider+'" onClick="return showEntries();" /><br />';
       		  }
 
       		  subcategoriesHtml += '</div>';
