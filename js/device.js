@@ -533,7 +533,7 @@
       }
 
       function removeEntry(index){
-          // console.log(index);
+          console.log(index);
     	  config = device["configuration"];
           c = config[selectedCategory];
           var splitEntry = index.split("-");
