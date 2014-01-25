@@ -533,9 +533,11 @@
       }
 
       function removeEntry(index){
+          console.log(index);
     	  config = device["configuration"];
           c = config[selectedCategory];
           var splitEntry = index.split("-");
+          console.log(splitEntry);
           var currentCat = c[splitEntry[0]];
           console.log(currentCat);
           var arrIndex = currentCat.indexOf(splitEntry[1]);
