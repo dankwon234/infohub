@@ -18,16 +18,16 @@
                             	<table class="table table-striped">
                                     <thead>
                                         <tr>
+                                            <th>Select</th>
                                             <th>Title</th>
                                             <th>Link</th>
-                                            <th>Select</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr ng-repeat="entry in entries">
-                                            <td><a href="/site/entries/89575515">{{ entry.title }}</a></td>
-                                            <td><a href="{{ entry.url }}">{{ entry.url }}</a></td>
                                             <td><button class="btn btn-custom" ng-click="select($index);">Select</button>
+                                            <td><a href="/site/entries/{{ entry.id }}" target="_blank">{{ entry.title }}</a></td>
+                                            <td><a href="{{ entry.url }}">{{ entry.url }}</a></td>
                                         </tr>
                                     </tbody>
                                 </table>
