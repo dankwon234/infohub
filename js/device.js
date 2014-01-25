@@ -97,8 +97,8 @@
       		  providers = c[subcategoryName];
       		  for (var j=0; j<8; j++){
       			  provider = (j < providers.length) ? providers[j] : '';
-                  var inputId = subcategoryName+'-'+j;
-      			  subcategoriesHtml += '<input id="'+inputId+'" type="text" value="'+provider+'" onClick="return showEntries(e);" /><br />';
+                  inputId = subcategoryName+'-'+j;
+      			  subcategoriesHtml += '<input id="'+inputId+'" type="text" value="'+provider+'" onClick="return showEntries(inputId);" /><br />';
       		  }
 
       		  subcategoriesHtml += '</div>';
