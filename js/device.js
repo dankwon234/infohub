@@ -554,6 +554,7 @@
           c = config[selectedCategory];
           console.log(currentSelectedEntry);
           var splitEntry = currentSelectedEntry.split("-");
+          console.log(splitEntry);
           var currentCat = c.splitEntry[0];
           console.log(currentCat);
           console.log(currentCat[splitEntry[1]]);
