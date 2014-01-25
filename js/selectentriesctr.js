@@ -1,7 +1,6 @@
 var app = angular.module('SelectEntriesPopup', []);
 
 app.controller("SelectEntriesController", function($scope, $http){
-    // configuration holds ids which correspond to /api/entries/:id
     $scope.filter = '';
 
     $scope.init = function() {
@@ -34,14 +33,4 @@ app.controller("SelectEntriesController", function($scope, $http){
         window.close();
         return false;
   	}
-
-      //     /site/selectentries = url
-      //
-      //     $scope.popup = function(url) {
-      //     newwindow = window.open(url,'name','height=450,width=900');
-      //     if (window.focus) {
-      //         newwindow.focus();
-      //     }
-      //     return false;
-      // }
 });
