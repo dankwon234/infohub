@@ -96,7 +96,7 @@
       		  providers = c[subcategoryName];
       		  for (var j=0; j<8; j++){
       			  provider = (j < providers.length) ? providers[j] : '';
-      			  subcategoriesHtml += '<input id="'+subcategoryName+'-'+j+'" type="text" value="'+provider+'" onClick="return showEntries();" /><br />';
+      			  subcategoriesHtml += '<input id="'+subcategoryName+'-'+j+'" type="text" value="'+provider+'" onClick="return showEntries(provider);" /><br />';
       		  }
 
       		  subcategoriesHtml += '</div>';
@@ -532,7 +532,7 @@
       function showEntries(){
           console.log('Show Entries');
 
-          popup('/git/entries?action=select&branch=select_entries');
+          popup('/git/entries?action=select&branch=select_entries'); // @NOTE: CHANGE TO /site/entries?action=select
           return false;
       }
 
@@ -549,15 +549,15 @@
           config = device["configuration"];
           c = config[selectedCategory];
 
-          // /site/entries?action=select
-          // Clicking on input field triggers the popup to show up
-          // -----Magic happens in controller---------------------
-          // Controller spits out an id
-          // Take that id (entryId) here in this function
+          console.log(c);
+
+          // /site/entries?action=select - done
+          // Clicking on input field triggers the popup to show up - done
+          // -----Magic happens in controller----- - done
+          // Controller spits out an id - done
+          // Take that id (entryId) here in this function - done
           // and set it equal to the index in the array of the json
           // that initially triggered the popup (ie. "Google maps"[0])
-
-          // c[''] =
 
 		  return;
       }
