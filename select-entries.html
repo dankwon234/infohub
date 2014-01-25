@@ -16,7 +16,7 @@
                         <div id="entriesbox" class="editor-content">
                             <div class="tablecontainer">
                             	<table class="table table-striped">
-                                    <button ng-click="filters.title = entry.title">Filter Alphabetically</button>
+                                    <button ng-click="filterTest()">Filter Alphabetically</button>
                                     <thead>
                                         <tr style="text-align:left">
                                             <th>Select</th>
@@ -25,7 +25,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr ng-repeat="entry in entries | filter:filters">
+                                        <tr ng-repeat="entry in entries | filter:title">
                                             <td><button class="btn btn-custom" ng-click="select($index);" style="margin:10px;margin-left:0">Select</button>
                                             <td><a href="/site/entries/{{ entry.id }}" target="_blank">{{ entry.title }}</a></td>
                                             <td style="max-width:280px"><a href="{{ entry.url }}">{{ entry.url }}</a></td>
