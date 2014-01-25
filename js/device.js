@@ -570,7 +570,7 @@
           // Take that id (entryId) here in this function - done
           // and set it equal to the index in the array of the json - done
           // that initially triggered the popup (ie. "Google maps"[0]) - done
-
+          selectCategory(selectedCategory);
 		  return;
       }
 
