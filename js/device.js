@@ -99,7 +99,7 @@
       			  provider = (j < providers.length) ? providers[j] : '';
 
                   subcatInputId = subcategoryName+'-'+j;
-      			  subcategoriesHtml += '<input id="'+subcatInputId+'" type="text" value="'+provider+'" onClick="return showEntries(this.id);" /><br />';
+      			  subcategoriesHtml += '<span id="'+subcatInputId+'" onClick="return showEntries(this.id);">'+provider+'</span><br />';
       		  }
 
       		  subcategoriesHtml += '</div>';
@@ -558,18 +558,7 @@
 
           currentCat[splitEntry[1]] = entryId;
 
-          // currentSelectedEntry[0];
-          // currentSelectedEntry[1];
-
           console.log(c);
-
-          // /site/entries?action=select - done
-          // Clicking on input field triggers the popup to show up - done
-          // -----Magic happens in controller----- - done
-          // Controller spits out an id - done
-          // Take that id (entryId) here in this function - done
-          // and set it equal to the index in the array of the json - done
-          // that initially triggered the popup (ie. "Google maps"[0]) - done
           selectCategory(selectedCategory);
 		  return;
       }
