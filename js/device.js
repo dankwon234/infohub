@@ -553,7 +553,9 @@
           config = device["configuration"];
           c = config[selectedCategory];
           console.log(currentSelectedEntry);
-          currentSelectedEntry.split('-');
+          currentSelectedEntry.split("-");
+
+          con
 
 
 
