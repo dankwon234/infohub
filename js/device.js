@@ -555,7 +555,8 @@
 
           var splitEntry = currentSelectedEntry.split("-");
           var currentCat = c[splitEntry[0]];
-          console.log(currentCat[splitEntry[1]]);
+
+          currentCat[splitEntry[1]] = entryId;
 
           // currentSelectedEntry[0];
           // currentSelectedEntry[1];
@@ -567,8 +568,8 @@
           // -----Magic happens in controller----- - done
           // Controller spits out an id - done
           // Take that id (entryId) here in this function - done
-          // and set it equal to the index in the array of the json
-          // that initially triggered the popup (ie. "Google maps"[0])
+          // and set it equal to the index in the array of the json - done
+          // that initially triggered the popup (ie. "Google maps"[0]) - done
 
 		  return;
       }
