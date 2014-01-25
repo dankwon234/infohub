@@ -99,7 +99,7 @@
       			  provider = (j < providers.length) ? providers[j] : '';
                   subcatInputId = subcategoryName+'-'+j;
                   console.log(subcatInputId);
-      			  subcategoriesHtml += '<input id="'+subcatInputId+'" type="text" value="'+provider+'" onClick="return showEntries(subcatInputId);" /><br />';
+      			  subcategoriesHtml += '<input id="'+subcatInputId+'" type="text" value="'+provider+'" onClick="return showEntries(this);" /><br />';
       		  }
 
       		  subcategoriesHtml += '</div>';
