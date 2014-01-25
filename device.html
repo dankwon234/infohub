@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  {{head}}
+    {{head}}
     <script type="text/javascript" src="/site/js/device.js"></script>
 </head>
 
@@ -20,10 +20,10 @@
                       <li><a onclick="return showSection('sessions');" href="#" class="be-fc-orange">Sessions</a></li>
                       <li><a onclick="return showSection('providers');" href="#" class="be-fc-orange">Providers</a></li>
                     </ul>
-                    
-                    
+
+
                     <div class="tab-content">
-                    
+
                         <div>
                             <h3 class="rs alternate-tab accordion-label">Device</h3>
                             <div class="tab-pane accordion-content active">
@@ -65,14 +65,14 @@
                                                 <input class="txt txt-website" type="text" id="location4" value="{{loc4}}">
                                             </div>
                                         </div>
-                                        
+
                                         <div class="row-item clearfix">
                                             <label class="lbl" for="txt_location">Image URL:</label>
                                             <div class="val">
                                                 <input class="txt txt-website" type="text" id="image" value="{{image}}">
                                             </div>
                                         </div>
-                                        
+
                                         <div class="row-item clearfix">
                                             <label class="lbl" for="txt_web">Venue:</label>
                                             <div class="val">
@@ -80,10 +80,10 @@
 												<select style="margin-top:8px" id="venues" name="venue" onchange="updateVenue();">
 												  {{venueList}}
 												</select>
-                                                
+
                                             </div>
                                         </div>
-                                        
+
                                         <div class="row-item clearfix">
                                             <label class="lbl" for="txt_location">Live:</label>
                                             <div id="radio" class="val">
@@ -91,49 +91,49 @@
                                                 <input onchange="return radioChanged(this);" style="margin-right:5px" type="radio" name="isLive" value="no"><label style="vertical-align:middle">NO</label>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="row-item clearfix">
                                             <div class="val">
                                             <button onClick="return updateDevice();" style="width:55%" class="btn btn-blue btn-submit-all">Save</button>
                                             </div>
                                         </div>
                                     </form>
-                                    
+
                                       <button onclick="return deleteDevice();" style="width:100%" class="btn btn-red btn-submit-all">Delete Device</button>
-                                    
+
                                 </div>
                             </div><!--end: .tab-pane -->
                         </div>
-                        
+
                         <div>
                             <h3 class="rs alternate-tab accordion-label">Configuration</h3>
                             <div class="tab-pane accordion-content">
                                 <div id="categories" class="box-list-comment">
-                                
-                                
-                                
-                                
+
+
+
+
                                 </div>
 
 
                             <div style="margin-top:20px;border-top:1px dotted #888;padding:25px">
                               <h2>Add Category</h2>
-                              
+
                               <select id="addcategory" name="category">
                                 <option value="1234">News</option>
                                 <option value="1234">Entertainment</option>
                                 <option value="1234">News</option>
                               </select>
-                              
+
                               <br /><br />
                               <input onclick="return addCategory();" type="submit" class="btn btn-red" value="Add Category" />
                             </div>
 
 
-                                
+
                             <div style="margin-top:20px;border-top:1px dotted #888;padding:25px">
                               <h2>Clone Device</h2>
-                              
+
                               <form action="/site/devices" method="POST">
                                 {{deviceList}}
                                 <input type="hidden" name="receiver" value="{{uuid}}" />
@@ -142,8 +142,8 @@
                                 <input onclick="return confirm('Are You Sure?');" type="submit" class="btn btn-red" value="Clone" />
                               </form>
                             </div>
-                            
-                            
+
+
                             </div><!--end: .tab-pane -->
                         </div>
 
@@ -152,8 +152,8 @@
                             <h3 class="rs alternate-tab accordion-label">Sessions</h3>
                             <div class="tab-pane accordion-content">
                                 <div style="min-height:50px" id="sessions" class="box-list-comment">
-                                
-                                
+
+
                                 </div>
                             </div><!--end: .tab-pane -->
                         </div>
@@ -163,38 +163,38 @@
                             <h3 class="rs alternate-tab accordion-label">Providers</h3>
                             <div class="tab-pane accordion-content active">
                                 <div style="min-height:50px" id="providers" class="box-list-comment">
-                                
-                                
+
+
                                 </div>
                             </div><!--end: .tab-pane -->
                         </div>
-                        
-                        
+
+
                       </div>
                 </div><!--end: .project-tab-detail -->
             </div>
         </div><!--end: .content -->
-        
-        
-        
+
+
+
         <div id="sidebar" class="sidebar grid_4">
             <h2>Selected Category</h2>
             <div id="selectedcategory" class="box-gray project-author">
               <h4 class="rs pb10">None</h4>
               <hr />
-              
-              
+
+
             </div><!--end: .project-author -->
-            
+
         </div><!--end: .sidebar -->
-        
-        
+
+
         <div class="clear"></div>
     </div>
-    
-    
+
+
     {{footer}}
-    
+
 
 </div>
 
@@ -212,35 +212,35 @@
 
   <script type="text/template" id="configuration">
             <h2>Selected Category</h2>
-            
+
             <div id="selectedcategory" class="box-gray project-author">
               <h4 class="rs pb10">None</h4>
               <hr />
-              
+
             </div>
   </script>
-  
+
 
   <script type="text/template" id="sessionInfo">
             <h2>Sessions</h2>
-            
+
             <div class="box-gray project-author">
       		  <strong>Total Sessions</strong><br />{{numSessions}}<br /><br />
       		  <strong>Total Seconds</strong><br />{{totalSeconds}} seconds<br /><br />
               <hr />
-              
+
             </div>
   </script>
 
 
   <script type="text/template" id="providersSidebar">
             <h2>Providers</h2>
-            
+
             <div class="box-gray project-author">
       		  <strong>Total Providers</strong><br />{{numProviders}}<br /><br />
       		  <strong>CSV</strong><br /><a style="color:#ea503d;" href="/site/devices/{{deviceId}}?format=csv">download</a><br /><br />
               <hr />
-              
+
             </div>
   </script>
 
