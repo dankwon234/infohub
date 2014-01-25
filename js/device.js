@@ -99,7 +99,6 @@
       			  provider = (j < providers.length) ? providers[j] : '';
 
                   subcatInputId = subcategoryName+'-'+j;
-                  console.log(subcatInputId);
       			  subcategoriesHtml += '<input id="'+subcatInputId+'" type="text" value="'+provider+'" onClick="return showEntries(this.id);" /><br />';
       		  }
 
@@ -535,10 +534,7 @@
 
       function showEntries(entry){
           console.log('Show Entries');
-          console.log(entry);
           currentSelectedEntry = entry;
-
-          console.log(currentSelectedEntry);
 
           popup('/git/entries?action=select&branch=select_entries'); // @NOTE: CHANGE TO /site/entries?action=select
           return false;
@@ -556,8 +552,14 @@
 
           config = device["configuration"];
           c = config[selectedCategory];
+          currentSelectedEntry.split('-');
 
-          // console.log(c);
+          // c[currentSelectedEntry[0]] = ;
+
+          // currentSelectedEntry[0];
+          // currentSelectedEntry[1];
+
+          console.log(c);
 
           // /site/entries?action=select - done
           // Clicking on input field triggers the popup to show up - done
