@@ -2,6 +2,8 @@ var app = angular.module('SelectEntriesPopup', []);
 
 app.controller("SelectEntriesController", function($scope, $http){
     // configuration holds ids which correspond to /api/entries/:id
+    $scope.filter = '';
+
     $scope.init = function() {
         fetchEntries();
     }
