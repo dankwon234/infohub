@@ -99,7 +99,7 @@
       			  provider = (j < providers.length) ? providers[j] : '';
 
                   subcatInputId = subcategoryName+'-'+j;
-      			  subcategoriesHtml += '<a href="" id="'+subcatInputId+'" onClick="return showEntries(this.id);">'+provider+'</a><a href="" style="float:right;" onClick="return removeEntry(this.id)">x</a><br />';
+      			  subcategoriesHtml += '<a href="" id="'+subcatInputId+'" onClick="return showEntries(this.id);">'+provider+'</a><a id="'+subcatInputId+'" href="" style="float:right;" onClick="return removeEntry(this.id)">x</a><br />';
       		  }
 
       		  subcategoriesHtml += '</div>';
@@ -530,6 +530,26 @@
 
 		  alert(results['message']);
     	  return false;
+      }
+
+      function removeEntry(entryId){
+          console.log("ENTRY ID: "+entryId);
+
+          config = device["configuration"];
+          c = config[selectedCategory];
+
+          var splitEntry = currentSelectedEntry.split("-");
+          var currentCat = c[splitEntry[0]];
+          var arrIndex = currentCat.indexOf(splitEntry[1]);
+          console.log(arrIndex);
+
+          currentCat.splice(arrIndex, 1);
+          console.log(currentCat);
+          // currentCat[splitEntry[1]] = entryId;
+
+          console.log(c);
+          selectCategory(selectedCategory);
+          return;
       }
 
       function showEntries(entry){
