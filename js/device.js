@@ -99,10 +99,10 @@
       			  provider = (j < providers.length) ? providers[j] : '';
 
                   subcatInputId = subcategoryName+'-'+j;
-      			  subcategoriesHtml += '<a href="" id="'+subcatInputId+'" onClick="return showEntries(this.id);">'+provider+'</a><a href="" style="float:right;" onClick="return removeEntry(document.getElementById('+subcatInputId+').id)">x</a><br />';
+      			  subcategoriesHtml += '<a href="" id="'+subcatInputId+'" onClick="return showEntries(this.id);">'+provider+'</a><a href="" style="float:right;" onClick="return removeEntry()">x</a><br />';
       		  }
 
-      		  subcategoriesHtml += '</div>';
+      		  subcategoriesHtml += '<button>Add</button></div>';
 		  }
 
 		  icon = c['icon'];
