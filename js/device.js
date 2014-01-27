@@ -102,7 +102,7 @@
       			  subcategoriesHtml += '<a href="" id="'+subcatInputId+'" onClick="return showEntries(this.id);">'+provider+'</a><a href="" style="float:right;" onClick="return removeEntry(this.previousSibling.id)">x</a><br />';
       		  }
 
-      		  subcategoriesHtml += '<button id="'+subcategoryName+'" onClick="return showEntries(null, this.id)">Add</button></div>';
+      		  subcategoriesHtml += '<button id="'+subcategoryName+'-'+providers.length+1+'" onClick="return showEntries(null, this.id)">Add</button></div>';
 		  }
 
 		  icon = c['icon'];
