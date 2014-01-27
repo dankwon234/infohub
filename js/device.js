@@ -99,7 +99,7 @@
       			  provider = (j < providers.length) ? providers[j] : '';
 
                   subcatInputId = subcategoryName+'-'+j;
-      			  subcategoriesHtml += '<a href="" id="'+subcatInputId+'" onClick="return showEntries(this.id);">'+provider+'</a><button style="float:right;" onClick="return removeEntry(this.previousSibling.id)">x</button><br />';
+      			  subcategoriesHtml += '<a href="" id="'+subcatInputId+'" onClick="return showEntries(this.id);">'+provider+'</a><button style="float:right;" onClick="return removeEntry(this.previousSibling.id)">x</button><br /><br />';
       		  }
 
               var totalLength = providers.length;
