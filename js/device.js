@@ -95,14 +95,13 @@
 			  subcategoriesHtml += '<p style="margin-top:20px" class="rs fc-gray"><input id="'+category+'-'+k+'" class="subcategoryinput" type="text" value="'+subcategoryName+'"></p><div class="subcategory">';
 
       		  providers = c[subcategoryName];
-      		  for (var j=0; j<providers.length; j++){
+      		  for (var j=0; j<8; j++){
       			  provider = (j < providers.length) ? providers[j] : '';
 
                   subcatInputId = subcategoryName+'-'+j;
       			  subcategoriesHtml += '<a href="" id="'+subcatInputId+'" onClick="return showEntries(this.id);">'+provider+'</a><a href="" style="float:right;" onClick="return removeEntry(this.previousSibling.id)">x</a><br />';
       		  }
-              console.log(providers);
-              console.log(providers.length);
+
               var totalLength = providers.length;
               var subcatInputIdButton = subcategoryName + '-' + totalLength;
       		  subcategoriesHtml += '<button id="'+subcatInputIdButton+'" onClick="return showEntries(null, this.id)">Add</button></div>';
@@ -128,7 +127,7 @@
 		  for (var i=0; i<subcategoryKeys.length; i++){
 			  subcategoryName = subcategoryKeys[i];
 			  providers = new Array();
-      		  for (var j=0; j<providers.length; j++) {
+      		  for (var j=0; j<8; j++) {
       			  inputId = subcategoryName+'-'+j;
       			  provider = document.getElementById(inputId).innerHTML;
       			  if (provider.length > 0)
