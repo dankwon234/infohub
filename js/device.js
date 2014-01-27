@@ -545,11 +545,11 @@
 
           console.log(currentCat);
 
-          var arrIndex = currentCat.indexOf(splitEntry[1]);
+          // var arrIndex = currentCat.indexOf(splitEntry[1]);
 
           console.log(arrIndex);
 
-          currentCat.splice(arrIndex, 1);
+          currentCat.splice(splitEntry[1], 1);
           console.log(currentCat);
           // currentCat[splitEntry[1]] = entryId;
 
