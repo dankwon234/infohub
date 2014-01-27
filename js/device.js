@@ -545,13 +545,15 @@
 
       function showEntries(entry, subcategory){
           if (entry == null) {
+              console.log(subcategory);
               currentSelectedEntry = subcategory;
-              // popup
-          }
-          console.log('Show Entries');
-          currentSelectedEntry = entry;
+              // popup('/git/entries?action=select&branch=select_entries');
+          } else {
+              console.log('Show Entries');
+              currentSelectedEntry = entry;
 
-          popup('/git/entries?action=select&branch=select_entries'); // @NOTE: CHANGE TO /site/entries?action=select
+              popup('/git/entries?action=select&branch=select_entries'); // @NOTE: CHANGE TO /site/entries?action=select
+          }
           return false;
       }
 
