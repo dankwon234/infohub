@@ -1,4 +1,3 @@
-      var providers = '';
       var device = {};
       var sessions = new Array();
       var selectedCategory = '';
@@ -93,7 +92,7 @@
 		  subcategoriesHtml = '';
 		  for (var k=0; k<subcategoryKeys.length; k++){
 			  subcategoryName = subcategoryKeys[k];
-			  subcategoriesHtml += '<p style="margin-top:20px" class="rs fc-gray"><input id="'+category+'-'+k+'" class="subcategoryinput" type="text" value="'+subcategoryName+'"></p><div class="subcategory">';
+			  subcategoriesHtml += '<p style="margin-top:20px" class="rs fc-gray"><input id="'+category+'-'+k+'" class="subcategoryinput" type="text" value="'+subcategoryName+'"></p><div class="'+subcategoryName+'">';
 
       		  providers = c[subcategoryName];
       		  for (var j=0; j<providers.length; j++){
@@ -127,13 +126,10 @@
     	  updatedSubcategories = {};
     	  updatedOrder = new Array();
 
-          console.log(providers);
-
-
 		  for (var i=0; i<subcategoryKeys.length; i++){
 			  subcategoryName = subcategoryKeys[i]; // Google map
 			  providersArray = new Array();
-      		  for (var j=0; j<providers.length; j++) {
+      		  for (var j=0; j<document.getElementById('').children; j++) {
       			  inputId = subcategoryName+'-'+j;
       			  provider = document.getElementById(inputId).innerHTML;
       			  if (provider.length > 0)
