@@ -129,6 +129,8 @@
 			  subcategoryName = subcategoryKeys[i];
 			  providers = new Array();
       		  for (var j=0; j<providers.length; j++) {
+                  console.log(providers.length);
+                  console.log(providers);
       			  inputId = subcategoryName+'-'+j;
       			  provider = document.getElementById(inputId).innerHTML;
       			  if (provider.length > 0)
