@@ -103,7 +103,9 @@
       		  }
               console.log(providers);
               console.log(providers.length);
-      		  subcategoriesHtml += '<button id="'+subcategoryName+'-'+providers.length+1+'" onClick="return showEntries(null, this.id)">Add</button></div>';
+              var totalLength = providers.length + 1;
+              var subcatInputIdButton = subcategoryName + '-' + totalLength;
+      		  subcategoriesHtml += '<button id="'+subcatInputIdButton+'" onClick="return showEntries(null, this.id)">Add</button></div>';
 		  }
 
 		  icon = c['icon'];
