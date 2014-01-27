@@ -139,7 +139,7 @@
 
 			  id = category+'-'+i;
 			  subcategory = document.getElementById(id).value;  // subcategory name might have been changed:
-      		  updatedSubcategories[subcategory] = providers;
+      		  updatedSubcategories[subcategory] = providersArray;
       		  updatedOrder.push(subcategory);
 		  }
 
