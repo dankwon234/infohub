@@ -95,7 +95,7 @@
 			  subcategoriesHtml += '<p style="margin-top:20px" class="rs fc-gray"><input id="'+category+'-'+k+'" class="subcategoryinput" type="text" value="'+subcategoryName+'"></p><div class="subcategory">';
 
       		  providers = c[subcategoryName];
-      		  for (var j=0; j<8; j++){
+      		  for (var j=0; j<providers.length; j++){
       			  provider = (j < providers.length) ? providers[j] : '';
 
                   subcatInputId = subcategoryName+'-'+j;
@@ -533,25 +533,11 @@
       }
 
       function removeEntry(index){
-          console.log(index);
-
           config = device["configuration"];
           c = config[selectedCategory];
           var splitEntry = index.split("-");
-
-          console.log(splitEntry);
-
           var currentCat = c[splitEntry[0]];
-
-          console.log(currentCat);
-
-          // var arrIndex = currentCat.indexOf(splitEntry[1]);
-
           currentCat.splice(splitEntry[1], 1);
-          console.log(currentCat);
-          // currentCat[splitEntry[1]] = entryId;
-
-          console.log(c);
           selectCategory(selectedCategory);
 
           return false;
