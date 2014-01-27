@@ -127,14 +127,14 @@
     	  updatedOrder = new Array(); //
 		  for (var i=0; i<subcategoryKeys.length; i++){
 			  subcategoryName = subcategoryKeys[i];
-			  providers = new Array();
+			  providersArray = new Array();
       		  for (var j=0; j<providers.length; j++) {
                   console.log(providers.length);
                   console.log(providers);
       			  inputId = subcategoryName+'-'+j;
       			  provider = document.getElementById(inputId).innerHTML;
       			  if (provider.length > 0)
-      				  providers.push(provider);
+      				  providersArray.push(provider);
       		  }
 
 			  id = category+'-'+i;
