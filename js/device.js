@@ -99,7 +99,7 @@
       			  provider = (j < providers.length) ? providers[j] : '';
 
                   subcatInputId = subcategoryName+'-'+j;
-      			  subcategoriesHtml += '<a href="" id="'+subcatInputId+'" onClick="return showEntries(this.id);">'+provider+'</a><a href="" style="float:right;" onClick="return removeEntry(this.parentNode.firstChild.id)">x</a><br />';
+      			  subcategoriesHtml += '<a href="" id="'+subcatInputId+'" onClick="return showEntries(this.id);">'+provider+'</a><a href="" style="float:right;" onClick="return removeEntry(this.siblings)">x</a><br />';
       		  }
 
       		  subcategoriesHtml += '<button onClick="return showEntries(null, subcategoryName)">Add</button></div>';
@@ -534,13 +534,19 @@
 
       function removeEntry(index){
           console.log(index);
-    	  config = device["configuration"];
+
+          config = device["configuration"];
           c = config[selectedCategory];
           var splitEntry = index.split("-");
+
           console.log(splitEntry);
+
           var currentCat = c[splitEntry[0]];
+
           console.log(currentCat);
+
           var arrIndex = currentCat.indexOf(splitEntry[1]);
+
           console.log(arrIndex);
 
           currentCat.splice(arrIndex, 1);
