@@ -118,7 +118,8 @@
     	  console.log('Commit Category: '+category);
 
     	  config = device["configuration"];
-		  subcategories = config[category];
+		  subcategories = config[category]; //
+          console.log(subcategories);
 
     	  subcategoryKeys = subcategories['order']; // ["sports","world","headlines","local","tech","business"]
     	  console.log('SUBCATEGORIES: '+JSON.stringify(subcategoryKeys));
