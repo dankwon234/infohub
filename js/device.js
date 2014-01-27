@@ -547,7 +547,7 @@
           if (entry == null) {
               console.log(subcategory);
               currentSelectedEntry = subcategory;
-              // popup('/git/entries?action=select&branch=select_entries');
+              popup('/git/entries?action=select&branch=select_entries');
           } else {
               console.log('Show Entries');
               currentSelectedEntry = entry;
