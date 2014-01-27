@@ -92,14 +92,14 @@
 		  subcategoriesHtml = '';
 		  for (var k=0; k<subcategoryKeys.length; k++){
 			  subcategoryName = subcategoryKeys[k];
-			  subcategoriesHtml += '<p style="margin-top:20px" class="rs fc-gray"><input id="'+category+'-'+k+'" class="subcategoryinput" type="text" value="'+subcategoryName+'"></p><div class="'+subcategoryName+'">';
+			  subcategoriesHtml += '<p style="margin-top:20px" class="rs fc-gray"><input id="'+category+'-'+k+'" class="subcategoryinput" type="text" value="'+subcategoryName+'"></p><div class="subcategory" id="'+subcategoryName+'">';
 
       		  providers = c[subcategoryName];
       		  for (var j=0; j<providers.length; j++){
       			  provider = (j < providers.length) ? providers[j] : '';
 
                   subcatInputId = subcategoryName+'-'+j;
-      			  subcategoriesHtml += '<a href="" id="'+subcatInputId+'" onClick="return showEntries(this.id);">'+provider+'</a><a href="" style="float:right;" onClick="return removeEntry(this.previousSibling.id)">x</a><br />';
+      			  subcategoriesHtml += '<a href="" id="'+subcatInputId+'" onClick="return showEntries(this.id);">'+provider+'</a><button style="float:right;" onClick="return removeEntry(this.previousSibling.id)">x</button><br />';
       		  }
 
               var totalLength = providers.length;
@@ -129,7 +129,8 @@
 		  for (var i=0; i<subcategoryKeys.length; i++){
 			  subcategoryName = subcategoryKeys[i]; // Google map
 			  providersArray = new Array();
-      		  for (var j=0; j<document.getElementById('').children; j++) {
+              var parent = document.getElementById(subcategoryName);
+      		  for (var j=0; j<parent.getElementsByTagName('a').length; j++) {
       			  inputId = subcategoryName+'-'+j;
       			  provider = document.getElementById(inputId).innerHTML;
       			  if (provider.length > 0)
