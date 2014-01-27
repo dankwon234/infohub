@@ -99,10 +99,10 @@
       			  provider = (j < providers.length) ? providers[j] : '';
 
                   subcatInputId = subcategoryName+'-'+j;
-      			  subcategoriesHtml += '<a href="" id="'+subcatInputId+'" onClick="return showEntries(this.id);">'+provider+'</a><a href="" style="float:right;" onClick="return removeEntry()">x</a><br />';
+      			  subcategoriesHtml += '<a href="" id="'+subcatInputId+'" onClick="return showEntries(this.id);">'+provider+'</a><a href="" style="float:right;" onClick="return removeEntry(this)">x</a><br />';
       		  }
 
-      		  subcategoriesHtml += '<button>Add</button></div>';
+      		  subcategoriesHtml += '<button onClick="return showEntries(null, subcategoryName)">Add</button></div>';
 		  }
 
 		  icon = c['icon'];
@@ -553,7 +553,11 @@
           return false;
       }
 
-      function showEntries(entry){
+      function showEntries(entry, subcategory){
+          if (entry == null) {
+              currentSelectedEntry = subcategory;
+              // popup
+          }
           console.log('Show Entries');
           currentSelectedEntry = entry;
 
