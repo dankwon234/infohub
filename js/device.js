@@ -101,7 +101,8 @@
                   subcatInputId = subcategoryName+'-'+j;
       			  subcategoriesHtml += '<a href="" id="'+subcatInputId+'" onClick="return showEntries(this.id);">'+provider+'</a><a href="" style="float:right;" onClick="return removeEntry(this.previousSibling.id)">x</a><br />';
       		  }
-
+              console.log(providers);
+              console.log(providers.length);
       		  subcategoriesHtml += '<button id="'+subcategoryName+'-'+providers.length+1+'" onClick="return showEntries(null, this.id)">Add</button></div>';
 		  }
 
