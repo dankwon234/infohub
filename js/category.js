@@ -5,6 +5,7 @@
 		var xmlHttp = new XMLHttpRequest();
 		xmlHttp.open(httpMethod, url, false);
 		xmlHttp.send(null);
+		console.log(xmlHttp.responseText);
 		obj = JSON.parse(xmlHttp.responseText);
 		return obj;
 	}
@@ -34,7 +35,7 @@
 		subcategoriesList = '';
 		for (var i=0; i<currentSubcategories.length; i++){
 			subcategory = currentSubcategories[i];
-			subcategoriesList += '<tr><td><a onclick="return fetchProviders('+i+');" style="color:#ea503d; "href="#">'+subcategory['name']+'</a></td><td>remove</td></tr>';
+			subcategoriesList += '<tr><td><a onclick="return fetchProviders('+i+');" style="color:#ea503d; "href="#">'+subcategory['name']+'</a></td><td><a onclick="removeSubcategory('+i+')" href="#">remove</a></td></tr>';
 		}
 		subcategoriesTpl = subcategoriesTpl.replace("{{subcategoriesList}}", subcategoriesList);
 		
@@ -114,6 +115,13 @@
 		category['subcategories'] = currentSubcategories;
 		renderCategory();
 		return false;
+	}
+	
+	function removeSubcategory(index){
+		sub = subcategories[index];
+		console.log('REMOVE SUBCATEGORY: '+JSON.stringify(sub));
+
+		
 	}
 	
 	function updateCategory(){
