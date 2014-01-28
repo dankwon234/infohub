@@ -552,12 +552,12 @@
           if (entry == null) {
               console.log(subcategory);
               currentSelectedEntry = subcategory;
-              popup('/git/entries?action=select&branch=select_entries');
+              popup('/site/entries?action=select');
           } else {
               console.log('Show Entries');
               currentSelectedEntry = entry;
 
-              popup('/git/entries?action=select&branch=select_entries'); // @NOTE: CHANGE TO /site/entries?action=select
+              popup('/site/entries?action=select');
           }
           return false;
       }
