@@ -17,6 +17,18 @@ app.controller("PreviewController", function($scope, $http){
             fetchEntry();
         }
     };
+    
+    
+    $scope.truncate = function(text, limit) {
+    	if (text.length > limit){
+    		text = text.substring(0, limit);
+    		text = text + "...";
+    	}
+    	
+    	return text;
+    }
+    
+    
 
     function fetchEntry () {
         var url = '/api/entries/' + $scope.entry.id;
