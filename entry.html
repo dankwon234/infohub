@@ -264,7 +264,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr ng-repeat="image in editEntry.miscImages">
+                                            <tr ng-repeat="image in editEntry.miscImages track by $index">
                                                 <td><a ng-click="removeMiscImage(image)" href="">x</a></td>
                                                 <td><a target="_blank" href="/site/images/{{image}}">{{ image }}</a></td>
                                             </tr>
