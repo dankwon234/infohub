@@ -57,6 +57,8 @@
     	  device["loc3"] = document.getElementById('location3').value;
     	  device["loc4"] = document.getElementById('location4').value;
     	  device["image"] = document.getElementById('image').value;
+    	  device["latitude"] = document.getElementById('latitude').value;
+    	  device["longitude"] = document.getElementById('longitude').value;
 
 
     	  var xmlHttp = new XMLHttpRequest();
