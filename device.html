@@ -6,7 +6,7 @@
 </head>
 
 
-<body onload="return showSection('device')">
+<body onload="return showSection('device')" ng-app="Device">
 <div id="wrapper">
   {{header}}
 
@@ -175,9 +175,19 @@
                         <div>
                             <h3 class="rs alternate-tab accordion-label">Records</h3>
                             <div class="tab-pane accordion-content">
-                                <div style="min-height:50px" id="records" class="box-list-comment">
-                                    <h1>This is a test</h1>
-
+                                <div style="min-height:50px" id="records" class="box-list-comment" ng-controller="RecordsController" ng-init="init();">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <td><strong>∆Records</strong></td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="record in records">
+                                                <td>{{ record }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div><!--end: .tab-pane -->
                         </div>
@@ -284,6 +294,8 @@
     fetchSessions();
   </script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
+    <script src="https://raw.github.com/dennykwon/infohub/records/js/devicectr.js">
 
 </body>
 </html>
