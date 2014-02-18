@@ -15,12 +15,12 @@ app.controller("RecordsController", function($scope, $http){
             results = data['results'];
             confirmation = results['confirmation'];
             if (confirmation=='success'){
-                $scope.records = results['records'];
-                for (i=0;i<$scope.records;i++){
-                    console.log("BEFORE "+$scope.records[i].date);
-                    $scope.records[i].date = moment($scope.records[i].date).zone(-5).format('MMM D, h:mma');
-                    console.log($scope.records[i].date);
+                for (i=0;i<results['records'];i++){
+                    console.log("BEFORE "+results['records'][i].date);
+                    results['records'][i].date = moment(results['records'][i].date).zone(-5).format('MMM D, h:mma');
+                    console.log(results['records'][i].date);
                 }
+                $scope.records = results['records'];
             } else {
                 alert(results['message']);
             }
