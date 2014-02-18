@@ -176,20 +176,22 @@
                             <h3 class="rs alternate-tab accordion-label">Records</h3>
                             <div class="tab-pane accordion-content">
                                 <div style="min-height:50px" id="records" class="box-list-comment" ng-controller="RecordsController" ng-init="init();">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <td><strong>Date</strong></td>
-                                                <td><strong>Duration</strong></td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr ng-repeat="record in records">
-                                                <td>{{ record.date }}</td>
-                                                <td>{{ record.duration }}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <div class="tablecontainer">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <td><strong>Date</strong></td>
+                                                    <td><strong>Duration</strong></td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="record in records">
+                                                    <td>{{ record.date }}</td>
+                                                    <td>{{ record.duration }}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div><!--end: .tab-pane -->
                         </div>
