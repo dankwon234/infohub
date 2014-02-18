@@ -26,7 +26,8 @@ app.controller("RecordsController", function($scope, $http){
 
     $scope.convert = function(date) {
         console.log(date);
-        return new Date(date).toString;
+        var newDate = new Date(date).toString;
+        return newDate;
     }
 
 });
