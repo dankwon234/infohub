@@ -179,12 +179,14 @@
                                     <table>
                                         <thead>
                                             <tr>
-                                                <td><strong>Records</strong></td>
+                                                <td><strong>Date</strong></td>
+                                                <td><strong>Duration</strong></td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr ng-repeat="record in records">
-                                                <td>{{ record }}</td>
+                                                <td>{{ record.date }}</td>
+                                                <td>{{ record.duration }}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -266,7 +268,7 @@
   </script>
 
   <script type="text/template" id="recordsInfo">
-            <h2>Sessions</h2>
+            <h2>Records</h2>
 
             <div class="box-gray project-author">
       		  <strong>Total Records</strong><br />{{numSessions}}<br /><br />
