@@ -17,9 +17,8 @@ app.controller("RecordsController", function($scope, $http){
             if (confirmation=='success'){
                 $scope.records = results['records'];
                 for (i=0;i<$scope.records;i++){
-                    $scope.records[i].date = moment.utc($scope.records[i].date).tz("America/New_York").format();
+                    $scope.records[i].date = moment.utc($scope.records[i].date).zone(-5).format();
                 }
-                console.log($scope.records);
             } else {
                 alert(results['message']);
             }
