@@ -23,4 +23,9 @@ app.controller("RecordsController", function($scope, $http){
             console.log("error", data, status, headers, config);
         });
     }
+
+    $scope.convert = function(date) {
+        return new Date(date).toString;
+    }
+
 });

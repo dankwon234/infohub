@@ -204,7 +204,7 @@
                                             </thead>
                                             <tbody>
                                                 <tr ng-repeat="record in records">
-                                                    <td>{{ new Date(record.date).toString }}</td>
+                                                    <td>{{ convert(record.date) }}</td>
                                                     <td>{{ record.duration }}</td>
                                                 </tr>
                                             </tbody>
