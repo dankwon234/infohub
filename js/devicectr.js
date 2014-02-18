@@ -1,7 +1,4 @@
-var app = angular.module('Device', [], function($interpolateProvider){
-    $interpolateProvider.startSymbol('[[');
-    $interpolateProvider.endSymbol(']]');
-});
+var app = angular.module('Device', []);
 
 app.controller("RecordsController", function($scope, $http){
 
