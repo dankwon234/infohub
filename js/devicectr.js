@@ -25,8 +25,8 @@ app.controller("RecordsController", function($scope, $http){
     }
 
     $scope.convert = function(date) {
-        console.log(date);
         var newDate = new Date(date).toString();
+        newDate = moment(newDate).format('MMM D, h:mma');
         console.log(newDate);
         return newDate;
     }
