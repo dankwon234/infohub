@@ -17,7 +17,9 @@ app.controller("RecordsController", function($scope, $http){
             if (confirmation=='success'){
                 $scope.records = results['records'];
                 for (i=0;i<$scope.records;i++){
+                    console.log("BEFORE "+$scope.records[i].date);
                     $scope.records[i].date = moment($scope.records[i].date).zone(-5).format('MMM D, h:mma');
+                    console.log($scope.records[i].date);
                 }
             } else {
                 alert(results['message']);
