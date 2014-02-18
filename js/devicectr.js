@@ -9,14 +9,13 @@ app.controller("RecordsController", function($scope, $http){
     }
 
     function fetchRecords () {
-        var url = '/api/records?device=' + deviceID;
+        var url = 'http://444.zuse-infohub.appspot.com/api/records?device=' + deviceID;
         $http.get(url)
         .success(function(data, status, headers, config) {
             results = data['results'];
             confirmation = results['confirmation'];
             if (confirmation=='success'){
                 $scope.records = results['records'];
-                console.log($scope.records);
             } else {
                 alert(results['message']);
             }
