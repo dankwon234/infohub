@@ -18,6 +18,7 @@
                       <li class="active"><a onclick="return showSection('device');" href="#">Device</a></li>
                       <li><a onclick="return showSection('configuration');" href="#" class="be-fc-orange">Configuration</a></li>
                       <li><a onclick="return showSection('sessions');" href="#" class="be-fc-orange">Sessions</a></li>
+                      <li><a onclick="return showSection('records');" href="#" class="be-fc-orange">Records</a></li>
                       <li><a onclick="return showSection('providers');" href="#" class="be-fc-orange">Providers</a></li>
                     </ul>
 
@@ -53,7 +54,7 @@
                                                 <input class="txt txt-website" type="text" id="longitude" value="{{longitude}}">
                                             </div>
                                         </div>
-                                        
+
                                         <div class="row-item clearfix">
                                             <label class="lbl" for="txt_location">Location 1:</label>
                                             <div class="val">
@@ -240,6 +241,17 @@
             <div class="box-gray project-author">
       		  <strong>Total Sessions</strong><br />{{numSessions}}<br /><br />
       		  <strong>Total Seconds</strong><br />{{totalSeconds}} seconds<br /><br />
+              <hr />
+
+            </div>
+  </script>
+
+  <script type="text/template" id="recordsInfo">
+            <h2>Sessions</h2>
+
+            <div class="box-gray project-author">
+      		  <strong>Total Records</strong><br />{{numSessions}}<br /><br />
+      		  <strong>Total Records</strong><br />{{totalSeconds}} seconds<br /><br />
               <hr />
 
             </div>

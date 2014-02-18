@@ -414,6 +414,11 @@
     		  return true;
     	  }
 
+          if (section=='records'){
+    		  recordsTemplate = $('#recordsInfo').html();
+    		  sidebar.innerHTML = recordsTemplate;
+    		  return true;
+          }
 
     	  if (section=='providers'){
     		  configuration = device['configuration'];
