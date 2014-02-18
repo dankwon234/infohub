@@ -179,12 +179,12 @@
                                     <table>
                                         <thead>
                                             <tr>
-                                                <td><strong>∆Records</strong></td>
+                                                <td><strong>Records</strong></td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr ng-repeat="record in records">
-                                                <td>[[ record ]]</td>
+                                                <td>{{ record }}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -296,6 +296,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
     <script src="https://raw.github.com/dennykwon/infohub/records/js/devicectr.js"></script>
+    <script src="/site/js/requestparser.js"></script>
 
 </body>
 </html>
