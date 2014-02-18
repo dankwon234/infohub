@@ -2,13 +2,13 @@ var app = angular.module('Device', []);
 
 app.controller("RecordsController", function($scope, $http){
 
-    deviceID = parseLocation('git', 'devices');
-
     $scope.init = function() {
-        fetchRecords();
+        var deviceID = parseLocation('git', 'devices');
+        fetchRecords(deviceID);
     }
 
-    function fetchRecords () {
+    function fetchRecords (deviceID) {
+        console.log(deviceID);
         var url = 'http://444.zuse-infohub.appspot.com/api/records?device=' + deviceID;
         $http.get(url)
         .success(function(data, status, headers, config) {
@@ -16,6 +16,7 @@ app.controller("RecordsController", function($scope, $http){
             confirmation = results['confirmation'];
             if (confirmation=='success'){
                 $scope.records = results['records'];
+                console.log($scope.records);
             } else {
                 alert(results['message']);
             }
