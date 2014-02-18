@@ -16,6 +16,7 @@ app.controller("RecordsController", function($scope, $http){
             confirmation = results['confirmation'];
             if (confirmation=='success'){
                 $scope.records = results['records'];
+                console.log($scope.records);
             } else {
                 alert(results['message']);
             }
