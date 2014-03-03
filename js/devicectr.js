@@ -16,6 +16,7 @@ app.controller("RecordsController", function($scope, $http){
             confirmation = results['confirmation'];
             if (confirmation=='success'){
                 $scope.records = results['records'];
+                $scope.numRecords = $score.records.length;
             } else {
                 alert(results['message']);
             }
