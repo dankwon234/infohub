@@ -101,7 +101,8 @@
       			  provider = (j < providers.length) ? providers[j] : '';
 
                   subcatInputId = subcategoryName+'-'+j;
-      			  subcategoriesHtml += '<a href="" id="'+subcatInputId+'" onClick="return showEntries(this.id);">'+provider+'</a><button style="float:right;" onClick="return removeEntry(this.previousSibling.id)">x</button><br /><br />';
+//      			  subcategoriesHtml += '<a href="" id="'+subcatInputId+'" onClick="return showEntries(this.id);">'+provider+'</a><button style="float:right;" onClick="return removeEntry(this.previousSibling.id)">x</button><br /><br />';
+      			  subcategoriesHtml += '<a href="" id="'+subcatInputId+'" onClick="return entryTapped('+provider+');">'+provider+'</a><button style="float:right;" onClick="return removeEntry(this.previousSibling.id)">x</button><br /><br />';
       		  }
 
               var totalLength = providers.length;
@@ -204,32 +205,6 @@
 
 
 
-      function fetchSessions(){
-    	var url = '/api/sessions?device='+device['uuid'];
-    	response = executeUrlRequest(url, 'GET');
-    	results = response.results;
-    	if (results.confirmation=='success'){
-    		sessions = results.sessions;
-//    		console.log('FETCH SESSIONS: '+JSON.stringify(sessions));
-
-    		list = '<ol>';
-    		for (var i=0; i<sessions.length; i++){
-    			session = sessions[i];
-    			date = session['date']; //Thu Nov 21 14:39:18 UTC 2013
-    			list += '<li><a target="_blank" href="/site/sessions/'+session['id']+'">'+processTime(date)+'</a></li>'
-    		}
-    		list += '</ol>';
-
-      	    document.getElementById('sessions').innerHTML = list;
-      	    fetchCateogories();
-    		return;
-    	}
-
-    	alert(results['message']);
-    	return;
-    }
-
-
       function handleDragEnter(event) { // this / e.target is the current hover target.
     	  console.log('DRAGGED ENTER: '+event.target.parentNode.id);
     	  event.target.classList.add('over');
@@ -307,6 +282,12 @@
     	  populateDeviceProfile(device);
     	  event.preventDefault();
       }
+      
+      function entryTapped(entryId){
+    	  console.log('ENTRY TAPPED: '+entryId);
+    	  
+      }
+      
 
       function subcategoryTapped(buttonId){
     	  console.log('subcategoryTapped '+buttonId);
