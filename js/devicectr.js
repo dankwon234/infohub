@@ -77,8 +77,8 @@ app.controller("ConfigController", function($scope, $http){
         });
     }
 
-    $scope.selectCategory = function(test) {
-        console.log('selectCategory----Controller'+test);
+    $scope.selectCategory = function($scope) {
+        console.log('selectCategory----Controller'+$scope);
     }
 
     $scope.addCategory = function() {
