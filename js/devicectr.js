@@ -87,9 +87,8 @@ app.controller("ConfigController", function($scope, $http){
     }
 
     $scope.test = function(categoryName) {
-        var variable = $scope.device.configuration[categoryName]
-        console.log(variable);
-        return $scope.device.configuration
+        var order = $scope.device.configuration[categoryName].order;
+        return order
         // $scope.device.configuration.
     }
 });
