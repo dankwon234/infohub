@@ -66,7 +66,7 @@ app.controller("ConfigController", function($scope, $http){
             confirmation = results['confirmation'];
             if (confirmation=='success'){
                 $scope.device = results['device'];
-                console.log(results);
+                // console.log(results);
             } else {
                 alert(results['message']);
             }
