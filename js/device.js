@@ -18,9 +18,11 @@
     	  for (var i=0; i<categories.length; i++){
     		  category = categories[i];
 
-    		  categoriesHtml += '<div class="media comment-item"><div id="'+category+'" draggable="true" ondragstart="dragCategory(event)" ondragenter="handleDragEnter(event)" ondragover="draggedOver(event)" ondragleave="dragLeave(event)" ondrop="dropCategory(event)" class="media-body"><h4 class="rs comment-author"><a style="color:#ea503d" onClick="return selectCategory(\''+category+'\');" href="#">'+category+'</a></h4>';
+              categoriesHtml += '<div class="media comment-item"><div id="'+category+'" draggable="true" ondragstart="dragCategory(event)" ondragenter="handleDragEnter(event)" ondragover="draggedOver(event)" ondragleave="dragLeave(event)" ondrop="dropCategory(event)" class="media-body"><h4 class="rs comment-author"><a style="color:#ea503d" onClick="return selectCategory(\''+category+'\');" href="#">'+category+'</a></h4>';
 
+              console.log(config);
     		  c = config[category];
+              console.log(c);
     		  subs = c['order'];
     		  for (var k=0; k<subs.length; k++){
     			  sub = subs[k];
@@ -46,7 +48,6 @@
 
     	  document.getElementById('radio').innerHTML = radioHtml;
       }
-
 
       function updateDevice(){
     	  device["uuid"] = document.getElementById('uuid').value;
@@ -82,8 +83,6 @@
     	  return false;
       }
 
-
-
       function selectCategory(category){
     	  selectedCategory = category;
     	  config = device["configuration"];
@@ -114,7 +113,6 @@
     	  document.getElementById('selectedcategory').innerHTML = '<h4 class="rs pb10">'+category+'</h4><hr /><div style="background-color:#999;border-radius:3px;text-align:center;padding:5px"><strong>Icon</strong><br /><a onclick="return showIcons();" href="#"><img src="/site/images/'+icon+'?crop=80" /></a><br />(click icon to change)</div>'+subcategoriesHtml+'<br /><div class="val"><button onClick="return commitCategory(\''+category+'\');" style="width:100%" class="btn btn-blue btn-submit-all">Commit</button></div>';
     	  return false;
       }
-
 
       function commitCategory(category){
     	  console.log('Commit Category: '+category);
@@ -165,7 +163,6 @@
     	  document.getElementById('venue id').value = newVenueId;
       }
 
-
       function deleteDevice(){
     	  confirmation = confirm('Are You Sure?');
 
@@ -189,7 +186,6 @@
     	  return false;
       }
 
-
 	    function processTime(time){
 	    	date = moment(new Date(time)).format('MMM D, h:mma');
 	    	return date;
@@ -202,6 +198,10 @@
     	  obj = JSON.parse(xmlHttp.responseText);
     	  return obj;
       }
+
+
+
+
 
 
 
@@ -283,10 +283,10 @@
     	  event.preventDefault();
       }
 
-      function entryTapped(entryId){
-    	  console.log('ENTRY TAPPED: '+entryId);
 
-      }
+
+
+
 
 
       function subcategoryTapped(buttonId){
@@ -347,7 +347,6 @@
     	  selectCategory(categoryName);
     	  return false;
       }
-
 
       function addClass(el, className){
     	    el.className += ' '+className;
@@ -486,23 +485,24 @@
 		  return;
       }
 
-      function fetchCateogories(){
-    	  url = '/api/categories';
-    	  response = executeUrlRequest(url, 'GET');
-    	  results = response['results'];
-    	  confirmation = results['confirmation'];
-    	  if (confirmation=='success'){
-    		  categories = results['categories'];
-
-    		  list = '';
-    		  for (var i=0; i<categories.length; i++){
-    			  category = categories[i];
-    			  list += '<option value="'+category['id']+'">'+category['name']+'</option>';
-    		  }
-
-    		  document.getElementById('addcategory').innerHTML = list;
-    	  }
-      }
+      // ============================== DONE ============================== //
+      // function fetchCateogories(){
+      //           url = '/api/categories';
+      //           response = executeUrlRequest(url, 'GET');
+      //           results = response['results'];
+      //           confirmation = results['confirmation'];
+      //           if (confirmation=='success'){
+      //               categories = results['categories'];
+      //
+      //               list = '';
+      //               for (var i=0; i<categories.length; i++){
+      //                   category = categories[i];
+      //                   list += '<option value="'+category['id']+'">'+category['name']+'</option>';
+      //               }
+      //
+      //               document.getElementById('addcategory').innerHTML = list;
+      //           }
+      // }
 
       function removeCategory(index){
     	  config = device["configuration"];
@@ -587,12 +587,10 @@
 		  return;
       }
 
-	    function popup(url) {
-		  	newwindow = window.open(url,'name','height=450,width=900');
-		  	if (window.focus) {
-		  		newwindow.focus();
-		  	}
-		  	return false;
-		  }
-
-
+        function popup(url) {
+          	newwindow = window.open(url,'name','height=450,width=900');
+          	if (window.focus) {
+          		newwindow.focus();
+          	}
+          	return false;
+        }

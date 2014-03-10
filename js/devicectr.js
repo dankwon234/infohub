@@ -1,9 +1,10 @@
+deviceID = parseLocation('git', 'devices').identifier;
+
 var app = angular.module('Device', []);
 
 app.controller("RecordsController", function($scope, $http){
 
     $scope.init = function() {
-        var deviceID = parseLocation('git', 'devices').identifier;
         fetchRecords(deviceID);
     }
 
@@ -53,4 +54,21 @@ app.controller("ConfigController", function($scope, $http){
             console.log("error", data, status, headers, config);
         });
     }
+
+    $scope.addCategory = function() {
+        var url = '/api/device/'+deviceID+'?action=addcategory&category='+categoryId;
+        $http.put(url, $scope.category)
+        .success(function(data, status, headers, config) {
+            results = data['results'];
+            confirmation = results['confirmation'];
+            if (confirmation=='success'){
+                $scope.categories = results['categories'];
+            } else {
+                alert(results['message']);
+            }
+        }).error(function(data, status, headers, config) {
+            console.log("error", data, status, headers, config);
+        });
+    }
+
 });
