@@ -18,11 +18,9 @@
     	  for (var i=0; i<categories.length; i++){
     		  category = categories[i];
 
-              categoriesHtml += '<div class="media comment-item"><div id="'+category+'" draggable="true" ondragstart="dragCategory(event)" ondragenter="handleDragEnter(event)" ondragover="draggedOver(event)" ondragleave="dragLeave(event)" ondrop="dropCategory(event)" class="media-body"><h4 class="rs comment-author"><a style="color:#ea503d" onClick="return selectCategory(\''+category+'\');" href="#">'+category+'</a></h4>';
+              // categoriesHtml += '<div class="media comment-item"><div id="'+category+'" draggable="true" ondragstart="dragCategory(event)" ondragenter="handleDragEnter(event)" ondragover="draggedOver(event)" ondragleave="dragLeave(event)" ondrop="dropCategory(event)" class="media-body"><h4 class="rs comment-author"><a style="color:#ea503d" onClick="return selectCategory(\''+category+'\');" href="#">'+category+'</a></h4>';
 
-              console.log(config);
     		  c = config[category];
-              console.log(c);
     		  subs = c['order'];
     		  for (var k=0; k<subs.length; k++){
     			  sub = subs[k];
