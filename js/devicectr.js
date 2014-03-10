@@ -75,11 +75,6 @@ app.controller("ConfigController", function($scope, $http){
         });
     }
 
-    $scope.configKeys = function() {
-        console.log(Object.keys($scope.device.configuration));
-        return Object.keys($scope.device.configuration);
-    }
-
     // $scope.addCategory = function() {
     //     var url = '/api/device/'+deviceID+'?action=addcategory&category='+categoryId;
     //     $http.put(url, $scope.category)
