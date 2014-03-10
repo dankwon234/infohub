@@ -123,13 +123,13 @@
 
 
 
-                                    <div class="media comment-item" ng-repeat="(category, subcategory) in device.configuration">
-                                        <div id="{{ category }}" class="media-body">
+                                    <div class="media comment-item" ng-repeat="categoryName in device.configuration.sequence">
+                                        <div id="{{ categoryName }}" class="media-body">
                                             <h4 class="rs comment-author">
-                                                <a style="color:#ea503d" href="" ng-click="selectCategory($index);">{{ category }}</a>
+                                                <a style="color:#ea503d" href="" ng-click="selectCategory($index);">{{ categoryName }}</a>
                                             </h4>
 
-                                            <a ng-repeat="(sub, entries) in subcategory" id="'+id+'" ng-click="" style="margin-left:5px" class="btn btn-blue" href="#">{{ sub }}</a>
+                                            <a ng-repeat="sub in device.configuration.categoryName" style="margin-left:5px" class="btn btn-blue" href="#">{{ sub }}</a>
 
                                             <br />
                                             <a style="color:red" onclick="return removeCategory('+i+');" href="#">remove category</a>
