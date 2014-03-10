@@ -34,7 +34,7 @@ app.controller("RecordsController", function($scope, $http){
 });
 
 app.controller("ConfigController", function($scope, $http){
-    $scope.currentCategory = '';
+    $scope.currentCategory = 'test';
 
     $scope.init = function() {
         fetchCategories();
