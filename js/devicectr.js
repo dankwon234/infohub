@@ -3,7 +3,7 @@ var app = angular.module('Device', []);
 app.controller("RecordsController", function($scope, $http){
 
     $scope.init = function() {
-        var deviceID = parseLocation('site', 'devices').identifier;
+        var deviceID = parseLocation('git', 'devices').identifier;
         fetchRecords(deviceID);
     }
 
@@ -34,5 +34,7 @@ app.controller("RecordsController", function($scope, $http){
 });
 
 app.controller("ConfigController", function($scope, $http){
+    $scope.init = function() {
 
+    }
 });
