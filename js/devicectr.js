@@ -23,6 +23,7 @@ app.controller("RecordsController", function($scope, $http){
         }).error(function(data, status, headers, config) {
             console.log("error", data, status, headers, config);
         });
+        console.log($scope.currentCategory);
     }
 
     $scope.convert = function(date) {
