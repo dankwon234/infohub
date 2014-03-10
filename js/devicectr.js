@@ -3,7 +3,7 @@ var app = angular.module('Device', []);
 app.controller("RecordsController", function($scope, $http){
 
     $scope.init = function() {
-        deviceID = parseLocation('git', 'devices').identifier;
+        var deviceID = parseLocation('git', 'devices').identifier;
         fetchRecords(deviceID);
     }
 
@@ -36,6 +36,7 @@ app.controller("RecordsController", function($scope, $http){
 app.controller("ConfigController", function($scope, $http){
     $scope.init = function() {
         fetchCategories();
+        fetchDevice();
     }
 
     function fetchCategories () {
@@ -47,6 +48,25 @@ app.controller("ConfigController", function($scope, $http){
             if (confirmation=='success'){
                 $scope.categories = results['categories'];
                 console.log($scope.categories);
+            } else {
+                alert(results['message']);
+            }
+        }).error(function(data, status, headers, config) {
+            console.log("error", data, status, headers, config);
+        });
+    }
+
+    function fetchDevice () {
+        var deviceID = parseLocation('git', 'devices').identifier;
+        // http://zuse-infohub.appspot.com/api/devices/EDE0AFA7-D090-445F-B240-FDFC42CEC323
+        var url = '/api/devices/'+deviceID;
+        $http.get(url)
+        .success(function(data, status, headers, config) {
+            results = data['results'];
+            confirmation = results['confirmation'];
+            if (confirmation=='success'){
+                $scope.templates = results['templates'];
+                console.log(results);
             } else {
                 alert(results['message']);
             }
