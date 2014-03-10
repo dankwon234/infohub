@@ -34,6 +34,8 @@ app.controller("RecordsController", function($scope, $http){
 });
 
 app.controller("ConfigController", function($scope, $http){
+    $scope.currentCategory = '';
+
     $scope.init = function() {
         fetchCategories();
         fetchDevice();
@@ -75,8 +77,8 @@ app.controller("ConfigController", function($scope, $http){
         });
     }
 
-    $scope.selectCategory = function() {
-        console.log('selectCategory----Controller');
+    $scope.selectCategory = function(test) {
+        console.log('selectCategory----Controller'+test);
     }
 
     $scope.addCategory = function() {

@@ -120,10 +120,10 @@
                                     <div class="media comment-item" ng-repeat="category in device.configuration.sequence">
                                         <div id="{{ category }}" class="media-body">
                                             <h4 class="rs comment-author">
-                                                <a style="color:#ea503d" href="#">{{ category }}</a>
+                                                <a style="color:#ea503d" href="" ng-click="selectCategory($scope);">{{ category }}</a>
                                             </h4>
 
-                                            <a ng-repeat="(subcategory, entries) in device.configuration.{{category}}" id="'+id+'" ng-click="" style="margin-left:5px" class="btn btn-blue" href="#">{{ subcategory }}</a> <!-- onclick="return subcategoryTapped(\''+id+'\');" -->
+                                            <!-- <a ng-repeat="(subcategory, entries) in device.configuration.{{category}}" id="'+id+'" ng-click="" style="margin-left:5px" class="btn btn-blue" href="#">{{ subcategory }}</a> <!-- onclick="return subcategoryTapped(\''+id+'\');" --> -->
 
                                             <br />
                                             <a style="color:red" onclick="return removeCategory('+i+');" href="#">remove category</a>
