@@ -86,8 +86,9 @@ app.controller("ConfigController", function($scope, $http){
         console.log('ADD CATEGORY');
     }
 
-    $scope.test = function(index) {
-        console.log($scope.device.configuration);
+    $scope.test = function(categoryName) {
+        var variable = $scope.device.configuration[categoryName]
+        console.log(variable);
         return $scope.device.configuration
         // $scope.device.configuration.
     }
