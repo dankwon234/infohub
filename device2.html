@@ -45,6 +45,12 @@
                             <h3 class="rs alternate-tab accordion-label">Device</h3>
                             <div class="tab-pane accordion-content active">
                                 <div class="form form-profile">
+                                    <!-- DEVICE IMAGE FROM DEVICE INFO SIDEBAR -->
+                                    <img src="DEVICE" alt="img">
+
+
+
+
                                     <form action="#">
                                         <div class="row-item clearfix">
                                             <label class="lbl" for="txt_name1">Device ID:</label>
@@ -165,6 +171,14 @@
                             <h3 class="rs alternate-tab accordion-label">Records</h3>
                             <div class="tab-pane accordion-content">
                                 <div style="min-height:50px" id="records" class="box-list-comment" ng-controller="RecordsController" ng-init="init();">
+                                    <!-- TOTAL RECORDS IN HERE -->
+
+
+
+
+
+
+
                                     <div class="tablecontainer">
                                         <table class="table table-striped">
                                             <thead>
@@ -192,10 +206,10 @@
 
 
 
-        <div id="sidebar" class="sidebar grid_4">
+        <div id="sidebar" class="sidebar grid_4" ng-controller="ConfigController">
             <h2>Selected Category</h2>
             <div id="selectedcategory" class="box-gray project-author">
-              <h4 class="rs pb10">EAT</h4>
+              <h4 class="rs pb10">{{ currentCategory }}</h4>
 
 
 
