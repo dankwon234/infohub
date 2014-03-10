@@ -87,7 +87,7 @@ app.controller("ConfigController", function($scope, $http){
     }
 
     $scope.test = function(index) {
-        console.log(index);
+        console.log($scope.device.configuration[index]);
         return $scope.device.configuration
         // $scope.device.configuration.
     }
