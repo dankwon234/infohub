@@ -110,14 +110,17 @@
                             </div><!--end: .tab-pane -->
                         </div>
 
-                        <div>
+                        <div ng-controller="ConfigController">
                             <h3 class="rs alternate-tab accordion-label">Configuration</h3>
                             <div class="tab-pane accordion-content">
                                 <div id="categories" class="box-list-comment">
+                                    <h2>Selected Category</h2>
 
+                                    <div id="selectedcategory" class="box-gray project-author">
+                                      <h4 class="rs pb10">None</h4>
+                                      <hr />
 
-
-
+                                    </div>
                                 </div>
 
 
@@ -214,18 +217,6 @@
       <hr />
     </div>
   </script>
-
-
-  <script type="text/template" id="configuration">
-            <h2>Selected Category</h2>
-
-            <div id="selectedcategory" class="box-gray project-author">
-              <h4 class="rs pb10">None</h4>
-              <hr />
-
-            </div>
-  </script>
-
 
   <script type="text/template" id="recordsInfo">
             <h2>Records</h2>
