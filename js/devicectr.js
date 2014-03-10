@@ -65,7 +65,7 @@ app.controller("ConfigController", function($scope, $http){
             results = data['results'];
             confirmation = results['confirmation'];
             if (confirmation=='success'){
-                $scope.templates = results['templates'];
+                $scope.device = results['device'];
                 console.log(results);
             } else {
                 alert(results['message']);
@@ -73,6 +73,10 @@ app.controller("ConfigController", function($scope, $http){
         }).error(function(data, status, headers, config) {
             console.log("error", data, status, headers, config);
         });
+    }
+
+    $scope.configKeys = function() {
+        return Object.keys($scope.device.configuration);
     }
 
     // $scope.addCategory = function() {

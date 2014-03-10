@@ -117,8 +117,8 @@
 
 
 
-                                    <div class="media comment-item" ng-repeat="category in categories">
-                                        <div id="{{ category.name }}" class="media-body">
+                                    <div class="media comment-item" ng-repeat="category in configKeys()">
+                                        <div id="{{ category }}" class="media-body">
                                             <h4 class="rs comment-author">
                                                 <a style="color:#ea503d" onClick="return selectCategory(\''+category+'\');" href="#">{{ category.name }}</a>
                                             </h4>
