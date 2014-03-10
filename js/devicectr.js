@@ -76,6 +76,7 @@ app.controller("ConfigController", function($scope, $http){
     }
 
     $scope.configKeys = function() {
+        console.log($scope.device.configuration);
         return Object.keys($scope.device.configuration);
     }
 
