@@ -129,12 +129,25 @@
                                                 <a style="color:#ea503d" href="" ng-click="selectCategory($index);">{{ category }}</a>
                                             </h4>
 
-                                            <a ng-repeat="(sub, entries) in subcategory" id="'+id+'" ng-click="" style="margin-left:5px" class="btn btn-blue" href="#">{{ sub }}</a> <!-- onclick="return subcategoryTapped(\''+id+'\');" -->
+                                            <a ng-repeat="(sub, entries) in subcategory" id="'+id+'" ng-click="" style="margin-left:5px" class="btn btn-blue" href="#">{{ sub }}</a>
 
                                             <br />
                                             <a style="color:red" onclick="return removeCategory('+i+');" href="#">remove category</a>
                                         </div>
                                     </div>
+
+                                    <!-- <div class="media comment-item" ng-repeat="(category, subcategory) in device.configuration">
+                                        <div id="{{ category }}" class="media-body">
+                                            <h4 class="rs comment-author">
+                                                <a style="color:#ea503d" href="" ng-click="selectCategory($index);">{{ category }}</a>
+                                            </h4>
+
+                                            <a ng-repeat="(sub, entries) in subcategory" id="'+id+'" ng-click="" style="margin-left:5px" class="btn btn-blue" href="#">{{ sub }}</a>
+
+                                            <br />
+                                            <a style="color:red" onclick="return removeCategory('+i+');" href="#">remove category</a>
+                                        </div>
+                                    </div> -->
                                 </div>
 
 
