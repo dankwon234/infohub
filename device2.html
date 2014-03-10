@@ -128,9 +128,10 @@
                               <h2>Add Category</h2>
 
                               <select id="addcategory" name="category">
-                                <option value="1234">News</option>
+                                  <option ng-repeat="category in categories" value="{{ category.id }}">{{ category.name }}</option>
+                                <!-- <option value="1234">News</option>
                                 <option value="1234">Entertainment</option>
-                                <option value="1234">News</option>
+                                <option value="1234">News</option> -->
                               </select>
 
                               <br /><br />

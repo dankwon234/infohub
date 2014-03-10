@@ -45,7 +45,6 @@ app.controller("ConfigController", function($scope, $http){
             results = data['results'];
             confirmation = results['confirmation'];
             if (confirmation=='success'){
-                console.log(results)
                 $scope.categories = results['categories'];
             } else {
                 alert(results['message']);
