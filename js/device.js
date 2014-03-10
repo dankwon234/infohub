@@ -30,7 +30,7 @@
     		  categoriesHtml += '<br /><a style="color:red" onclick="return removeCategory('+i+');" href="#">remove category</a>';
     		  categoriesHtml += '</div></div>';
     	  }
-
+// ----------------------------------------------------------------------------------------------------
     	  document.getElementById('categories').innerHTML = categoriesHtml;
 
 

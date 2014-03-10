@@ -47,7 +47,7 @@ app.controller("ConfigController", function($scope, $http){
             confirmation = results['confirmation'];
             if (confirmation=='success'){
                 $scope.categories = results['categories'];
-                console.log($scope.categories);
+                // console.log($scope.categories);
             } else {
                 alert(results['message']);
             }
@@ -66,7 +66,7 @@ app.controller("ConfigController", function($scope, $http){
             confirmation = results['confirmation'];
             if (confirmation=='success'){
                 $scope.device = results['device'];
-                // console.log(results);
+                console.log(results);
             } else {
                 alert(results['message']);
             }
@@ -75,20 +75,12 @@ app.controller("ConfigController", function($scope, $http){
         });
     }
 
-    // $scope.addCategory = function() {
-    //     var url = '/api/device/'+deviceID+'?action=addcategory&category='+categoryId;
-    //     $http.put(url, $scope.category)
-    //     .success(function(data, status, headers, config) {
-    //         results = data['results'];
-    //         confirmation = results['confirmation'];
-    //         if (confirmation=='success'){
-    //             $scope.categories = results['categories'];
-    //         } else {
-    //             alert(results['message']);
-    //         }
-    //     }).error(function(data, status, headers, config) {
-    //         console.log("error", data, status, headers, config);
-    //     });
-    // }
+    $scope.selectCategory = function() {
+        console.log('selectCategory----Controller');
+    }
+
+    $scope.addCategory = function() {
+        console.log('ADD CATEGORY');
+    }
 
 });
