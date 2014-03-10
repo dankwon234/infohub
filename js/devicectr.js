@@ -78,7 +78,8 @@ app.controller("ConfigController", function($scope, $http){
     }
 
     $scope.selectCategory = function(index) {
-        console.log('selectCategory----Controller'+index);
+        $scope.currentCategory = $scope.device.configuration.sequence[index];
+        console.log('selectCategory----Controller'+$scope.currentCategory);
     }
 
     $scope.addCategory = function() {
