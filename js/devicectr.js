@@ -35,6 +35,23 @@ app.controller("RecordsController", function($scope, $http){
 
 app.controller("ConfigController", function($scope, $http){
     $scope.init = function() {
+        fetchCategories();
+    }
 
+    function fetchCategories () {
+        var url = '/api/categories';
+        $http.get(url)
+        .success(function(data, status, headers, config) {
+            results = data['results'];
+            confirmation = results['confirmation'];
+            if (confirmation=='success'){
+                console.log(results)
+                // $scope.categories = results['records'];
+            } else {
+                alert(results['message']);
+            }
+        }).error(function(data, status, headers, config) {
+            console.log("error", data, status, headers, config);
+        });
     }
 });
