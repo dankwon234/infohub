@@ -1,10 +1,9 @@
-deviceID = parseLocation('git', 'devices').identifier;
-
 var app = angular.module('Device', []);
 
 app.controller("RecordsController", function($scope, $http){
 
     $scope.init = function() {
+        deviceID = parseLocation('git', 'devices').identifier;
         fetchRecords(deviceID);
     }
 
