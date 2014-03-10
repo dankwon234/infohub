@@ -32,3 +32,7 @@ app.controller("RecordsController", function($scope, $http){
     }
 
 });
+
+app.controller("ConfigController", function($scope, $http){
+
+});
