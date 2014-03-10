@@ -46,7 +46,7 @@ app.controller("ConfigController", function($scope, $http){
             confirmation = results['confirmation'];
             if (confirmation=='success'){
                 console.log(results)
-                // $scope.categories = results['records'];
+                $scope.categories = results['categories'];
             } else {
                 alert(results['message']);
             }
