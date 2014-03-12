@@ -108,12 +108,12 @@ app.controller("ConfigController", function($scope, $http, sidebar){
         if (entry == null) {
             console.log(subcategory);
             // currentSelectedEntry = subcategory;
-            popup('/site/entries?action=select');
+            $scope.popup('/site/entries?action=select');
         } else {
             console.log('Show Entries');
             // currentSelectedEntry = entry;
 
-            popup('/site/entries?action=select');
+            $scope.popup('/site/entries?action=select');
         }
         return false;
     }
