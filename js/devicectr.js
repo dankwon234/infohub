@@ -87,7 +87,11 @@ app.controller("ConfigController", function($scope, $http, sidebar){
 
     $scope.returnCategory = function(n) {
         if (n = "name") {
-            return Object.keys(sidebar.currentCategory)[0];
+            if (sidebar.currentCategory == undefined) {
+                return '';
+            } else {
+                return Object.keys(sidebar.currentCategory)[0];
+            }
         }
         return sidebar.currentCategory;
     }
