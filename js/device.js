@@ -534,19 +534,20 @@
           return false;
       }
 
-      function showEntries(entry, subcategory){
-          if (entry == null) {
-              console.log(subcategory);
-              currentSelectedEntry = subcategory;
-              popup('/site/entries?action=select');
-          } else {
-              console.log('Show Entries');
-              currentSelectedEntry = entry;
-
-              popup('/site/entries?action=select');
-          }
-          return false;
-      }
+      // ============================== DONE ============================== // -- Look at popup.js
+      // function showEntries(entry, subcategory){
+      //     if (entry == null) {
+      //         console.log(subcategory);
+      //         currentSelectedEntry = subcategory;
+      //         popup('/site/entries?action=select');
+      //     } else {
+      //         console.log('Show Entries');
+      //         currentSelectedEntry = entry;
+      //
+      //         popup('/site/entries?action=select');
+      //     }
+      //     return false;
+      // }
 
       function showIcons(){
     	  console.log('Show Icons');
@@ -585,10 +586,11 @@
 		  return;
       }
 
-        function popup(url) {
-          	newwindow = window.open(url,'name','height=450,width=900');
-          	if (window.focus) {
-          		newwindow.focus();
-          	}
-          	return false;
-        }
+        // ============================== DONE ============================== //
+        // function popup(url) {
+        //       newwindow = window.open(url,'name','height=450,width=900');
+        //       if (window.focus) {
+        //           newwindow.focus();
+        //       }
+        //       return false;
+        // }

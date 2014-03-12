@@ -112,10 +112,14 @@ app.controller("ConfigController", function($scope, $http, sidebar){
         } else {
             console.log('Show Entries');
             // currentSelectedEntry = entry;
-
             $scope.popup('/site/entries?action=select');
         }
         return false;
+    }
+
+    $scope.selectEntry = function(id) {
+        // sidebar.currentCategory[] sidebar.categoryName
+        console.log(sidebar.currentCategory);
     }
 
     $scope.popup = function(url) {
