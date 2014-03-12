@@ -8,7 +8,6 @@ app.controller("RecordsController", function($scope, $http){
     }
 
     function fetchRecords (deviceID) {
-        console.log(deviceID);
         var url = '/api/records?device=' + deviceID;
         $http.get(url)
         .success(function(data, status, headers, config) {
