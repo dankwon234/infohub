@@ -52,7 +52,6 @@ app.controller("ConfigController", function($scope, $http, sidebar){
             confirmation = results['confirmation'];
             if (confirmation=='success'){
                 $scope.categories = results['categories'];
-                // console.log($scope.categories);
             } else {
                 alert(results['message']);
             }
@@ -63,7 +62,6 @@ app.controller("ConfigController", function($scope, $http, sidebar){
 
     function fetchDevice () {
         var deviceID = parseLocation('git', 'devices').identifier;
-        // http://zuse-infohub.appspot.com/api/devices/EDE0AFA7-D090-445F-B240-FDFC42CEC323
         var url = '/api/devices/'+deviceID;
         $http.get(url)
         .success(function(data, status, headers, config) {
@@ -71,7 +69,6 @@ app.controller("ConfigController", function($scope, $http, sidebar){
             confirmation = results['confirmation'];
             if (confirmation=='success'){
                 $scope.device = results['device'];
-                console.log(results);
             } else {
                 alert(results['message']);
             }
@@ -88,14 +85,6 @@ app.controller("ConfigController", function($scope, $http, sidebar){
 
     $scope.returnCategory = function(n) {
         return sidebar.currentCategory;
-
-        // if (n = "name") {
-        //     if (sidebar.currentCategory == undefined) {
-        //         return '';
-        //     } else {
-        //         return Object.keys(sidebar.currentCategory)[0];
-        //     }
-        // } else {
     }
 
     $scope.addCategory = function() {
@@ -105,7 +94,6 @@ app.controller("ConfigController", function($scope, $http, sidebar){
     $scope.getSubCategories = function(categoryName) {
         var order = $scope.device.configuration[categoryName].order;
         return order;
-        // $scope.device.configuration.
     }
 
     $scope.getEntries = function(subcategoryName) {
