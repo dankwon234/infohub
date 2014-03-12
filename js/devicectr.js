@@ -120,7 +120,8 @@ app.controller("ConfigController", function($scope, $http, sidebar){
 
     $scope.removeEntry = function(sub, entry) {
         console.log('removing: '+sub+", "+entry+"...");
-        $scope.getEntries(sub).splice(entry, 1);
+        // $scope.getEntries(sub).splice(entry, 1);
+        console.log($scope.getEntries(sub));
         console.log('removed');
     }
 
