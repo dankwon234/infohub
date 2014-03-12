@@ -82,6 +82,7 @@ app.controller("ConfigController", function($scope, $http, sidebar){
 
     $scope.selectCategory = function(index) {
         var current = $scope.device.configuration.sequence[index];
+        sidebar.categoryName = current;
         sidebar.currentCategory = $scope.device.configuration[current];
     }
 
@@ -113,11 +114,6 @@ app.controller("ConfigController", function($scope, $http, sidebar){
     }
 
     $scope.returnCategoryName = function() {
-        if (sidebar.currentCategory != undefined) {
-            console.log(sidebar.currentCategory);
-            console.log($scope.device.configuration.sequence);
-            return "test";
-            // return Object.keys(sidebar.currentCategory);
-        }
+        return sidebar.categoryName;
     }
 });
