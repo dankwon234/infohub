@@ -86,7 +86,7 @@ app.controller("ConfigController", function($scope, $http){
         console.log('ADD CATEGORY');
     }
 
-    $scope.test = function(categoryName) {
+    $scope.getSubCategories = function(categoryName) {
         var order = $scope.device.configuration[categoryName].order;
         return order
         // $scope.device.configuration.
