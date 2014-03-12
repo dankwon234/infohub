@@ -92,8 +92,9 @@ app.controller("ConfigController", function($scope, $http, sidebar){
             } else {
                 return Object.keys(sidebar.currentCategory)[0];
             }
+        } else {
+            return sidebar.currentCategory;
         }
-        return sidebar.currentCategory;
     }
 
     $scope.addCategory = function() {
