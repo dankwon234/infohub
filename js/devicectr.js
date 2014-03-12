@@ -114,7 +114,10 @@ app.controller("ConfigController", function($scope, $http, sidebar){
 
     $scope.returnCategoryName = function() {
         if (sidebar.currentCategory != undefined) {
-            return Object.keys(sidebar.currentCategory)[0];
+            console.log(sidebar.currentCategory);
+            console.log($scope.device.configuration.sequence);
+            return "test";
+            // return Object.keys(sidebar.currentCategory);
         }
     }
 });
