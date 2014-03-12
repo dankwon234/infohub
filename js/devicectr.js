@@ -90,11 +90,14 @@ app.controller("ConfigController", function($scope, $http, sidebar){
 
     $scope.returnCategory = function(input) {
         switch(input) {
-            case "test":
-                return "test";
+            case "name":
+                return sidebar.currentCategory;
                 break;
-            case "hello":
-                return "hello";
+            case "object":
+                return {
+                    test: "hello",
+                    object: "world"
+                };
                 break;
             default:
                 return sidebar.currentCategory;
