@@ -85,23 +85,13 @@ app.controller("ConfigController", function($scope, $http, sidebar){
         $scope.currentCategory = $scope.device.configuration.sequence[index];
 
         sidebar.currentCategory = $scope.currentCategory;
+
         console.log('selectCategory----Controller'+$scope.currentCategory);
+        console.log($scope.device.configuration);
     }
 
-    $scope.returnCategory = function(input) {
-        switch(input) {
-            case "name":
-                return sidebar.currentCategory;
-                break;
-            case "object":
-                return {
-                    test: "hello",
-                    object: "world"
-                };
-                break;
-            default:
-                return sidebar.currentCategory;
-        }
+    $scope.returnCategory = function() {
+        return sidebar.currentCategory;
     }
 
     $scope.addCategory = function() {
