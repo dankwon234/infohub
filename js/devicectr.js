@@ -85,7 +85,10 @@ app.controller("ConfigController", function($scope, $http, sidebar){
         sidebar.currentCategory = $scope.device.configuration[current];
     }
 
-    $scope.returnCategory = function() {
+    $scope.returnCategory = function(n) {
+        if (n = "name") {
+            return Object.keys(sidebar.currentCategory)[0];
+        }
         return sidebar.currentCategory;
     }
 
