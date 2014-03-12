@@ -95,7 +95,12 @@ app.controller("ConfigController", function($scope, $http, sidebar){
 
     $scope.getSubCategories = function(categoryName) {
         var order = $scope.device.configuration[categoryName].order;
-        return order
+        return order;
         // $scope.device.configuration.
+    }
+
+    $scope.getEntries = function(subcategoryName) {
+        var entries = sidebar.currentCategory[subcategoryName];
+        return entries;
     }
 });
