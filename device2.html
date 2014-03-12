@@ -231,13 +231,13 @@
                         (click icon to change)
                     </div>
 
-                    <div ng-repeat="subcategory in returnCategory().order"><!-- ng-repeat -->
+                    <div ng-repeat="subcategory in returnCategory().order">
                         <p style="margin-top:20px" class="rs fc-gray">
-                            <input id="EAT-0" class="subcategoryinput" type="text" value="Restaurants">
+                            <input id="" class="subcategoryinput" type="text" value="{{ subcategory }}">
                         </p>
                         <div class="subcategory" id="Restaurants">
                             <div ng-repeat="entry in getEntries(subcategory)">
-                                <a href="" id="Restaurants-0" onclick="return showEntries(this.id);">59063764</a>
+                                <a href="" id="" onclick="return showEntries(this.id);">{{ entry }}</a>
                                 <button style="float:right;" onclick="return removeEntry(this.previousSibling.id)">x</button><br><br>
                             </div>
 
