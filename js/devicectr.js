@@ -84,7 +84,7 @@ app.controller("ConfigController", function($scope, $http, sidebar){
     $scope.selectCategory = function(index) {
         $scope.currentCategory = $scope.device.configuration.sequence[index];
 
-        sidebar.currentCategory = $scope.currentCategory;
+        sidebar.currentCategory = $scope.device.configuration.index;
 
         console.log('selectCategory----Controller'+$scope.currentCategory);
         console.log($scope.device.configuration);
