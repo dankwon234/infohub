@@ -111,4 +111,10 @@ app.controller("ConfigController", function($scope, $http, sidebar){
         var entries = sidebar.currentCategory[subcategoryName];
         return entries;
     }
+
+    $scope.returnCategoryName = function() {
+        if (sidebar.currentCategory != undefined) {
+            return Object.keys(sidebar.currentCategory)[0];
+        }
+    }
 });
