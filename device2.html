@@ -209,7 +209,7 @@
                             <div class="subcategory" id="Restaurants">
                                 <div ng-repeat="entry in getEntries(subcategory)">
                                     <a href="" ng-click="showEntries(entry)">{{ entry }}</a>
-                                    <button style="float:right;">x</button><br><br> <!--onclick="return removeEntry(this.previousSibling.id)"-->
+                                    <button style="float:right;" ng-click="removeEntry(subcategory, entry)">x</button><br><br>
                                 </div>
                                 <button ng-click="showEntries(null, subcategory)">Add</button>
                             </div>

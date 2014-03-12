@@ -1,4 +1,5 @@
 var app = angular.module('Device', []);
+var currentCategory;
 
 app.controller("RecordsController", function($scope, $http){
 
@@ -117,6 +118,12 @@ app.controller("ConfigController", function($scope, $http, sidebar){
         return false;
     }
 
+    $scope.removeEntry = function(sub, entry) {
+        console.log('removing: '+sub+", "+entry+"...");
+        getEntries(sub).splice(entry, 1);
+        console.log('removed');
+    }
+
     $scope.popup = function(url) {
       	newwindow = window.open(url,'name','height=450,width=900');
       	if (window.focus) {
@@ -129,5 +136,5 @@ app.controller("ConfigController", function($scope, $http, sidebar){
 function selectEntry (id) {
     // sidebar.currentCategory[] sidebar.categoryName
     console.log(id);
-    console.log(sidebar.currentCategory);
+    console.log(currentCategory);
 }
