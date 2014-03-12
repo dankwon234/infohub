@@ -86,15 +86,15 @@ app.controller("ConfigController", function($scope, $http, sidebar){
     }
 
     $scope.returnCategory = function(n) {
-        if (n = "name") {
-            if (sidebar.currentCategory == undefined) {
-                return '';
-            } else {
-                return Object.keys(sidebar.currentCategory)[0];
-            }
-        } else {
-            return sidebar.currentCategory;
-        }
+        return sidebar.currentCategory;
+
+        // if (n = "name") {
+        //     if (sidebar.currentCategory == undefined) {
+        //         return '';
+        //     } else {
+        //         return Object.keys(sidebar.currentCategory)[0];
+        //     }
+        // } else {
     }
 
     $scope.addCategory = function() {
