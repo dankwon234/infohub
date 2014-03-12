@@ -82,12 +82,12 @@ app.controller("ConfigController", function($scope, $http, sidebar){
     }
 
     $scope.selectCategory = function(index) {
-        $scope.currentCategory = $scope.device.configuration.sequence[index];
+        var currentCategory = $scope.device.configuration.sequence[index];
 
-        sidebar.currentCategory = $scope.device.configuration.index;
+        sidebar.currentCategory = $scope.device.configuration.currentCategory;
 
         console.log('selectCategory----Controller '+$scope.currentCategory);
-        console.log($scope.device.configuration.GO);
+        console.log($scope.device.configuration.currentCategory);
     }
 
     $scope.returnCategory = function() {
