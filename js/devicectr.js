@@ -88,7 +88,7 @@ app.controller("ConfigController", function($scope, $http, sidebar){
         sidebar.currentCategory = $scope.device.configuration.currentCategory;
 
         console.log('selectCategory----Controller '+$scope.currentCategory);
-        console.log($scope.device.configuration.test);
+        console.log($scope.device.configuration[test]);
     }
 
     $scope.returnCategory = function() {
