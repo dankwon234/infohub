@@ -117,11 +117,6 @@ app.controller("ConfigController", function($scope, $http, sidebar){
         return false;
     }
 
-    function selectEntry (id) {
-        // sidebar.currentCategory[] sidebar.categoryName
-        console.log(sidebar.currentCategory);
-    }
-
     $scope.popup = function(url) {
       	newwindow = window.open(url,'name','height=450,width=900');
       	if (window.focus) {
@@ -130,3 +125,9 @@ app.controller("ConfigController", function($scope, $http, sidebar){
       	return false;
     }
 });
+
+function selectEntry (id) {
+    // sidebar.currentCategory[] sidebar.categoryName
+    console.log(id);
+    console.log(sidebar.currentCategory);
+}
