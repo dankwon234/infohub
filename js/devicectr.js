@@ -88,8 +88,8 @@ app.controller("ConfigController", function($scope, $http, sidebar){
         console.log('selectCategory----Controller'+$scope.currentCategory);
     }
 
-    $scope.returnCategory = function() {
-        switch(n) {
+    $scope.returnCategory = function(input) {
+        switch(input) {
             case "test":
                 return "test";
                 break;
