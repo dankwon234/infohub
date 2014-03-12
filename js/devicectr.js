@@ -103,4 +103,26 @@ app.controller("ConfigController", function($scope, $http, sidebar){
     $scope.returnCategoryName = function() {
         return sidebar.categoryName;
     }
+
+    $scope.showEntries = function(entry, subcategory) {
+        if (entry == null) {
+            console.log(subcategory);
+            // currentSelectedEntry = subcategory;
+            popup('/site/entries?action=select');
+        } else {
+            console.log('Show Entries');
+            // currentSelectedEntry = entry;
+
+            popup('/site/entries?action=select');
+        }
+        return false;
+    }
+
+    $scope.popup = function(url) {
+      	newwindow = window.open(url,'name','height=450,width=900');
+      	if (window.focus) {
+      		newwindow.focus();
+      	}
+      	return false;
+    }
 });
