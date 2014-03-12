@@ -22,214 +22,213 @@
     </style>
 </head>
 <body ng-app="Device"><!--onload="return showSection('device')" -->
-<div id="wrapper">
-  {{header}}
+    <div id="wrapper">
+      {{header}}
 
-    <div class="layout-2cols">
-        <div class="content grid_8">
-            <div class="project-detail">
-                <div class="project-tab-detail tabbable accordion">
-                    <ul class="nav nav-tabs clearfix">
-                      <li class="active"><a href="#">Device</a></li> <!--onclick="return showSection('device');"-->
-                      <li><a href="#" class="be-fc-orange">Configuration</a></li>
-                      <li><a href="#" class="be-fc-orange">Records</a></li>
-                    </ul>
-
-
-                    <div class="tab-content">
-
-                        <div>
-                            <h3 class="rs alternate-tab accordion-label">Device</h3>
-                            <div class="tab-pane accordion-content active">
-                                <div class="form form-profile">
-                                    <!-- DEVICE IMAGE FROM DEVICE INFO SIDEBAR -->
-                                    <img src="DEVICE" alt="img">
+        <div class="layout-2cols">
+            <div class="content grid_8">
+                <div class="project-detail">
+                    <div class="project-tab-detail tabbable accordion">
+                        <ul class="nav nav-tabs clearfix">
+                          <li class="active"><a href="#">Device</a></li> <!--onclick="return showSection('device');"-->
+                          <li><a href="#" class="be-fc-orange">Configuration</a></li>
+                          <li><a href="#" class="be-fc-orange">Records</a></li>
+                        </ul>
 
 
+                        <div class="tab-content">
+
+                            <div>
+                                <h3 class="rs alternate-tab accordion-label">Device</h3>
+                                <div class="tab-pane accordion-content active">
+                                    <div class="form form-profile">
+                                        <!-- DEVICE IMAGE FROM DEVICE INFO SIDEBAR -->
+                                        <img src="DEVICE" alt="img">
 
 
-                                    <form action="#">
-                                        <div class="row-item clearfix">
-                                            <label class="lbl" for="txt_name1">Device ID:</label>
-                                            <div class="val">
-                                                <input style="color:#888" class="txt txt-website" type="text" id="uuid" value="{{uuid}}" disabled>
+
+
+                                        <form action="#">
+                                            <div class="row-item clearfix">
+                                                <label class="lbl" for="txt_name1">Device ID:</label>
+                                                <div class="val">
+                                                    <input style="color:#888" class="txt txt-website" type="text" id="uuid" value="{{uuid}}" disabled>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row-item clearfix">
-                                            <label class="lbl" for="txt_name1">Name:</label>
-                                            <div class="val">
-                                                <input class="txt txt-website" type="text" id="name" value="{{name}}">
+                                            <div class="row-item clearfix">
+                                                <label class="lbl" for="txt_name1">Name:</label>
+                                                <div class="val">
+                                                    <input class="txt txt-website" type="text" id="name" value="{{name}}">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row-item clearfix">
-                                            <label class="lbl" for="txt_location">Latitude:</label>
-                                            <div class="val">
-                                                <input class="txt txt-website" type="text" id="latitude" value="{{latitude}}">
+                                            <div class="row-item clearfix">
+                                                <label class="lbl" for="txt_location">Latitude:</label>
+                                                <div class="val">
+                                                    <input class="txt txt-website" type="text" id="latitude" value="{{latitude}}">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row-item clearfix">
-                                            <label class="lbl" for="txt_location">Longitude:</label>
-                                            <div class="val">
-                                                <input class="txt txt-website" type="text" id="longitude" value="{{longitude}}">
+                                            <div class="row-item clearfix">
+                                                <label class="lbl" for="txt_location">Longitude:</label>
+                                                <div class="val">
+                                                    <input class="txt txt-website" type="text" id="longitude" value="{{longitude}}">
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="row-item clearfix">
-                                            <label class="lbl" for="txt_location">Image URL:</label>
-                                            <div class="val">
-                                                <input class="txt txt-website" type="text" id="image" value="{{image}}">
+                                            <div class="row-item clearfix">
+                                                <label class="lbl" for="txt_location">Image URL:</label>
+                                                <div class="val">
+                                                    <input class="txt txt-website" type="text" id="image" value="{{image}}">
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="row-item clearfix">
-                                            <label class="lbl" for="txt_web">Venue:</label>
-                                            <div class="val">
-                                                <input type="hidden" id="venue id" value="111">
-												<select style="margin-top:8px" id="venues" name="venue" onchange="updateVenue();">
-												  {{venueList}}
-												</select>
+                                            <div class="row-item clearfix">
+                                                <label class="lbl" for="txt_web">Venue:</label>
+                                                <div class="val">
+                                                    <input type="hidden" id="venue id" value="111">
+    												<select style="margin-top:8px" id="venues" name="venue" onchange="updateVenue();">
+    												  {{venueList}}
+    												</select>
 
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="row-item clearfix">
-                                            <label class="lbl" for="txt_location">Live:</label>
-                                            <div id="radio" class="val">
-                                                <input onchange="return radioChanged(this);" style="margin-right:5px" type="radio" name="isLive" value="yes"><label style="vertical-align:middle">YES</label><br />
-                                                <input onchange="return radioChanged(this);" style="margin-right:5px" type="radio" name="isLive" value="no"><label style="vertical-align:middle">NO</label>
+                                            <div class="row-item clearfix">
+                                                <label class="lbl" for="txt_location">Live:</label>
+                                                <div id="radio" class="val">
+                                                    <input onchange="return radioChanged(this);" style="margin-right:5px" type="radio" name="isLive" value="yes"><label style="vertical-align:middle">YES</label><br />
+                                                    <input onchange="return radioChanged(this);" style="margin-right:5px" type="radio" name="isLive" value="no"><label style="vertical-align:middle">NO</label>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="row-item clearfix">
-                                            <div class="val">
-                                            <button style="width:55%" class="btn btn-blue btn-submit-all">Save</button> <!--onClick="return updateDevice();"-->
+                                            <div class="row-item clearfix">
+                                                <div class="val">
+                                                <button style="width:55%" class="btn btn-blue btn-submit-all">Save</button> <!--onClick="return updateDevice();"-->
+                                                </div>
                                             </div>
-                                        </div>
-                                    </form>
+                                        </form>
 
-                                      <button style="width:100%" class="btn btn-red btn-submit-all">Delete Device</button> <!--onclick="return deleteDevice();"-->
+                                          <button style="width:100%" class="btn btn-red btn-submit-all">Delete Device</button> <!--onclick="return deleteDevice();"-->
 
-                                </div>
-                            </div><!--end: .tab-pane -->
-                        </div>
+                                    </div>
+                                </div><!--end: .tab-pane -->
+                            </div>
 
-                        <div ng-controller="ConfigController" ng-init="init();">
-                            <h3 class="rs alternate-tab accordion-label">Configuration</h3>
-                            <div class="tab-pane accordion-content">
-                                <div id="categories" class="box-list-comment">
-                                    <div class="media comment-item" ng-repeat="categoryName in device.configuration.sequence">
-                                        <div id="{{ categoryName }}" class="media-body">
-                                            <h4 class="rs comment-author">
-                                                <a style="color:#ea503d" href="" ng-click="selectCategory($index);">{{ categoryName }}</a>
-                                            </h4>
+                            <div ng-controller="ConfigController" ng-init="init();">
+                                <h3 class="rs alternate-tab accordion-label">Configuration</h3>
+                                <div class="tab-pane accordion-content">
+                                    <div id="categories" class="box-list-comment">
+                                        <div class="media comment-item" ng-repeat="categoryName in device.configuration.sequence">
+                                            <div id="{{ categoryName }}" class="media-body">
+                                                <h4 class="rs comment-author">
+                                                    <a style="color:#ea503d" href="" ng-click="selectCategory($index);">{{ categoryName }}</a>
+                                                </h4>
 
-                                            <a ng-repeat="sub in getSubCategories(categoryName)" style="margin-left:5px" class="btn btn-blue" href="#">{{ sub }}</a>
+                                                <a ng-repeat="sub in getSubCategories(categoryName)" style="margin-left:5px" class="btn btn-blue" href="#">{{ sub }}</a>
 
-                                            <br />
-                                            <a style="color:red" href="#">remove category</a> <!--onclick="return removeCategory('+i+');"-->
+                                                <br />
+                                                <a style="color:red" href="#">remove category</a> <!--onclick="return removeCategory('+i+');"-->
+                                            </div>
                                         </div>
                                     </div>
+
+
+                                <div style="margin-top:20px;border-top:1px dotted #888;padding:25px">
+                                  <h2>Add Category</h2>
+
+                                  <select id="addcategory" name="category">
+                                      <option ng-repeat="category in categories" value="{{ category.id }}">{{ category.name }}</option>
+                                  </select>
+
+                                  <br /><br />
+                                  <input type="submit" class="btn btn-red" value="Add Category" /> <!--onclick="return addCategory();"-->
                                 </div>
 
 
-                            <div style="margin-top:20px;border-top:1px dotted #888;padding:25px">
-                              <h2>Add Category</h2>
 
-                              <select id="addcategory" name="category">
-                                  <option ng-repeat="category in categories" value="{{ category.id }}">{{ category.name }}</option>
-                              </select>
+                                <div style="margin-top:20px;border-top:1px dotted #888;padding:25px">
+                                  <h2>Clone Device</h2>
 
-                              <br /><br />
-                              <input type="submit" class="btn btn-red" value="Add Category" /> <!--onclick="return addCategory();"-->
+                                  <form action="/site/devices" method="POST">
+                                    {{deviceList}}
+                                    <input type="hidden" name="receiver" value="{{uuid}}" />
+                                    <input type="hidden" name="action" value="clone" />
+                                    <br />
+                                    <input onclick="return confirm('Are You Sure?');" type="submit" class="btn btn-red" value="Clone" />
+                                  </form>
+                                </div>
+
+
+                                </div><!--end: .tab-pane -->
                             </div>
 
-
-
-                            <div style="margin-top:20px;border-top:1px dotted #888;padding:25px">
-                              <h2>Clone Device</h2>
-
-                              <form action="/site/devices" method="POST">
-                                {{deviceList}}
-                                <input type="hidden" name="receiver" value="{{uuid}}" />
-                                <input type="hidden" name="action" value="clone" />
-                                <br />
-                                <input onclick="return confirm('Are You Sure?');" type="submit" class="btn btn-red" value="Clone" />
-                              </form>
-                            </div>
-
-
-                            </div><!--end: .tab-pane -->
-                        </div>
-
-                        <div>
-                            <h3 class="rs alternate-tab accordion-label">Records</h3>
-                            <div class="tab-pane accordion-content">
-                                <div style="min-height:50px" id="records" class="box-list-comment" ng-controller="RecordsController" ng-init="init();">
-                                    <div class="tablecontainer">
-                                        <h4>{{ numRecords }} Total Records</h4>
-                                        <table class="table table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <td><strong>Date</strong></td>
-                                                    <td><strong>Duration</strong></td>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr ng-repeat="record in records">
-                                                    <td>{{ convert(record.date) }}</td>
-                                                    <td>{{ record.duration }}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                            <div>
+                                <h3 class="rs alternate-tab accordion-label">Records</h3>
+                                <div class="tab-pane accordion-content">
+                                    <div style="min-height:50px" id="records" class="box-list-comment" ng-controller="RecordsController" ng-init="init();">
+                                        <div class="tablecontainer">
+                                            <h4>{{ numRecords }} Total Records</h4>
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <td><strong>Date</strong></td>
+                                                        <td><strong>Duration</strong></td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="record in records">
+                                                        <td>{{ convert(record.date) }}</td>
+                                                        <td>{{ record.duration }}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
-                                </div>
-                            </div><!--end: .tab-pane -->
-                        </div>
-
-                      </div>
-                </div><!--end: .project-tab-detail -->
-            </div>
-        </div><!--end: .content -->
-
-        <div id="sidebar" class="sidebar grid_4" ng-controller="ConfigController">
-            <h2>Selected Category</h2>
-            <div id="selectedcategory" class="box-gray project-author">
-              <h4 class="rs pb10">{{ returnCategoryName() }}</h4>
-                    <hr>
-                    <div style="background-color:#999;border-radius:3px;text-align:center;padding:5px">
-                        <strong>Icon</strong><br>
-                        <a href="#"><img src="{{ returnCategory().icon }}"></a><br> <!-- onclick="return showIcons();" -->
-                        (click icon to change)
-                    </div>
-
-                    <div ng-repeat="subcategory in returnCategory().order">
-                        <p style="margin-top:20px" class="rs fc-gray">
-                            <input id="" class="subcategoryinput" type="text" value="{{ subcategory }}">
-                        </p>
-                        <div class="subcategory" id="Restaurants">
-                            <div ng-repeat="entry in getEntries(subcategory)">
-                                <a href="" id="">{{ entry }}</a> <!--onclick="return showEntries(this.id);"-->
-                                <button style="float:right;">x</button><br><br> <!--onclick="return removeEntry(this.previousSibling.id)"-->
+                                </div><!--end: .tab-pane -->
                             </div>
 
-                            <button id="Restaurants-10">Add</button> <!--onclick="return showEntries(null, this.id)"-->
+                          </div>
+                    </div><!--end: .project-tab-detail -->
+                </div>
+            </div><!--end: .content -->
+
+            <div id="sidebar" class="sidebar grid_4" ng-controller="ConfigController">
+                <h2>Selected Category</h2>
+                <div id="selectedcategory" class="box-gray project-author">
+                  <h4 class="rs pb10">{{ returnCategoryName() }}</h4>
+                        <hr>
+                        <div style="background-color:#999;border-radius:3px;text-align:center;padding:5px">
+                            <strong>Icon</strong><br>
+                            <a href="#"><img src="{{ returnCategory().icon }}"></a><br> <!-- onclick="return showIcons();" -->
+                            (click icon to change)
                         </div>
-                    </div>
-                    <br>
-                    <div class="val">
-                        <button style="width:100%" class="btn btn-blue btn-submit-all">Commit</button> <!--onclick="return commitCategory('EAT');"-->
-                    </div>
 
-            </div><!--end: .project-author -->
+                        <div ng-repeat="subcategory in returnCategory().order">
+                            <p style="margin-top:20px" class="rs fc-gray">
+                                <input id="" class="subcategoryinput" type="text" value="{{ subcategory }}">
+                            </p>
+                            <div class="subcategory" id="Restaurants">
+                                <div ng-repeat="entry in getEntries(subcategory)">
+                                    <a href="" id="">{{ entry }}</a> <!--onclick="return showEntries(this.id);"-->
+                                    <button style="float:right;">x</button><br><br> <!--onclick="return removeEntry(this.previousSibling.id)"-->
+                                </div>
+                                <button id="Restaurants-10">Add</button> <!--onclick="return showEntries(null, this.id)"-->
+                            </div>
+                        </div>
+                        <br>
+                        <div class="val">
+                            <button style="width:100%" class="btn btn-blue btn-submit-all">Commit</button> <!--onclick="return commitCategory('EAT');"-->
+                        </div>
 
-        </div><!--end: .sidebar -->
+                </div><!--end: .project-author -->
 
-        <div class="clear"></div>
+            </div><!--end: .sidebar -->
+
+            <div class="clear"></div>
+        </div>
+
+        {{footer}}
+
     </div>
-
-    {{footer}}
-
-</div>
 
     <script src="/site/js/moment.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>

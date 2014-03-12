@@ -82,7 +82,7 @@ app.controller("ConfigController", function($scope, $http, sidebar){
         sidebar.currentCategory = $scope.device.configuration[current];
     }
 
-    $scope.returnCategory = function(n) {
+    $scope.returnCategory = function() {
         return sidebar.currentCategory;
     }
 
