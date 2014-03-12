@@ -34,7 +34,7 @@ app.controller("RecordsController", function($scope, $http){
 });
 
 app.service('sidebar', function() {
-    this.currentCategory = {};
+    this.currentCategory = null;
 });
 
 app.controller("ConfigController", function($scope, $http, sidebar){
@@ -89,7 +89,16 @@ app.controller("ConfigController", function($scope, $http, sidebar){
     }
 
     $scope.returnCategory = function() {
-        return sidebar.currentCategory;
+        switch(n) {
+            case "test":
+                return "test";
+                break;
+            case "hello":
+                return "hello";
+                break;
+            default:
+                return sidebar.currentCategory;
+        }
     }
 
     $scope.addCategory = function() {

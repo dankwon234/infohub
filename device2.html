@@ -222,36 +222,33 @@
         <div id="sidebar" class="sidebar grid_4" ng-controller="ConfigController">
             <h2>Selected Category</h2>
             <div id="selectedcategory" class="box-gray project-author">
-              <h4 class="rs pb10">{{ currentCategory }}</h4>
-              <h4 class="rs pb10">{{ returnCategory() }}</h4>
+              <h4 class="rs pb10">{{ returnCategory('hello') }}</h4>
+              <h4 class="rs pb10">{{ returnCategory('test') }}</h4>
 
+<!--                     <hr>
+                    <div style="background-color:#999;border-radius:3px;text-align:center;padding:5px">
+                        <strong>Icon</strong><br>
+                        <a onclick="return showIcons();" href="#"><img src=""></a><br>
+                        (click icon to change)
+                    </div>
 
+                    <div ng-repeat>
+                        <p style="margin-top:20px" class="rs fc-gray">
+                            <input id="EAT-0" class="subcategoryinput" type="text" value="Restaurants">
+                        </p>
+                        <div class="subcategory" id="Restaurants">
+                            <div ng-repeat>
+                                <a href="" id="Restaurants-0" onclick="return showEntries(this.id);">59063764</a>
+                                <button style="float:right;" onclick="return removeEntry(this.previousSibling.id)">x</button><br><br>
+                            </div>
 
-
-<hr>
-<!-- <div style="background-color:#999;border-radius:3px;text-align:center;padding:5px">
-    <strong>Icon</strong><br>
-    <a onclick="return showIcons();" href="#"><img src="/site/images/none?crop=80"></a><br>
-    (click icon to change)
-</div>
-
-<div ng-repeat>
-    <p style="margin-top:20px" class="rs fc-gray">
-        <input id="EAT-0" class="subcategoryinput" type="text" value="Restaurants">
-    </p>
-    <div class="subcategory" id="Restaurants">
-        <div ng-repeat>
-            <a href="" id="Restaurants-0" onclick="return showEntries(this.id);">59063764</a>
-            <button style="float:right;" onclick="return removeEntry(this.previousSibling.id)">x</button><br><br>
-        </div>
-
-        <button id="Restaurants-10" onclick="return showEntries(null, this.id)">Add</button>
-    </div>
-</div>
-<br>
-<div class="val">
-    <button onclick="return commitCategory('EAT');" style="width:100%" class="btn btn-blue btn-submit-all">Commit</button>
-</div> -->
+                            <button id="Restaurants-10" onclick="return showEntries(null, this.id)">Add</button>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="val">
+                        <button onclick="return commitCategory('EAT');" style="width:100%" class="btn btn-blue btn-submit-all">Commit</button>
+                    </div> -->
 
 
 
