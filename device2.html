@@ -20,10 +20,7 @@
         border-top: none;
     }
     </style>
-    <!-- // <script type="text/javascript" src="/site/js/device.js"></script> -->
 </head>
-
-
 <body ng-app="Device"><!--onload="return showSection('device')" -->
 <div id="wrapper">
   {{header}}
@@ -105,12 +102,12 @@
 
                                         <div class="row-item clearfix">
                                             <div class="val">
-                                            <button onClick="return updateDevice();" style="width:55%" class="btn btn-blue btn-submit-all">Save</button>
+                                            <button style="width:55%" class="btn btn-blue btn-submit-all">Save</button> <!--onClick="return updateDevice();"-->
                                             </div>
                                         </div>
                                     </form>
 
-                                      <button onclick="return deleteDevice();" style="width:100%" class="btn btn-red btn-submit-all">Delete Device</button>
+                                      <button style="width:100%" class="btn btn-red btn-submit-all">Delete Device</button> <!--onclick="return deleteDevice();"-->
 
                                 </div>
                             </div><!--end: .tab-pane -->
@@ -120,9 +117,6 @@
                             <h3 class="rs alternate-tab accordion-label">Configuration</h3>
                             <div class="tab-pane accordion-content">
                                 <div id="categories" class="box-list-comment">
-
-
-
                                     <div class="media comment-item" ng-repeat="categoryName in device.configuration.sequence">
                                         <div id="{{ categoryName }}" class="media-body">
                                             <h4 class="rs comment-author">
@@ -132,22 +126,9 @@
                                             <a ng-repeat="sub in getSubCategories(categoryName)" style="margin-left:5px" class="btn btn-blue" href="#">{{ sub }}</a>
 
                                             <br />
-                                            <a style="color:red" onclick="return removeCategory('+i+');" href="#">remove category</a>
+                                            <a style="color:red" href="#">remove category</a> <!--onclick="return removeCategory('+i+');"-->
                                         </div>
                                     </div>
-
-                                    <!-- <div class="media comment-item" ng-repeat="(category, subcategory) in device.configuration">
-                                        <div id="{{ category }}" class="media-body">
-                                            <h4 class="rs comment-author">
-                                                <a style="color:#ea503d" href="" ng-click="selectCategory($index);">{{ category }}</a>
-                                            </h4>
-
-                                            <a ng-repeat="(sub, entries) in subcategory" id="'+id+'" ng-click="" style="margin-left:5px" class="btn btn-blue" href="#">{{ sub }}</a>
-
-                                            <br />
-                                            <a style="color:red" onclick="return removeCategory('+i+');" href="#">remove category</a>
-                                        </div>
-                                    </div> -->
                                 </div>
 
 
@@ -159,7 +140,7 @@
                               </select>
 
                               <br /><br />
-                              <input onclick="return addCategory();" type="submit" class="btn btn-red" value="Add Category" />
+                              <input type="submit" class="btn btn-red" value="Add Category" /> <!--onclick="return addCategory();"-->
                             </div>
 
 
@@ -217,17 +198,14 @@
             </div>
         </div><!--end: .content -->
 
-
-
         <div id="sidebar" class="sidebar grid_4" ng-controller="ConfigController">
             <h2>Selected Category</h2>
             <div id="selectedcategory" class="box-gray project-author">
               <h4 class="rs pb10">{{ returnCategoryName() }}</h4>
-
                     <hr>
                     <div style="background-color:#999;border-radius:3px;text-align:center;padding:5px">
                         <strong>Icon</strong><br>
-                        <a onclick="return showIcons();" href="#"><img src="{{ returnCategory().image }}"></a><br>
+                        <a href="#"><img src="{{ returnCategory().icon }}"></a><br> <!-- onclick="return showIcons();" -->
                         (click icon to change)
                     </div>
 
@@ -237,63 +215,28 @@
                         </p>
                         <div class="subcategory" id="Restaurants">
                             <div ng-repeat="entry in getEntries(subcategory)">
-                                <a href="" id="" onclick="return showEntries(this.id);">{{ entry }}</a>
-                                <button style="float:right;" onclick="return removeEntry(this.previousSibling.id)">x</button><br><br>
+                                <a href="" id="">{{ entry }}</a> <!--onclick="return showEntries(this.id);"-->
+                                <button style="float:right;">x</button><br><br> <!--onclick="return removeEntry(this.previousSibling.id)"-->
                             </div>
 
-                            <button id="Restaurants-10" onclick="return showEntries(null, this.id)">Add</button>
+                            <button id="Restaurants-10">Add</button> <!--onclick="return showEntries(null, this.id)"-->
                         </div>
                     </div>
                     <br>
                     <div class="val">
-                        <button onclick="return commitCategory('EAT');" style="width:100%" class="btn btn-blue btn-submit-all">Commit</button>
+                        <button style="width:100%" class="btn btn-blue btn-submit-all">Commit</button> <!--onclick="return commitCategory('EAT');"-->
                     </div>
-
-
-
-
-
-
-
 
             </div><!--end: .project-author -->
 
         </div><!--end: .sidebar -->
 
-
         <div class="clear"></div>
     </div>
 
-
     {{footer}}
 
-
 </div>
-
-
-  <script type="text/template" id="deviceinfo">
-    <h2>Device Info</h2>
-    <div class="box-gray project-author">
-      <strong>Device Id</strong><br />{{deviceId}}<br /><br />
-      <strong>Created</strong><br />{{timestamp}}<br /><br />
-      <strong>Image</strong><br /><img src="{{image}}" /><br /><br />
-      <hr />
-    </div>
-  </script>
-
-  <script type="text/template" id="recordsInfo">
-            <h2>Records</h2>
-
-            <div class="box-gray project-author">
-      		  <strong>Total Records</strong><br />{{ numRecords }}<br /><br />
-              <hr />
-
-            </div>
-  </script>
-
-  <script>
-    populateDeviceProfile({{deviceProfile}});
-  </script>
 
     <script src="/site/js/moment.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
