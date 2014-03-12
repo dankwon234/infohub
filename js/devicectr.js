@@ -33,7 +33,11 @@ app.controller("RecordsController", function($scope, $http){
 
 });
 
-app.controller("ConfigController", function($scope, $http){
+app.service('sidebar', function() {
+    this.currentCategory = {};
+});
+
+app.controller("ConfigController", function($scope, $http, sidebar){
     $scope.currentCategory = 'test';
 
     $scope.init = function() {
@@ -79,7 +83,13 @@ app.controller("ConfigController", function($scope, $http){
 
     $scope.selectCategory = function(index) {
         $scope.currentCategory = $scope.device.configuration.sequence[index];
+
+        sidebar.currentCategory = $scope.currentCategory;
         console.log('selectCategory----Controller'+$scope.currentCategory);
+    }
+
+    $scope.returnCategory = function() {
+        return sidebar.currentCategory;
     }
 
     $scope.addCategory = function() {
