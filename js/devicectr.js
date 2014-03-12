@@ -117,7 +117,7 @@ app.controller("ConfigController", function($scope, $http, sidebar){
         return false;
     }
 
-    $scope.selectEntry = function(id) {
+    function selectEntry (id) {
         // sidebar.currentCategory[] sidebar.categoryName
         console.log(sidebar.currentCategory);
     }
