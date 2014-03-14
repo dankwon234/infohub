@@ -208,8 +208,8 @@
                             </p>
                             <div class="subcategory" id="Restaurants">
                                 <div ng-repeat="entry in getEntries(subcategory)">
-                                    <a href="" ng-click="showEntries(entry, $index)">{{ entry }}</a>
-                                    <button style="float:right;" ng-click="removeEntry(subcategory, entry)">x</button><br><br>
+                                    <a href="" ng-click="showEntries(entry)">{{ entry }}</a>
+                                    <button style="float:right;" ng-click="removeEntry(subcategory, $index)">x</button><br><br>
                                 </div>
                                 <button ng-click="showEntries(null, subcategory)">Add</button>
                             </div>
