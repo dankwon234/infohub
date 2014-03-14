@@ -116,6 +116,7 @@
                             <div ng-controller="ConfigController" ng-init="init();">
                                 <h3 class="rs alternate-tab accordion-label">Configuration</h3>
                                 <div class="tab-pane accordion-content">
+                                    <button class="btn btn-blue" style="font-size:11px" ng-click="change()">test</button>
                                     <div id="categories" class="box-list-comment">
                                         <div class="media comment-item" ng-repeat="categoryName in device.configuration.sequence">
                                             <div id="{{ categoryName }}" class="media-body">

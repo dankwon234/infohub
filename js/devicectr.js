@@ -37,7 +37,10 @@ app.service('sidebar', function() {
     this.currentCategory = null;
 });
 
-app.controller("ConfigController", function($scope, $http, sidebar){
+app.controller("ConfigController", function($scope, $http, sidebar, SharedService){
+
+    $scope.text = function(){ return TestService.get() }
+    $scope.change = function(){ TestService.change('app 1 activated') }
 
     $scope.init = function() {
         fetchCategories();

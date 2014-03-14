@@ -1,25 +1,26 @@
-angular.module('sharedService', []).factory('SharedService', function() {
+angular.module('sharedService', []).service('SharedService', function($rootScope, $window) {
 
-  var SharedService;
+    var text = 'Initial state';
+        $window.rootScopes = $window.rootScopes || [];
+        $window.rootScopes.push($rootScope);
 
-  SharedService = (function() {
+        if (!!$window.sharedService){
+          return $window.sharedService;
+        }
 
-    function SharedService() {
-        console.log('init sharedService');
-      /* method code... */
-    }
+        $window.sharedService = {
+          change: function(newText){
+            text = newText;
+            angular.forEach($window.rootScopes, function(scope) {
+              if(!scope.$$phase) {
+                  scope.$apply();
+              }
+            });
+          },
+          get: function(){
+            return text;
+          }
+        }
 
-    SharedService.prototype.setData = function(name, data) {
-        console.log('setData');
-        console.log(name);
-        console.log(data);
-      /* method code... */
-    };
-    return SharedService;
-
-  })();
-
-  if (typeof(window.angularSharedService) == 'undefined' || window.angularSharedService == null) {
-    window.angularSharedService = new SharedService();
-  }
-  return window.angularSharedService;});
+        return $window.sharedService;
+    });
