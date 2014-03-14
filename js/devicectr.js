@@ -115,6 +115,7 @@ app.controller("ConfigController", function($scope, $http, sidebar){
             $scope.popup('/site/entries?action=select');
         } else {
             console.log('Show Entries');
+            console.log(entry);
             // currentSelectedEntry = entry;
             $scope.popup('/site/entries?action=select');
         }
