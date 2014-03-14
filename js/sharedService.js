@@ -5,10 +5,14 @@ angular.module('sharedService', []).factory('SharedService', function() {
   SharedService = (function() {
 
     function SharedService() {
+        console.log('init sharedService');
       /* method code... */
     }
 
     SharedService.prototype.setData = function(name, data) {
+        console.log('setData');
+        console.log(name);
+        console.log(data);
       /* method code... */
     };
     return SharedService;
