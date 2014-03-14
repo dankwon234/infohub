@@ -123,10 +123,10 @@ app.controller("ConfigController", function($scope, $http, sidebar){
         return false;
     }
 
-    $scope.removeEntry = function(sub, entry) {
+    $scope.removeEntry = function(sub, entry, index) {
         console.log('removing: '+sub+", "+entry+"...");
         console.log($scope.getEntries(sub));
-        $scope.getEntries(sub).splice(entry, 1);
+        $scope.getEntries(sub).splice(index, 1);
         console.log($scope.getEntries(sub));
         console.log('removed');
     }
