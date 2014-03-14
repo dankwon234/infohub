@@ -1,4 +1,4 @@
-var app = angular.module('SelectEntriesPopup', []);
+var app = angular.module('SelectEntriesPopup', ['sharedService']);
 
 app.controller("SelectEntriesController", function($scope, $http){
     $scope.filter = '';

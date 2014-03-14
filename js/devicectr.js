@@ -1,4 +1,4 @@
-var app = angular.module('Device', []);
+var app = angular.module('Device', ['sharedService']);
 var currentCategory;
 
 app.controller("RecordsController", function($scope, $http){
