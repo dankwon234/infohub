@@ -1,5 +1,5 @@
 var app = angular.module('Device', ['sharedService']);
-var currentCategory;
+var currentEntry;
 
 app.controller("RecordsController", function($scope, $http){
 
@@ -115,7 +115,8 @@ app.controller("ConfigController", function($scope, $http, sidebar){
             $scope.popup('/site/entries?action=select');
         } else {
             console.log('Show Entries');
-            console.log(entry);
+            // console.log(entry);
+            currentEntry = entry;
             // currentSelectedEntry = entry;
             $scope.popup('/site/entries?action=select');
         }
@@ -141,5 +142,5 @@ app.controller("ConfigController", function($scope, $http, sidebar){
 function selectEntry (id) {
     // sidebar.currentCategory[] sidebar.categoryName
     console.log(id);
-    console.log(currentCategory);
+    console.log(currentEntry);
 }
