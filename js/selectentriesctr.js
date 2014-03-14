@@ -2,8 +2,8 @@ var app = angular.module('SelectEntriesPopup', ['sharedService']);
 
 app.controller("SelectEntriesController", function($scope, $http, SharedService){
 
-    $scope.text = function(){ return TestService.get() }
-    $scope.change = function(){ TestService.change('app 2 activated') }
+    $scope.text = function(){ return SharedService.get() }
+    $scope.change = function(){ SharedService.change('app 2 activated') }
 
     $scope.filter = '';
 
