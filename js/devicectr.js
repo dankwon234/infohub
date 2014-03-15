@@ -102,7 +102,6 @@ app.controller("ConfigController", function($scope, $http, sidebar){
     }
 
     $scope.selectCategory = function(index) {
-
         var current = $scope.device.configuration.sequence[index];
         sidebar.categoryName = current;
         sidebar.currentCategory = $scope.device.configuration[current];
@@ -122,8 +121,6 @@ app.controller("ConfigController", function($scope, $http, sidebar){
     }
 
     $scope.getEntries = function(subcategoryName) {
-        console.log($scope.device);
-        // $scope.device = d
         var entries = sidebar.currentCategory[subcategoryName];
         return entries;
     }
@@ -150,6 +147,8 @@ app.controller("ConfigController", function($scope, $http, sidebar){
     $scope.removeEntry = function(sub, index, category) {
         console.log(category);
         console.log(sidebar.device);
+        // var current = $scope.device.configuration.sequence[index];
+        console.log($scope.device.configuration[category]);
         // $scope.getEntries(sub).splice(index, 1);
 
 
@@ -159,9 +158,9 @@ app.controller("ConfigController", function($scope, $http, sidebar){
         //     var entries = sidebar.currentCategory[subcategoryName];
         //
         //
-        //     var current = $scope.device.configuration.sequence[index];
+        //
         //     sidebar.categoryName = current;
-        //     sidebar.currentCategory = $scope.device.configuration[current];
+        //
         //
         //
         //     return entries;
