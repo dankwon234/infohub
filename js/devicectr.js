@@ -104,10 +104,10 @@ app.controller("ConfigController", function($scope, $http, sidebar){
         var current = $scope.device.configuration.sequence[index];
         sidebar.categoryName = current;
         sidebar.currentCategory = $scope.device.configuration[current];
-        console.log($scope.device);
     }
 
     $scope.returnCategory = function() {
+        console.log($scope.device);
         return sidebar.currentCategory;
     }
 
