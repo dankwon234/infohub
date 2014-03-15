@@ -21,6 +21,7 @@
 <body style="background:#f9f9f9">
 
 <div id="wrapper" ng-app="EntriesPage" ng-controller="EntryController" ng-init="init();">
+
 	{{header}}
 
     <div class="layout-2cols">
@@ -31,6 +32,9 @@
 
                     <div id="sessionscontent" class="top-project-info">
                         <h3>Current Entries</h3>
+                        
+                        <button class="btn btn-custom" ng-click="cloneEntries();">Clone selected Entries</button>
+                        
                         <div class="tablecontainer">
 
                 	<table class="table table-striped">
@@ -43,6 +47,7 @@
 
                       <tbody>
                     	<tr ng-repeat='entry in entries'>
+                    		<td><input type="checkbox" value="{{entry.id}}" ng-click="selectEntry($index)"></td>
 							<td><a href="/site/entries/{{entry.id}}">{{entry.title}}</a></td>
 							<td><a href="{{entry.url}}">{{entry.url}}</a></td>
 						</tr>
