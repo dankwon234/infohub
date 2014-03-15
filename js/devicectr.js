@@ -89,7 +89,7 @@ app.controller("ConfigController", function($scope, $http, sidebar){
         $http.put(url, sidebar.device)
         .success(function(data, status, headers, config) {
             results = data['results'];
-            console.log(results);
+            console.log(data);
             // confirmation = results['confirmation'];
             // if (confirmation=='success'){
             //     alert('Data successfully posted');
