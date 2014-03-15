@@ -148,6 +148,7 @@ app.controller("ConfigController", function($scope, $http, sidebar){
 
     $scope.removeEntry = function(sub, index) {
         $scope.getEntries(sub).splice(index, 1);
+        console.log($scope.device);
     }
 
     $scope.popup = function(url) {
