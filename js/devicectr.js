@@ -1,4 +1,4 @@
-var app = angular.module('Device', ['sharedService']);
+var app = angular.module('Device', []);
 // var currentEntry;
 
 app.service('sidebar', function() {
