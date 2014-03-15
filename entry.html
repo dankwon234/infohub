@@ -10,15 +10,11 @@
     <script type="text/javascript" src="/site/js/raphael-min.js"></script>
     <script type="text/javascript" src="/site/js/responsiveslides.min.js"></script>
     <script type="text/javascript" src="/site/js/pie.js"></script>
-
-    <script src="/site/js/requestparser.js"></script>
+    <script type="text/javascript" src="/site/js/requestparser.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
-<!--     <script type="text/javascript" src="https://raw.github.com/dennykwon/infohub/entry_edit/js/entryctr.js"></script>
- -->    
- 
  	<script type="text/javascript" src="/site/js/entryctr.js"></script>
-
     <script type="text/javascript" src="/site/js/bootstrap-datepicker.js"></script>
+    
 </head>
 
 
@@ -40,10 +36,6 @@
                             <form id="image-form" action="" enctype="multipart/form-data" method="post">
                                 <img src="/site/images/{{ editEntry.logo }}">
                                 <br><br><br>
-<!--                                 <input type="file" name="file" />
-                                <br><br><br>
-                                <button style="width:100%" ng-click="getUploadURL()" class="btn btn-custom">Upload Image</button>
- -->                                
                             </form>
 
                                 <div class="form-group">
@@ -312,29 +304,6 @@
 
                                 <br />
 
-                                <!--
-                                    Theme color 1 -
-                                    Theme color 2 -
-                                    logo, title, subtitle -
-
-                                    Banner: {
-                                        ad:
-                                        image:
-                                    }
-
-                                    image 1
-                                    image 2
-                                    contact number
-                                    geoloc. coords
-                                    x
-                                    y
-
-                                    Button: {
-                                        text:
-                                        url:
-                                    }
-                                -->
-
 	                            <button style="width:100%" ng-click="viewPreview()" type="submit" class="btn btn-blue">View Preview</button>
 	                            <br /><br /><br />
                                 <button style="width:100%" ng-click="updateEntry()" type="submit" class="btn btn-custom">Update Entry</button>
@@ -394,6 +363,7 @@
 
 	{{footer}}
 </div>
+
 <script>
 $('#datePicker').datepicker();
 </script>
