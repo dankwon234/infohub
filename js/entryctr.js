@@ -221,11 +221,16 @@ app.controller("EntryController", function($scope, $http){
 		
   }
 
+    
+    $scope.clear = function(property) {
+    	currentValue = $scope.editEntry[property];
+    	if (currentValue=='none')
+        	$scope.editEntry[property] = '';
+    	
+    }
 
 
     function popup(url, w, h) {
-//		width = '900';
-//		height = '450';
 
 		dimensions = 'height='+h+',width='+w;
 	  	newwindow = window.open(url,'',dimensions);

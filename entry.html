@@ -40,7 +40,7 @@
 
                                 <div class="form-group">
                                   <span>Logo</span>
-                                  <input type="text" class="inputs form-control" ng-model="editEntry.logo" placeholder="logo ID">
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.logo" placeholder="logo ID" ng-click="clear('logo')">
                                 </div>
                                 
                                 <br><br>
@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="form-group">
                                   <span>Subtitle</span>
-                                  <input type="text" class="inputs form-control" ng-model="editEntry.subtitle" placeholder="Subtitle">
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.subtitle" placeholder="Subtitle" ng-click="clear('subtitle')">
                                 </div>
                                 <div class="form-group">
                                   <span>Category</span><br />
@@ -87,7 +87,7 @@
                                 </div>
                                 <div class="form-group">
                                   <span>Description</span>
-                                  <textarea class="textareas form-control" ng-model="editEntry.description" placeholder="Description" rows="6"></textarea>
+                                  <textarea class="textareas form-control" ng-model="editEntry.description" placeholder="Description" rows="6" ng-click="clear('description')"></textarea>
                                 </div>
 
                                 <hr style="margin-top:25px;margin-bottom:10px" />
@@ -95,18 +95,18 @@
                                 
                                 <div class="form-group">
                                   <span>Foursquare Id</span>
-                                  <input type="text" class="inputs form-control" ng-model="editEntry.foursquareId" placeholder="foursquare id"><br />
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.foursquareId" placeholder="foursquare id" ng-click="clear('foursquareId')"><br />
                                   <a ng-click="updateWithFoursquare()" class="btn btn-custom">Update With Foursquare</a>
                                   <br /><br />
                                 </div>
                                 
                                 <div class="form-group">
                                   <span>Street</span>
-                                  <input type="text" class="inputs form-control" ng-model="editEntry.street" placeholder="Broadway">
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.street" placeholder="Broadway" ng-click="clear('street')">
                                 </div>
                                 <div class="form-group">
                                   <span>City</span>
-                                  <input type="text" class="inputs form-control" ng-model="editEntry.city" placeholder="Manhattan">
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.city" placeholder="Manhattan" ng-click="clear('city')">
                                 </div>
                                 <div class="form-group">
                                   <span>State</span><br>
@@ -188,7 +188,7 @@
 
                                 <div class="form-group">
                                   <span>Foursquare Genre</span>
-                                  <input type="text" class="inputs form-control" ng-model="editEntry.foursquareGenre" placeholder="Genre">
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.foursquareGenre" placeholder="Genre" ng-click="clear('foursquareGenre')">
                                 </div>
 
 
@@ -243,12 +243,12 @@
                                 
                                 <div class="form-group">
                                   <span>RSS</span>
-                                  <input type="text" class="inputs form-control" ng-model="editEntry.rss" placeholder="RSS">
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.rss" placeholder="RSS" ng-click="clear('rss')">
                                 </div>
 
                                 <div class="form-group">
                                   <span>Background Image</span>
-                                  <input type="text" class="inputs form-control" ng-model="editEntry.backgroundImage" placeholder="Background Image">
+                                  <input type="text" class="inputs form-control" ng-model="editEntry.backgroundImage" placeholder="Background Image" ng-click="clear('backgroundImage')">
                                 </div>
 
                                 <div style="margin-top:25px;margin-bottom:25px" class="form-group">
