@@ -45,6 +45,7 @@ app.controller("ConfigController", function($scope, $http, sidebar){
     $scope.init = function() {
         fetchCategories();
         fetchDevice();
+        console.log($scope.device);
     }
 
     function fetchCategories () {
