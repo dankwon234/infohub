@@ -139,14 +139,14 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
         if (entry == null) {
             console.log(subcategory);
             // currentSelectedEntry = subcategory;
-            $scope.popup('/site/entries?action=select');
+            $scope.popup('/git/entries?action=select&branch=device2'); // /site/entries?action=select
         } else {
             console.log('Show Entries');
             popup.entry = entry;
             console.log(popup.entry);
             // console.log(entry);
             // currentSelectedEntry = entry;
-            $scope.popup('/site/entries?action=select');
+            $scope.popup('/git/entries?action=select&branch=device2'); // /site/entries?action=select
         }
         return false;
     }
