@@ -107,7 +107,6 @@ app.controller("ConfigController", function($scope, $http, sidebar){
     }
 
     $scope.returnCategory = function() {
-        console.log($scope.device);
         return sidebar.currentCategory;
     }
 
@@ -116,6 +115,7 @@ app.controller("ConfigController", function($scope, $http, sidebar){
     }
 
     $scope.getSubCategories = function(categoryName) {
+        console.log($scope.device);
         var order = $scope.device.configuration[categoryName].order;
         return order;
     }
