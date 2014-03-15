@@ -86,18 +86,17 @@ app.controller("ConfigController", function($scope, $http, sidebar){
         var url = '/api/device/'+deviceID;
         console.log('update device');
         console.log(sidebar.device);
-        $http.put(url, sidebar.device)
+        var data = JSON.stringify(sidebar.device);
+        $http.put(url, data)
         .success(function(data, status, headers, config) {
-            results = data['results'];
-            console.log(data);
-            // confirmation = results['confirmation'];
-            // if (confirmation=='success'){
-            //     alert('Data successfully posted');
-            //     console.log(results);
-            //     // $scope.device = results['device'];
-            // } else {
-            //     alert(results['message']);
-            // }
+            confirmation = results['confirmation'];
+            if (confirmation=='success'){
+                alert('Data successfully posted');
+                console.log(results);
+                // $scope.device = results['device'];
+            } else {
+                alert(results['message']);
+            }
         }).error(function(data, status, headers, config) {
             console.log("error", data, status, headers, config);
         });
