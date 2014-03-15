@@ -121,6 +121,7 @@ app.controller("ConfigController", function($scope, $http, sidebar){
     }
 
     $scope.getEntries = function(subcategoryName) {
+        console.log($scope.device);
         var entries = sidebar.currentCategory[subcategoryName];
         return entries;
     }
@@ -147,7 +148,6 @@ app.controller("ConfigController", function($scope, $http, sidebar){
     $scope.removeEntry = function(sub, index) {
         console.log($scope.device);
         $scope.getEntries(sub).splice(index, 1);
-        console.log($scope.test);
     }
 
     $scope.popup = function(url) {
