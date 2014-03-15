@@ -82,23 +82,24 @@ app.controller("ConfigController", function($scope, $http, sidebar){
     }
 
     $scope.updateDevice = function() {
-        var deviceID = parseLocation('git', 'devices').identifier;
-        var url = '/api/devices/'+deviceID;
+        // var deviceID = parseLocation('git', 'devices').identifier;
+        // var url = '/api/devices/'+deviceID;
         console.log('update device');
-        $http.put(url, $scope.device)
-        .success(function(data, status, headers, config) {
-            results = data['results'];
-            confirmation = results['confirmation'];
-            if (confirmation=='success'){
-                alert('Data successfully posted');
-                console.log(results);
-                // $scope.device = results['device'];
-            } else {
-                alert(results['message']);
-            }
-        }).error(function(data, status, headers, config) {
-            console.log("error", data, status, headers, config);
-        });
+        console.log(sidebar.device);
+        // $http.put(url, $scope.device)
+        // .success(function(data, status, headers, config) {
+        //     results = data['results'];
+        //     confirmation = results['confirmation'];
+        //     if (confirmation=='success'){
+        //         alert('Data successfully posted');
+        //         console.log(results);
+        //         // $scope.device = results['device'];
+        //     } else {
+        //         alert(results['message']);
+        //     }
+        // }).error(function(data, status, headers, config) {
+        //     console.log("error", data, status, headers, config);
+        // });
     }
 
     $scope.selectCategory = function(index) {
@@ -145,11 +146,11 @@ app.controller("ConfigController", function($scope, $http, sidebar){
     }
 
     $scope.removeEntry = function(sub, index, category) {
-        console.log(category);
-        console.log(sidebar.device);
-        // var current = $scope.device.configuration.sequence[index];
-        console.log($scope.device.configuration[category]);
-        // $scope.getEntries(sub).splice(index, 1);
+        // console.log(category);
+        // console.log(sidebar.device);
+        // // var current = $scope.device.configuration.sequence[index];
+        // console.log($scope.device.configuration[category]);
+        $scope.getEntries(sub).splice(index, 1);
 
 
         // $scope.getEntries = function(subcategoryName) {
