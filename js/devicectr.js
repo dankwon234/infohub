@@ -39,13 +39,11 @@ app.service('sidebar', function() {
 
 app.controller("ConfigController", function($scope, $http, sidebar){
 
-    // $scope.text = function(){ return SharedService.get() }
-    // $scope.change = function(){ SharedService.change('app 1 activated') }
+    $scope.device = {};
 
     $scope.init = function() {
         fetchCategories();
         fetchDevice();
-        console.log($scope.device);
     }
 
     function fetchCategories () {
