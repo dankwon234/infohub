@@ -1,5 +1,14 @@
 var app = angular.module('Device', ['sharedService']);
-var currentEntry;
+// var currentEntry;
+
+app.service('sidebar', function() {
+    this.currentCategory = null;
+    this.categoryName = null;
+});
+
+app.service('popup', function() {
+    this.entry = null;
+});
 
 app.controller("RecordsController", function($scope, $http){
 
@@ -33,11 +42,7 @@ app.controller("RecordsController", function($scope, $http){
 
 });
 
-app.service('sidebar', function() {
-    this.currentCategory = null;
-});
-
-app.controller("ConfigController", function($scope, $http, sidebar){
+app.controller("ConfigController", function($scope, $http, sidebar, popup){
 
     $scope.init = function() {
         fetchCategories();
@@ -137,8 +142,9 @@ app.controller("ConfigController", function($scope, $http, sidebar){
             $scope.popup('/site/entries?action=select');
         } else {
             console.log('Show Entries');
+            popup.entry = entry;
+            console.log(popup.entry);
             // console.log(entry);
-            currentEntry = entry;
             // currentSelectedEntry = entry;
             $scope.popup('/site/entries?action=select');
         }
@@ -146,28 +152,7 @@ app.controller("ConfigController", function($scope, $http, sidebar){
     }
 
     $scope.removeEntry = function(sub, index, category) {
-        // console.log(category);
-        // console.log(sidebar.device);
-        // // var current = $scope.device.configuration.sequence[index];
-        // console.log($scope.device.configuration[category]);
         $scope.getEntries(sub).splice(index, 1);
-
-
-        // $scope.getEntries = function(subcategoryName) {
-        //     console.log($scope.device);
-        //     // $scope.device = d
-        //     var entries = sidebar.currentCategory[subcategoryName];
-        //
-        //
-        //
-        //     sidebar.categoryName = current;
-        //
-        //
-        //
-        //     return entries;
-        // }
-
-
     }
 
     $scope.popup = function(url) {
@@ -179,8 +164,46 @@ app.controller("ConfigController", function($scope, $http, sidebar){
     }
 });
 
-function selectEntry (id) {
-    // sidebar.currentCategory[] sidebar.categoryName
-    console.log(id);
-    console.log(currentEntry);
-}
+app.controller("SelectEntriesController", function($scope, $http, popup){
+
+    $scope.filter = '';
+
+    $scope.init = function() {
+        fetchEntries();
+    }
+
+    function fetchEntries () {
+        var url = '/api/entries';
+        $http.get(url)
+        .success(function(data, status, headers, config) {
+            results = data['results'];
+            confirmation = results['confirmation'];
+            if (confirmation=='success'){
+                $scope.entries = results['entries'];
+            } else {
+                alert(results['message']);
+            }
+        }).error(function(data, status, headers, config) {
+            console.log("error", data, status, headers, config);
+        });
+    }
+
+	$scope.select = function(id){
+        parent = window.opener;
+        if (!parent)
+            return true;
+
+        // parent.selectEntry(id); // pass back the uniqueId of the entry
+        popup.entry = id;
+        console.log(popup.entry);
+
+        window.close();
+        return false;
+  	}
+});
+
+// function selectEntry (id) {
+//     // sidebar.currentCategory[] sidebar.categoryName
+//     console.log(id);
+//     console.log(currentEntry);
+// }
