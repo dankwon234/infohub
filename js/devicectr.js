@@ -89,14 +89,15 @@ app.controller("ConfigController", function($scope, $http, sidebar){
         $http.put(url, sidebar.device)
         .success(function(data, status, headers, config) {
             results = data['results'];
-            confirmation = results['confirmation'];
-            if (confirmation=='success'){
-                alert('Data successfully posted');
-                console.log(results);
-                // $scope.device = results['device'];
-            } else {
-                alert(results['message']);
-            }
+            console.log(results);
+            // confirmation = results['confirmation'];
+            // if (confirmation=='success'){
+            //     alert('Data successfully posted');
+            //     console.log(results);
+            //     // $scope.device = results['device'];
+            // } else {
+            //     alert(results['message']);
+            // }
         }).error(function(data, status, headers, config) {
             console.log("error", data, status, headers, config);
         });
