@@ -130,6 +130,7 @@ app.controller("EntryController", function($scope, $http){
 		    confirmation = results['confirmation'];
 		    if (confirmation=='success'){
 		    	$scope.newEntry = {}; // clear out the new entry reference
+		    	$scope.clone = new Array();
 		    	$scope.entries = results['entries'];
 		    }
 		    else{
