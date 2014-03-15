@@ -39,8 +39,6 @@ app.service('sidebar', function() {
 
 app.controller("ConfigController", function($scope, $http, sidebar){
 
-    $scope.device = {};
-
     $scope.init = function() {
         fetchCategories();
         fetchDevice();
@@ -70,6 +68,7 @@ app.controller("ConfigController", function($scope, $http, sidebar){
             results = data['results'];
             confirmation = results['confirmation'];
             if (confirmation=='success'){
+                $scope.test = results;
                 $scope.device = results['device'];
                 console.log('got device:');
                 console.log($scope.device);
@@ -147,7 +146,7 @@ app.controller("ConfigController", function($scope, $http, sidebar){
 
     $scope.removeEntry = function(sub, index) {
         $scope.getEntries(sub).splice(index, 1);
-        console.log($scope.device);
+        console.log($scope.test);
     }
 
     $scope.popup = function(url) {
