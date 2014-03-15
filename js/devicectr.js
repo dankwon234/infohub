@@ -81,24 +81,23 @@ app.controller("ConfigController", function($scope, $http, sidebar){
     }
 
     $scope.updateDevice = function() {
-        // var deviceID = parseLocation('git', 'devices').identifier;
-        // var url = '/api/devices/'+deviceID;
+        var deviceID = parseLocation('git', 'devices').identifier;
+        var url = '/api/devices/'+deviceID;
         console.log('update device');
-        console.log($scope.device);
-        // $http.put(url, $scope.device)
-        // .success(function(data, status, headers, config) {
-        //     results = data['results'];
-        //     confirmation = results['confirmation'];
-        //     if (confirmation=='success'){
-        //         alert('Data successfully posted');
-        //         console.log(results);
-        //         // $scope.device = results['device'];
-        //     } else {
-        //         alert(results['message']);
-        //     }
-        // }).error(function(data, status, headers, config) {
-        //     console.log("error", data, status, headers, config);
-        // });
+        $http.put(url, $scope.device)
+        .success(function(data, status, headers, config) {
+            results = data['results'];
+            confirmation = results['confirmation'];
+            if (confirmation=='success'){
+                alert('Data successfully posted');
+                console.log(results);
+                // $scope.device = results['device'];
+            } else {
+                alert(results['message']);
+            }
+        }).error(function(data, status, headers, config) {
+            console.log("error", data, status, headers, config);
+        });
     }
 
     $scope.selectCategory = function(index) {
