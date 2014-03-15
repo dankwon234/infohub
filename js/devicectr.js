@@ -70,6 +70,7 @@ app.controller("ConfigController", function($scope, $http, sidebar){
             if (confirmation=='success'){
                 $scope.test = results;
                 $scope.device = results['device'];
+                sidebar.device = $scope.device;
                 console.log('got device:');
                 console.log($scope.device);
             } else {
@@ -148,6 +149,7 @@ app.controller("ConfigController", function($scope, $http, sidebar){
 
     $scope.removeEntry = function(sub, index, category) {
         console.log(category);
+        console.log(sidebar.device);
         // $scope.getEntries(sub).splice(index, 1);
 
 
