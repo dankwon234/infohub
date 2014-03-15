@@ -20,6 +20,7 @@ app.controller("EntryController", function($scope, $http){
 
 	$scope.newEntry = {};
 	$scope.entries = new Array();
+	$scope.clone = new Array();
 
 	// set today as default date:
 	var today = new Date();
@@ -91,6 +92,57 @@ app.controller("EntryController", function($scope, $http){
         console.log(JSON.stringify($scope.newEntry));
 	}
 
+	$scope.selectEntry = function(entryIndex){
+		entry = $scope.entries[entryIndex];
+		
+		var entryRemoved = false;
+		for (var i=0; i<$scope.clone.length; i++){
+			entryId = $scope.clone[i];
+//			console.log(entryId+' == '+entry.id+'?');
+			if (entryId==entry.id){ // remove entry id
+				$scope.clone.splice(i, 1);
+				entryRemoved = true;
+				break;
+			}
+			
+		}
+		
+		if (entryRemoved==false)
+			$scope.clone.push(entry.id);
 
+		console.log('SELECT ENTRY: '+JSON.stringify($scope.clone));
+	}
+
+	
+	$scope.cloneEntries = function(){
+		if ($scope.clone.length==0){
+			alert('Please select at least one entry to clone.');
+			return;
+		}
+		
+		json = JSON.stringify({'clone':$scope.clone});
+		console.log('CLONE ENTRIES: = '+json);
+
+		var url = '/api/entries';
+		$http.post(url, json)
+		.success(function(data, status, headers, config) {
+		    results = data['results'];
+		    confirmation = results['confirmation'];
+		    if (confirmation=='success'){
+		    	$scope.newEntry = {}; // clear out the new entry reference
+		    	$scope.entries = results['entries'];
+		    }
+		    else{
+		    	alert(results['message']);
+		    }
+
+		}).error(function(data, status, headers, config) {
+		    console.log("error", data, status, headers, config);
+		});
+
+	}
+	
+	
+	
 
 });
