@@ -72,12 +72,39 @@ app.controller("ConfigController", function($scope, $http, sidebar){
             confirmation = results['confirmation'];
             if (confirmation=='success'){
                 $scope.device = results['device'];
+                console.log('got device:');
+                console.log($scope.device);
             } else {
                 alert(results['message']);
             }
         }).error(function(data, status, headers, config) {
             console.log("error", data, status, headers, config);
         });
+    }
+
+    function updateDevice () {
+        var deviceID = parseLocation('git', 'devices').identifier;
+        var url = '/api/devices/'+deviceID;
+        console.log('update device');
+        console.log($scope.device);
+        // $http.put(url, $scope.device)
+        // .success(function(data, status, headers, config) {
+        //     results = data['results'];
+        //     confirmation = results['confirmation'];
+        //     if (confirmation=='success'){
+        //         alert('Data successfully posted');
+        //         console.log(results);
+        //         // $scope.device = results['device'];
+        //     } else {
+        //         alert(results['message']);
+        //     }
+        // }).error(function(data, status, headers, config) {
+        //     console.log("error", data, status, headers, config);
+        // });
+    }
+
+    $scope.updateDevice = function() {
+        updateDevice();
     }
 
     $scope.selectCategory = function(index) {
@@ -124,12 +151,7 @@ app.controller("ConfigController", function($scope, $http, sidebar){
     }
 
     $scope.removeEntry = function(sub, index) {
-        // console.log('removing: '+sub+", "+entry+"...");
-        console.log($scope.getEntries(sub));
         $scope.getEntries(sub).splice(index, 1);
-        console.log($scope.getEntries(sub));
-        // console.log(index);
-        console.log('removed');
     }
 
     $scope.popup = function(url) {
