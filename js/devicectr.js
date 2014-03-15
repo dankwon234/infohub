@@ -82,7 +82,7 @@ app.controller("ConfigController", function($scope, $http, sidebar){
         });
     }
 
-    function updateDevice () {
+    $scope.updateDevice = function() {
         var deviceID = parseLocation('git', 'devices').identifier;
         var url = '/api/devices/'+deviceID;
         console.log('update device');
@@ -101,10 +101,6 @@ app.controller("ConfigController", function($scope, $http, sidebar){
         // }).error(function(data, status, headers, config) {
         //     console.log("error", data, status, headers, config);
         // });
-    }
-
-    $scope.updateDevice = function() {
-        updateDevice();
     }
 
     $scope.selectCategory = function(index) {
