@@ -122,6 +122,7 @@ app.controller("ConfigController", function($scope, $http, sidebar){
 
     $scope.getEntries = function(subcategoryName) {
         console.log($scope.device);
+        // $scope.device = d
         var entries = sidebar.currentCategory[subcategoryName];
         return entries;
     }
@@ -145,9 +146,26 @@ app.controller("ConfigController", function($scope, $http, sidebar){
         return false;
     }
 
-    $scope.removeEntry = function(sub, index) {
-        console.log($scope.device);
-        $scope.getEntries(sub).splice(index, 1);
+    $scope.removeEntry = function(sub, index, category) {
+        console.log(category);
+        // $scope.getEntries(sub).splice(index, 1);
+
+
+        // $scope.getEntries = function(subcategoryName) {
+        //     console.log($scope.device);
+        //     // $scope.device = d
+        //     var entries = sidebar.currentCategory[subcategoryName];
+        //
+        //
+        //     var current = $scope.device.configuration.sequence[index];
+        //     sidebar.categoryName = current;
+        //     sidebar.currentCategory = $scope.device.configuration[current];
+        //
+        //
+        //     return entries;
+        // }
+
+
     }
 
     $scope.popup = function(url) {
