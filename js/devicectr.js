@@ -223,7 +223,8 @@ app.controller("SelectEntriesController", function($scope, $http, sidebar, popup
 
         // console.log(popup.currentCategory);
         console.log('this is a test');
-        console.log(popup.setProperty('test'));
+        popup.setProperty('test');
+        // console.log(popup.setProperty('test'));
         // var entries = sidebar.currentCategory[subcategoryName];
 
         // console.log(popup.entry);
