@@ -8,7 +8,9 @@ app.service('sidebar', function() {
 });
 
 app.factory('popup', function() {
-    this.entry = null;
+    return {
+        sharedObject: {data: null }
+    }
 });
 
 app.controller("RecordsController", function($scope, $http){
@@ -112,6 +114,7 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
         var current = $scope.device.configuration.sequence[index];
         sidebar.categoryName = current;
         sidebar.currentCategory = $scope.device.configuration[current];
+        popup.sharedObject = sidebar.currentCategory;
 
 
 
@@ -210,6 +213,7 @@ app.controller("SelectEntriesController", function($scope, $http, sidebar, popup
 
         console.log(popup.currentCategory);
         console.log('this is a test');
+        console.log(popup.sharedObject);
         // var entries = sidebar.currentCategory[subcategoryName];
 
         console.log(popup.entry);
