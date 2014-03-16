@@ -127,7 +127,8 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
         // console.log(popup.sharedObject);
 
 
-        popup.currentCategory = $scope.device.configuration[current];
+        // popup.currentCategory =
+        popup.setProperty($scope.device.configuration[current]);
     }
 
     $scope.returnCategory = function() {
@@ -149,7 +150,6 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
 
     $scope.getEntries = function(subcategoryName) {
         var entries = sidebar.currentCategory[subcategoryName];
-        popup.setProperty(entries);
         return entries;
     }
 
