@@ -176,7 +176,7 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
     }
 });
 
-app.controller("SelectEntriesController", function($scope, $http, popup){
+app.controller("SelectEntriesController", function($scope, $http, sidebar, popup){
 
     $scope.filter = '';
 
