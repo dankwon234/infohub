@@ -7,7 +7,7 @@ app.service('sidebar', function() {
     this.selectedEntry = null;
 });
 
-app.service('popup', function() {
+app.factory('popup', function() {
     this.entry = null;
 });
 
@@ -208,7 +208,7 @@ app.controller("SelectEntriesController", function($scope, $http, sidebar, popup
         // parent.selectEntry(id); // pass back the uniqueId of the entry
         sidebar.selectedEntry = id;
 
-        console.log(sidebar.currentCategory);
+        console.log(popup.currentCategory);
         console.log('this is a test');
         // var entries = sidebar.currentCategory[subcategoryName];
 
