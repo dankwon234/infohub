@@ -209,6 +209,7 @@ app.controller("SelectEntriesController", function($scope, $http, sidebar, popup
         sidebar.selectedEntry = id;
 
         console.log(sidebar.currentCategory);
+        console.log('this is a test');
         // var entries = sidebar.currentCategory[subcategoryName];
 
         console.log(popup.entry);
