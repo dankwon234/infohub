@@ -187,6 +187,10 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
       	}
       	return false;
     }
+
+    $scope.$on('someEvent', function() {
+        console.log('event');
+    });
 });
 
 app.controller("SelectEntriesController", function($scope, $http, sidebar, popup){
@@ -224,6 +228,7 @@ app.controller("SelectEntriesController", function($scope, $http, sidebar, popup
         // console.log(popup.currentCategory);
         console.log('this is a test');
         popup.setProperty('test');
+        $scope.$emit('someEvent', id);
         // console.log(popup.setProperty('test'));
         // var entries = sidebar.currentCategory[subcategoryName];
 
