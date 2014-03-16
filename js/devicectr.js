@@ -213,7 +213,7 @@ app.controller("SelectEntriesController", function($scope, $http, sidebar, popup
 
         console.log(popup.entry);
 
-        window.close();
+        // window.close();
         return false;
   	}
 });
