@@ -16,6 +16,7 @@ app.service('popup', function () {
         },
         setProperty: function(value) {
             property = value;
+            console.log(value);
         }
     };
 });
