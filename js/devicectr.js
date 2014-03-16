@@ -115,6 +115,7 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
         sidebar.categoryName = current;
         sidebar.currentCategory = $scope.device.configuration[current];
         popup.sharedObject = sidebar.currentCategory;
+        console.log(popup.sharedObject);
 
 
 
