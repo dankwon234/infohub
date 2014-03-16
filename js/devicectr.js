@@ -7,10 +7,17 @@ app.service('sidebar', function() {
     this.selectedEntry = null;
 });
 
-app.factory('popup', function() {
+app.service('popup', function () {
+    var property = 'First';
+
     return {
-        sharedObject: {data: null }
-    }
+        getProperty: function () {
+            return property;
+        },
+        setProperty: function(value) {
+            property = value;
+        }
+    };
 });
 
 app.controller("RecordsController", function($scope, $http){
@@ -79,7 +86,6 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
                 $scope.test = results;
                 $scope.device = results['device'];
                 sidebar.device = $scope.device;
-                popup.sharedObject = $scope.device;
                 console.log('got device:');
                 console.log($scope.device);
             } else {
@@ -115,11 +121,10 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
         var current = $scope.device.configuration.sequence[index];
         sidebar.categoryName = current;
         sidebar.currentCategory = $scope.device.configuration[current];
+
+
         // popup.sharedObject = sidebar.currentCategory;
         // console.log(popup.sharedObject);
-
-
-
 
 
         popup.currentCategory = $scope.device.configuration[current];
@@ -144,6 +149,7 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
 
     $scope.getEntries = function(subcategoryName) {
         var entries = sidebar.currentCategory[subcategoryName];
+        popup.setProperty(entries);
         return entries;
     }
 
@@ -213,12 +219,12 @@ app.controller("SelectEntriesController", function($scope, $http, sidebar, popup
         // parent.selectEntry(id); // pass back the uniqueId of the entry
         sidebar.selectedEntry = id;
 
-        console.log(popup.currentCategory);
+        // console.log(popup.currentCategory);
         console.log('this is a test');
-        console.log(popup.sharedObject);
+        console.log(popup.getProperty());
         // var entries = sidebar.currentCategory[subcategoryName];
 
-        console.log(popup.entry);
+        // console.log(popup.entry);
 
         // window.close();
         return false;
