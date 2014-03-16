@@ -79,6 +79,7 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
                 $scope.test = results;
                 $scope.device = results['device'];
                 sidebar.device = $scope.device;
+                popup.sharedObject = $scope.device;
                 console.log('got device:');
                 console.log($scope.device);
             } else {
@@ -114,8 +115,8 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
         var current = $scope.device.configuration.sequence[index];
         sidebar.categoryName = current;
         sidebar.currentCategory = $scope.device.configuration[current];
-        popup.sharedObject = sidebar.currentCategory;
-        console.log(popup.sharedObject);
+        // popup.sharedObject = sidebar.currentCategory;
+        // console.log(popup.sharedObject);
 
 
 
