@@ -4,6 +4,7 @@ var app = angular.module('Device', []);
 app.service('sidebar', function() {
     this.currentCategory = null;
     this.categoryName = null;
+    this.selectedEntry = null;
 });
 
 app.service('popup', function() {
@@ -111,10 +112,20 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
         var current = $scope.device.configuration.sequence[index];
         sidebar.categoryName = current;
         sidebar.currentCategory = $scope.device.configuration[current];
+
+
+
+
+
+        popup.currentCategory = $scope.device.configuration[current];
     }
 
     $scope.returnCategory = function() {
         return sidebar.currentCategory;
+    }
+
+    $scope.returnCategoryName = function() {
+        return sidebar.categoryName;
     }
 
     $scope.addCategory = function() {
@@ -131,28 +142,29 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
         return entries;
     }
 
-    $scope.returnCategoryName = function() {
-        return sidebar.categoryName;
+    $scope.removeEntry = function(sub, index, category) {
+        $scope.getEntries(sub).splice(index, 1);
     }
 
-    $scope.showEntries = function(entry, subcategory) {
+    $scope.showEntries = function(entry, subcategory, category) {
         if (entry == null) {
             console.log(subcategory);
             // currentSelectedEntry = subcategory;
             $scope.popup('/git/entries?action=select&branch=device2'); // /site/entries?action=select
         } else {
             console.log('Show Entries');
-            popup.entry = entry;
-            console.log(popup.entry);
+
+
+            // sidebar.currentCategory = $scope.device.configuration[category][subcategory][entry];
+            sidebar.currentEntry = entry;
+
+            // popup.entry = $scope.device.configuration[category][subcategory][entry];
+            console.log(sidebar.currentEntry);
             // console.log(entry);
             // currentSelectedEntry = entry;
             $scope.popup('/git/entries?action=select&branch=device2'); // /site/entries?action=select
         }
         return false;
-    }
-
-    $scope.removeEntry = function(sub, index, category) {
-        $scope.getEntries(sub).splice(index, 1);
     }
 
     $scope.popup = function(url) {
@@ -194,16 +206,14 @@ app.controller("SelectEntriesController", function($scope, $http, popup){
             return true;
 
         // parent.selectEntry(id); // pass back the uniqueId of the entry
-        popup.entry = id;
+        sidebar.selectedEntry = id;
+
+        console.log(sidebar.currentCategory);
+        // var entries = sidebar.currentCategory[subcategoryName];
+
         console.log(popup.entry);
 
         window.close();
         return false;
   	}
 });
-
-// function selectEntry (id) {
-//     // sidebar.currentCategory[] sidebar.categoryName
-//     console.log(id);
-//     console.log(currentEntry);
-// }
