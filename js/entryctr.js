@@ -8,17 +8,18 @@ app.controller("EntryController", function($scope, $http){
     
     $scope.subcategories = {'info':['maps', 'airport transport', 'flight check-in', 'rail', 'hotel', 'web', 'news'], 'food':['restaurants', 'quick bites', 'coffee & tea', 'drinks', 'reviews', 'restaurant search'], 'activities':['tours', 'events', 'wellness', 'sports', 'broadway', 'nightlife', 'galleries', 'museums / galleries', 'parks'], 'shopping':['department stores', 'clothing', 'shoes', 'accessories', 'convenience', 'tech / gadgets', 'toys']};
     $scope.currentMiscImage = {'id':'00000'};
+	$scope.templates = new Array();
     
     $scope.init = function() {
         console.log('Initialized');
-//        var req = parseLocation('/git'); //@TODO: Change this back to site when we're done
-        var req = parseLocation('/site'); //@TODO: Change this back to site when we're done
+        var req = parseLocation('/site'); 
         var id = req.identifier;
 
         if (!id) {
         } else {
             $scope.editEntry.id = id;
-            fetchEntry();
+            fetchTemplates();
+//            fetchEntry();
         }
     };
 
@@ -31,8 +32,8 @@ app.controller("EntryController", function($scope, $http){
 		    if (confirmation=='success'){
                 results['entry'].date = new moment(new Date(results['entry'].date)).format('MM/DD/YYYY');
 		    	$scope.editEntry = results['entry'];
-
 		    	console.log('SUCCESS: '+JSON.stringify($scope.editEntry));
+//		    	fetchTemplates();
 		    }
 		    else{
 		    	alert(results['message']);
@@ -42,6 +43,26 @@ app.controller("EntryController", function($scope, $http){
 		});
     }
 
+    function fetchTemplates() {
+        var url = '/api/templates';
+		$http.get(url)
+		.success(function(data, status, headers, config) {
+		    results = data['results'];
+		    confirmation = results['confirmation'];
+		    if (confirmation=='success'){
+		    	$scope.templates = results['templates'];
+		    	console.log('SUCCESS: '+JSON.stringify($scope.templates));
+	            fetchEntry();
+		    }
+		    else{
+		    	alert(results['message']);
+		    }
+		}).error(function(data, status, headers, config) {
+		    console.log("error", data, status, headers, config);
+		});
+    }
+    
+    
     $scope.updateEntry = function() {
         var url = '/api/entries/' + $scope.editEntry.id;
 		$http.put(url, JSON.stringify($scope.editEntry))
@@ -183,25 +204,7 @@ app.controller("EntryController", function($scope, $http){
         }
         
         
-//        var url = '/api/foursquare?entry='+$scope.editEntry.id+'&venue='+$scope.editEntry.foursquareId;
-//		$http.get(url)
-//		.success(function(data, status, headers, config) {
-//		    results = data['results'];
-//		    confirmation = results['confirmation'];
-//		    if (confirmation=='success'){
-//                results['entry'].date = new moment(new Date(results['entry'].date)).format('MM/DD/YYYY');
-//		    	$scope.editEntry = results['entry'];
-//		    }
-//		    else{
-//		    	alert(results['message']);
-//		    }
-//		}).error(function(data, status, headers, config) {
-//		    console.log("error", data, status, headers, config);
-//		});
-
-        
       var url = '/api/foursquare';
-//        var url = '/api/entries/' + $scope.editEntry.id;
 		$http.put(url, JSON.stringify($scope.editEntry))
 		.success(function(data, status, headers, config) {
 		    results = data['results'];
