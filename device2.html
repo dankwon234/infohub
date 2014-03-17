@@ -264,7 +264,7 @@
                                     <a href="" ng-click="showEntries(entry, subcategory, returnCategoryName())" onClick="toggle()">{{ entry }}</a>
                                     <button style="float:right;" ng-click="removeEntry(subcategory, $index, returnCategoryName())">x</button><br><br>
                                 </div>
-                                <button ng-click="showEntries(null, subcategory)">Add</button>
+                                <button ng-click="showEntries(null, subcategory)" onClick="toggle()">Add</button>
                             </div>
                         </div>
                         <br>
