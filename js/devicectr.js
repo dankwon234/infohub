@@ -8,7 +8,7 @@ app.service('sidebar', function() {
 });
 
 app.service('popup', function () {
-    // this.show = false;
+    this.test = null;
     var visible = false;
 
     return {
@@ -161,9 +161,10 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
 
     $scope.showEntries = function(entry, subcategory, category) {
         console.log('SHOW ENTrIES');
-        console.log(popup.visible());
-        popup.toggle(true);
-        console.log(popup.visible());
+        console.log(popup.test);
+        // popup.toggle(true);
+        popup.test = true;
+        console.log(popup.test);
 
         if (entry == null) {
             console.log(subcategory);
@@ -196,6 +197,8 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
 
 app.controller("SelectEntriesController", function($scope, $http, sidebar, popup){
 
+    $scope.test = popup.test;
+
     $scope.filter = '';
 
     $scope.init = function() {
@@ -223,7 +226,7 @@ app.controller("SelectEntriesController", function($scope, $http, sidebar, popup
 
 	$scope.select = function(id){
 
-        popup.show(false);
+        popup.test = false;
 
 
         // parent = window.opener;
@@ -232,6 +235,10 @@ app.controller("SelectEntriesController", function($scope, $http, sidebar, popup
 
         // parent.selectEntry(id); // pass back the uniqueId of the entry
         sidebar.selectedEntry = id;
+
+
+
+
         // console.log(popup.getProperty());
 
         // console.log(popup.currentCategory);
