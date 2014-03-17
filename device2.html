@@ -19,6 +19,12 @@
     thead tr {
         border-top: none;
     }
+
+    .pop {
+        position: absolute;
+        width: 400px;
+        height: 400px;
+    }
     </style>
 </head>
 <body ng-app="Device"><!--onload="return showSection('device')" -->
@@ -223,6 +229,7 @@
 
             </div><!--end: .sidebar -->
 
+            <div class="pop">
             <div class="layout-2cols" ng-controller="SelectEntriesController" ng-init="init();">
                 <div class="content grid_8">
                     <div class="single-page">
@@ -255,6 +262,7 @@
                 </div><!--end: .content -->
 
                 <div class="clear"></div>
+            </div>
             </div>
 
             <div class="clear"></div>
