@@ -170,7 +170,7 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
             console.log('Show Entries');
             // sidebar.currentCategory = $scope.device.configuration[category][subcategory][entry];
             sidebar.currentEntry = entry;
-            console.log(sidebar.currentCategory[subcategory][entry]);
+            console.log(sidebar.currentCategory[subcategory]);
             // sidebar.currentCategory = $scope.device.configuration[current];
 
             // popup.entry = $scope.device.configuration[category][subcategory][entry];
