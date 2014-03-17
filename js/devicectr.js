@@ -123,7 +123,6 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
         sidebar.categoryName = current;
         sidebar.currentCategory = $scope.device.configuration[current];
 
-
         // popup.sharedObject = sidebar.currentCategory;
         // console.log(popup.sharedObject);
 
@@ -161,10 +160,8 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
 
     $scope.showEntries = function(entry, subcategory, category) {
         console.log('SHOW ENTrIES');
-        console.log(popup.visible());
-        popup.toggle(true);
-        // popup.test = true;
-        console.log(popup.visible());
+        // console.log(popup.visible());
+        // popup.toggle(true);
 
         if (entry == null) {
             console.log(subcategory);
@@ -172,10 +169,10 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
             // $scope.popup('/git/entries?action=select&branch=device2'); // /site/entries?action=select
         } else {
             console.log('Show Entries');
-
-
             // sidebar.currentCategory = $scope.device.configuration[category][subcategory][entry];
             sidebar.currentEntry = entry;
+            console.log(sidebar.currentCategory);
+            // sidebar.currentCategory = $scope.device.configuration[current];
 
             // popup.entry = $scope.device.configuration[category][subcategory][entry];
             console.log(sidebar.currentEntry);
@@ -196,8 +193,6 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
 });
 
 app.controller("SelectEntriesController", function($scope, $http, sidebar, popup){
-
-    // $scope.test = popup.test;
 
     $scope.filter = '';
 
@@ -225,6 +220,8 @@ app.controller("SelectEntriesController", function($scope, $http, sidebar, popup
     }
 
 	$scope.select = function(id){
+        console.log('selected: '+id);
+        console.log(sidebar.currentCategory);
 
         // popup.test = false;
         popup.toggle(false);
