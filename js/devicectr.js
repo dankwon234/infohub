@@ -233,7 +233,7 @@ app.controller("SelectEntriesController", function($scope, $http, sidebar, popup
 
         // parent.selectEntry(id); // pass back the uniqueId of the entry
         sidebar.selectedEntry = id;
-        console.log(popup.getProperty());
+        // console.log(popup.getProperty());
 
         // console.log(popup.currentCategory);
         // console.log('this is a test');
