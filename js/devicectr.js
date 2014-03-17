@@ -9,7 +9,7 @@ app.service('sidebar', function() {
 app.controller("RecordsController", function($scope, $http){
 
     $scope.init = function() {
-        var deviceID = parseLocation('git', 'devices').identifier;
+        var deviceID = parseLocation('site', 'devices').identifier;
         fetchRecords(deviceID);
     }
 
@@ -62,7 +62,7 @@ app.controller("ConfigController", function($scope, $http, sidebar){
     }
 
     function fetchDevice () {
-        var deviceID = parseLocation('git', 'devices').identifier;
+        var deviceID = parseLocation('site', 'devices').identifier;
         var url = '/api/devices/'+deviceID;
         $http.get(url)
         .success(function(data, status, headers, config) {
