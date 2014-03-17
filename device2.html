@@ -113,9 +113,11 @@
                                 <div class="tab-pane accordion-content active">
                                     <div class="form form-profile">
                                         <!-- DEVICE IMAGE FROM DEVICE INFO SIDEBAR -->
-                                        <img src="DEVICE" alt="img">
-
-
+                                        <div style="background-color:#888;text-align:center">
+                                          <img style="width:160px;margin-left:auto;margin-right:auto" src="/site/images/{{image}}" alt="img">
+                                        </div>
+                                        
+                                        <br />
 
 
                                         <form action="#">
@@ -148,17 +150,6 @@
                                                 <label class="lbl" for="txt_location">Image URL:</label>
                                                 <div class="val">
                                                     <input class="txt txt-website" type="text" id="image" value="{{image}}">
-                                                </div>
-                                            </div>
-
-                                            <div class="row-item clearfix">
-                                                <label class="lbl" for="txt_web">Venue:</label>
-                                                <div class="val">
-                                                    <input type="hidden" id="venue id" value="111">
-    												<select style="margin-top:8px" id="venues" name="venue" onchange="updateVenue();">
-    												  {{venueList}}
-    												</select>
-
                                                 </div>
                                             </div>
 
