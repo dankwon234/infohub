@@ -8,7 +8,7 @@ app.service('sidebar', function() {
 });
 
 app.service('popup', function () {
-    this.test = true;
+    this.test = false;
     var visible = false;
 
     return {
