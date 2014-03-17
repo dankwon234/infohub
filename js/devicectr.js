@@ -204,7 +204,7 @@ app.controller("SelectEntriesController", function($scope, $http, sidebar, popup
     $scope.init = function() {
         console.log('HELLO');
         // console.log(popup.stat);
-        $scope.toggle = popup.visible();
+        $scope.toggle = popup.visible;
         fetchEntries();
     }
 
