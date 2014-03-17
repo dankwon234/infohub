@@ -222,7 +222,8 @@ app.controller("SelectEntriesController", function($scope, $http, sidebar, popup
         console.log(sidebar.currentSubcategory.indexOf(sidebar.currentEntry));
 
         console.log('selected: '+id);
-        console.log(sidebar.currentCategory);
+        console.log(sidebar.currentSubcategory);
+        console.log(sidebar.currentEntry);
 
         // popup.test = false;
         popup.toggle(false);
