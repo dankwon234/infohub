@@ -6,20 +6,6 @@ app.service('sidebar', function() {
     this.selectedEntry = null;
 });
 
-app.service('popup', function () {
-    var visibility = false;
-    // var visible = false;
-
-    return {
-        visible: function () {
-            return visibility;
-        },
-        toggle: function(value) {
-            visibility = value;
-        }
-    };
-});
-
 app.controller("RecordsController", function($scope, $http){
 
     $scope.init = function() {
@@ -52,7 +38,7 @@ app.controller("RecordsController", function($scope, $http){
 
 });
 
-app.controller("ConfigController", function($scope, $http, sidebar, popup){
+app.controller("ConfigController", function($scope, $http, sidebar){
 
     $scope.init = function() {
         fetchCategories();
@@ -153,13 +139,8 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
     }
 
     $scope.showEntries = function(entry, subcategory, category) {
-        // console.log(popup.visibility);
-        console.log(popup.visible());
-        popup.toggle(true);
-        // console.log(popup.visibility);
-        console.log(popup.visible());
-
         if (entry == null) {
+            sidebar.currentEntry = null;
             console.log(subcategory);
         } else {
             console.log('Show Entries');
@@ -173,13 +154,11 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
     }
 });
 
-app.controller("SelectEntriesController", function($scope, $http, sidebar, popup){
+app.controller("SelectEntriesController", function($scope, $http, sidebar){
 
     $scope.filter = '';
 
     $scope.init = function() {
-        $scope.$watch(popup.visible(), function() {  });
-        $scope.toggle = true;
         fetchEntries();
     }
 
@@ -200,11 +179,14 @@ app.controller("SelectEntriesController", function($scope, $http, sidebar, popup
     }
 
 	$scope.select = function(id){
-        var index = sidebar.currentCategory[sidebar.currentSubcategory].indexOf(sidebar.currentEntry);
-        sidebar.currentCategory[sidebar.currentSubcategory][index] = id;
-
-        // popup.test = false;
-        popup.toggle(false);
+        if (sidebar.currentEntry == null) {
+            console.log(sidebar.currentCategory[sidebar.currentSubcategory]);
+            sidebar.currentCategory[sidebar.currentSubcategory].push(id);
+            console.log(sidebar.currentCategory[sidebar.currentSubcategory]);
+        } else {
+            var index = sidebar.currentCategory[sidebar.currentSubcategory].indexOf(sidebar.currentEntry);
+            sidebar.currentCategory[sidebar.currentSubcategory][index] = id;
+        }
   	}
 });
 
