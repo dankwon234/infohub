@@ -150,7 +150,12 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
     }
 
     $scope.showEntries = function(entry, subcategory, category) {
+        console.log(popup.visibility);
+        console.log(popup.visible());
         popup.toggle(true);
+        console.log(popup.visibility);
+        console.log(popup.visible());
+
         if (entry == null) {
             console.log(subcategory);
         } else {
