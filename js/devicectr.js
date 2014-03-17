@@ -8,15 +8,15 @@ app.service('sidebar', function() {
 });
 
 app.service('popup', function () {
-    this.test = false;
-    var visible = false;
+    this.visible = false;
+    // var visible = false;
 
     return {
         visible: function () {
-            return visible;
+            return this.visible;
         },
         toggle: function(value) {
-            visible = value;
+            this.visible = value;
         }
     };
 });
