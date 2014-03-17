@@ -187,10 +187,6 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
       	}
       	return false;
     }
-
-    $scope.$on('someEvent', function() {
-        console.log('event');
-    });
 });
 
 app.controller("SelectEntriesController", function($scope, $http, sidebar, popup){
