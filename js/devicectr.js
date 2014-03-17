@@ -170,7 +170,8 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
             console.log('Show Entries');
             // sidebar.currentCategory = $scope.device.configuration[category][subcategory][entry];
             sidebar.currentEntry = entry;
-            console.log(sidebar.currentCategory.subcategory[entry]);
+            sidebar.currentSubcategory = subcategory;
+            console.log(sidebar.currentCategory[subcategory]);
             // sidebar.currentCategory = $scope.device.configuration[current];
 
             // popup.entry = $scope.device.configuration[category][subcategory][entry];
@@ -218,6 +219,8 @@ app.controller("SelectEntriesController", function($scope, $http, sidebar, popup
     }
 
 	$scope.select = function(id){
+        console.log(sidebar.currentSubcategory.indexOf(currentEntry));
+
         console.log('selected: '+id);
         console.log(sidebar.currentCategory);
 
