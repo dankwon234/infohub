@@ -34,9 +34,9 @@
 </head>
 <body ng-app="Device"><!--onload="return showSection('device')" -->
 
-    <div class="pop">
-    <div class="layout-2cols" ng-controller="SelectEntriesController" ng-init="init();">
-        <div class="content grid_8" ng-show="test">
+    <div class="pop" ng-controller="SelectEntriesController" ng-init="init();" ng-show="test">
+    <div class="layout-2cols">
+        <div class="content grid_8">
             <div class="single-page">
                 <h2 class="rs single-title">Entries</h2>
                 <div class="box-single-content">
