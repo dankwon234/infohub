@@ -234,44 +234,44 @@
             <div class="clear"></div>
         </div>
 
-        <div class="pop">
-        <div class="layout-2cols" ng-controller="SelectEntriesController" ng-init="init();">
-            <div class="content grid_8">
-                <div class="single-page">
-                    <h2 class="rs single-title">Entries</h2>
-                    <div class="box-single-content">
-                        <div id="entriesbox" class="editor-content">
-                            <div class="tablecontainer">
-                            	<table class="table table-striped">
-                                    <button class="btn btn-custom" style="font-size:11px;margin-right:10px" ng-click="filter = 'title'">Filter Alphabetically</button>
-                                    <button class="btn btn-blue" style="font-size:11px" ng-click="filter = ''">Filter Chronological</button>
-                                    <thead>
-                                        <tr style="text-align:left">
-                                            <th>Select</th>
-                                            <th>Title</th>
-                                            <th>Link</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr ng-repeat="entry in entries | orderBy:filter">
-                                            <td><button class="btn btn-custom" style="font-size:11px" ng-click="select(entry.id);" style="margin:10px;margin-left:0">Select</button>
-                                            <td><a href="/site/entries/{{ entry.id }}" target="_blank">{{ entry.title }}</a></td>
-                                            <td style="max-width:280px"><a href="{{ entry.url }}">{{ entry.url }}</a></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+        {{footer}}
+
+    </div>
+
+    <div class="pop">
+    <div class="layout-2cols" ng-controller="SelectEntriesController" ng-init="init();">
+        <div class="content grid_8">
+            <div class="single-page">
+                <h2 class="rs single-title">Entries</h2>
+                <div class="box-single-content">
+                    <div id="entriesbox" class="editor-content">
+                        <div class="tablecontainer">
+                        	<table class="table table-striped">
+                                <button class="btn btn-custom" style="font-size:11px;margin-right:10px" ng-click="filter = 'title'">Filter Alphabetically</button>
+                                <button class="btn btn-blue" style="font-size:11px" ng-click="filter = ''">Filter Chronological</button>
+                                <thead>
+                                    <tr style="text-align:left">
+                                        <th>Select</th>
+                                        <th>Title</th>
+                                        <th>Link</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="entry in entries | orderBy:filter">
+                                        <td><button class="btn btn-custom" style="font-size:11px" ng-click="select(entry.id);" style="margin:10px;margin-left:0">Select</button>
+                                        <td><a href="/site/entries/{{ entry.id }}" target="_blank">{{ entry.title }}</a></td>
+                                        <td style="max-width:280px"><a href="{{ entry.url }}">{{ entry.url }}</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
-            </div><!--end: .content -->
+            </div>
+        </div><!--end: .content -->
 
-            <div class="clear"></div>
-        </div>
-        </div>
-
-        {{footer}}
-
+        <div class="clear"></div>
+    </div>
     </div>
 
     <script src="/site/js/moment.js"></script>
