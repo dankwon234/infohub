@@ -8,17 +8,15 @@ app.service('sidebar', function() {
 });
 
 app.service('popup', function () {
-    this.show = false;
-    var test = false;
-    var property = 'First';
+    // this.show = false;
+    var visible = false;
 
     return {
-        test: function () {
-            return test;
+        visible: function () {
+            return visible;
         },
         toggle: function(value) {
-            show = value;
-            // console.log(value);
+            visible = value;
         }
     };
 });
@@ -163,8 +161,9 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
 
     $scope.showEntries = function(entry, subcategory, category) {
         console.log('SHOW ENTrIES');
-        console.log(popup.test());
-        popup.show = true;
+        console.log(popup.visible());
+        popup.toggle = true;
+        console.log(popup.visible());
 
         if (entry == null) {
             console.log(subcategory);
@@ -202,7 +201,7 @@ app.controller("SelectEntriesController", function($scope, $http, sidebar, popup
     $scope.init = function() {
         console.log('HELLO');
         // console.log(popup.stat);
-        $scope.toggle = popup.show;
+        $scope.toggle = popup.visible();
         fetchEntries();
     }
 
