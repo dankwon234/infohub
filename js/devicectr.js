@@ -12,10 +12,10 @@ app.service('popup', function () {
 
     return {
         visible: function () {
-            return visible;
+            return visibility;
         },
         toggle: function(value) {
-            visible = value;
+            visibility = value;
         }
     };
 });
@@ -150,7 +150,7 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
     }
 
     $scope.showEntries = function(entry, subcategory, category) {
-        // popup.toggle(true);
+        popup.toggle(true);
         if (entry == null) {
             console.log(subcategory);
         } else {
