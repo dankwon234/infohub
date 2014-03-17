@@ -58,7 +58,7 @@
                                 </thead>
                                 <tbody>
                                     <tr ng-repeat="entry in entries | orderBy:filter">
-                                        <td><button class="btn btn-custom" style="font-size:11px" ng-click="select(entry.id);" style="margin:10px;margin-left:0">Select</button>
+                                        <td><button class="btn btn-custom" style="font-size:11px" ng-click="select(entry.id);" onClick="toggle()" style="margin:10px;margin-left:0">Select</button>
                                         <td><a href="/site/entries/{{ entry.id }}" target="_blank">{{ entry.title }}</a></td>
                                         <td style="max-width:280px"><a href="{{ entry.url }}">{{ entry.url }}</a></td>
                                     </tr>
