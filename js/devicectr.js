@@ -198,7 +198,7 @@ app.controller("SelectEntriesController", function($scope, $http, sidebar, popup
     $scope.filter = '';
 
     $scope.init = function() {
-        $scope.toggle = popup.toggle;
+        $scope.toggle = popup.show;
         fetchEntries();
     }
 
@@ -220,7 +220,7 @@ app.controller("SelectEntriesController", function($scope, $http, sidebar, popup
 
 	$scope.select = function(id){
 
-        popup.toggle = false;
+        popup.show = false;
 
 
         // parent = window.opener;
