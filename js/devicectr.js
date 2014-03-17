@@ -209,5 +209,9 @@ app.controller("SelectEntriesController", function($scope, $http, sidebar, popup
 });
 
 function toggle () {
-    $('.pop').addClass('show');
+    if ($('.pop').hasClass('show')) {
+        $('.pop').removeClass('show');
+    } else {
+        $('.pop').addClass('show');
+    }
 }
