@@ -132,7 +132,7 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
 
         // popup.currentCategory =
         console.log('select category');
-        popup.setProperty($scope.device.configuration[current]);
+        // popup.setProperty($scope.device.configuration[current]);
     }
 
     $scope.returnCategory = function() {
