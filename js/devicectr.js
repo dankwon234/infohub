@@ -198,6 +198,7 @@ app.controller("SelectEntriesController", function($scope, $http, sidebar, popup
     $scope.filter = '';
 
     $scope.init = function() {
+        $scope.toggle = popup.toggle;
         fetchEntries();
     }
 
