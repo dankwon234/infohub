@@ -9,12 +9,12 @@ app.service('sidebar', function() {
 
 app.service('popup', function () {
     this.show = false;
-    // var show = false;
+    var test = false;
     var property = 'First';
 
     return {
-        stat: function () {
-            return show;
+        test: function () {
+            return test;
         },
         toggle: function(value) {
             show = value;
@@ -163,7 +163,7 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
 
     $scope.showEntries = function(entry, subcategory, category) {
         console.log('SHOW ENTrIES');
-        console.log(popup.show);
+        console.log(popup.test());
         popup.show = true;
 
         if (entry == null) {
