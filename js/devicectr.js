@@ -1,5 +1,4 @@
 var app = angular.module('Device', []);
-// var currentEntry;
 
 app.service('sidebar', function() {
     this.currentCategory = null;
@@ -8,15 +7,15 @@ app.service('sidebar', function() {
 });
 
 app.service('popup', function () {
-    this.visible = false;
+    var visibility = false;
     // var visible = false;
 
     return {
         visible: function () {
-            return this.visible;
+            return visible;
         },
         toggle: function(value) {
-            this.visible = value;
+            visible = value;
         }
     };
 });
@@ -99,7 +98,7 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
 
     $scope.updateDevice = function() {
         var deviceID = parseLocation('git', 'devices').identifier;
-        var url = '/api/device/'+deviceID;
+        var url = '/api/devices/'+deviceID;
         console.log('update device');
         console.log(sidebar.device);
         var data = JSON.stringify(sidebar.device);
@@ -122,14 +121,6 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
         var current = $scope.device.configuration.sequence[index];
         sidebar.categoryName = current;
         sidebar.currentCategory = $scope.device.configuration[current];
-
-        // popup.sharedObject = sidebar.currentCategory;
-        // console.log(popup.sharedObject);
-
-
-        // popup.currentCategory =
-        console.log('select category');
-        // popup.setProperty($scope.device.configuration[current]);
     }
 
     $scope.returnCategory = function() {
@@ -159,37 +150,19 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
     }
 
     $scope.showEntries = function(entry, subcategory, category) {
-        // console.log(popup.visible());
         // popup.toggle(true);
-
         if (entry == null) {
             console.log(subcategory);
-            // currentSelectedEntry = subcategory;
-            // $scope.popup('/git/entries?action=select&branch=device2'); // /site/entries?action=select
         } else {
             console.log('Show Entries');
-            // sidebar.currentCategory = $scope.device.configuration[category][subcategory][entry];
             sidebar.currentEntry = entry;
             sidebar.currentSubcategory = subcategory;
-            console.log(sidebar.currentCategory[subcategory]);
-            // sidebar.currentCategory = $scope.device.configuration[current];
 
-            // popup.entry = $scope.device.configuration[category][subcategory][entry];
+            console.log(sidebar.currentCategory[subcategory]);
             console.log(sidebar.currentEntry);
-            // console.log(entry);
-            // currentSelectedEntry = entry;
-            // $scope.popup('/git/entries?action=select&branch=device2'); // /site/entries?action=select
         }
         return false;
     }
-
-    // $scope.popup = function(url) {
-    //       newwindow = window.open(url,'name','height=450,width=900');
-    //       if (window.focus) {
-    //           newwindow.focus();
-    //       }
-    //       return false;
-    // }
 });
 
 app.controller("SelectEntriesController", function($scope, $http, sidebar, popup){
@@ -197,8 +170,7 @@ app.controller("SelectEntriesController", function($scope, $http, sidebar, popup
     $scope.filter = '';
 
     $scope.init = function() {
-        // console.log(popup.stat);
-        $scope.toggle = popup.visible;
+        $scope.toggle = popup.visibility;
         fetchEntries();
     }
 
@@ -221,39 +193,8 @@ app.controller("SelectEntriesController", function($scope, $http, sidebar, popup
 	$scope.select = function(id){
         var index = sidebar.currentCategory[sidebar.currentSubcategory].indexOf(sidebar.currentEntry);
         sidebar.currentCategory[sidebar.currentSubcategory][index] = id;
-        // console.log();
-        // console.log(sidebar.currentCategory);
-        // console.log(sidebar.currentCategory)
-
-        console.log('selected: '+id);
-        console.log(sidebar.currentSubcategory);
-        console.log(sidebar.currentEntry);
 
         // popup.test = false;
         popup.toggle(false);
-
-
-        // parent = window.opener;
-        // if (!parent)
-        //     return true;
-
-        // parent.selectEntry(id); // pass back the uniqueId of the entry
-        sidebar.selectedEntry = id;
-
-
-
-
-        // console.log(popup.getProperty());
-
-        // console.log(popup.currentCategory);
-        // console.log('this is a test');
-        // popup.setProperty();
-        // console.log(popup.setProperty('test'));
-        // var entries = sidebar.currentCategory[subcategoryName];
-
-        // console.log(popup.entry);
-
-        // window.close();
-        // return false;
   	}
 });
