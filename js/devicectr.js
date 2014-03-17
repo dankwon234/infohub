@@ -97,8 +97,10 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
     }
 
     $scope.updateDevice = function() {
-        var deviceID = parseLocation('git', 'devices').identifier;
-        var url = '/api/devices/'+deviceID;
+        // var sidebar.device.id = parseLocation('git', 'devices').identifier;
+        // console.log()
+        var url = '/api/devices/'+sidebar.device.id;
+        console.log(url);
         console.log('update device');
         console.log(sidebar.device);
         var data = JSON.stringify(sidebar.device);
@@ -175,6 +177,7 @@ app.controller("SelectEntriesController", function($scope, $http, sidebar, popup
     $scope.filter = '';
 
     $scope.init = function() {
+        $scope.$watch(popup.visible(), function() {  });
         $scope.toggle = true;
         fetchEntries();
     }
