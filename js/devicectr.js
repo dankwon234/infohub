@@ -99,7 +99,7 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
     $scope.updateDevice = function() {
         // var sidebar.device.id = parseLocation('git', 'devices').identifier;
         // console.log()
-        var url = '/api/devices/'+sidebar.device.id;
+        var url = '/api/devices/'+sidebar.device.uuid;
         console.log(url);
         console.log('update device');
         console.log(sidebar.device);
