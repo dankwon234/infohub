@@ -24,6 +24,14 @@
         display: block!important;
     }
 
+    .dismiss {
+        width:100px;
+        height:100px;
+        color: black;
+        background-color: white;
+        font-size: 56px;
+    }
+
     .pop {
         z-index:10000000;
         display: none;
@@ -42,6 +50,9 @@
     <div class="layout-2cols">
         <div class="content grid_8">
             <div class="single-page">
+                <div class="dismiss" onClick="toggle()">
+                    <h1>X</h1>
+                </div>
                 <h2 class="rs single-title">Entries</h2>
                 <div class="box-single-content">
                     <div id="entriesbox" class="editor-content">
