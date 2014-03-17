@@ -162,7 +162,7 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
     $scope.showEntries = function(entry, subcategory, category) {
         console.log('SHOW ENTrIES');
         console.log(popup.visible());
-        popup.toggle = true;
+        popup.toggle(true);
         console.log(popup.visible());
 
         if (entry == null) {
@@ -223,7 +223,7 @@ app.controller("SelectEntriesController", function($scope, $http, sidebar, popup
 
 	$scope.select = function(id){
 
-        popup.show = false;
+        popup.show(false);
 
 
         // parent = window.opener;
