@@ -18,9 +18,15 @@
     	  for (var i=0; i<categories.length; i++){
     		  category = categories[i];
 
+<<<<<<< Local Changes
     		  categoriesHtml += '<div class="media comment-item"><div id="'+category+'" draggable="true" ondragstart="dragCategory(event)" ondragenter="handleDragEnter(event)" ondragover="draggedOver(event)" ondragleave="dragLeave(event)" ondrop="dropCategory(event)" class="media-body"><h4 class="rs comment-author"><a style="color:#ea503d" onClick="return selectCategory(\''+category+'\');" href="#">'+category+'</a></h4>';
+=======
+              categoriesHtml += '<div class="media comment-item"><div id="'+category+'" draggable="true" ondragstart="dragCategory(event)" ondragenter="handleDragEnter(event)" ondragover="draggedOver(event)" ondragleave="dragLeave(event)" ondrop="dropCategory(event)" class="media-body"><h4 class="rs comment-author"><a style="color:#ea503d" onClick="return selectCategory(\''+category+'\');" href="#">'+category+'</a></h4>';
+>>>>>>> External Changes
 
+              console.log(config);
     		  c = config[category];
+              console.log(c);
     		  subs = c['order'];
     		  for (var k=0; k<subs.length; k++){
     			  sub = subs[k];
@@ -117,10 +123,12 @@
 
 
       function commitCategory(category){
-    	  console.log('Commit Category: '+category);
+          // console.log('Commit Category: '+category);
 
-    	  config = device["configuration"];
-		  subcategories = config[category]; //
+          // config = device["configuration"];
+          // -------- DEVICE CONFIGURATION OBJECT
+
+          // subcategories = config[category];
           console.log(subcategories);
 
     	  subcategoryKeys = subcategories['order']; // ["sports","world","headlines","local","tech","business"]
@@ -486,6 +494,9 @@
 		  return;
       }
 
+<<<<<<< Local Changes
+<<<<<<< Local Changes
+<<<<<<< Local Changes
       function fetchCateogories(){
     	  url = '/api/categories';
     	  response = executeUrlRequest(url, 'GET');
@@ -503,6 +514,64 @@
     		  document.getElementById('addcategory').innerHTML = list;
     	  }
       }
+=======
+      // ============================== DONE ============================== //
+      // function fetchCateogories(){
+      //           url = '/api/categories';
+      //           response = executeUrlRequest(url, 'GET');
+      //           results = response['results'];
+      //           confirmation = results['confirmation'];
+      //           if (confirmation=='success'){
+      //               categories = results['categories'];
+      //
+      //               list = '';
+      //               for (var i=0; i<categories.length; i++){
+      //                   category = categories[i];
+      //                   list += '<option value="'+category['id']+'">'+category['name']+'</option>';
+      //               }
+      //
+      //               document.getElementById('addcategory').innerHTML = list;
+      //           }
+      // }
+>>>>>>> External Changes
+=======
+      function fetchCateogories(){
+    	  url = '/api/categories';
+    	  response = executeUrlRequest(url, 'GET');
+    	  results = response['results'];
+    	  confirmation = results['confirmation'];
+    	  if (confirmation=='success'){
+    		  categories = results['categories'];
+
+    		  list = '';
+    		  for (var i=0; i<categories.length; i++){
+    			  category = categories[i];
+    			  list += '<option value="'+category['id']+'">'+category['name']+'</option>';
+    		  }
+
+    		  document.getElementById('addcategory').innerHTML = list;
+    	  }
+      }
+>>>>>>> External Changes
+=======
+      function fetchCateogories(){
+    	  url = '/api/categories';
+    	  response = executeUrlRequest(url, 'GET');
+    	  results = response['results'];
+    	  confirmation = results['confirmation'];
+    	  if (confirmation=='success'){
+    		  categories = results['categories'];
+
+    		  list = '';
+    		  for (var i=0; i<categories.length; i++){
+    			  category = categories[i];
+    			  list += '<option value="'+category['id']+'">'+category['name']+'</option>';
+    		  }
+
+    		  document.getElementById('addcategory').innerHTML = list;
+    	  }
+      }
+>>>>>>> External Changes
 
       function removeCategory(index){
     	  config = device["configuration"];
@@ -536,6 +605,12 @@
           return false;
       }
 
+<<<<<<< Local Changes
+<<<<<<< Local Changes
+<<<<<<< Local Changes
+<<<<<<< Local Changes
+<<<<<<< Local Changes
+<<<<<<< Local Changes
       function showEntries(entry, subcategory){
           if (entry == null) {
               console.log(subcategory);
@@ -549,6 +624,97 @@
           }
           return false;
       }
+=======
+      // ============================== DONE ============================== // -- Look at popup.js
+      // function showEntries(entry, subcategory){
+      //     if (entry == null) {
+      //         console.log(subcategory);
+      //         currentSelectedEntry = subcategory;
+      //         popup('/site/entries?action=select');
+      //     } else {
+      //         console.log('Show Entries');
+      //         currentSelectedEntry = entry;
+      //
+      //         popup('/site/entries?action=select');
+      //     }
+      //     return false;
+      // }
+>>>>>>> External Changes
+=======
+      function showEntries(entry, subcategory){
+          if (entry == null) {
+              console.log(subcategory);
+              currentSelectedEntry = subcategory;
+              popup('/site/entries?action=select');
+          } else {
+              console.log('Show Entries');
+              currentSelectedEntry = entry;
+
+              popup('/site/entries?action=select');
+          }
+          return false;
+      }
+>>>>>>> External Changes
+=======
+      function showEntries(entry, subcategory){
+          if (entry == null) {
+              console.log(subcategory);
+              currentSelectedEntry = subcategory;
+              popup('/site/entries?action=select');
+          } else {
+              console.log('Show Entries');
+              currentSelectedEntry = entry;
+
+              popup('/site/entries?action=select');
+          }
+          return false;
+      }
+>>>>>>> External Changes
+=======
+      function showEntries(entry, subcategory){
+          if (entry == null) {
+              console.log(subcategory);
+              currentSelectedEntry = subcategory;
+              popup('/site/entries?action=select');
+          } else {
+              console.log('Show Entries');
+              currentSelectedEntry = entry;
+
+              popup('/site/entries?action=select');
+          }
+          return false;
+      }
+>>>>>>> External Changes
+=======
+      function showEntries(entry, subcategory){
+          if (entry == null) {
+              console.log(subcategory);
+              currentSelectedEntry = subcategory;
+              popup('/site/entries?action=select');
+          } else {
+              console.log('Show Entries');
+              currentSelectedEntry = entry;
+
+              popup('/site/entries?action=select');
+          }
+          return false;
+      }
+>>>>>>> External Changes
+=======
+      function showEntries(entry, subcategory){
+          if (entry == null) {
+              console.log(subcategory);
+              currentSelectedEntry = subcategory;
+              popup('/site/entries?action=select');
+          } else {
+              console.log('Show Entries');
+              currentSelectedEntry = entry;
+
+              popup('/site/entries?action=select');
+          }
+          return false;
+      }
+>>>>>>> External Changes
 
       function showIcons(){
     	  console.log('Show Icons');
@@ -587,6 +753,9 @@
 		  return;
       }
 
+<<<<<<< Local Changes
+<<<<<<< Local Changes
+<<<<<<< Local Changes
 	    function popup(url) {
 		  	newwindow = window.open(url,'name','height=450,width=900');
 		  	if (window.focus) {
@@ -596,3 +765,27 @@
 		  }
 
 
+=======
+        function popup(url) {
+          	newwindow = window.open(url,'name','height=450,width=900');
+          	if (window.focus) {
+          		newwindow.focus();
+          	}
+          	return false;
+        }>>>>>>> External Changes
+=======
+        function popup(url) {
+          	newwindow = window.open(url,'name','height=450,width=900');
+          	if (window.focus) {
+          		newwindow.focus();
+          	}
+          	return false;
+        }>>>>>>> External Changes
+=======
+        function popup(url) {
+          	newwindow = window.open(url,'name','height=450,width=900');
+          	if (window.focus) {
+          		newwindow.focus();
+          	}
+          	return false;
+        }>>>>>>> External Changes
