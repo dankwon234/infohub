@@ -219,7 +219,7 @@ app.controller("SelectEntriesController", function($scope, $http, sidebar, popup
     }
 
 	$scope.select = function(id){
-        console.log(sidebar.currentSubcategory.indexOf(sidebar.currentEntry));
+        console.log(sidebar.currentCategory[sidebar.currentSubcategory].indexOf(sidebar.currentEntry));
 
         console.log('selected: '+id);
         console.log(sidebar.currentSubcategory);
