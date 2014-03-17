@@ -161,10 +161,10 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
 
     $scope.showEntries = function(entry, subcategory, category) {
         console.log('SHOW ENTrIES');
-        console.log(popup.stat);
+        console.log(popup.visible());
         popup.toggle(true);
         // popup.test = true;
-        console.log(popup.test);
+        console.log(popup.visible());
 
         if (entry == null) {
             console.log(subcategory);
