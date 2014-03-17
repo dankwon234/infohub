@@ -106,6 +106,7 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
         var data = JSON.stringify(sidebar.device);
         $http.put(url, data)
         .success(function(data, status, headers, config) {
+            results = data['results'];
             confirmation = results['confirmation'];
             if (confirmation=='success'){
                 alert('Data successfully posted');
