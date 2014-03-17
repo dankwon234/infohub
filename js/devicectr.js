@@ -8,6 +8,7 @@ app.service('sidebar', function() {
 });
 
 app.service('popup', function () {
+    var toggle = false;
     var property = 'First';
 
     return {
@@ -160,10 +161,13 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
     }
 
     $scope.showEntries = function(entry, subcategory, category) {
+
+        popup.show = true;
+
         if (entry == null) {
             console.log(subcategory);
             // currentSelectedEntry = subcategory;
-            $scope.popup('/git/entries?action=select&branch=device2'); // /site/entries?action=select
+            // $scope.popup('/git/entries?action=select&branch=device2'); // /site/entries?action=select
         } else {
             console.log('Show Entries');
 
@@ -175,18 +179,18 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
             console.log(sidebar.currentEntry);
             // console.log(entry);
             // currentSelectedEntry = entry;
-            $scope.popup('/git/entries?action=select&branch=device2'); // /site/entries?action=select
+            // $scope.popup('/git/entries?action=select&branch=device2'); // /site/entries?action=select
         }
         return false;
     }
 
-    $scope.popup = function(url) {
-      	newwindow = window.open(url,'name','height=450,width=900');
-      	if (window.focus) {
-      		newwindow.focus();
-      	}
-      	return false;
-    }
+    // $scope.popup = function(url) {
+    //       newwindow = window.open(url,'name','height=450,width=900');
+    //       if (window.focus) {
+    //           newwindow.focus();
+    //       }
+    //       return false;
+    // }
 });
 
 app.controller("SelectEntriesController", function($scope, $http, sidebar, popup){
@@ -214,23 +218,27 @@ app.controller("SelectEntriesController", function($scope, $http, sidebar, popup
     }
 
 	$scope.select = function(id){
-        parent = window.opener;
-        if (!parent)
-            return true;
+
+        popup.toggle = false;
+
+
+        // parent = window.opener;
+        // if (!parent)
+        //     return true;
 
         // parent.selectEntry(id); // pass back the uniqueId of the entry
         sidebar.selectedEntry = id;
+        console.log(popup.getProperty());
 
         // console.log(popup.currentCategory);
-        console.log('this is a test');
-        popup.setProperty('test');
-        $scope.$emit('someEvent', id);
+        // console.log('this is a test');
+        // popup.setProperty();
         // console.log(popup.setProperty('test'));
         // var entries = sidebar.currentCategory[subcategoryName];
 
         // console.log(popup.entry);
 
         // window.close();
-        return false;
+        // return false;
   	}
 });
