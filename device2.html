@@ -20,9 +20,13 @@
         border-top: none;
     }
 
+    .show {
+        display: block!important;
+    }
+
     .pop {
         z-index:10000000;
-/*        display: none;*/
+        display: none;
         position: absolute;
         top: 50%;
         right: 50%;
@@ -36,7 +40,7 @@
 </head>
 <body ng-app="Device"><!--onload="return showSection('device')" -->
 
-    <div class="pop" ng-controller="SelectEntriesController" ng-init="init();" ng-show="toggle">
+    <div class="pop" ng-controller="SelectEntriesController" ng-init="init();">
     <div class="layout-2cols">
         <div class="content grid_8">
             <div class="single-page">
@@ -259,7 +263,7 @@
                             </p>
                             <div class="subcategory" id="Restaurants">
                                 <div ng-repeat="entry in getEntries(subcategory)">
-                                    <a href="" ng-click="showEntries(entry, subcategory, returnCategoryName())">{{ entry }}</a>
+                                    <a href="" ng-click="showEntries(entry, subcategory, returnCategoryName())" onClick="toggle()">{{ entry }}</a>
                                     <button style="float:right;" ng-click="removeEntry(subcategory, $index, returnCategoryName())">x</button><br><br>
                                 </div>
                                 <button ng-click="showEntries(null, subcategory)">Add</button>

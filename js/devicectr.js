@@ -207,3 +207,7 @@ app.controller("SelectEntriesController", function($scope, $http, sidebar, popup
         popup.toggle(false);
   	}
 });
+
+function toggle () {
+    $('.pop').addClass('show');
+}
