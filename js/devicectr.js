@@ -141,6 +141,7 @@ app.controller("ConfigController", function($scope, $http, sidebar){
     $scope.showEntries = function(entry, subcategory, category) {
         if (entry == null) {
             sidebar.currentEntry = null;
+            sidebar.currentSubcategory = subcategory;
             console.log(subcategory);
         } else {
             console.log('Show Entries');
