@@ -161,9 +161,9 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
 
     $scope.showEntries = function(entry, subcategory, category) {
         console.log('SHOW ENTrIES');
-        console.log(popup.test);
-        // popup.toggle(true);
-        popup.test = true;
+        console.log(popup.stat);
+        popup.toggle(true);
+        // popup.test = true;
         console.log(popup.test);
 
         if (entry == null) {
@@ -197,7 +197,7 @@ app.controller("ConfigController", function($scope, $http, sidebar, popup){
 
 app.controller("SelectEntriesController", function($scope, $http, sidebar, popup){
 
-    $scope.test = popup.test;
+    // $scope.test = popup.test;
 
     $scope.filter = '';
 
@@ -226,7 +226,8 @@ app.controller("SelectEntriesController", function($scope, $http, sidebar, popup
 
 	$scope.select = function(id){
 
-        popup.test = false;
+        // popup.test = false;
+        popup.toggle(false);
 
 
         // parent = window.opener;
