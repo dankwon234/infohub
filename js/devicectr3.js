@@ -4,11 +4,14 @@ app.controller("DeviceController", function($scope, $http){
 	$scope.device = {'uuid':null};
 	$scope.entries = new Array();
 	$scope.entriesMap = {};
-
+	$scope.categories = new Array();
+	$scope.newCategory = '';
+	
 	$scope.selectedCategory = null;
 	$scope.selectedSubcategoryName = null;
 	$scope.selectedSubcategory = null;
 	$scope.swapEntryIndex = -1;
+
 
     $scope.init = function() {
         var deviceID = parseLocation('site', 'devices').identifier;
@@ -18,8 +21,8 @@ app.controller("DeviceController", function($scope, $http){
 
     function fetchDevice () {
         var url = '/api/devices/'+$scope.device.uuid;
-        $http.get(url)
-        .success(function(data, status, headers, config) {
+        
+        $http.get(url).success(function(data, status, headers, config) {
             results = data['results'];
             confirmation = results['confirmation'];
             if (confirmation=='success'){
@@ -37,16 +40,20 @@ app.controller("DeviceController", function($scope, $http){
 
     function fetchRecords(deviceID) {
         var url = '/api/records?device=' + deviceID;
-        $http.get(url)
-        .success(function(data, status, headers, config) {
+        
+        $http.get(url).success(function(data, status, headers, config) {
             results = data['results'];
             confirmation = results['confirmation'];
             if (confirmation=='success'){
                 $scope.records = results['records'];
                 $scope.numRecords = $scope.records.length;
-            } else {
+            } 
+            else {
                 alert(results['message']);
             }
+            
+            fetchCategories();
+            
         }).error(function(data, status, headers, config) {
             console.log("error", data, status, headers, config);
         });
@@ -78,16 +85,31 @@ app.controller("DeviceController", function($scope, $http){
         });
     }
 
+    function fetchCategories() {
+        var url = '/api/categories';
+        
+        $http.get(url).success(function(data, status, headers, config) {
+            results = data['results'];
+            confirmation = results['confirmation'];
+            if (confirmation=='success'){
+                $scope.categories = results['categories'];
+            } else {
+                alert(results['message']);
+            }
+        }).error(function(data, status, headers, config) {
+            console.log("error", data, status, headers, config);
+        });
+    }
+
 
     
     $scope.updateDevice = function() {
         var url = '/api/devices/'+$scope.device.uuid;
-        console.log('update device: '+url);
+        
         var json = JSON.stringify($scope.device);
         console.log(json);
         
-        $http.put(url, json)
-        .success(function(data, status, headers, config) {
+        $http.put(url, json).success(function(data, status, headers, config) {
             results = data['results'];
             confirmation = results['confirmation'];
             if (confirmation=='success'){
@@ -137,11 +159,6 @@ app.controller("DeviceController", function($scope, $http){
     $scope.swapEntries = function(index, subcategoryName) {
     	console.log('SWAP ENTRIES: '+index);
     	
-//    	if ($scope.selectedSubcategory == null){
-//    		$scope.selectedSubcategory = $scope.selectedCategory[subcategoryName];
-//    		return;
-//    	}
-
     	if ($scope.swapEntryIndex == -1){
     		$scope.swapEntryIndex = index;
     		return;
@@ -166,7 +183,46 @@ app.controller("DeviceController", function($scope, $http){
     	$scope.selectedSubcategory = $scope.selectedCategory[subcategory];
         return false;
     }
+    
+    $scope.renameSubcategory = function(index, newSubcategoryName) {
+    	oldSubcategoryName = $scope.selectedCategory.order[index];
+    	if (newSubcategoryName==oldSubcategoryName)
+    		return;
+    	
+    	console.log('RENAME SUBCATEGORY: '+newSubcategoryName+', '+oldSubcategoryName);
+    	
+    	$scope.selectedCategory.order[index] = newSubcategoryName; // replace subcategory name in order array
+    	
+    	subcategory = $scope.selectedCategory[oldSubcategoryName]; // get subcategory array using old name
+    	$scope.selectedCategory[newSubcategoryName] = subcategory; // insert subcategory array into new name
+    	delete $scope.selectedCategory[oldSubcategoryName]; // remove old key
+    	
+//    	console.log(JSON.stringify($scope.device.configuration));
+    }
 
+    $scope.addCategory = function() {
+    	console.log('ADD CATEGORY: '+JSON.stringify($scope.newCategory));
+    	
+    	if ($scope.newCategory.length==0)
+    		return;
+    	
+  	  url = '/api/device/'+$scope.device.uuid+'?action=addcategory&category='+$scope.newCategory;
+      $http.put(url).success(function(data, status, headers, config) {
+          results = data['results'];
+          confirmation = results['confirmation'];
+          if (confirmation=='success'){
+              alert('Device successfully updated');
+              $scope.device = results['device'];
+              console.log($scope.device);
+          } 
+          else {
+              alert(results['message']);
+          }
+      }).error(function(data, status, headers, config) {
+          console.log("error", data, status, headers, config);
+      });
+    	
+    }
 
     $scope.formattedDate = function(date) {
         var newDate = new Date(date).toString();

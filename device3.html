@@ -168,8 +168,6 @@
                                               <div class="val">
                                                 <a class="btn btn-blue btn-submit-all" href="" ng-click="updateDevice()">Save</a> <!--onClick="return updateDevice();"-->
                                                 
-<!--                                                 <button style="width:55%" class="btn btn-blue btn-submit-all" ng-click="updateDevice()">Save</button> onClick="return updateDevice();"
- -->                                                
                                               </div>
                                             </div>
                                         </form>
@@ -202,12 +200,13 @@
                                 <div style="margin-top:20px;border-top:1px dotted #888;padding:25px">
                                   <h2>Add Category</h2>
 
-                                  <select id="addcategory" name="category">
+                                  <select id="addcategory" name="category" ng-model="newCategory">
                                       <option ng-repeat="category in categories" value="{{ category.id }}">{{ category.name }}</option>
                                   </select>
 
                                   <br /><br />
-                                  <input type="submit" class="btn btn-red" value="Add Category" /> <!--onclick="return addCategory();"-->
+                                  
+                                  <input ng-click="addCategory()" type="submit" class="btn btn-red" value="Add Category" /> <!--onclick="return addCategory();"-->
                                 </div>
 
 
@@ -217,7 +216,7 @@
 
                                   <form action="/site/devices" method="POST">
                                     {{deviceList}}
-                                    <input type="hidden" name="receiver" value="{{uuid}}" />
+                                    <input type="hidden" name="receiver" ng-model="device.uuid" value="{{device.uuid}}" />
                                     <input type="hidden" name="action" value="clone" />
                                     <br />
                                     <input onclick="return confirm('Are You Sure?');" type="submit" class="btn btn-red" value="Clone" />
@@ -271,15 +270,17 @@
 
                         <div ng-repeat="subcategory in selectedCategory.order">
                             <p style="margin-top:20px" class="rs fc-gray">
-                                <input id="" class="subcategoryinput" type="text" value="{{ subcategory }}">
+                                <input ng-blur="renameSubcategory($index, subcategory)" ng-model="subcategory" class="subcategoryinput" type="text" value="{{ subcategory }}">
                             </p>
-                            <div class="subcategory" id="Restaurants">
-                                <div ng-repeat="entry in selectedCategory[subcategory]">
+                            
+                            <div class="subcategory">
+                                <div ng-repeat="entry in selectedCategory[subcategory] track by $index">
                                     <a ng-click="swapEntries($index, subcategory)" href="">{{ truncateString(entriesMap[entry]) }}</a>
                                     <button style="float:right;" ng-click="removeEntry(subcategory, $index)">x</button><br><br>
                                 </div>
                                 <button ng-click="showEntries(subcategory)" onClick="toggle()">Add</button>
                             </div>
+                            
                         </div>
                         <br>
                         <div class="val">
