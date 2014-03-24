@@ -68,7 +68,7 @@ app.directive('hcPie', function () {
                 },
                 series: [{
                     name: "test", // Device Name/ID,
-                    data: [10, 10, 20, 5, 1, 2, 3] // array of # of records (obviously each item in the array is records per day),
+                    data: [10, 10, 20, 5, 1, 2, 3,10, 10, 20, 5, 1, 2, 3,10, 10, 20, 5, 1, 2, 3,10, 10, 20, 5, 1, 2, 3,10, 10, 20, 5, 1, 2, 3] // array of # of records (obviously each item in the array is records per day),
                                                    // data: scope.items
                 }]
             });
