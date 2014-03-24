@@ -25,8 +25,8 @@ app.controller('RecordsGraphController', function($scope, $http) {
                     // });
                     // Array of objects with name: deviceID, data: [# of records per each day]
 
-                    if ($scope.dates.indexOf($scope.records[i].date.slice(0,9)) == -1) {
-                        $scope.dates.push($scope.records[i].date.slice(0,9));
+                    if ($scope.dates.indexOf($scope.records[i].date.slice(0,10)) == -1) {
+                        $scope.dates.push($scope.records[i].date.slice(0,10));
                     }
                 }
             } else {
