@@ -9,10 +9,6 @@ app.controller('RecordsGraphController', function($scope, $http) {
                     name: "test2", // Device Name/ID,
                     data: [10, 10, 20, 5, 1, 2, 3,11, 10, 20, 5, 1, 2, -5,10, 10, 20, 5, 1, 2, 17,10, 10, 20, 5, 1, 2, 9,10, 10, 10, 5, 1, 2, 3] // array of # of records (obviously each item in the array is records per day),
                                                    // data: scope.items
-                },{
-                    name: "test3", // Device Name/ID,
-                    data: [10, 10, 20, 5, 1, 2, 3,11, 10, 20, 5, 1, 2, -5,10, 10, 20, 5, 1, 2, 17,10] // array of # of records (obviously each item in the array is records per day),
-                                                   // data: scope.items
                 }];
 
     $scope.dates = [];
@@ -22,6 +18,13 @@ app.controller('RecordsGraphController', function($scope, $http) {
     }
 
     $scope.fetchRecords = function(id, name) {
+
+        $scope.testData.push({
+                    name: "test3", // Device Name/ID,
+                    data: [10, 10, 20, 5, 1, 2, 3,11, 10, 20, 5, 1, 2, -5,10, 10, 20, 5, 1, 2, 17,10] // array of # of records (obviously each item in the array is records per day),
+                                                   // data: scope.items
+                });
+
         var url = '/api/records?device=' + id;
         $http.get(url).success(function(data, status, headers, config) {
             results = data['results'];
