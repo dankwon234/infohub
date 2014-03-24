@@ -20,7 +20,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
                     }
                 }
                 $scope.dates = dates;
-                console.log($scope.dates);
+                // console.log($scope.dates);
             } else {
                 alert(results['message']);
             }
@@ -41,6 +41,7 @@ app.directive('hcPie', function () {
         },
         template: '<div id="container" style="margin: 0 auto">not working</div>',
         link: function (scope, element, attrs) {
+            console.log(scope.items);
             console.log(3);
             var chart = new Highcharts.Chart({
                 chart: {
