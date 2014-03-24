@@ -21,6 +21,8 @@ app.controller('RecordsGraphController', function($scope, $http) {
             console.log("error", data, status, headers, config);
         });
     }
+    // record.id = device id;
+    // record.date = date that the record was visited on;
 });
 
 app.directive('hcPie', function () {
