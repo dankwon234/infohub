@@ -2,10 +2,10 @@ var app = angular.module('RecordsGraph', []);
 
 app.controller('RecordsGraphController', function($scope, $http) {
     $scope.init = function() {
-    	fetchRecords();
+    	fetchRecords('77654979-CCDD-499F-AF90-CC23C60879D8');
     }
 
-    function fetchRecords() {
+    function fetchRecords(device) {
         var url = '/api/records?device=' + device;
         $http.get(url)
         .success(function(data, status, headers, config) {
