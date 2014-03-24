@@ -15,12 +15,13 @@ app.controller('RecordsGraphController', function($scope, $http) {
             	$scope.records = results['records'];
                 var dates = [];
                 for (i=0;i<$scope.records;i++) {
+                    console.log($scope.records[i].date);
                     if (dates.indexOf($scope.records[i].date) == -1) {
                         dates.push($scope.records[i].date);
                     }
                 }
                 $scope.dates = dates;
-                console.log($scope.records);
+                // console.log($scope.records);
             } else {
                 alert(results['message']);
             }
