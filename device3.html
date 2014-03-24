@@ -157,12 +157,21 @@
                                             </div>
 
                                             <div class="row-item clearfix">
-                                                <label class="lbl" for="txt_location">Live:</label>
-                                                <div id="radio" class="val">
-                                                    <input onchange="return radioChanged(this);" style="margin-right:5px" type="radio" name="isLive" value="yes"><label style="vertical-align:middle">YES</label><br />
-                                                    <input onchange="return radioChanged(this);" style="margin-right:5px" type="radio" name="isLive" value="no"><label style="vertical-align:middle">NO</label>
-                                                </div>
+                                                <label class="lbl" for="txt_location">show infoHubs logo:</label>
+                                                <select style="margin-left:10px;margin-top:5px" ng-model="device.showLogo">
+                                                  <option value="yes">Yes</option>
+                                                  <option value="no">No</option>
+                                                </select>
                                             </div>
+
+                                            <div class="row-item clearfix">
+                                                <label class="lbl" for="txt_location">Live:</label>
+                                                <select style="margin-left:10px;margin-top:5px" ng-model="device.isLive">
+                                                  <option value="yes">Yes</option>
+                                                  <option value="no">No</option>
+                                                </select>
+                                            </div>
+
 
                                             <div class="row-item clearfix">
                                               <div class="val">
