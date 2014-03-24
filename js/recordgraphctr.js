@@ -43,14 +43,12 @@ app.directive('hcPie', function () {
         },
         template: '<div id="container" style="margin: 0 auto">not working</div>',
         link: function (scope, element, attrs) {
-            console.log(scope.items);
-            console.log(3);
             var chart = new Highcharts.Chart({
                 chart: {
-                    renderTo: 'container',
-                    plotBackgroundColor: null,
-                    plotBorderWidth: null,
-                    plotShadow: false
+                    renderTo: 'container'//,
+                    // plotBackgroundColor: null,
+                    // plotBorderWidth: null,
+                    // plotShadow: false
                 },
                 title: {
                     text: 'Records'
@@ -69,6 +67,10 @@ app.directive('hcPie', function () {
                 series: [{
                     name: "test", // Device Name/ID,
                     data: [10, 10, 20, 5, 1, 2, 3,10, 10, 20, 5, 1, 2, 3,10, 10, 20, 5, 1, 2, 3,10, 10, 20, 5, 1, 2, 3,10, 10, 20, 5, 1, 2, 3] // array of # of records (obviously each item in the array is records per day),
+                                                   // data: scope.items
+                },{
+                    name: "test2", // Device Name/ID,
+                    data: [10, 10, 20, 5, 1, 2, 3,11, 10, 20, 5, 1, 2, -5,10, 10, 20, 5, 1, 2, 17,10, 10, 20, 5, 1, 2, 9,10, 10, 10, 5, 1, 2, 3] // array of # of records (obviously each item in the array is records per day),
                                                    // data: scope.items
                 }]
             });
