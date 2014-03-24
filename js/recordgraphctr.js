@@ -11,8 +11,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
         var url = '/api/records?device=' + id;
         console.log(id);
         console.log(name);
-        $http.get(url)
-        .success(function(data, status, headers, config) {
+        $http.get(url).success(function(data, status, headers, config) {
             results = data['results'];
             confirmation = results['confirmation'];
             if (confirmation=='success'){
@@ -24,7 +23,9 @@ app.controller('RecordsGraphController', function($scope, $http) {
                     // on a record. so increment
                     j++;
                     // if the record's date is not equal to last date,
+                    console.log("LAST DATE: ");
                     console.log(lastDate);
+                    console.log("CURRENT RECORD'S DATE: ");
                     console.log($scope.records[i].date);
                     if ($scope.records[i].date != lastDate) {
                         //push date
@@ -42,8 +43,9 @@ app.controller('RecordsGraphController', function($scope, $http) {
                         $scope.dates.push($scope.records[i].date.slice(0,10));
                     }
                 }
+                console.log("DATA: ");
                 console.log(data);
-                console.log($scope.dates);
+                // console.log($scope.dates);
                 // $scope.series.push({
                 //     name: name,
                 //     data: data
@@ -58,8 +60,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
 
     function fetchDevices() {
         var url = '/api/devices';
-        $http.get(url)
-        .success(function(data, status, headers, config) {
+        $http.get(url).success(function(data, status, headers, config) {
             results = data['results'];
             confirmation = results['confirmation'];
             if (confirmation=='success'){
