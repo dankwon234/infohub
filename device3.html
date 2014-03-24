@@ -205,7 +205,7 @@
                                                     <a style="color:#ea503d" href="" ng-click="selectCategory($index);">{{ categoryName }}</a>
                                                 </h4>
 
-                                                <a ng-repeat="sub in getSubCategories(categoryName)" style="margin-left:5px" class="btn btn-blue" href="#">{{ sub }}</a>
+                                                <a ng-repeat="sub in getSubCategories(categoryName) track by $index" style="margin-left:5px" class="btn btn-blue" href="#">{{ sub }}</a>
 
                                                 <br />
                                                 <!-- <a style="color:red" href="#">remove category</a> onclick="return removeCategory('+i+');" -->
@@ -285,7 +285,7 @@
                             (click icon to change)
                         </div>
 
-                        <div ng-repeat="subcategory in selectedCategory.order">
+                        <div ng-repeat="subcategory in selectedCategory.order track by $index">
                             <p style="margin-top:20px" class="rs fc-gray">
                                 <input ng-blur="renameSubcategory($index, subcategory)" ng-model="subcategory" class="subcategoryinput" type="text" value="{{ subcategory }}">
                             </p>
