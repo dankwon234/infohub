@@ -9,40 +9,46 @@ app.controller('RecordsGraphController', function($scope, $http) {
 
     $scope.fetchRecords = function(id, name) {
         var url = '/api/records?device=' + id;
-        console.log(id);
-        console.log(name);
         $http.get(url).success(function(data, status, headers, config) {
             results = data['results'];
             confirmation = results['confirmation'];
             if (confirmation=='success'){
             	$scope.records = results['records'];
                 var data = [];
-                var lastDate = "";
+                var prevDate = "";
                 var j=0;
                 for (var i=0;i<$scope.records.length;i++) {
                     console.log($scope.records[i].date.slice(0,10));
-                    // on a record. so increment
+                    // current date: $scope.records[i].date.slice(0,10)
+                    var curDate = $scope.records[i].date.slice(0,10);
                     j++;
-                    // if the record's date is not equal to last date,
-                    console.log("LAST DATE: ");
-                    console.log(lastDate);
-                    console.log("CURRENT RECORD'S DATE: ");
-                    console.log($scope.records[i].date);
-                    if ($scope.records[i].date.slice(0,10) != lastDate) {
-                        //push date
-                        lastDate = $scope.records[i].date.slice(0,10);
-                        data.push(j);
-                        j=0;
+                    if (curDate == prevDate) {
                     } else {
-                        j++;
+                        prevDate = curDate;
+                        data.push(j);
+                        j=1;
                     }
+                    // dateArray.push($scope.records[i].date.slice(0,10));
+
+                    // // on a record. so increment
+                    // j++;
+                    // // if the record's date is not equal to last date,
+
+                    // if ($scope.records[i].date.slice(0,10) != lastDate) {
+                    //     //push date
+                    //     lastDate = $scope.records[i].date.slice(0,10);
+                    //     data.push(j);
+                    //     j=0;
+                    // } else {
+                    //     j++;
+                    // }
 
                     // data.push(number of records on that date);
                     // j++;
                     // Array of objects with name: deviceID, data: [# of records per each day]
 
-                    if ($scope.dates.indexOf($scope.records[i].date.slice(0,10)) == -1) {
-                        $scope.dates.push($scope.records[i].date.slice(0,10));
+                    if ($scope.dates.indexOf(curDate) == -1) {
+                        $scope.dates.push(curDate);
                     }
                 }
                 console.log("DATA: ");
