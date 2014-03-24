@@ -34,23 +34,42 @@ app.controller('RecordsGraphController', function($scope, $http) {
                 var data = [];
                 var prevDate = "";
                 var j=0;
+                var dateMap = {};
                 for (var i=0;i<$scope.records.length;i++) {
+
+                    // if
                     // current date: $scope.records[i].date.slice(0,10)
                     var curDate = $scope.records[i].date.slice(0,10);
 
-                    console.log("LAST DATE: ");
-                    console.log(prevDate);
-                    console.log("CURRENT RECORD'S DATE: ");
-                    console.log(curDate);
-
-                    j++;
-                    if (curDate == prevDate) {
+                    if (dateMap.curDate) {
+                        dateMap.curDate++;
+                        console.log('exists');
+                        console.log(dateMap);
                     } else {
-                        console.log("prevDate = curDate");
-                        prevDate = curDate;
-                        data.push(j);
-                        j=1;
+                        dateMap.curDate = 0;
+                        console.log('new');
+                        console.log(dateMap);
                     }
+
+                    // console.log("LAST DATE: ");
+                    // console.log(prevDate);
+                    // console.log("CURRENT RECORD'S DATE: ");
+                    // console.log(curDate);
+                    //
+                    // j++;
+                    // if (curDate == prevDate) {
+                    //     console.log("curDate == prevDate, COUNT: "+j);
+                    // } else {
+                    //     console.log("prevDate = curDate");
+                    //     prevDate = curDate;
+                    //     data.push(j);
+                    //     j=1;
+                    // }
+
+
+
+
+
                     // dateArray.push($scope.records[i].date.slice(0,10));
 
                     // // on a record. so increment
@@ -69,6 +88,9 @@ app.controller('RecordsGraphController', function($scope, $http) {
                     // data.push(number of records on that date);
                     // j++;
                     // Array of objects with name: deviceID, data: [# of records per each day]
+
+                    // if (dateMap.curDate)
+                    // dateMap[curDate]
 
                     if ($scope.dates.indexOf(curDate) == -1) {
                         $scope.dates.push(curDate);
