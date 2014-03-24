@@ -1,6 +1,20 @@
 var app = angular.module('RecordsGraph', []);
 
 app.controller('RecordsGraphController', function($scope, $http) {
+    $scope.testData = [{
+                    name: "test", // Device Name/ID,
+                    data: [10, 10, 20, 5, 1, 2, 3,10, 10, 20, 5, 1, 2, 3,10, 10, 20, 5, 1, 2, 3,10, 10, 20, 5, 1, 2, 3,10, 10, 20, 5, 1, 2, 3] // array of # of records (obviously each item in the array is records per day),
+                                                   // data: scope.items
+                },{
+                    name: "test2", // Device Name/ID,
+                    data: [10, 10, 20, 5, 1, 2, 3,11, 10, 20, 5, 1, 2, -5,10, 10, 20, 5, 1, 2, 17,10, 10, 20, 5, 1, 2, 9,10, 10, 10, 5, 1, 2, 3] // array of # of records (obviously each item in the array is records per day),
+                                                   // data: scope.items
+                },{
+                    name: "test3", // Device Name/ID,
+                    data: [10, 10, 20, 5, 1, 2, 3,11, 10, 20, 5, 1, 2, -5,10, 10, 20, 5, 1, 2, 17,10] // array of # of records (obviously each item in the array is records per day),
+                                                   // data: scope.items
+                }];
+
     $scope.dates = [];
     $scope.init = function() {
         fetchDevices();
@@ -96,7 +110,8 @@ app.directive('hcPie', function () {
         restrict: 'C',
         replace: true,
         scope: {
-            items: '='
+            items: '=',
+            records: '='
         },
         template: '<div id="container" style="margin: 0 auto">not working</div>',
         link: function (scope, element, attrs) {
@@ -121,19 +136,7 @@ app.directive('hcPie', function () {
                         text: '# of Records'
                     }
                 },
-                series: [{
-                    name: "test", // Device Name/ID,
-                    data: [10, 10, 20, 5, 1, 2, 3,10, 10, 20, 5, 1, 2, 3,10, 10, 20, 5, 1, 2, 3,10, 10, 20, 5, 1, 2, 3,10, 10, 20, 5, 1, 2, 3] // array of # of records (obviously each item in the array is records per day),
-                                                   // data: scope.items
-                },{
-                    name: "test2", // Device Name/ID,
-                    data: [10, 10, 20, 5, 1, 2, 3,11, 10, 20, 5, 1, 2, -5,10, 10, 20, 5, 1, 2, 17,10, 10, 20, 5, 1, 2, 9,10, 10, 10, 5, 1, 2, 3] // array of # of records (obviously each item in the array is records per day),
-                                                   // data: scope.items
-                },{
-                    name: "test3", // Device Name/ID,
-                    data: [10, 10, 20, 5, 1, 2, 3,11, 10, 20, 5, 1, 2, -5,10, 10, 20, 5, 1, 2, 17,10] // array of # of records (obviously each item in the array is records per day),
-                                                   // data: scope.items
-                }]
+                series: scope.records
             });
             scope.$watch("items", function (newValue) {
                 chart.series[0].setData(newValue, true);
