@@ -26,10 +26,10 @@ app.controller('RecordsGraphController', function($scope, $http) {
                     // if the record's date is not equal to last date,
                     if ($scope.records[i].date != lastDate) {
                         //push date
+                        j++;
+                    } else {
                         data.push(j);
                         j=0;
-                    } else {
-                        j++;
                     }
 
                     // data.push(number of records on that date);
