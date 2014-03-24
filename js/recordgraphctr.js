@@ -132,7 +132,10 @@ app.directive('hcPie', function () {
                     title: {
                         text: 'Date'
                     },
-                    categories: scope.items//array of record dates
+                    categories: scope.items, //array of record dates
+                    labels: {
+                        rotation: 45
+                    }
                 },
                 yAxis: {
                     title: {
