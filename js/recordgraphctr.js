@@ -20,7 +20,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
                 var lastDate = "";
                 var j=0;
                 for (var i=0;i<$scope.records.length;i++) {
-                    console.log($scope.records[i].date);
+                    console.log($scope.records[i].date.slice(0,10));
 //                     // on a record. so increment
 //                     j++;
 //                     // if the record's date is not equal to last date,
