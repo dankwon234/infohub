@@ -15,7 +15,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
             	$scope.records = results['records'];
                 var dates = [];
                 console.log("testA");
-                for (var i=0;i<$scope.records;i++) {
+                for (var i=0;i<$scope.records.length;i++) {
                     console.log($scope.records[i].date);
                     console.log("testB");
                     if (dates.indexOf($scope.records[i].date) == -1) {
