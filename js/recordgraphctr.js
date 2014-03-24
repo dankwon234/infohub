@@ -20,21 +20,22 @@ app.controller('RecordsGraphController', function($scope, $http) {
                 var lastDate = "";
                 var j=0;
                 for (var i=0;i<$scope.records.length;i++) {
-                    // on a record. so increment
-                    j++;
-                    // if the record's date is not equal to last date,
-                    console.log("LAST DATE: ");
-                    console.log(lastDate);
-                    console.log("CURRENT RECORD'S DATE: ");
                     console.log($scope.records[i].date);
-                    if ($scope.records[i].date != lastDate) {
-                        //push date
-                        lastDate = $scope.records[i].date;
-                        data.push(j);
-                        j=0;
-                    } else {
-                        j++;
-                    }
+//                     // on a record. so increment
+//                     j++;
+//                     // if the record's date is not equal to last date,
+//                     console.log("LAST DATE: ");
+//                     console.log(lastDate);
+//                     console.log("CURRENT RECORD'S DATE: ");
+//                     console.log($scope.records[i].date);
+//                     if ($scope.records[i].date != lastDate) {
+//                         //push date
+//                         lastDate = $scope.records[i].date;
+//                         data.push(j);
+//                         j=0;
+//                     } else {
+//                         j++;
+//                     }
 
                     // data.push(number of records on that date);
                     // j++;
