@@ -1,9 +1,8 @@
 var app = angular.module('RecordsGraph', []);
 
 app.controller('RecordsGraphController', function($scope, $http) {
-    $scope.dates = [];
-
     $scope.init = function() {
+        fetchDevices();
     	fetchRecords('77654979-CCDD-499F-AF90-CC23C60879D8');
     }
 
@@ -17,12 +16,35 @@ app.controller('RecordsGraphController', function($scope, $http) {
             	$scope.records = results['records'];
                 var dates = [];
                 for (var i=0;i<$scope.records.length;i++) {
+                    // arr.push({
+                    //     name: $scope.records[i].id,
+                    //     data: []
+                    // });
+                    // Array of objects with name: deviceID, data: [# of records per each day]
+
                     if (dates.indexOf($scope.records[i].date.slice(0,9)) == -1) {
                         dates.push($scope.records[i].date.slice(0,9));
                     }
                 }
                 $scope.dates = dates;
                 // console.log($scope.dates);
+            } else {
+                alert(results['message']);
+            }
+        }).error(function(data, status, headers, config) {
+            console.log("error", data, status, headers, config);
+        });
+    }
+
+    function fetchDevices() {
+        var url = '/api/devices';
+        $http.get(url)
+        .success(function(data, status, headers, config) {
+            results = data['results'];
+            confirmation = results['confirmation'];
+            if (confirmation=='success'){
+            	$scope.devices = results['devices'];
+                console.log('success');
             } else {
                 alert(results['message']);
             }
