@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{head}}
+</head>
+<body ng-app="RecordsGraph" ng-controller="RecordsGraphController" ng-init="init">
+    <div id="wrapper">
+    {{header}}
+        <div class="layout-2cols">
+            <div class="content grid_8">
+                <div class="single-page">
+                    <h2 class="rs single-title">Records</h2>
+                    <div class="box-single-content">
+                        <div class="editor-content">
+                            <div class="hc-pie" items="records"></div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--end: .content -->
+
+            <div class="clear"></div>
+        </div>
+    {{footer}}
+    </div>
+
+<script type="text/javascript" src="/site/js/highcharts.js"></script>
+<script type="text/javascript" src="https://raw.githubusercontent.com/dennykwon/infohub/master/js/recordgraphctr.js"></script>
+
+</body>
+</html>
