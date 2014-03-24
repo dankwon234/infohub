@@ -17,18 +17,35 @@ app.controller('RecordsGraphController', function($scope, $http) {
             confirmation = results['confirmation'];
             if (confirmation=='success'){
             	$scope.records = results['records'];
+                var data = [];
+                var lastDate = "";
+                var j=0;
                 for (var i=0;i<$scope.records.length;i++) {
-                    console.log(name);
-                    // $scope.series.push({
-                    //     name: $scope.records[i].id,
-                    //     data: []
-                    // });
+                    // on a record. so increment
+                    j++;
+                    // if the record's date is not equal to last date,
+                    if ($scope.records[i].date != lastDate) {
+                        //push date
+                        data.push(j);
+                        j=0;
+                    } else {
+                        j++;
+                    }
+
+                    data.push(number of records on that date);
+                    j++;
                     // Array of objects with name: deviceID, data: [# of records per each day]
 
                     if ($scope.dates.indexOf($scope.records[i].date.slice(0,10)) == -1) {
                         $scope.dates.push($scope.records[i].date.slice(0,10));
                     }
                 }
+                console.log(data);
+                console.log($scope.dates);
+                // $scope.series.push({
+                //     name: name,
+                //     data: data
+                // });
             } else {
                 alert(results['message']);
             }

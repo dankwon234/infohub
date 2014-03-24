@@ -10,12 +10,12 @@
             <div class="content grid_8">
                 <div class="single-page">
                     <h2 class="rs single-title">Records</h2>
-                    <div ng-repeat="device in devices">
-                        <input type="checkbox" ng-click="fetchRecords(device.uuid, device.name)">{{ device.name }}
-                    </div>
                     <div class="box-single-content">
                         <div class="editor-content">
                             <div class="hc-pie" items="dates"></div>
+                            <div ng-repeat="device in devices">
+                                <input type="checkbox" ng-click="fetchRecords(device.uuid, device.name)">{{ device.name }}
+                            </div>
                         </div>
                     </div>
                 </div>
