@@ -147,6 +147,7 @@ app.directive('hcPie', function () {
             }, true);
             scope.$watch("records", function (newValue) {
                 chart.addSeries(newValue);
+                console.log("WATCHING RECORDS: NEW VALUE: ");
                 console.log(newValue);
             }, true);
         }
