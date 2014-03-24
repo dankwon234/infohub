@@ -74,6 +74,7 @@ app.directive('hcPie', function () {
             });
             scope.$watch("items", function (newValue) {
                 chart.series[0].setData(newValue, true);
+                console.log(newValue);
             }, true);
         }
     }
