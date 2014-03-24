@@ -16,6 +16,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
                 var dates = [];
                 for (var i=0;i<$scope.records;i++) {
                     console.log($scope.records[i].date);
+                    console.log("test");
                     if (dates.indexOf($scope.records[i].date) == -1) {
                         dates.push($scope.records[i].date);
                     }
