@@ -13,6 +13,13 @@ app.controller('RecordsGraphController', function($scope, $http) {
             confirmation = results['confirmation'];
             if (confirmation=='success'){
             	$scope.records = results['records'];
+                var dates = [];
+                for (i=0;i<$scope.records;i++) {
+                    if (dates.indexOf($scope.records[i].date) == -1) {
+                        dates.push($scope.records[i].date);
+                    }
+                }
+                $scope.dates = dates;
                 console.log($scope.records);
             } else {
                 alert(results['message']);
@@ -45,28 +52,21 @@ app.directive('hcPie', function () {
                 title: {
                     text: 'Records'
                 },
-                tooltip: {
-                    pointFormat: '{series.name}: <b>{point.percentage}%</b>',
-                    percentageDecimals: 1
+                xAxis: {
+                    title: {
+                        text: 'Date'
+                    },
+                    categories: scope.dates//array of record dates
                 },
-                plotOptions: {
-                    pie: {
-                        allowPointSelect: true,
-                        cursor: 'pointer',
-                        dataLabels: {
-                            enabled: true,
-                            color: '#000000',
-                            connectorColor: '#000000',
-                            formatter: function () {
-                                return '<b>' + this.point.name + '</b>: ' + this.percentage + ' %';
-                            }
-                        }
+                yAxis: {
+                    title: {
+                        text: '# of Records'
                     }
                 },
                 series: [{
-                    type: 'pie',
-                    name: 'Browser share',
-                    data: scope.items
+                    name: "test", // Device Name/ID,
+                    data: [10, 10, 20, 5, 1, 2, 3] // array of # of records (obviously each item in the array is records per day),
+                                                   // data: scope.items
                 }]
             });
             scope.$watch("items", function (newValue) {
