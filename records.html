@@ -11,7 +11,7 @@
                 <div class="single-page">
                     <h2 class="rs single-title">Records</h2>
                     <div ng-repeat="device in devices">
-                        <input type="checkbox" value="{{ device.uuid }}" name="{{ device.name }}">
+                        <input type="checkbox" value="{{ device.uuid }}">{{ device.name }}
                     </div>
                     <div class="box-single-content">
                         <div class="editor-content">
