@@ -18,12 +18,18 @@ app.controller('RecordsGraphController', function($scope, $http) {
                 var prevDate = "";
                 var j=0;
                 for (var i=0;i<$scope.records.length;i++) {
-                    console.log($scope.records[i].date.slice(0,10));
                     // current date: $scope.records[i].date.slice(0,10)
                     var curDate = $scope.records[i].date.slice(0,10);
+
+                    console.log("LAST DATE: ");
+                    console.log(prevDate);
+                    console.log("CURRENT RECORD'S DATE: ");
+                    console.log(curDate);
+
                     j++;
                     if (curDate == prevDate) {
                     } else {
+                        console.log("prevDate = curDate");
                         prevDate = curDate;
                         data.push(j);
                         j=1;
