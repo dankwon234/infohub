@@ -19,7 +19,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
 
     $scope.fetchRecords = function(id, name) {
 
-        $scope.testData.push({
+        $scope.testData = {
                     name: "test3", // Device Name/ID,
                     data: [1, 1, 25, 15, 1, 2, -1,1, 1, 2, 5, 1, 2, -5,10, 10, 27, 5, 1, 2, 17,10] // array of # of records (obviously each item in the array is records per day),
                                                    // data: scope.items
@@ -146,7 +146,7 @@ app.directive('hcPie', function () {
                 console.log(newValue);
             }, true);
             scope.$watch("records", function (newValue) {
-                // chart.addSeries(newValue);
+                chart.addSeries(newValue);
                 console.log("WATCHING RECORDS: NEW VALUE: ");
                 console.log(newValue);
             }, true);
