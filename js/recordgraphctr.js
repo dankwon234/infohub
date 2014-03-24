@@ -41,12 +41,12 @@ app.controller('RecordsGraphController', function($scope, $http) {
                     // current date: $scope.records[i].date.slice(0,10)
                     var curDate = $scope.records[i].date.slice(0,10);
 
-                    if (dateMap.curDate) {
-                        dateMap.curDate++;
+                    if (dateMap[curDate]) {
+                        dateMap[curDate]++;
                         console.log('exists');
                         console.log(dateMap);
                     } else {
-                        dateMap.curDate = 0;
+                        dateMap[curDate] = 0;
                         console.log('new');
                         console.log(dateMap);
                     }
