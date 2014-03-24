@@ -6,6 +6,11 @@ app.controller('RecordsGraphController', function($scope, $http) {
     	fetchRecords('77654979-CCDD-499F-AF90-CC23C60879D8');
     }
 
+    $scope.pushDevice = function(name) {
+        console.log('checkbox clicked');
+        console.log(name);
+    }
+
     function fetchRecords(device) {
         var url = '/api/records?device=' + device;
         $http.get(url)
