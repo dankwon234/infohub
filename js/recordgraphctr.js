@@ -3,36 +3,29 @@ var app = angular.module('RecordsGraph', []);
 app.controller('RecordsGraphController', function($scope, $http) {
     $scope.init = function() {
         fetchDevices();
-    	fetchRecords('77654979-CCDD-499F-AF90-CC23C60879D8');
+        // fetchRecords('77654979-CCDD-499F-AF90-CC23C60879D8');
     }
 
-    $scope.pushDevice = function(name) {
-        console.log('checkbox clicked');
-        console.log(name);
-    }
-
-    function fetchRecords(device) {
-        var url = '/api/records?device=' + device;
+    function fetchRecords(id, name) {
+        var url = '/api/records?device=' + id;
         $http.get(url)
         .success(function(data, status, headers, config) {
             results = data['results'];
             confirmation = results['confirmation'];
             if (confirmation=='success'){
             	$scope.records = results['records'];
-                var dates = [];
                 for (var i=0;i<$scope.records.length;i++) {
-                    // arr.push({
+                    console.log(name);
+                    // $scope.series.push({
                     //     name: $scope.records[i].id,
                     //     data: []
                     // });
                     // Array of objects with name: deviceID, data: [# of records per each day]
 
-                    if (dates.indexOf($scope.records[i].date.slice(0,9)) == -1) {
-                        dates.push($scope.records[i].date.slice(0,9));
+                    if ($scope.dates.indexOf($scope.records[i].date.slice(0,9)) == -1) {
+                        $scope.dates.push($scope.records[i].date.slice(0,9));
                     }
                 }
-                $scope.dates = dates;
-                // console.log($scope.dates);
             } else {
                 alert(results['message']);
             }
@@ -98,6 +91,10 @@ app.directive('hcPie', function () {
                 },{
                     name: "test2", // Device Name/ID,
                     data: [10, 10, 20, 5, 1, 2, 3,11, 10, 20, 5, 1, 2, -5,10, 10, 20, 5, 1, 2, 17,10, 10, 20, 5, 1, 2, 9,10, 10, 10, 5, 1, 2, 3] // array of # of records (obviously each item in the array is records per day),
+                                                   // data: scope.items
+                },{
+                    name: "test3", // Device Name/ID,
+                    data: [10, 10, 20, 5, 1, 2, 3,11, 10, 20, 5, 1, 2, -5,10, 10, 20, 5, 1, 2, 17,10] // array of # of records (obviously each item in the array is records per day),
                                                    // data: scope.items
                 }]
             });
