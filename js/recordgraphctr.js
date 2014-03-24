@@ -8,7 +8,8 @@ app.controller('RecordsGraphController', function($scope, $http) {
 
     $scope.fetchRecords = function(id, name) {
         var url = '/api/records?device=' + id;
-        console.log(url);
+        console.log(id);
+        console.log(name);
         $http.get(url)
         .success(function(data, status, headers, config) {
             results = data['results'];
