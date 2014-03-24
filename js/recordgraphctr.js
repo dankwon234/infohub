@@ -46,7 +46,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
                         console.log('exists');
                         console.log(dateMap);
                     } else {
-                        dateMap[curDate] = 0;
+                        dateMap[curDate] = 1;
                         console.log('new');
                         console.log(dateMap);
                     }
