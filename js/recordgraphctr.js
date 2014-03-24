@@ -32,8 +32,8 @@ app.controller('RecordsGraphController', function($scope, $http) {
                         j++;
                     }
 
-                    data.push(number of records on that date);
-                    j++;
+                    // data.push(number of records on that date);
+                    // j++;
                     // Array of objects with name: deviceID, data: [# of records per each day]
 
                     if ($scope.dates.indexOf($scope.records[i].date.slice(0,10)) == -1) {
