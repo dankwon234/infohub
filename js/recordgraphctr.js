@@ -1,6 +1,7 @@
 var app = angular.module('RecordsGraph', []);
 
 app.controller('RecordsGraphController', function($scope, $http) {
+    $scope.dates = [];
     $scope.init = function() {
         fetchDevices();
         // fetchRecords('77654979-CCDD-499F-AF90-CC23C60879D8');
