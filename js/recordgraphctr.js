@@ -29,6 +29,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
                     console.log($scope.records[i].date);
                     if ($scope.records[i].date != lastDate) {
                         //push date
+                        lastDate = $scope.records[i].date;
                         data.push(j);
                         j=0;
                     } else {
