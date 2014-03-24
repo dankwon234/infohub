@@ -14,17 +14,13 @@ app.controller('RecordsGraphController', function($scope, $http) {
             if (confirmation=='success'){
             	$scope.records = results['records'];
                 var dates = [];
-                console.log("testA");
                 for (var i=0;i<$scope.records.length;i++) {
-                    console.log($scope.records[i].date);
-                    console.log("testB");
                     if (dates.indexOf($scope.records[i].date) == -1) {
                         dates.push($scope.records[i].date);
                     }
                 }
-                console.log("testC");
                 $scope.dates = dates;
-                // console.log($scope.records);
+                console.log($scope.dates);
             } else {
                 alert(results['message']);
             }
