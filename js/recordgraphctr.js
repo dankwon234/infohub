@@ -21,7 +21,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
 
         $scope.testData.push({
                     name: "test3", // Device Name/ID,
-                    data: [10, 10, 20, 5, 1, 2, 3,11, 10, 20, 5, 1, 2, -5,10, 10, 20, 5, 1, 2, 17,10] // array of # of records (obviously each item in the array is records per day),
+                    data: [1, 1, 25, 15, 1, 2, -1,1, 1, 2, 5, 1, 2, -5,10, 10, 27, 5, 1, 2, 17,10] // array of # of records (obviously each item in the array is records per day),
                                                    // data: scope.items
                 });
 
