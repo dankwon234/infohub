@@ -64,6 +64,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
                 var keys = Object.keys(dateMap);
                 for (var i=0;i<keys.length;i++) {
                     console.log(dateMap[i]);
+                    console.log('-----------------');
                     data.push({y: dateMap[keys[i]], name: dateMap[i]});
                 }
 
