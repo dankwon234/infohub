@@ -83,7 +83,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
     }
 });
 
-app.directive('hc-line', function () {
+app.directive('linechart', function () {
     return {
         restrict: 'C',
         replace: true,
