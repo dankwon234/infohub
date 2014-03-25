@@ -117,7 +117,7 @@ app.directive('linechart', function () {
                     title: {
                         text: 'Date'
                     },
-                    categories: scope.currentData.dates,
+                    categories: [], //scope.currentData.dates,
                     labels: {
                         rotation: 45,
                         style: {
