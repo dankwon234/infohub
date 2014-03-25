@@ -68,8 +68,8 @@ app.directive('hcPie', function () {
         restrict: 'C',
         replace: true,
         scope: {
-            items: '=',
-            records: '='
+            items: '=items',
+            series: '=series'
         },
         template: '<div id="container" style="margin: 0 auto">not working</div>',
         link: function (scope, element, attrs) {
@@ -94,16 +94,13 @@ app.directive('hcPie', function () {
                         text: '# of Records'
                     }
                 },
-                series: scope.records
+                series: scope.series
             });
             // scope.$watch("items", function (newValue) {
             //     chart.series[0].setData(newValue, true);
             //     console.log(newValue);
             // }, true);
-            scope.$watch("records", function (series) {
-                // if chart.get(newValue.name);
-                // console.log(series.name);
-                // console.log(chart.get(series.name).remove);
+            scope.$watch("series", function (series) {
                 if (chart.get(series.name) != null) {
                     console.log("REMOVING");
                     chart.get(series.name).remove();
