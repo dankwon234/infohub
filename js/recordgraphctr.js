@@ -1,8 +1,11 @@
 var app = angular.module('RecordsGraph', []);
 
 app.controller('RecordsGraphController', function($scope, $http) {
-    $scope.currentSeries = {
-        name: null
+    $scope.currentData = {
+        series: {
+            name: null
+        },
+        dates: []
     };
     $scope.currentDates = [];
     // $scope.dates = [];
@@ -13,13 +16,13 @@ app.controller('RecordsGraphController', function($scope, $http) {
 
     $scope.fetchRecords = function(device) {
         // @NOTE: series is cached -- retrieve from cache
-        if (device.series) {
+        if (device.data.series) {
             console.log('series cache');
-            $scope.currentDates = device.series.dates;
+            $scope.currentDates = device.data.dates;
             $scope.currentSeries = {
                 id: device.series.name,
-                name: device.series.name,
-                data: device.series.data
+                name: device.data.series.name,
+                data: device.data.series.data
             };
             return;
         }
@@ -34,7 +37,8 @@ app.controller('RecordsGraphController', function($scope, $http) {
             	$scope.records = results['records'];
                 var data = [];
                 var dateMap = {};
-                device.series = {
+                device.data = {
+                    series: {},
                     dates: []
                 };
                 for (var i=0;i<$scope.records.length;i++) {
@@ -47,8 +51,8 @@ app.controller('RecordsGraphController', function($scope, $http) {
                         dateMap[curDate] = 1;
                     }
 
-                    if (device.series.dates.indexOf(curDate) == -1) {
-                        device.series.dates.unshift(curDate);
+                    if (device.data.dates.indexOf(curDate) == -1) {
+                        device.data.dates.unshift(curDate);
                     }
 
                     // if ($scope.dates.indexOf(curDate) == -1) {
@@ -62,11 +66,13 @@ app.controller('RecordsGraphController', function($scope, $http) {
                     data.push(dateMap[keys[i]]);
                 }
 
-                device.series['id'] = device.name;
-                device.series['name'] = device.name;
-                device.series['data'] = data;
+                device.data.series = {
+                    id: device.name,
+                    name: device.name,
+                    data: data
+                };
 
-                $scope.currentSeries = device.series;
+                $scope.currentData = device.data;
             } else {
                 alert(results['message']);
             }
@@ -96,7 +102,7 @@ app.directive('linechart', function () {
         restrict: 'C',
         replace: true,
         scope: {
-            currentSeries: '=series'
+            currentData: '=series'
         },
         template: '<div id="container" style="margin: 0 auto">not working</div>',
         link: function (scope, element, attrs) {
@@ -111,7 +117,7 @@ app.directive('linechart', function () {
                     title: {
                         text: 'Date'
                     },
-                    categories: scope.currentSeries.dates,
+                    categories: scope.currentData.dates,
                     labels: {
                         rotation: 45,
                         style: {
@@ -124,24 +130,24 @@ app.directive('linechart', function () {
                         text: '# of Records'
                     }
                 },
-                series: scope.currentSeries
+                series: scope.currentData.series
             });
             // scope.$watch("currentDates", function (currentDates) {
             //     console.log(newValue);
             //     chart.series[0].setData(newValue, true);
             // }, true);
-            scope.$watch("currentSeries", function (currentSeries) {
-                if (chart.get(currentSeries.name) != null) {
+            scope.$watch("currentData", function (currentData) {
+                if (chart.get(currentData.series.name) != null) {
                     console.log("REMOVING");
-                    chart.get(currentSeries.name).remove();
+                    chart.get(currentData.series.name).remove();
                 } else {
-                    if (currentSeries.name == null) {
+                    if (currentData.series.name == null) {
                         return;
                     }
                     console.log("ADDING");
-                    console.log(currentSeries);
-                    chart.addSeries(currentSeries, true);
-                    chart.get(currentSeries.name).setData(currentSeries.dates, true);
+                    console.log(currentData);
+                    chart.addSeries(currentData.series, true);
+                    chart.get(currentData.series.name).setData(currentData.dates, true);
                 }
             }, false);
         }
