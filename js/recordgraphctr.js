@@ -12,8 +12,8 @@ app.controller('RecordsGraphController', function($scope, $http) {
         if ($scope.seriesCache[id]) {
             // console.log($scope.recordCache[id]);
             console.log('series cache');
-            // $scope.series = $scope.seriesCache[id];
-            console.log($scope.seriesCache[id]);
+            $scope.series = $scope.seriesCache[id];
+            // console.log($scope.seriesCache[id]);
         } else {
             console.log("new device. API Call");
             var url = '/api/records?device=' + id;
