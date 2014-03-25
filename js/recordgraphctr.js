@@ -87,7 +87,7 @@ app.directive('hcPie', function () {
         restrict: 'C',
         replace: true,
         scope: {
-            items: '=items',
+            dates: '=dates',
             currentSeries: '=currentSeries'
         },
         template: '<div id="container" style="margin: 0 auto">not working</div>',
@@ -103,7 +103,7 @@ app.directive('hcPie', function () {
                     title: {
                         text: 'Date'
                     },
-                    categories: scope.items,
+                    categories: scope.dates,
                     labels: {
                         rotation: 45,
                         style: {
