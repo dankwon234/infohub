@@ -102,6 +102,7 @@ app.directive('hcPie', function () {
             scope.$watch("records", function (series) {
                 // if chart.get(newValue.name);
                 console.log(series.name);
+                console.log(chart);
                 // series = chart.get('series-1');
                 // alert ('The first series\' name is '+ series.name);
                 chart.addSeries(series, true);
