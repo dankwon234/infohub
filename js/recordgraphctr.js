@@ -2,6 +2,7 @@ var app = angular.module('RecordsGraph', []);
 
 app.controller('RecordsGraphController', function($scope, $http) {
     $scope.recordCache = {};
+    $scope.serieses = [];
     $scope.dates = [];
     $scope.init = function() {
         fetchDevices();
@@ -10,6 +11,8 @@ app.controller('RecordsGraphController', function($scope, $http) {
     $scope.fetchRecords = function(id, name) {
         if ($scope.recordCache[id]) {
             console.log($scope.recordCache[id]);
+            console.log('series array');
+            console.log($scope.serieses);
         } else {
             console.log("new device. API Call");
             var url = '/api/records?device=' + id;
@@ -45,6 +48,9 @@ app.controller('RecordsGraphController', function($scope, $http) {
                         name: name,
                         data: data
                     };
+                    if ($scope.serieses.indexOf($scope.series) == -1) {
+                        $scope.serieses.push($scope.series);
+                    }
                 } else {
                     alert(results['message']);
                 }
