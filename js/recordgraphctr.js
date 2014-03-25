@@ -61,9 +61,18 @@ app.controller('RecordsGraphController', function($scope, $http) {
 
                 }
 
+                // device.data.dates = ;
+
+                 for (var i = 0; i < 30; i ++ ) {
+                     console.log(new Date(year, month - 1, day + i));
+                 }
+
+
+
+
                 var keys = Object.keys(dateMap);
                 for (var i=0;i<keys.length;i++) {
-                    data.push({y: dateMap[keys[i]], name: keys[i]});
+                    data.push(dateMap[keys[i]]);
                 }
 
                 device.data.series = {
@@ -117,7 +126,9 @@ app.directive('linechart', function () {
                     title: {
                         text: 'Date'
                     },
-                    categories: [], //scope.currentData.dates,
+                    max: scope.currentData.max,
+                    min: scope.currentData.min,
+                    categories: scope.currentData.dates, //scope.currentData.dates,
                     labels: {
                         rotation: 45,
                         style: {
@@ -132,10 +143,6 @@ app.directive('linechart', function () {
                 },
                 series: scope.currentData.series
             });
-            // scope.$watch("currentDates", function (currentDates) {
-            //     console.log(newValue);
-            //     chart.series[0].setData(newValue, true);
-            // }, true);
             scope.$watch("currentData", function (currentData) {
                 if (chart.get(currentData.series.name) != null) {
                     console.log("REMOVING");
