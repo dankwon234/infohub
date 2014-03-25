@@ -65,7 +65,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
                 for (var i=0;i<keys.length;i++) {
                     data.push(dateMap[keys[i]]);
                 }
-
+                console.log(dateMap);
                 device.data.series = {
                     id: device.name,
                     name: device.name,
