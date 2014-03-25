@@ -16,7 +16,6 @@ app.controller('RecordsGraphController', function($scope, $http) {
                 name: curSeries.name,
                 data: curSeries.data
             };
-            console.log($scope.series);
         } else {
             console.log("new device. API Call");
             var url = '/api/records?device=' + id;
