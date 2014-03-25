@@ -12,47 +12,46 @@ app.controller('RecordsGraphController', function($scope, $http) {
             console.log($scope.recordCache[id]);
         } else {
             console.log("new device. API Call");
+            var url = '/api/records?device=' + id;
+            $http.get(url).success(function(data, status, headers, config) {
+                results = data['results'];
+                confirmation = results['confirmation'];
+                if (confirmation=='success'){
+                    $scope.recordCache[id] = results['records'];
+                	$scope.records = results['records'];
+                    var data = [];
+                    var dateMap = {};
+                    for (var i=0;i<$scope.records.length;i++) {
+                        var curDate = $scope.records[i].date.slice(0,10);
+
+                        if (dateMap[curDate]) {
+                            dateMap[curDate]++;
+                        } else {
+                            dateMap[curDate] = 1;
+                        }
+
+                        if ($scope.dates.indexOf(curDate) == -1) {
+                            $scope.dates.unshift(curDate);
+                        }
+                    }
+
+                    var keys = Object.keys(dateMap);
+                    for (var i=0;i<keys.length;i++) {
+                        data.push(dateMap[keys[i]]);
+                    }
+
+                    $scope.series = {
+                        id: name,
+                        name: name,
+                        data: data
+                    };
+                } else {
+                    alert(results['message']);
+                }
+            }).error(function(data, status, headers, config) {
+                console.log("error", data, status, headers, config);
+            });
         }
-
-        var url = '/api/records?device=' + id;
-        $http.get(url).success(function(data, status, headers, config) {
-            results = data['results'];
-            confirmation = results['confirmation'];
-            if (confirmation=='success'){
-                $scope.recordCache[id] = results['records'];
-            	$scope.records = results['records'];
-                var data = [];
-                var dateMap = {};
-                for (var i=0;i<$scope.records.length;i++) {
-                    var curDate = $scope.records[i].date.slice(0,10);
-
-                    if (dateMap[curDate]) {
-                        dateMap[curDate]++;
-                    } else {
-                        dateMap[curDate] = 1;
-                    }
-
-                    if ($scope.dates.indexOf(curDate) == -1) {
-                        $scope.dates.unshift(curDate);
-                    }
-                }
-
-                var keys = Object.keys(dateMap);
-                for (var i=0;i<keys.length;i++) {
-                    data.push(dateMap[keys[i]]);
-                }
-
-                $scope.series = {
-                    id: name,
-                    name: name,
-                    data: data
-                };
-            } else {
-                alert(results['message']);
-            }
-        }).error(function(data, status, headers, config) {
-            console.log("error", data, status, headers, config);
-        });
     }
 
     function fetchDevices() {
