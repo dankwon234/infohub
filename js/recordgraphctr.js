@@ -125,6 +125,9 @@ app.directive('hcPie', function () {
                     console.log("REMOVING");
                     chart.get(series.name).remove();
                 } else {
+                    if (series.name == null) {
+                        return;
+                    }
                     console.log("ADDING");
                     chart.addSeries(series, true);
                 }
