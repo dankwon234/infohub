@@ -34,7 +34,6 @@ app.controller('RecordsGraphController', function($scope, $http) {
                     data.push(dateMap[keys[i]]);
                 }
 
-                console.log('test');
                 $scope.series = {
                     name: name,
                     data: data
@@ -101,6 +100,9 @@ app.directive('hcPie', function () {
             //     console.log(newValue);
             // }, true);
             scope.$watch("records", function (newValue) {
+                // if chart.get(newValue.name);
+                console.log(newValue.name);
+                console.log(chart.get(newValue.name));
                 chart.addSeries(newValue, true);
                 console.log("WATCHING RECORDS: NEW VALUE: ");
                 console.log(newValue);
