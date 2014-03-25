@@ -148,7 +148,8 @@ app.directive('linechart', function () {
                     // console.log(currentData);
                     chart.addSeries(currentData.series, true);
                     console.log(chart.get(currentData.series.name));
-                    chart.get(currentData.series.name).setData(currentData.dates, true);
+                    var index = chart.get(currentData.series.name)['_i'];
+                    chart.series(index).setData(currentData.dates, true);
                 }
             }, false);
         }
