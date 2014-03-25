@@ -119,7 +119,7 @@ app.directive('hcPie', function () {
                     console.log("ADDING");
                     chart.addSeries(series, true);
                 }
-            }, false);
+            }, true);
         }
     }
 });
