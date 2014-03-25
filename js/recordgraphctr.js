@@ -99,13 +99,14 @@ app.directive('hcPie', function () {
             //     chart.series[0].setData(newValue, true);
             //     console.log(newValue);
             // }, true);
-            scope.$watch("records", function (newValue) {
+            scope.$watch("records", function (series) {
                 // if chart.get(newValue.name);
-                console.log(newValue.name);
-                console.log(chart.get(newValue.name));
-                chart.addSeries(newValue, true);
+                console.log(series.name);
+                // series = chart.get('series-1');
+                // alert ('The first series\' name is '+ series.name);
+                chart.addSeries(series, true);
                 console.log("WATCHING RECORDS: NEW VALUE: ");
-                console.log(newValue);
+                console.log(series);
             }, true);
         }
     }
