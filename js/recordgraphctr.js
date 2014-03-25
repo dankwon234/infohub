@@ -89,7 +89,7 @@ app.directive('hcPie', function () {
         replace: true,
         scope: {
             dates: '=dates',
-            currentSeries: '=test'
+            currentSeries: '=series'
         },
         template: '<div id="container" style="margin: 0 auto">not working</div>',
         link: function (scope, element, attrs) {
@@ -120,7 +120,6 @@ app.directive('hcPie', function () {
                 series: scope.currentSeries
             });
             scope.$watch("currentSeries", function (currentSeries) {
-                console.log(currentSeries);
                 if (chart.get(currentSeries.name) != null) {
                     console.log("REMOVING");
                     chart.get(currentSeries.name).remove();
