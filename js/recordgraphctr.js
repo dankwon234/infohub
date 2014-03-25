@@ -1,7 +1,7 @@
 var app = angular.module('RecordsGraph', []);
 
 app.controller('RecordsGraphController', function($scope, $http) {
-    $scope.series = {
+    $scope.currentSeries = {
         name: null
     };
     $scope.dates = [];
@@ -14,7 +14,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
         // @NOTE: series is cached -- retrieve from cache
         if (device.series) {
             console.log('series cache');
-            $scope.series = {
+            $scope.currentSeries = {
                 id: device.series.name,
                 name: device.series.name,
                 data: device.series.data
@@ -57,7 +57,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
                     data: data
                 };
 
-                $scope.series = device.series;
+                $scope.currentSeries = device.series;
             } else {
                 alert(results['message']);
             }
@@ -88,7 +88,7 @@ app.directive('hcPie', function () {
         replace: true,
         scope: {
             items: '=items',
-            series: '=series'
+            currentSeries: '=currentSeries'
         },
         template: '<div id="container" style="margin: 0 auto">not working</div>',
         link: function (scope, element, attrs) {
@@ -116,18 +116,18 @@ app.directive('hcPie', function () {
                         text: '# of Records'
                     }
                 },
-                series: scope.series
+                series: scope.currentSeries
             });
-            scope.$watch("series", function (series) {
-                if (chart.get(series.name) != null) {
+            scope.$watch("currentSeries", function (currentSeries) {
+                if (chart.get(currentSeries.name) != null) {
                     console.log("REMOVING");
-                    chart.get(series.name).remove();
+                    chart.get(currentSeries.name).remove();
                 } else {
-                    if (series.name == null) {
+                    if (currentSeries.name == null) {
                         return;
                     }
                     console.log("ADDING");
-                    chart.addSeries(series, true);
+                    chart.addSeries(currentSeries, true);
                 }
             }, false);
         }
