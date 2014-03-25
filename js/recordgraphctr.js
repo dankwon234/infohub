@@ -34,7 +34,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
             	$scope.records = results['records'];
                 var data = [];
                 var dateMap = {};
-                device.dates = [];
+                device.series.dates = [];
                 for (var i=0;i<$scope.records.length;i++) {
 
                     var curDate = $scope.records[i].date.slice(0,10);
