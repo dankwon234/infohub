@@ -102,13 +102,17 @@ app.directive('hcPie', function () {
             // }, true);
             scope.$watch("records", function (series) {
                 // if chart.get(newValue.name);
-                console.log(series.name);
-                console.log(chart.get(series.name));
-                // series = chart.get('series-1');
-                // alert ('The first series\' name is '+ series.name);
-                chart.addSeries(series, true);
-                console.log("WATCHING RECORDS: NEW VALUE: ");
-                console.log(series);
+                // console.log(series.name);
+                // console.log(chart.get(series.name).remove);
+                if (chart.get(series.name) != null) {
+                    console.log("REMOVING");
+                    chart.get(series.name).remove();
+                } else {
+                    chart.addSeries(series, true);
+                    console.log("WATCHING RECORDS: NEW VALUE: ");
+                    console.log(series);
+
+                }
             }, true);
         }
     }
