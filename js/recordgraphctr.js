@@ -7,11 +7,13 @@ app.controller('RecordsGraphController', function($scope, $http) {
     }
 
     $scope.fetchRecords = function(id, name) {
+        console.log($scope.recordCache);
         var url = '/api/records?device=' + id;
         $http.get(url).success(function(data, status, headers, config) {
             results = data['results'];
             confirmation = results['confirmation'];
             if (confirmation=='success'){
+                $scope.recordCache.push(results['records']);
             	$scope.records = results['records'];
                 var data = [];
                 var dateMap = {};
@@ -101,10 +103,8 @@ app.directive('hcPie', function () {
                     console.log("REMOVING");
                     chart.get(series.name).remove();
                 } else {
+                    console.log("ADDING");
                     chart.addSeries(series, true);
-                    console.log("WATCHING RECORDS: NEW VALUE: ");
-                    console.log(series);
-
                 }
             }, false);
         }
