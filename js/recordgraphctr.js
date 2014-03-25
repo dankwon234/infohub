@@ -4,6 +4,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
     $scope.currentSeries = {
         name: null
     };
+    console.log("CURRENT SERIES IN CONTROLLER: " + JSON.stringify($scope.currentSeries));
     $scope.dates = [];
 
     $scope.init = function() {
