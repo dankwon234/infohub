@@ -149,6 +149,7 @@ app.directive('linechart', function () {
                     chart.addSeries(currentData.series, true);
                     console.log(chart.get(currentData.series.name));
                     var index = chart.get(currentData.series.name)['_i'];
+                    console.log(index);
                     chart.series(index).setData(currentData.dates, true);
                 }
             }, false);
