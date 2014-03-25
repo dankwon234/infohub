@@ -119,6 +119,10 @@ app.directive('linechart', function () {
                 },
                 series: scope.currentSeries
             });
+            scope.$watch("dates", function (newValue) {
+                console.log(newValue);
+                chart.series[0].setData(newValue, true);
+            }, true);
             scope.$watch("currentSeries", function (currentSeries) {
                 if (chart.get(currentSeries.name) != null) {
                     console.log("REMOVING");
