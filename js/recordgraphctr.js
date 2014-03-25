@@ -60,8 +60,6 @@ app.controller('RecordsGraphController', function($scope, $http) {
             console.log("error", data, status, headers, config);
         });
     }
-    // record.id = device id;
-    // record.date = date that the record was visited on;
 });
 
 app.directive('hcPie', function () {
@@ -76,10 +74,7 @@ app.directive('hcPie', function () {
         link: function (scope, element, attrs) {
             var chart = new Highcharts.Chart({
                 chart: {
-                    renderTo: 'container'//,
-                    // plotBackgroundColor: null,
-                    // plotBorderWidth: null,
-                    // plotShadow: false
+                    renderTo: 'container'
                 },
                 title: {
                     text: 'Records'
@@ -88,7 +83,7 @@ app.directive('hcPie', function () {
                     title: {
                         text: 'Date'
                     },
-                    categories: scope.items, //array of record dates
+                    categories: scope.items,
                     labels: {
                         rotation: 45
                     }
@@ -104,11 +99,11 @@ app.directive('hcPie', function () {
             //     chart.series[0].setData(newValue, true);
             //     console.log(newValue);
             // }, true);
-            scope.$watch("records", function (newValue) {
-                chart.addSeries(newValue, true);
-                console.log("WATCHING RECORDS: NEW VALUE: ");
-                console.log(newValue);
-            }, true);
+            // scope.$watch("records", function (newValue) {
+            //     chart.addSeries(newValue, true);
+            //     console.log("WATCHING RECORDS: NEW VALUE: ");
+            //     console.log(newValue);
+            // }, true);
         }
     }
 });
