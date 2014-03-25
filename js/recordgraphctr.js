@@ -25,7 +25,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
                     }
 
                     if ($scope.dates.indexOf(curDate) == -1) {
-                        $scope.dates.push(curDate);
+                        $scope.dates.unshift(curDate);
                     }
                 }
 
@@ -96,10 +96,6 @@ app.directive('hcPie', function () {
                 },
                 series: scope.series
             });
-            // scope.$watch("items", function (newValue) {
-            //     chart.series[0].setData(newValue, true);
-            //     console.log(newValue);
-            // }, true);
             scope.$watch("series", function (series) {
                 if (chart.get(series.name) != null) {
                     console.log("REMOVING");
