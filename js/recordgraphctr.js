@@ -1,6 +1,7 @@
 var app = angular.module('RecordsGraph', []);
 
 app.controller('RecordsGraphController', function($scope, $http) {
+    $scope.recordCache = [];
     $scope.dates = [];
     $scope.init = function() {
         fetchDevices();
