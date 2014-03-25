@@ -4,14 +4,13 @@ app.controller('RecordsGraphController', function($scope, $http) {
     $scope.series = {
         name: null
     };
-    $scope.seriesCache = {};
     $scope.dates = [];
 
     $scope.init = function() {
         fetchDevices();
     }
 
-    $scope.fetchRecords = function(deviceId, deviceName, device) {
+    $scope.fetchRecords = function(device) {
         // @NOTE: series is cached -- retrieve from cache
         if (device.series) {
             console.log('series cache');
@@ -25,7 +24,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
 
         // @NOTE: series is not cached -- API Request
         console.log("new device. API Call");
-        var url = '/api/records?device=' + deviceId;
+        var url = '/api/records?device=' + device.uuid;
         $http.get(url).success(function(data, status, headers, config) {
             results = data['results'];
             confirmation = results['confirmation'];
@@ -53,14 +52,12 @@ app.controller('RecordsGraphController', function($scope, $http) {
                 }
 
                 $scope.series = {
-                    id: deviceName,
-                    name: deviceName,
+                    id: device.name,
+                    name: device.name,
                     data: data
                 };
 
                 device.series = $scope.series;
-
-                $scope.seriesCache[deviceId] = $scope.series;
             } else {
                 alert(results['message']);
             }
