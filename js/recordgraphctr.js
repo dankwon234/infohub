@@ -35,6 +35,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
                 }
 
                 $scope.series = {
+                    id: name,
                     name: name,
                     data: data
                 };
@@ -102,7 +103,7 @@ app.directive('hcPie', function () {
             scope.$watch("records", function (series) {
                 // if chart.get(newValue.name);
                 console.log(series.name);
-                console.log(chart);
+                console.log(chart.get(series.name));
                 // series = chart.get('series-1');
                 // alert ('The first series\' name is '+ series.name);
                 chart.addSeries(series, true);
