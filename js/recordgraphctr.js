@@ -61,15 +61,11 @@ app.controller('RecordsGraphController', function($scope, $http) {
 
                 }
 
-                // data is an array of {x: , y:}
-
                 // var keys = Object.keys(dateMap);
                 // for (var i=0;i<keys.length;i++) {
                 //     data.push(dateMap[keys[i]]);
                 // }
-
-                data.push({x: 'test', y:5});
-                console.log(dateMap);
+                data.push({y: 5, name:'March 5th'});
                 device.data.series = {
                     id: device.name,
                     name: device.name,
