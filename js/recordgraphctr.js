@@ -2,17 +2,17 @@ var app = angular.module('RecordsGraph', []);
 
 app.controller('RecordsGraphController', function($scope, $http) {
     $scope.recordCache = {};
-    $scope.serieses = [];
+    $scope.seriesCache = {};
     $scope.dates = [];
     $scope.init = function() {
         fetchDevices();
     }
 
     $scope.fetchRecords = function(id, name) {
-        if ($scope.recordCache[id]) {
-            console.log($scope.recordCache[id]);
-            console.log('series array');
-            console.log($scope.serieses);
+        if ($scope.seriesCache[id]) {
+            // console.log($scope.recordCache[id]);
+            console.log('series cache');
+            console.log($scope.seriesCache);
         } else {
             console.log("new device. API Call");
             var url = '/api/records?device=' + id;
@@ -20,7 +20,6 @@ app.controller('RecordsGraphController', function($scope, $http) {
                 results = data['results'];
                 confirmation = results['confirmation'];
                 if (confirmation=='success'){
-                    $scope.recordCache[id] = results['records'];
                 	$scope.records = results['records'];
                     var data = [];
                     var dateMap = {};
@@ -48,9 +47,11 @@ app.controller('RecordsGraphController', function($scope, $http) {
                         name: name,
                         data: data
                     };
-                    if ($scope.serieses.indexOf($scope.series) == -1) {
-                        $scope.serieses.push($scope.series);
-                    }
+
+                    $scope.seriesCache[id] = $scope.series;
+                    // if ($scope.seriesCache.indexOf($scope.series) == -1) {
+                    //     $scope.seriesCache.push($scope.series);
+                    // }
                 } else {
                     alert(results['message']);
                 }
