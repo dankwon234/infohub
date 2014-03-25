@@ -3,14 +3,15 @@ var app = angular.module('RecordsGraph', []);
 app.controller('RecordsGraphController', function($scope, $http) {
     $scope.seriesCache = {};
     $scope.dates = [];
+
     $scope.init = function() {
         fetchDevices();
     }
 
-    $scope.fetchRecords = function(id, name) {
-        if ($scope.seriesCache[id]) {
+    $scope.fetchRecords = function(deviceId, deviceName) {
+        if ($scope.seriesCache[deviceId]) {
             console.log('series cache');
-            var curSeries = $scope.seriesCache[id];
+            var curSeries = $scope.seriesCache[deviceId];
             $scope.series = {
                 id: curSeries.name,
                 name: curSeries.name,
@@ -18,7 +19,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
             };
         } else {
             console.log("new device. API Call");
-            var url = '/api/records?device=' + id;
+            var url = '/api/records?device=' + deviceId;
             $http.get(url).success(function(data, status, headers, config) {
                 results = data['results'];
                 confirmation = results['confirmation'];
@@ -46,12 +47,12 @@ app.controller('RecordsGraphController', function($scope, $http) {
                     }
 
                     $scope.series = {
-                        id: name,
-                        name: name,
+                        id: deviceName,
+                        name: deviceName,
                         data: data
                     };
 
-                    $scope.seriesCache[id] = $scope.series;
+                    $scope.seriesCache[deviceId] = $scope.series;
                 } else {
                     alert(results['message']);
                 }
