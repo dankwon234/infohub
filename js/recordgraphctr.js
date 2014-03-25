@@ -10,10 +10,9 @@ app.controller('RecordsGraphController', function($scope, $http) {
 
     $scope.fetchRecords = function(id, name) {
         if ($scope.seriesCache[id]) {
-            // console.log($scope.recordCache[id]);
             console.log('series cache');
             $scope.series = $scope.seriesCache[id];
-            // console.log($scope.seriesCache[id]);
+            console.log($scope.series);
         } else {
             console.log("new device. API Call");
             var url = '/api/records?device=' + id;
@@ -119,7 +118,7 @@ app.directive('hcPie', function () {
                     console.log("ADDING");
                     chart.addSeries(series, true);
                 }
-            }, true);
+            }, false);
         }
     }
 });
