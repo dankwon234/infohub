@@ -15,6 +15,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
         // @NOTE: series is cached -- retrieve from cache
         if ($scope.seriesCache[deviceId]) {
             console.log('series cache');
+            console.log(device.series);
             var curSeries = $scope.seriesCache[deviceId];
             $scope.series = {
                 id: curSeries.name,
@@ -59,7 +60,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
                     data: data
                 };
 
-                console.log(device);
+                device.series = $scope.series;
 
                 $scope.seriesCache[deviceId] = $scope.series;
             } else {
