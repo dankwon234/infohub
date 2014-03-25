@@ -119,6 +119,7 @@ app.directive('hcPie', function () {
                 series: scope.currentSeries
             });
             scope.$watch("currentSeries", function (currentSeries) {
+                console.log(currentSeries);
                 if (chart.get(currentSeries.name) != null) {
                     console.log("REMOVING");
                     chart.get(currentSeries.name).remove();
