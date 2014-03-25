@@ -62,11 +62,9 @@ app.controller('RecordsGraphController', function($scope, $http) {
                     data.push(dateMap[keys[i]]);
                 }
 
-                device.series = {
-                    id: device.name,
-                    name: device.name,
-                    data: data
-                };
+                device.series['id'] = device.name;
+                device.series['name'] = device.name;
+                device.series['data'] = data;
 
                 $scope.currentSeries = device.series;
             } else {
