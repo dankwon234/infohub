@@ -102,7 +102,7 @@ app.directive('hcPie', function () {
                     labels: {
                         rotation: 45,
                         style: {
-                            font-size: 8pt
+                            'font-size': '8pt'
                         }
                     }
                 },
