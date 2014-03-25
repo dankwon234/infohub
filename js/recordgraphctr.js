@@ -8,8 +8,8 @@ app.controller('RecordsGraphController', function($scope, $http) {
     }
 
     $scope.fetchRecords = function(id, name) {
-        if ($scope.recordCache.indexOf(id)) {
-            console.log(id);
+        if ($scope.recordCache[id]) {
+            $scope.recordCache[id]
         } else {
             console.log("new device. API Call");
         }
