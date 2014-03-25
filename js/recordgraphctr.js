@@ -100,7 +100,10 @@ app.directive('hcPie', function () {
                     },
                     categories: scope.items,
                     labels: {
-                        rotation: 45
+                        rotation: 45,
+                        style: {
+                            font-size: 8pt
+                        }
                     }
                 },
                 yAxis: {
