@@ -110,7 +110,7 @@ app.directive('hcPie', function () {
                     console.log(series);
 
                 }
-            }, true);
+            }, false);
         }
     }
 });
