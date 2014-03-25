@@ -4,8 +4,8 @@ app.controller('RecordsGraphController', function($scope, $http) {
     $scope.currentSeries = {
         name: null
     };
-    console.log("CURRENT SERIES IN CONTROLLER: " + JSON.stringify($scope.currentSeries));
-    $scope.dates = [];
+    $scope.currentDates = [];
+    // $scope.dates = [];
 
     $scope.init = function() {
         fetchDevices();
@@ -15,6 +15,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
         // @NOTE: series is cached -- retrieve from cache
         if (device.series) {
             console.log('series cache');
+            $scope.currentDates = device.series.dates;
             $scope.currentSeries = {
                 id: device.series.name,
                 name: device.series.name,
@@ -33,7 +34,9 @@ app.controller('RecordsGraphController', function($scope, $http) {
             	$scope.records = results['records'];
                 var data = [];
                 var dateMap = {};
+                device.dates = [];
                 for (var i=0;i<$scope.records.length;i++) {
+
                     var curDate = $scope.records[i].date.slice(0,10);
 
                     if (dateMap[curDate]) {
@@ -42,9 +45,14 @@ app.controller('RecordsGraphController', function($scope, $http) {
                         dateMap[curDate] = 1;
                     }
 
-                    if ($scope.dates.indexOf(curDate) == -1) {
-                        $scope.dates.unshift(curDate);
+                    if (device.series.dates.indexOf(curDate) == -1) {
+                        device.series.dates.unshift(curDate);
                     }
+
+                    // if ($scope.dates.indexOf(curDate) == -1) {
+                    //     $scope.dates.unshift(curDate);
+                    // }
+
                 }
 
                 var keys = Object.keys(dateMap);
@@ -88,7 +96,6 @@ app.directive('linechart', function () {
         restrict: 'C',
         replace: true,
         scope: {
-            dates: '=dates',
             currentSeries: '=series'
         },
         template: '<div id="container" style="margin: 0 auto">not working</div>',
@@ -104,7 +111,7 @@ app.directive('linechart', function () {
                     title: {
                         text: 'Date'
                     },
-                    categories: scope.dates,
+                    categories: scope.currentSeries.dates,
                     labels: {
                         rotation: 45,
                         style: {
@@ -119,10 +126,10 @@ app.directive('linechart', function () {
                 },
                 series: scope.currentSeries
             });
-            scope.$watch("dates", function (newValue) {
-                console.log(newValue);
-                chart.series[0].setData(newValue, true);
-            }, true);
+            // scope.$watch("currentDates", function (currentDates) {
+            //     console.log(newValue);
+            //     chart.series[0].setData(newValue, true);
+            // }, true);
             scope.$watch("currentSeries", function (currentSeries) {
                 if (chart.get(currentSeries.name) != null) {
                     console.log("REMOVING");
@@ -133,6 +140,7 @@ app.directive('linechart', function () {
                     }
                     console.log("ADDING");
                     chart.addSeries(currentSeries, true);
+                    chart.get(currentSeries.name).setData(currentSeries.dates, true);;
                 }
             }, false);
         }
