@@ -83,7 +83,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
     }
 });
 
-app.directive('hcPie', function () {
+app.directive('hc-line', function () {
     return {
         restrict: 'C',
         replace: true,
