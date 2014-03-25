@@ -9,7 +9,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
 
     $scope.fetchRecords = function(id, name) {
         if ($scope.recordCache[id]) {
-            $scope.recordCache[id]
+            console.log($scope.recordCache[id]);
         } else {
             console.log("new device. API Call");
         }
@@ -20,7 +20,6 @@ app.controller('RecordsGraphController', function($scope, $http) {
             confirmation = results['confirmation'];
             if (confirmation=='success'){
                 $scope.recordCache[id] = results['records'];
-                console.log($scope.recordCache);
             	$scope.records = results['records'];
                 var data = [];
                 var dateMap = {};
