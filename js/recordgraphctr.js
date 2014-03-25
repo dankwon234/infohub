@@ -49,6 +49,8 @@ app.controller('RecordsGraphController', function($scope, $http) {
                     };
 
                     $scope.seriesCache[id] = $scope.series;
+                    console.log("FULL SERIES CACHE:");
+                    console.log($scope.seriesCache);
                     // if ($scope.seriesCache.indexOf($scope.series) == -1) {
                     //     $scope.seriesCache.push($scope.series);
                     // }
