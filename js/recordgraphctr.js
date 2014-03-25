@@ -100,10 +100,10 @@ app.directive('hcPie', function () {
                 },
                 series: scope.records
             });
-            scope.$watch("items", function (newValue) {
-                chart.series[0].setData(newValue, true);
-                console.log(newValue);
-            }, true);
+            // scope.$watch("items", function (newValue) {
+            //     chart.series[0].setData(newValue, true);
+            //     console.log(newValue);
+            // }, true);
             scope.$watch("records", function (newValue) {
                 chart.addSeries(newValue, true);
                 console.log("WATCHING RECORDS: NEW VALUE: ");
