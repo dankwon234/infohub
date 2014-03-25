@@ -63,12 +63,9 @@ app.controller('RecordsGraphController', function($scope, $http) {
 
                 var keys = Object.keys(dateMap);
                 for (var i=0;i<keys.length;i++) {
-                    console.log(keys[i]);
-                    console.log('-----------------');
                     data.push({y: dateMap[keys[i]], name: keys[i]});
                 }
 
-                // data.push({y: 5, name:'March 5th'});
                 device.data.series = {
                     id: device.name,
                     name: device.name,
@@ -150,10 +147,10 @@ app.directive('linechart', function () {
                     console.log("ADDING");
                     // console.log(currentData);
                     chart.addSeries(currentData.series, true);
-                    console.log(chart.get(currentData.series.name));
-                    var index = chart.get(currentData.series.name)['_i'];
-                    console.log(index);
-                    console.log(chart.series[index]);
+                    // console.log(chart.get(currentData.series.name));
+                    // var index = chart.get(currentData.series.name)['_i'];
+                    // console.log(index);
+                    // console.log(chart.series[index]);
                     // chart.series[index].setData(currentData.dates, true);
                 }
             }, false);
