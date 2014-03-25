@@ -16,7 +16,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
 
     $scope.fetchRecords = function(device) {
         // @NOTE: series is cached -- retrieve from cache
-        if (device.data.series != undefined) {
+        if (device.data) {
             console.log('series cache');
             $scope.currentDates = device.data.dates;
             $scope.currentSeries = {
