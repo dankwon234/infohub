@@ -2,7 +2,7 @@ var app = angular.module('RecordsGraph', []);
 
 app.controller('RecordsGraphController', function($scope, $http) {
     $scope.series = {
-        name: null;
+        name: null
     };
     $scope.seriesCache = {};
     $scope.dates = [];
