@@ -13,14 +13,12 @@ app.controller('RecordsGraphController', function($scope, $http) {
 
     $scope.fetchRecords = function(deviceId, deviceName, device) {
         // @NOTE: series is cached -- retrieve from cache
-        if ($scope.seriesCache[deviceId]) {
+        if (device.series) {
             console.log('series cache');
-            console.log(device.series);
-            var curSeries = $scope.seriesCache[deviceId];
             $scope.series = {
-                id: curSeries.name,
-                name: curSeries.name,
-                data: curSeries.data
+                id: device.series.name,
+                name: device.series.name,
+                data: device.series.data
             };
             return;
         }
