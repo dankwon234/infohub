@@ -1,7 +1,7 @@
 var app = angular.module('RecordsGraph', []);
 
 app.controller('RecordsGraphController', function($scope, $http) {
-    $scope.recordCache = [];
+    $scope.recordCache = {};
     $scope.dates = [];
     $scope.init = function() {
         fetchDevices();
@@ -19,7 +19,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
             results = data['results'];
             confirmation = results['confirmation'];
             if (confirmation=='success'){
-                $scope.recordCache.push(results['records']);
+                $scope.recordCache[id] = results['records'];
                 console.log($scope.recordCache);
             	$scope.records = results['records'];
                 var data = [];
