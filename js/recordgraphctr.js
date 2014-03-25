@@ -34,6 +34,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
                     data.push(dateMap[keys[i]]);
                 }
 
+                console.log('test');
                 $scope.series = {
                     name: name,
                     data: data
