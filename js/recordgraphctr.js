@@ -1,7 +1,6 @@
 var app = angular.module('RecordsGraph', []);
 
 app.controller('RecordsGraphController', function($scope, $http) {
-    $scope.recordCache = {};
     $scope.seriesCache = {};
     $scope.dates = [];
     $scope.init = function() {
@@ -11,7 +10,12 @@ app.controller('RecordsGraphController', function($scope, $http) {
     $scope.fetchRecords = function(id, name) {
         if ($scope.seriesCache[id]) {
             console.log('series cache');
-            $scope.series = $scope.seriesCache[id];
+            var curSeries = $scope.seriesCache[id];
+            $scope.series = {
+                id: curSeries.name,
+                name: curSeries.name,
+                data: curSeries.data
+            };
             console.log($scope.series);
         } else {
             console.log("new device. API Call");
@@ -49,12 +53,6 @@ app.controller('RecordsGraphController', function($scope, $http) {
                     };
 
                     $scope.seriesCache[id] = $scope.series;
-                    console.log($scope.series);
-                    console.log("FULL SERIES CACHE:");
-                    console.log($scope.seriesCache);
-                    // if ($scope.seriesCache.indexOf($scope.series) == -1) {
-                    //     $scope.seriesCache.push($scope.series);
-                    // }
                 } else {
                     alert(results['message']);
                 }
