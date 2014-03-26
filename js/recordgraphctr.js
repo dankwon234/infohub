@@ -43,7 +43,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
                 };
                 for (var i=0;i<$scope.records.length;i++) {
 
-                    var curDate = $scope.records[i].date.slice(0,10);
+                    var curDate = $scope.records[i].date;//.slice(0,10);
 
                     if (dateMap[curDate]) {
                         dateMap[curDate]++;
