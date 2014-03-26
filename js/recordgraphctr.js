@@ -62,10 +62,14 @@ app.controller('RecordsGraphController', function($scope, $http) {
                 }
 
                 // device.data.dates = ;
-
-                 for (var i = 0; i < 30; i ++ ) {
-                     console.log(new Date());
-                 }
+                var dateArray = [];
+                var date = new Date();
+                for (var i = 0; i < 30; i ++ ) {
+                    // console.log(date);
+                    date.setDate();
+                    dateArray.push(date.getDate()-1);
+                }
+                console.log(dateArray);
 
 
 
