@@ -64,7 +64,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
                 // device.data.dates = ;
 
                  for (var i = 0; i < 30; i ++ ) {
-                     console.log(new Date(year, month - 1, day + i));
+                     console.log(new Date());
                  }
 
 
