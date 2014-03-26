@@ -69,10 +69,11 @@ app.controller('RecordsGraphController', function($scope, $http) {
                 for (var i = 0; i < 30; i++ ) {
                     // console.log(date);
                     // dateArray.push(JSON.stringify(date).slice(0,10));
-                    // date.setDate(date.getDate()-1);
-                    var test = date;
-                    console.log(date.getDate()-1);
-                    dateArray.push(test);
+                    date.setDate(date.getDate()-1);
+                    console.log(date);
+                    // var test = date;
+                    // console.log(date.getDate()-1);
+                    // dateArray.push(date);
                     // console.log(date)
 
                 }
