@@ -72,14 +72,14 @@ app.controller('RecordsGraphController', function($scope, $http) {
                     date.setDate(date.getDate()-1);
 
                     console.log(JSON.stringify(date));
-                    dateArray.push(JSON.stringify(date));
+                    dateArray.push(JSON.stringify(date).slice(6,11));
                     // var test = date;
                     // console.log(date.getDate()-1);
                     // dateArray.push(date);
                     // console.log(date)
 
                 }
-                console.log(dateArray[0].slice(6,11));
+                console.log(dateArray);
 
 
 
