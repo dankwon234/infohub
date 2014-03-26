@@ -57,6 +57,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
                     }
 
                     if ($scope.dates.indexOf(fullDate.slice(0,10)) == -1) {
+                        console.log(fullDate.slice(0, 10));
                         $scope.dates.unshift(new Date(fullDate));
                     }
                     // console.log($scope.dates);
