@@ -66,7 +66,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
                 var date = new Date();
                 for (var i = 0; i < 30; i ++ ) {
                     // console.log(date);
-                    dateArray.push(date);
+                    dateArray.push(date.slice(0,10));
                     date.setDate(date.getDate()-1);
                     // console.log(date)
 
