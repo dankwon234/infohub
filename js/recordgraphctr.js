@@ -80,6 +80,8 @@ app.controller('RecordsGraphController', function($scope, $http) {
 
                 }
                 console.log(dateArray);
+                $scope.currentData.max = dateArray[29];
+                $scope.currentData.min = dateArray[0];
                 $scope.currentData.dates = dateArray;
 
 
