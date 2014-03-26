@@ -8,7 +8,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
         dates: []
     };
     $scope.currentDates = [];
-    // $scope.dates = [];
+    $scope.dates = [];
 
     $scope.init = function() {
         fetchDevices();
@@ -55,9 +55,10 @@ app.controller('RecordsGraphController', function($scope, $http) {
                         device.data.dates.unshift(curDate);
                     }
 
-                    // if ($scope.dates.indexOf(curDate) == -1) {
-                    //     $scope.dates.unshift(curDate);
-                    // }
+                    if ($scope.dates.indexOf(curDate) == -1) {
+                        $scope.dates.unshift(curDate);
+                    }
+                    console.log($scope.dates);
 
                 }
 
