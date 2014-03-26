@@ -3,6 +3,7 @@
 <head>
     {{head}}
 </head>
+
 <body ng-app="RecordsGraph" ng-controller="RecordsGraphController" ng-init="init()">
     <div id="wrapper">
     {{header}}
@@ -12,10 +13,14 @@
                     <h2 class="rs single-title">Records</h2>
                     <div class="box-single-content">
                         <div class="editor-content">
+                        
                             <div class="linechart" series="currentData"></div>
+                            
                             <div ng-repeat="device in devices">
-                                <input type="checkbox" ng-click="fetchRecords(device)"> {{ device.name }}
+                                <input type="checkbox" ng-click="fetchRecords($event, device)"> {{ device.name }}
                             </div>
+                            
+                            
                         </div>
                     </div>
                 </div>
@@ -26,9 +31,14 @@
     {{footer}}
     </div>
 
-<script type="text/javascript" src="/site/js/highcharts.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
-<script type="text/javascript" src="https://raw.github.com/dennykwon/infohub/records-graph/js/recordgraphctr.js"></script>
+  <script src="/site/js/moment.js"></script>
+  <script type="text/javascript" src="/site/js/highcharts.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+
+<!-- <script type="text/javascript" src="https://raw.github.com/dennykwon/infohub/records-graph/js/recordgraphctr.js"></script>
+ -->
+ 
+  <script type="text/javascript" src="/site/js/recordgraphctr2.js"></script>
 
 </body>
 </html>

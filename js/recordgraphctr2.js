@@ -1,30 +1,66 @@
 var app = angular.module('RecordsGraph', []);
 
 app.controller('RecordsGraphController', function($scope, $http) {
+    $scope.devices = new Array();
     $scope.currentData = {
         series: {
             name: null
-        },
-        dates: []
+        }
     };
-    $scope.currentDates = [];
-    $scope.dates = [];
-    $scope.devices = new Array();
+    
+    $scope.dateRange = new Array();
 
+    
     $scope.init = function() {
+    	
+    	var d = new Date();
+    	for (var i=0; i<30; i++){
+    		var day = new Date();
+    		day.setDate(d.getDate()-i);
+    		
+    		dateString = day.toString(); //Wed Mar 26 2014 10:58:16 GMT-0400 (EDT)
+    		
+    		parts = dateString.split(' ');
+    		dateString = parts[1]+' '+parts[2];
+    		$scope.dateRange.unshift(dateString); // this inserts the element into the first position of the array
+    	}
+    	
+		console.log(JSON.stringify($scope.dateRange));
+    	
         fetchDevices();
     }
+    
+    $scope.selectDevice = function(device) {
+    	console.log('select device: '+JSON.stringify(device));
+    }
 
-    $scope.fetchRecords = function(device) {
+    $scope.fetchRecords = function($event, device) {
+    	var checkbox = $event.target;
+    	
+    	if (checkbox.checked == false){
+    		index = $scope.devices.indexOf(device);
+    		console.log("UNCHECKED. Index = "+index);
+    		
+    		$scope.currentData = {
+    		        series: {
+    		            name: device.name
+    		        }
+    		};
+    		
+    		return;
+    	}
+    	
         // @NOTE: series is cached -- used cached data
         if (device.data) {
             console.log('series cache');
-            $scope.currentDates = device.data.dates;
             $scope.currentSeries = {
                 id: device.data.series.name,
                 name: device.data.series.name,
                 data: device.data.series.data
             };
+            
+            $scope.currentData = device.data;
+
             return;
         }
 
@@ -35,62 +71,43 @@ app.controller('RecordsGraphController', function($scope, $http) {
             results = data['results'];
             confirmation = results['confirmation'];
             if (confirmation=='success'){
-            	$scope.records = results['records'];
-                var data = [];
+                var points = [];
                 var dateMap = {};
                 device.data = {
-                    series: {},
-                    dates: []
+                    series: {}
                 };
-                for (var i=0;i<$scope.records.length;i++) {
+                
+                pointsMap = {};
+            	for (var i=0; i<$scope.dateRange.length; i++){
+            		pointsMap[$scope.dateRange[i]] = 0;
+            	}
+                
+                
+            	records = results['records'];
+            	for (var i=0; i<records.length; i++){
+            		record = records[i];
+            		recordDate = formattedDate(record.date); // using Moment.js here in order to convert UTC dates into EST times
+            		
+            		if (pointsMap.hasOwnProperty(recordDate)) { 
+            			  num = pointsMap[recordDate];
+            			  pointsMap[recordDate] = num+1;
+            		}
+            	}
+            	
+            	// populate the data points:
+            	for (var i=0; i<$scope.dateRange.length; i++){
+            		dateStr = $scope.dateRange[i];
+            		count = pointsMap[dateStr];
+                    points.push([dateStr, count]);
 
-                    var curDate = $scope.records[i].date.slice(0,10);
-                    var fullDate = $scope.records[i].date;
-
-                    if (dateMap[curDate]) {
-                        dateMap[curDate]++;
-                    } else {
-                        dateMap[curDate] = 1;
-                    }
-
-                    if (device.data.dates.indexOf(curDate) == -1) {
-                        device.data.dates.unshift(curDate);
-                    }
-
-                    if ($scope.dates.indexOf(fullDate.slice(0,10)) == -1) {
-                        console.log(fullDate.slice(0, 10));
-                        $scope.dates.unshift(new Date(fullDate));
-                    }
-                    // console.log($scope.dates);
-
-                }
-
-                var date_sort_desc = function (date1, date2) {
-                  // This is a comparison function that will result in dates being sorted in
-                  // DESCENDING order.
-                  if (date1 > date2) return -1;
-                  if (date1 < date2) return 1;
-                  return 0;
-                };
-
-                var keys = Object.keys(dateMap);
-                for (var i=0;i<keys.length;i++) {
-                    console.log($scope.dates.indexOf(keys[i]));
-                    console.log($scope.dates);
-                    $scope.dates.sort(date_sort_desc);
-                    console.log($scope.dates);
-                    console.log("=====================");
-                    console.log(new Date($scope.dates[0]+" 00:00:00 UTC 2014"));
-                    console.log("---------------------");
-                    console.log(dateMap);
-                    data.push([$scope.dates.indexOf(keys[i])+1, dateMap[keys[i]]]);//[keys[i]
-                }
-                console.log(data);
+            		
+            	}
+                console.log(JSON.stringify(points));
 
                 device.data.series = {
                     id: device.name,
                     name: device.name,
-                    data: data
+                    data: points
                 };
 
                 $scope.currentData = device.data;
@@ -116,6 +133,14 @@ app.controller('RecordsGraphController', function($scope, $http) {
             console.log("error", data, status, headers, config);
         });
     }
+    
+    
+    function formattedDate(date) {
+        var newDate = new Date(date).toString();
+        return moment(newDate).format('MMM DD');
+    }
+
+
 });
 
 app.directive('linechart', function () {
@@ -134,45 +159,44 @@ app.directive('linechart', function () {
                 title: {
                     text: 'Records'
                 },
+                
                 xAxis: {
+                	type:'category',
                     title: {
                         text: 'Date'
                     },
                     labels: {
-                        rotation: 45,
+                        rotation: 75,
                         style: {
                             'font-size': '7pt'
                         }
                     }
                 },
+                
                 yAxis: {
+                	min: 0,
                     title: {
                         text: '# of Records'
                     }
                 },
+                
                 series: scope.currentData.series
             });
-            // scope.$watch("currentDates", function (currentDates) {
-            //     console.log(newValue);
-            //     chart.series[0].setData(newValue, true);
-            // }, true);
+            
             scope.$watch("currentData", function (currentData) {
-                if (chart.get(currentData.series.name) != null) {
-                    console.log("REMOVING");
-                    chart.get(currentData.series.name).remove();
-                } else {
+                if (chart.get(currentData.series.name) == null) {
                     if (currentData.series.name == null) {
                         return;
                     }
-                    console.log("ADDING");
-                    console.log(currentData);
+                    
+//                    console.log("ADD SERIES");
                     chart.addSeries(currentData.series, true);
-                    // console.log(chart.get(currentData.series.name));
-                    // var index = chart.get(currentData.series.name)['_i'];
-                    // console.log(index);
-                    // console.log(chart.series[index]);
-                    // chart.series[index].setData(currentData.dates, true);
                 }
+                else {
+//                    console.log("REMOVE SERIES");
+                    chart.get(currentData.series.name).remove();
+                }
+                
             }, false);
         }
     }
