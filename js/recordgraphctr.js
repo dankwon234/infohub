@@ -55,21 +55,6 @@ app.controller('RecordsGraphController', function($scope, $http) {
                         device.data.dates.unshift(curDate);
                     }
 
-
-
-
-
-
-
-
-                    var curDate1 = $scope.records[i].date;// .slice(0,10);
-
-                    if (dateMap[curDate1]) {
-                        dateMap[curDate1]++;
-                    } else {
-                        dateMap[curDate1] = 1;
-                    }
-
                     if ($scope.dates.indexOf(curDate) == -1) {
                         $scope.dates.unshift(curDate);
                     }
