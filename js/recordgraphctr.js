@@ -44,6 +44,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
                 for (var i=0;i<$scope.records.length;i++) {
 
                     var curDate = $scope.records[i].date.slice(0,10);
+                    var fullDate = $scope.records[i].date;
 
                     if (dateMap[curDate]) {
                         dateMap[curDate]++;
@@ -55,17 +56,28 @@ app.controller('RecordsGraphController', function($scope, $http) {
                         device.data.dates.unshift(curDate);
                     }
 
-                    if ($scope.dates.indexOf(curDate) == -1) {
-                        $scope.dates.unshift(curDate);
+                    if ($scope.dates.indexOf(fullDate.slice(0,10)) == -1) {
+                        $scope.dates.unshift(new Date(fullDate));
                     }
                     // console.log($scope.dates);
 
                 }
 
+                var date_sort_desc = function (date1, date2) {
+                  // This is a comparison function that will result in dates being sorted in
+                  // DESCENDING order.
+                  if (date1 > date2) return -1;
+                  if (date1 < date2) return 1;
+                  return 0;
+                };
+
                 var keys = Object.keys(dateMap);
                 for (var i=0;i<keys.length;i++) {
                     console.log($scope.dates.indexOf(keys[i]));
                     console.log($scope.dates);
+                    $scope.dates.sort(date_sort_desc);
+                    console.log($scope.dates);
+                    console.log("=====================");
                     console.log(new Date($scope.dates[0]+" 00:00:00 UTC 2014"));
                     console.log("---------------------");
                     console.log(dateMap);
