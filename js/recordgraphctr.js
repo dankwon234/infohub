@@ -168,6 +168,7 @@ app.directive('linechart', function () {
                     console.log(currentData);
                     // console.log(currentData);
                     chart.addSeries(currentData.series, true);
+                    console.log(currentData.series);
                     // console.log(chart.get(currentData.series.name));
                     // var index = chart.get(currentData.series.name)['_i'];
                     // console.log(index);
