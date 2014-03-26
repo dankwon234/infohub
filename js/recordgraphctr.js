@@ -68,7 +68,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
                     console.log($scope.dates);
                     console.log("---------------------");
                     console.log(dateMap);
-                    data.push([keys[i]+1, dateMap[keys[i]]]);
+                    data.push($scope.dates.indexOf(keys[i], dateMap[keys[i]]]);//[keys[i]
                 }
                 console.log(data);
 
