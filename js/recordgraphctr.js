@@ -43,7 +43,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
                 };
                 for (var i=0;i<$scope.records.length;i++) {
 
-                    var curDate = $scope.records[i].date;//.slice(0,10);
+                    var curDate = $scope.records[i].date.slice(0,10);
 
                     if (dateMap[curDate]) {
                         dateMap[curDate]++;
@@ -55,8 +55,23 @@ app.controller('RecordsGraphController', function($scope, $http) {
                         device.data.dates.unshift(curDate);
                     }
 
-                    if ($scope.dates.indexOf(curDate) == -1) {
-                        $scope.dates.unshift(curDate);
+
+
+
+
+
+
+
+                    var curDate1 = $scope.records[i].date;// .slice(0,10);
+
+                    if (dateMap[curDate1]) {
+                        dateMap[curDate1]++;
+                    } else {
+                        dateMap[curDate1] = 1;
+                    }
+
+                    if ($scope.dates.indexOf(curDate1) == -1) {
+                        $scope.dates.unshift(curDate1);
                     }
                     // console.log($scope.dates);
 
