@@ -67,7 +67,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
                 for (var i = 0; i < 30; i ++ ) {
                     // console.log(date);
                     date.setDate();
-                    dateArray.push(date.getDate()-1);
+                    dateArray.push(JSON.stringify(date.getDate()-1));
                 }
                 console.log(dateArray);
 
