@@ -58,7 +58,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
                     if ($scope.dates.indexOf(curDate) == -1) {
                         $scope.dates.unshift(curDate);
                     }
-                    console.log($scope.dates);
+                    // console.log($scope.dates);
 
                 }
 
@@ -104,7 +104,8 @@ app.directive('linechart', function () {
         restrict: 'C',
         replace: true,
         scope: {
-            currentData: '=series'
+            currentData: '=series',
+            dates: '=dates'
         },
         template: '<div id="container" style="margin: 0 auto">not working</div>',
         link: function (scope, element, attrs) {
@@ -119,7 +120,7 @@ app.directive('linechart', function () {
                     title: {
                         text: 'Date'
                     },
-                    categories: scope.currentData.dates,
+                    categories: scope.dates,
                     labels: {
                         rotation: 45,
                         style: {
