@@ -70,8 +70,8 @@ app.controller('RecordsGraphController', function($scope, $http) {
                         dateMap[curDate1] = 1;
                     }
 
-                    if ($scope.dates.indexOf(curDate1) == -1) {
-                        $scope.dates.unshift(curDate1);
+                    if ($scope.dates.indexOf(curDate) == -1) {
+                        $scope.dates.unshift(curDate);
                     }
                     // console.log($scope.dates);
 
