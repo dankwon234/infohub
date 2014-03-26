@@ -12,7 +12,7 @@
                     <h2 class="rs single-title">Records</h2>
                     <div class="box-single-content">
                         <div class="editor-content">
-                            <div class="linechart" dates="dates" series="currentData"></div>
+                            <div class="linechart" series="currentData"></div>
                             <div ng-repeat="device in devices">
                                 <input type="checkbox" ng-click="fetchRecords(device)"> {{ device.name }}
                             </div>
