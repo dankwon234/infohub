@@ -79,7 +79,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
                     // console.log(date)
 
                 }
-                console.log(dateArray);
+                console.log(dateArray[0].slice(6,10));
 
 
 
