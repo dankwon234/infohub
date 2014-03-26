@@ -61,14 +61,9 @@ app.controller('RecordsGraphController', function($scope, $http) {
 
                 }
 
-                // device.data.dates = ;
-
-
-
                 var keys = Object.keys(dateMap);
                 for (var i=0;i<keys.length;i++) {
-                    // data.push(dateMap[keys[i]]);
-                    data.push({y: dateMap[i], name: keys[i]});
+                    data.push({y: dateMap[keys[i]], name: keys[i]});
                 }
 
                 device.data.series = {
@@ -111,25 +106,6 @@ app.directive('linechart', function () {
         },
         template: '<div id="container" style="margin: 0 auto">not working</div>',
         link: function (scope, element, attrs) {
-            dateArray = [];
-            var date = new Date();
-
-
-            for (var i = 0; i < 30; i++ ) {
-                // console.log(date);
-                // dateArray.push(JSON.stringify(date).slice(0,10));
-                date.setDate(date.getDate()-1);
-
-                console.log(JSON.stringify(date));
-                dateArray.push(JSON.stringify(date).slice(6,11));
-                // var test = date;
-                // console.log(date.getDate()-1);
-                // dateArray.push(date);
-                // console.log(date)
-
-            }
-            console.log(dateArray);
-
             var chart = new Highcharts.Chart({
                 chart: {
                     renderTo: 'container'
@@ -141,7 +117,7 @@ app.directive('linechart', function () {
                     title: {
                         text: 'Date'
                     },
-                    categories: dateArray, //scope.currentData.dates,
+                    categories: scope.currentData.dates,
                     labels: {
                         rotation: 45,
                         style: {
@@ -156,6 +132,10 @@ app.directive('linechart', function () {
                 },
                 series: scope.currentData.series
             });
+            // scope.$watch("currentDates", function (currentDates) {
+            //     console.log(newValue);
+            //     chart.series[0].setData(newValue, true);
+            // }, true);
             scope.$watch("currentData", function (currentData) {
                 if (chart.get(currentData.series.name) != null) {
                     console.log("REMOVING");
@@ -165,7 +145,6 @@ app.directive('linechart', function () {
                         return;
                     }
                     console.log("ADDING");
-                    console.log(currentData);
                     // console.log(currentData);
                     chart.addSeries(currentData.series, true);
                     // console.log(chart.get(currentData.series.name));
