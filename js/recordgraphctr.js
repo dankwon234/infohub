@@ -62,7 +62,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
                 }
 
                 // device.data.dates = ;
-                var dateArray = [];
+                dateArray = [];
                 var date = new Date();
 
 
@@ -80,7 +80,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
 
                 }
                 console.log(dateArray);
-
+                $scope.currentData.dates = dateArray;
 
 
 
