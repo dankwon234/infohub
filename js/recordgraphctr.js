@@ -62,27 +62,6 @@ app.controller('RecordsGraphController', function($scope, $http) {
                 }
 
                 // device.data.dates = ;
-                dateArray = [];
-                var date = new Date();
-
-
-                for (var i = 0; i < 30; i++ ) {
-                    // console.log(date);
-                    // dateArray.push(JSON.stringify(date).slice(0,10));
-                    date.setDate(date.getDate()-1);
-
-                    console.log(JSON.stringify(date));
-                    dateArray.push(JSON.stringify(date).slice(6,11));
-                    // var test = date;
-                    // console.log(date.getDate()-1);
-                    // dateArray.push(date);
-                    // console.log(date)
-
-                }
-                console.log(dateArray);
-                $scope.currentData.max = dateArray[29];
-                $scope.currentData.min = dateArray[0];
-                device.data.dates = dateArray;
 
 
 
@@ -131,6 +110,25 @@ app.directive('linechart', function () {
         },
         template: '<div id="container" style="margin: 0 auto">not working</div>',
         link: function (scope, element, attrs) {
+            dateArray = [];
+            var date = new Date();
+
+
+            for (var i = 0; i < 30; i++ ) {
+                // console.log(date);
+                // dateArray.push(JSON.stringify(date).slice(0,10));
+                date.setDate(date.getDate()-1);
+
+                console.log(JSON.stringify(date));
+                dateArray.push(JSON.stringify(date).slice(6,11));
+                // var test = date;
+                // console.log(date.getDate()-1);
+                // dateArray.push(date);
+                // console.log(date)
+
+            }
+            console.log(dateArray);
+
             var chart = new Highcharts.Chart({
                 chart: {
                     renderTo: 'container'
@@ -142,9 +140,7 @@ app.directive('linechart', function () {
                     title: {
                         text: 'Date'
                     },
-                    max: scope.currentData.max,
-                    min: scope.currentData.min,
-                    categories: scope.currentData.dates, //scope.currentData.dates,
+                    categories: dateArray, //scope.currentData.dates,
                     labels: {
                         rotation: 45,
                         style: {
