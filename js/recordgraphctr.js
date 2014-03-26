@@ -64,12 +64,15 @@ app.controller('RecordsGraphController', function($scope, $http) {
                 // device.data.dates = ;
                 var dateArray = [];
                 var date = new Date();
-                for (var i = 0; i < 30; i ++ ) {
+
+
+                for (var i = 0; i < 30; i++ ) {
                     // console.log(date);
                     // dateArray.push(JSON.stringify(date).slice(0,10));
                     date.setDate(date.getDate()-1);
+                    var test = date;
                     console.log(date.getDate()-1);
-                    dateArray.push(date);
+                    dateArray.push(test);
                     // console.log(date)
 
                 }
