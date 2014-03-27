@@ -228,6 +228,30 @@ app.controller("DeviceController", function($scope, $http){
         var newDate = new Date(date).toString();
         return moment(newDate).format('MMM D, h:mma');
     }
+    
+    
+    $scope.deleteDevice = function() {
+    	console.log('DELETE DEVICE');
+    	
+    	var r = confirm("Are You Sure?");
+    	if (r==false)
+    		return;
+    	
+        var url = '/api/devices/'+$scope.device.uuid;
+        $http.delete(url).success(function(data, status, headers, config) {
+            results = data['results'];
+            confirmation = results['confirmation'];
+            if (confirmation=='success'){
+            	window.location.href = '/';
+            } 
+            else {
+                alert(results['message']);
+            }
+        }).error(function(data, status, headers, config) {
+            console.log("error", data, status, headers, config);
+        });
+    	
+    }
 
 });
 
