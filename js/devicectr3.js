@@ -12,6 +12,9 @@ app.controller("DeviceController", function($scope, $http){
 	$scope.selectedSubcategory = null;
 	$scope.swapEntryIndex = -1;
 
+	// for re-ordering subcategory order:
+	$scope.swapSubcategory = null;
+
 
     $scope.init = function() {
         var deviceID = parseLocation('site', 'devices').identifier;
@@ -137,6 +140,26 @@ app.controller("DeviceController", function($scope, $http){
     $scope.getSubCategories = function(categoryName) {
         var order = $scope.device.configuration[categoryName].order;
         return order;
+    }
+
+    $scope.reorderSubcategory = function(subcateogryName, categoryName) {
+    	
+        var order = $scope.device.configuration[categoryName].order;
+    	console.log('REORDER SUBCATEGORY: '+subcateogryName+' in '+JSON.stringify(order));
+    	
+    	if ($scope.swapSubcategory==null){
+    		$scope.swapSubcategory = subcateogryName;
+    		return;
+    	}
+
+    	//SWAP:
+    	a = order.indexOf($scope.swapSubcategory);
+    	b = order.indexOf(subcateogryName);
+    	order[a] = subcateogryName;
+    	order[b] = $scope.swapSubcategory;
+    	
+    	console.log('UPDATED: '+JSON.stringify(order));
+    	$scope.swapSubcategory = null;
     }
 
     $scope.selectCategory = function(index) {
