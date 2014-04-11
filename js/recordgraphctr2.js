@@ -145,7 +145,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
 
 app.directive('linechart', function () {
     return {
-        restrict: 'C',
+        restrict: 'C', // 'A' restricts directive to attribute, 'C' - class, 'E' - element
         replace: true,
         scope: {
             currentData: '=series'

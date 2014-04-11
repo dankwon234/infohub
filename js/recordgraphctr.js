@@ -20,6 +20,7 @@ app.controller('RecordsGraphController', function($scope, $http) {
         if (device.data) {
             console.log('series cache');
             $scope.currentDates = device.data.dates;
+            deviceSeries = device.data.series;
             $scope.currentSeries = {
                 id: device.data.series.name,
                 name: device.data.series.name,
