@@ -17,7 +17,7 @@
                             <div class="linechart" series="currentData"></div>
                             
                             <div ng-repeat="device in devices">
-                                <input type="checkbox" ng-click="fetchRecords($event, device)"> {{ device.name }}
+                                <input type="checkbox" ng-click="fetchRecords($event, device)"><a href="/site/records?device={{device.uuid}}">{{ device.name }}</a>
                             </div>
                             
                             
