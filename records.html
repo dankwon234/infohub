@@ -16,6 +16,10 @@
                         
                             <div class="linechart" series="currentData"></div>
                             
+                            <br />
+                            <a style="color:red" href="/site/recordsummary">Complete Summary</a>
+                            <br />
+                            
                             <div ng-repeat="device in devices">
                                 <input type="checkbox" ng-click="fetchRecords($event, device)"><a href="/site/records?device={{device.uuid}}">{{ device.name }}</a>
                             </div>
